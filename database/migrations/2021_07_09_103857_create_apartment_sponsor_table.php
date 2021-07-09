@@ -15,12 +15,12 @@ class CreateApartmentSponsorTable extends Migration
     {
         Schema::create('apartment_sponsor', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('apartment_id');
+            $table->unsignedBigInteger('apartment_id')->nullable();
             $table->foreign('apartment_id')
                 ->references('id')
                 ->on('apartments')
                 ->onDelete('cascade');
-            $table->unsignedBigInteger('sponsor_id');
+            $table->unsignedBigInteger('sponsor_id')->nullable();
             $table->foreign('sponsor_id')
                 ->references('id')
                 ->on('sponsors')

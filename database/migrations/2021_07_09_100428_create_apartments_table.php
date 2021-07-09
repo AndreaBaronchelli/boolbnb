@@ -15,7 +15,7 @@ class CreateApartmentsTable extends Migration
     {
         Schema::create('apartments', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users');
@@ -29,9 +29,11 @@ class CreateApartmentsTable extends Migration
             $table->float('latitude', 8, 6);
             $table->float('longitude', 9, 6);
             $table->string('image')->nullable();
+            $table->decimal('price', 6,2);
             $table->boolean('visibility');
             $table->timestamps();
         });
+
     }
 
     /**
