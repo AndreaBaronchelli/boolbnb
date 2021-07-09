@@ -21,7 +21,7 @@ class CreateMessagesTable extends Migration
                 ->on('apartments');
             $table->string('name', 50);
             $table->string('email', 60);
-            $table->string('phone_number', 15);
+            $table->string('phone_number', 20);
             $table->tinyInteger('num_guests');
             $table->text('message');
             $table->timestamps();

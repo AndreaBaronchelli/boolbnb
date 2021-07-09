@@ -17,7 +17,7 @@ class MessagesTableSeeder extends Seeder
             //1 istanza
             $new_message = new Message();
             //2 pop
-            $new_message-> apartment_id = 2;
+            // $new_message-> apartment_id = 2;
             $new_message-> name = $faker->firstName($gender = null);
             $new_message-> email = $faker->email();
             $new_message-> phone_number = $faker->phoneNumber();
