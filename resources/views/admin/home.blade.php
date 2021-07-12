@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    <a href="{{ route('admin.apartments.index') }}"><h2>MY APARTMENTS</h2></a>
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
