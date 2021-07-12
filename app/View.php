@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Message extends Model
+class View extends Model
 {
     // Link to Apartments table
     public function apartments() {
