@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Http;
 
 class ApartmentController extends Controller
 {
@@ -46,16 +47,16 @@ class ApartmentController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required|unique:apartments|max:100',
-            'rooms' => 'required|numeric|min:1',
-            'beds' => 'nullable|numeric|min:1',
-            'bathrooms' => 'nullable|numeric|min:1',
-            'square_meters' => 'required|numeric|min:1',
-            'city' => 'required',
-            'country' => 'required',
-            'image'=>'nullable|image'
-        ]);
+        // $request->validate([
+        //     'title' => 'required|unique:apartments|max:100',
+        //     'rooms' => 'required|numeric|min:1',
+        //     'beds' => 'nullable|numeric|min:1',
+        //     'bathrooms' => 'nullable|numeric|min:1',
+        //     'square_meters' => 'required|numeric|min:1',
+        //     'city' => 'required',
+        //     'country' => 'required',
+        //     'image'=>'nullable|image'
+        // ]);
 
         $data = $request->all();
 
@@ -71,6 +72,10 @@ class ApartmentController extends Controller
         $new_apartment['slug'] = Str::slug($data['title']);
 
         $new_apartment['address'] = "{$data['street_name']} {$data['house_number']} {$data['city']} {$data['country']}";
+
+        $response = Http::get("https://api.tomtom.com/search/2/geocode/{$new_apartment['address']}.json?key=4j77acI2RkgcxaYW2waGQ74SEPwpmFML");
+
+        dd($response->json());
 
         $new_apartment->fill($data);
 
