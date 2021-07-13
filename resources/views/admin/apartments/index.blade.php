@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container pt-4">
 
         @if (session('deleted'))
             <div class="alert alert-success mt-3">
@@ -12,11 +12,15 @@
 
         <a href="{{ route('admin.home') }}"> <-- Back to Dashboard</a>
 
-        <h1>My apartments</h1>
+        <header class="d-flex justify-content-between align-items-center ">
 
-        <a href="{{ route('admin.apartments.create') }}" class="btn btn-primary">CREATE A NEW APARTMENT</a>
+            <h1 class="py-4">My apartments</h1>
+    
+            <a href="{{ route('admin.apartments.create') }}" class="btn btn-primary  ">CREATE A NEW APARTMENT</a>
 
-        <table class="table mt-4">
+        </header>
+
+        <table class="table mt-4 table-striped">
             <thead>
                 <tr>
                     <td>Title</td>
@@ -27,7 +31,7 @@
                     
                 </tr>
             </thead>
-            <tbody>
+            <tbody >
                 @foreach ($apartments as $apartment)
                     <tr>
                         <td> {{ $apartment->title }} </td>
@@ -36,7 +40,7 @@
                         <td>{{ $apartment->visibility ? 'Public' : 'Private' }}</td>
 
                         <td> <a class="btn btn-primary" href="{{ route('admin.apartments.show', $apartment->id) }}">Show</a> </td>
-                        <td> <a class="btn btn-warning" href="{{ route('admin.apartments.edit', $apartment->id) }}">Edit</a> </td>
+                        <td> <a class="btn btn-primary" href="{{ route('admin.apartments.edit', $apartment->id) }}">Edit</a> </td>
                         <td>
                             <form action="{{route('admin.apartments.destroy', $apartment->id)}}" method="post">
                                 @csrf
