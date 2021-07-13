@@ -108,7 +108,7 @@
 
             <div class="mb-3">
                 @foreach ($services as $service)
-                    <span class="mr-2">
+                    <span class="mr-4 d-inline-block">
                         <input 
                         type="checkbox" id="type{{$loop->iteration}}" name="services[]" 
                         value="{{$service->id}}"

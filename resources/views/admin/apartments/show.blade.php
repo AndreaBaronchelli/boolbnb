@@ -2,38 +2,43 @@
 
 @section('content')
     <div class="container">
-
         <a href="{{ route('admin.apartments.index') }}"> <-- Back to apartments list</a>
-
-        <h1>Apartment detail</h1>
-        
-        @if (count($apartment->services) > 0)
-            @foreach($apartment->services as $service)
-                <span class="badge badge-primary">{{$service->name}}</span>
-            @endforeach
-        @endif
-
+        <h1 class="text-secondary">{{$apartment->title}}</h1>
         <div><a class="btn btn-warning mb-3" href="{{ route('admin.apartments.edit', $apartment->id) }}">EDIT</a></div>
+        <div class="row mt-4 mb-4">
+            <div class="col-md-4">
+                @if ($apartment->image)
+                    <img class="img-fluid" src="{{ asset('storage/' . $apartment->image) }}" />
+                @endif
 
-        <h3>{{ $apartment->title }}</h3>
+            </div>
+            <div class="col-md-8">
+                
+            @if (count($apartment->services) > 0)
+                @foreach($apartment->services as $service)
+                    <span class="badge badge-primary">{{$service->name}}</span>
+                @endforeach
+            @endif
+            <h3>{{ $apartment->title }}</h3>
 
-        @if ($apartment->image)
-            <img width="200" src="{{ asset('storage/' . $apartment->image) }}" />
-        @endif
-
-        <div>Address: {{ $apartment->address }}</div>
-
-        <div>Rooms: {{ $apartment->rooms }}</div>
         
-        <div>Beds available: {{ $apartment->beds }}</div>
+            <div><strong>Address: </strong>{{ $apartment->address }}</div>
 
-        <div>Bathrooms: {{ $apartment->bathrooms }}</div>
+            <div><strong>Rooms: </strong>{{ $apartment->rooms }}</div>
+        
+            <div><strong>Beds available: </strong>{{ $apartment->beds }}</div>
 
-        <div>Square meters: {{ $apartment->square_meters }} sqm</div>
+            <div><strong>bathrooms: </strong>{{ $apartment->bathrooms }}</div>
 
-        <div>Price per night: {{ $apartment->price }} €</div>
+            <div><strong>Square meters: </strong>{{ $apartment->square_meters }} sqm</div>
 
-        <div>Visibility: {{ $apartment->visibility ? 'Public' : 'Private' }}</div>
+            <div><strong>Price per night: </strong>{{ $apartment->price }} €</div>
+
+            <div><strong>Visibility: </strong>{{ $apartment->visibility ? 'Public' : 'Private' }}</div>
+
+
+            </div>
+        </div>
 
     </div>
 @endsection
