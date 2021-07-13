@@ -77,6 +77,8 @@ class ApartmentController extends Controller
             $data['image'] = $img_path;
         }
 
+        // dd($new_apartment->image);
+
         $new_apartment['slug'] = Str::slug($data['title']);
 
         $new_apartment['address'] = "{$data['street_name']} {$data['house_number']} {$data['city']} {$data['country']}";
@@ -98,7 +100,7 @@ class ApartmentController extends Controller
             $new_apartment->services()->attach($data['services']);
         }
 
-        return redirect()->route('admin.posts.show', $new_apartment->id);
+        return redirect()->route('admin.apartments.show', $new_apartment->id);
     }
 
     /**
@@ -110,6 +112,12 @@ class ApartmentController extends Controller
     public function show($id)
     {
         //
+        $apartment = Apartment::find($id);
+        if (!$apartment) {
+            abort(404);
+        }
+        
+        return view('admin.apartments.show', compact('apartment'));
     }
 
     /**
