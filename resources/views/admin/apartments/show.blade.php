@@ -13,7 +13,6 @@
             @endforeach
         @endif
 
-
         <div><a class="btn btn-warning mb-3" href="{{ route('admin.apartments.edit', $apartment->id) }}">EDIT</a></div>
 
         <h3>{{ $apartment->title }}</h3>
@@ -33,12 +32,8 @@
         <div>Square meters: {{ $apartment->square_meters }}</div>
 
         <div>Price per night: {{ $apartment->price }}</div>
-        
-        @if ($apartment->visibility == 1)
-            <div>Visibility: {{ 'Public' }}</div>
-            @else
-            <div>Visibility: {{ 'Private' }}</div>
-        @endif
+
+        <div>Visibility: {{ $apartment->visibility ? 'Public' : 'Private' }}</div>
 
     </div>
 @endsection

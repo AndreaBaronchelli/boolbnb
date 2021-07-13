@@ -19,7 +19,6 @@
         <table class="table mt-4">
             <thead>
                 <tr>
-                    {{-- <td>Image</td> --}}
                     <td>Title</td>
                     <td>Address</td>
                     <td>Price</td>
@@ -31,17 +30,10 @@
             <tbody>
                 @foreach ($apartments as $apartment)
                     <tr>
-                        {{-- <td>  --}}
-                            {{-- <img width="200" src="{{ asset(‘storage/‘ . $apartment->apartments_image) }}" /> --}}
-                        {{-- </td> --}}
                         <td> {{ $apartment->title }} </td>
                         <td> {{ $apartment->address }} </td>
                         <td> {{ $apartment->price }} </td>
-                        @if ($apartment->visibility == 1)
-                            <td>{{ 'Public' }}</td>
-                            @else
-                            <td>{{ 'Private' }}</td>
-                        @endif
+                        <td>{{ $apartment->visibility ? 'Public' : 'Private' }}</td>
 
                         <td> <a class="btn btn-primary" href="{{ route('admin.apartments.show', $apartment->id) }}">Show</a> </td>
                         <td> <a class="btn btn-warning" href="{{ route('admin.apartments.edit', $apartment->id) }}">Edit</a> </td>
@@ -58,9 +50,6 @@
                 @endforeach
             </tbody>
         </table>
-        {{-- @foreach ($apartments as $apartment )
-            <h3>{{ $apartment->title }}</h3>
-        @endforeach --}}
     </div>
     
 @endsection
