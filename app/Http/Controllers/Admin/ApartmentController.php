@@ -47,16 +47,20 @@ class ApartmentController extends Controller
      */
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'title' => 'required|unique:apartments|max:100',
-        //     'rooms' => 'required|numeric|min:1',
-        //     'beds' => 'nullable|numeric|min:1',
-        //     'bathrooms' => 'nullable|numeric|min:1',
-        //     'square_meters' => 'required|numeric|min:1',
-        //     'city' => 'required',
-        //     'country' => 'required',
-        //     'image'=>'nullable|image'
-        // ]);
+        $request->validate([
+            'title' => 'required|unique:apartments|max:100',
+            'user_id' => 'exists:users,id|nullable',
+            'rooms' => 'required|numeric|min:1',
+            'beds' => 'nullable|numeric|min:1',
+            'bathrooms' => 'nullable|numeric|min:1',
+            'square_meters' => 'required|numeric|min:1',
+            'city' => 'required',
+            'country' => 'required',
+            'image'=>'nullable|image',
+            'visibility'=>'required|boolean',
+            'services' => 'nullable|exists:services,id',
+            'price' => 'required|numeric|min:1'
+        ]);
 
         $data = $request->all();
 
@@ -75,14 +79,18 @@ class ApartmentController extends Controller
 
         $response = Http::get("https://api.tomtom.com/search/2/geocode/{$new_apartment['address']}.json?key=4j77acI2RkgcxaYW2waGQ74SEPwpmFML");
 
-        dd($response->json());
+        // dd($response->json()['results'][0]['position']['lon']);
+
+        $new_apartment['latitude'] = $response->json()['results'][0]['position']['lat'];
+        
+        $new_apartment['longitude'] = $response->json()['results'][0]['position']['lon'];
 
         $new_apartment->fill($data);
 
         $new_apartment->save();
 
-        if (array_key_exists('types', $data)) {
-            $new_apartment->types()->attach($data['types']);
+        if (array_key_exists('services', $data)) {
+            $new_apartment->services()->attach($data['services']);
         }
 
         return redirect()->route('admin.posts.show', $new_apartment->id);
