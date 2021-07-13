@@ -3,6 +3,13 @@
 @section('content')
     <div class="container">
 
+        @if (session('deleted'))
+            <div class="alert alert-success mt-3">
+                {{ session('deleted') }} deleted successfully!
+            </div>
+        @endif
+
+
         <a href="{{ route('admin.home') }}"> <-- Back to Dashboard</a>
 
         <h1>My apartments</h1>
@@ -38,7 +45,14 @@
 
                         <td> <a class="btn btn-primary" href="{{ route('admin.apartments.show', $apartment->id) }}">Show</a> </td>
                         <td> <a class="btn btn-warning" href="{{ route('admin.apartments.edit', $apartment->id) }}">Edit</a> </td>
-                        <td> <a class="btn btn-danger" href="#">Delete</a> </td>
+                        <td>
+                            <form action="{{route('admin.apartments.destroy', $apartment->id)}}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">DELETE</button>
+                            </form>
+                        </td>
+
                         
                     </tr>
                 @endforeach

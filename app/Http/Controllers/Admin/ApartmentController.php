@@ -148,7 +148,46 @@ class ApartmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'title' => ['required', Rule::unique('apartments')->ignore($id), 'max:100'],
+            'user_id' => 'exists:users,id|nullable',
+            'rooms' => 'required|numeric|min:1',
+            'beds' => 'nullable|numeric|min:1',
+            'bathrooms' => 'nullable|numeric|min:1',
+            'square_meters' => 'required|numeric|min:1',
+            'address' => 'required',
+            'image'=>'nullable|image',
+            'visibility'=>'required|boolean',
+            'services' => 'nullable|exists:services,id',
+            'price' => 'required|numeric|min:1'
+        ]);
+
+        $data = $request->all();
+
+        $apartment = Apartment::find($id);
+
+        $data['slug'] = Str::slug($data['title'], '-');
+
+        $response = Http::get("https://api.tomtom.com/search/2/geocode/{$apartment['address']}.json?key=4j77acI2RkgcxaYW2waGQ74SEPwpmFML");
+
+        // dd($response->json()['results'][0]['position']['lon']);
+
+        $apartment['latitude'] = $response->json()['results'][0]['position']['lat'];
+        
+        $apartment['longitude'] = $response->json()['results'][0]['position']['lon'];
+
+        $apartment->update($data); //fillable in model!!
+
+        // pivot table relation update
+        if(array_key_exists('services', $data)) {
+            $apartment->services()->sync($data['services']); //sync, ma non elimina
+        } else {
+            $apartment->services()->detach(); //elimina
+        }
+
+
+
+        return redirect()->route('admin.apartments.show', $apartment->id);
     }
 
     /**
@@ -157,8 +196,12 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Apartment $apartment)
     {
-        //
+        $apartment->services()->detach();
+
+        $apartment->delete();
+
+        return redirect()->route('admin.apartments.index')->with('deleted', $apartment->title);
     }
 }

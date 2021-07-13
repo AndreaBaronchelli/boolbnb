@@ -6,6 +6,15 @@
         <a href="{{ route('admin.apartments.index') }}"> <-- Back to apartments list</a>
 
         <h1>Apartment detail</h1>
+        
+        @if (count($apartment->services) > 0)
+            @foreach($apartment->services as $service)
+                <span class="badge badge-primary">{{$service->name}}</span>
+            @endforeach
+        @endif
+
+
+        <div><a class="btn btn-warning mb-3" href="{{ route('admin.apartments.edit', $apartment->id) }}">EDIT</a></div>
 
         <h3>{{ $apartment->title }}</h3>
 
