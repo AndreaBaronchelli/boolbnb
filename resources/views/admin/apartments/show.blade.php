@@ -29,9 +29,9 @@
 
         <div>Bathrooms: {{ $apartment->bathrooms }}</div>
 
-        <div>Square meters: {{ $apartment->square_meters }}</div>
+        <div>Square meters: {{ $apartment->square_meters }} sqm</div>
 
-        <div>Price per night: {{ $apartment->price }}</div>
+        <div>Price per night: {{ $apartment->price }} €</div>
 
         <div>Visibility: {{ $apartment->visibility ? 'Public' : 'Private' }}</div>
 
