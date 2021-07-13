@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+
 use App\Http\Controllers\Controller;
 use App\Apartment;
 use App\Service;
 use App\Sponsor;
+use illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
@@ -21,7 +23,7 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-        $apartments = Apartment::all();
+        $apartments = Apartment::all()->where('user_id', Auth::id());
 
         return view('admin.apartments.index', compact('apartments'));
     }
@@ -66,6 +68,8 @@ class ApartmentController extends Controller
 
         $new_apartment = new Apartment();
 
+        $new_apartment['user_id'] = Auth::id();
+
         // add cover image
         if (array_key_exists('image', $data)) {
             $img_path = Storage::put('apartments-images', $data['image']);
@@ -84,6 +88,7 @@ class ApartmentController extends Controller
         $new_apartment['latitude'] = $response->json()['results'][0]['position']['lat'];
         
         $new_apartment['longitude'] = $response->json()['results'][0]['position']['lon'];
+
 
         $new_apartment->fill($data);
 
