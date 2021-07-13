@@ -128,7 +128,15 @@ class ApartmentController extends Controller
      */
     public function edit($id)
     {
-        //
+        
+        $apartment = Apartment::find($id);
+        if (!$apartment) {
+            abort(404);
+        }
+
+        $services = Service::all();
+
+        return view('admin.apartments.edit', compact('apartment', 'services'));
     }
 
     /**

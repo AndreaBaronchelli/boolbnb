@@ -2,6 +2,9 @@
 
 @section('content')
     <div class="container">
+
+        <a href="{{ route('admin.apartments.index') }}"> <-- Back to apartments list</a>
+
         <h1>Apartment detail</h1>
 
         <h3>{{ $apartment->title }}</h3>
