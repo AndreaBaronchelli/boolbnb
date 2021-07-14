@@ -68,7 +68,7 @@
 
             <div class="mb-3">
                 <label for="house_number" class="form-label">House Number</label> 
-                <input type="text" id="house_number" name="house_number" placeholder="House Number Here..." class="form-control @error('house_number') is-invalid @enderror" value="{{ old('street_name') }}">
+                <input type="text" id="house_number" name="house_number" placeholder="House Number Here..." class="form-control @error('house_number') is-invalid @enderror" value="{{ old('house_number') }}">
                 @error('house_number')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
