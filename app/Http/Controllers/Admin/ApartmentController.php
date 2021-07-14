@@ -73,11 +73,8 @@ class ApartmentController extends Controller
         // add cover image
         if (array_key_exists('image', $data)) {
             $img_path = Storage::put('apartments-images', $data['image']);
-            //overwrite cover file with path
             $data['image'] = $img_path;
         }
-
-        // dd($new_apartment->image);
 
         $new_apartment['slug'] = Str::slug($data['title']);
 
@@ -85,12 +82,9 @@ class ApartmentController extends Controller
 
         $response = Http::get("https://api.tomtom.com/search/2/geocode/{$new_apartment['address']}.json?key=4j77acI2RkgcxaYW2waGQ74SEPwpmFML");
 
-        // dd($response->json()['results'][0]['position']['lon']);
-
         $new_apartment['latitude'] = $response->json()['results'][0]['position']['lat'];
         
         $new_apartment['longitude'] = $response->json()['results'][0]['position']['lon'];
-
 
         $new_apartment->fill($data);
 
@@ -170,8 +164,6 @@ class ApartmentController extends Controller
 
         $response = Http::get("https://api.tomtom.com/search/2/geocode/{$apartment['address']}.json?key=4j77acI2RkgcxaYW2waGQ74SEPwpmFML");
 
-        // dd($response->json()['results'][0]['position']['lon']);
-
         $apartment['latitude'] = $response->json()['results'][0]['position']['lat'];
         
         $apartment['longitude'] = $response->json()['results'][0]['position']['lon'];
@@ -179,17 +171,16 @@ class ApartmentController extends Controller
         // add cover image
         if (array_key_exists('image', $data)) {
             $img_path = Storage::put('apartments-images', $data['image']);
-            //overwrite cover file with path
             $data['image'] = $img_path;
         }
 
-        $apartment->update($data); //fillable in model!!
+        $apartment->update($data);
 
         // pivot table relation update
         if(array_key_exists('services', $data)) {
-            $apartment->services()->sync($data['services']); //sync, ma non elimina
+            $apartment->services()->sync($data['services']);
         } else {
-            $apartment->services()->detach(); //elimina
+            $apartment->services()->detach();
         }
 
 
