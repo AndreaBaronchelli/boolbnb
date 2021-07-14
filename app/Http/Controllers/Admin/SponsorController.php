@@ -8,6 +8,7 @@ use App\Sponsor;
 use Illuminate\Http\Request;
 use illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use App\User;
 
 class SponsorController extends Controller
 {
@@ -20,6 +21,7 @@ class SponsorController extends Controller
 
     public function update(Request $request, $id)
     {
+        $user = User::find(Auth::id());
         $data = $request->all();
         
         $apartment = Apartment::find($id);
@@ -29,6 +31,6 @@ class SponsorController extends Controller
             $apartment->sponsors()->attach($data['sponsors'], ['start_time' => Carbon::now(), 'end_time' => Carbon::now()->addHours($sponsor['duration'])]);
         }
 
-        return view('admin.home');
+        return view('admin.home', compact('user'));
     }
 }
