@@ -26,6 +26,7 @@ Route::prefix('admin')
     ->group(function() {
         Route::get('/', 'HomeController@index')->name('home');
         Route::resource('/apartments', 'ApartmentController');
+        Route::resource('/sponsors', 'SponsorController');
     });
 
 // FRONT OFFICE

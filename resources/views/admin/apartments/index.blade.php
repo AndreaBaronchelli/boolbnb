@@ -36,7 +36,7 @@
                     <tr>
                         <td> {{ $apartment->title }} </td>
                         <td> {{ $apartment->address }} </td>
-                        <td> {{ $apartment->price }} </td>
+                        <td> {{ $apartment->price }} €</td>
                         <td>{{ $apartment->visibility ? 'Public' : 'Private' }}</td>
 
                         <td> <a class="btn btn-primary" href="{{ route('admin.apartments.show', $apartment->id) }}">Show</a> </td>

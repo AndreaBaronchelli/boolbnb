@@ -6,12 +6,11 @@
         <h1 class="text-secondary">{{$apartment->title}}</h1>
         <div><a class="btn btn-warning mb-3" href="{{ route('admin.apartments.edit', $apartment->id) }}">EDIT</a></div>
         <div class="row mt-4 mb-4">
-            <div class="col-md-4">
-                @if ($apartment->image)
+            @if ($apartment->image)
+                <div class="col-md-4">
                     <img class="img-fluid" src="{{ asset('storage/' . $apartment->image) }}" />
-                @endif
-
-            </div>
+                </div>
+            @endif
             <div class="col-md-8">
                 
             @if (count($apartment->services) > 0)
