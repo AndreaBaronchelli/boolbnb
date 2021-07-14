@@ -126,8 +126,8 @@
             <div class="mb-3">
                 <label for="visibility" class="form-label">The apartment is public?</label> 
                 <select name="visibility" id="visibility">
-                    <option value="1">Yes</option>
-                    <option value="0">No</option>
+                    <option @if($apartment->visibility == 1) selected @endif value="1">Yes</option>
+                    <option @if($apartment->visibility == 0) selected @endif value="0">No</option>
                 </select>
             </div>
 
