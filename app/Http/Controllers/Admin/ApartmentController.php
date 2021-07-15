@@ -58,7 +58,7 @@ class ApartmentController extends Controller
             'square_meters' => 'required|numeric|min:1',
             'city' => 'required',
             'country' => 'required',
-            'image'=>'nullable',
+            'image'=>'nullable|image|max:2000',
             'visibility'=>'required|boolean',
             'services' => 'nullable|exists:services,id',
             'price' => 'required|numeric|min:1'
@@ -150,7 +150,7 @@ class ApartmentController extends Controller
             'bathrooms' => 'nullable|numeric|min:1',
             'square_meters' => 'required|numeric|min:1',
             'address' => 'required',
-            'image'=>'nullable',
+            'image'=>'nullable|image|max:2000',
             'visibility'=>'required|boolean',
             'services' => 'nullable|exists:services,id',
             'price' => 'required|numeric|min:1'
