@@ -13,7 +13,7 @@ class ApartmentController extends Controller
     public function index(){
         $apartments = Apartment::all();
 
-        return response()->json($apartments);
+        return response()->json(compact('apartments'));
 
 
     }
