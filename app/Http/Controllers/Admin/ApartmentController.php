@@ -107,6 +107,9 @@ class ApartmentController extends Controller
     {
         //
         $apartment = Apartment::find($id);
+
+        $this->authorize('view', $apartment);
+
         if (!$apartment) {
             abort(404);
         }
@@ -124,6 +127,9 @@ class ApartmentController extends Controller
     {
         
         $apartment = Apartment::find($id);
+
+        $this->authorize('update', $apartment);
+
         if (!$apartment) {
             abort(404);
         }
