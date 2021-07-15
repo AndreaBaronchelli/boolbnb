@@ -42,7 +42,7 @@
                         <td> <a class="btn btn-primary" href="{{ route('admin.apartments.show', $apartment->id) }}">Show</a> </td>
                         <td> <a class="btn btn-primary" href="{{ route('admin.apartments.edit', $apartment->id) }}">Edit</a> </td>
                         <td>
-                            <form action="{{route('admin.apartments.destroy', $apartment->id)}}" method="post">
+                            <form class="delete-post-form" action="{{route('admin.apartments.destroy', $apartment->id)}}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">DELETE</button>
