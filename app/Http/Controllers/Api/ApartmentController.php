@@ -15,6 +15,13 @@ class ApartmentController extends Controller
 
         return response()->json(compact('apartments'));
 
-
     }
+
+    //get post detail by slug
+    public function show($address){
+        dump($address);
+        // $post = Post::where('slug', $slug)->with(['category','tags'])->first();
+        // return response()->json($post); 
+    }
+
 }

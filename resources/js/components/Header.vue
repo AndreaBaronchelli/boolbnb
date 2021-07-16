@@ -1,12 +1,32 @@
 <template>
     <header>
-        <h1>Test</h1>
+        <a href="#">BoolBnB</a>
+        <SearchBar @searchText="search" />
     </header>
 </template>
 
 <script>
+import SearchBar from '../components/SearchBar'
+
 export default {
     name: 'Header',
+    components: {
+        SearchBar,
+    },
+    data() {
+        return {
+            // searchText: '',
+        }
+    },
+    methods: {
+        test() {
+            console.log(this.searchText);
+        },
+        search(searchText) {
+            this.$emit('searchText', searchText);
+            // this.searchText = searchText;
+        }
+    }
 }
 </script>
 
