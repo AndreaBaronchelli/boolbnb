@@ -1986,7 +1986,7 @@ __webpack_require__.r(__webpack_exports__);
     performSearch: function performSearch(searchText) {
       var _this = this;
 
-      this.searchText = searchText; // console.log(this.searchText);
+      this.searchText = searchText; //console.log(this.searchText);
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/apartment/").then(function (res) {
         console.log(res.data);
@@ -38478,9 +38478,6 @@ var render = function() {
       attrs: { type: "text", placeholder: "Where do you want to go?" },
       domProps: { value: _vm.searchText },
       on: {
-        keyup: function($event) {
-          return _vm.$emit("searchText", _vm.searchText)
-        },
         input: function($event) {
           if ($event.target.composing) {
             return
@@ -38493,7 +38490,17 @@ var render = function() {
       }
     }),
     _vm._v(" "),
-    _c("button", { on: { click: _vm.test } }, [_vm._v("Search")])
+    _c(
+      "button",
+      {
+        on: {
+          click: function($event) {
+            return _vm.$emit("searchText", _vm.searchText)
+          }
+        }
+      },
+      [_vm._v("Search")]
+    )
   ])
 }
 var staticRenderFns = []
@@ -38518,16 +38525,9 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("main")
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("main", [_c("h1", [_vm._v("ciao")])])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -54343,8 +54343,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Boolean\Esercizi Corso\boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\Boolean\Esercizi Corso\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Maurizio\Desktop\boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Maurizio\Desktop\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

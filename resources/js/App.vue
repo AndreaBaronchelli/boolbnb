@@ -27,9 +27,10 @@ export default {
     methods: {
         performSearch(searchText) {
             this.searchText = searchText;
-            // console.log(this.searchText);
-
+            //console.log(this.searchText);
+            
             axios.get(`http://127.0.0.1:8000/api/apartment/`)
+
             .then(res => {
                     console.log(res.data);
                     this.apartmentsArray = res.data.apartments;

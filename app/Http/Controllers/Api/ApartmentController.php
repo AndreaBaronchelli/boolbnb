@@ -29,6 +29,7 @@ class ApartmentController extends Controller
         $posLat = $response->json()['results'][0]['position']['lat'];
         $posLon = $response->json()['results'][0]['position']['lon'];
         
+
         $response = Http::get("https://api.tomtom.com/search/2/geometrySearch/${address}.json?geometryList=%7B%22type%22%3A%22CIRCLE%22%2C%20%22position%22%3A%22${posLat}%2C%20${posLon}%22%2C%20%22radius%22%3A20000%7D&key=4j77acI2RkgcxaYW2waGQ74SEPwpmFML");
 
         //TESTARE
@@ -40,3 +41,4 @@ class ApartmentController extends Controller
     }
 
 }
+
