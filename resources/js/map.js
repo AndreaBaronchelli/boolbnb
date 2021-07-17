@@ -66,7 +66,7 @@ function fitToViewport(markerData) {
     } else {
         bounds.extend(getBounds(markerData));
     }
-    map.fitBounds(bounds, { padding: 100, linear: true });
+    map.fitBounds(bounds, { padding: 100, linear: false, speed: 1.3 });
 }
 
 function getBounds(data) {
@@ -82,7 +82,7 @@ function getBounds(data) {
             data.viewport.topLeftPoint.lat
         ];
     }
-    return [btmRight, topLeft];
+    return [topLeft, btmRight];
 }
 
 function handleResultClearing() {

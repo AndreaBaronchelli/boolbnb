@@ -2223,7 +2223,8 @@ function fitToViewport(markerData) {
 
   map.fitBounds(bounds, {
     padding: 100,
-    linear: true
+    linear: false,
+    speed: 1.3
   });
 }
 
@@ -2236,7 +2237,7 @@ function getBounds(data) {
     topLeft = [data.viewport.topLeftPoint.lng, data.viewport.topLeftPoint.lat];
   }
 
-  return [btmRight, topLeft];
+  return [topLeft, btmRight];
 }
 
 function handleResultClearing() {
