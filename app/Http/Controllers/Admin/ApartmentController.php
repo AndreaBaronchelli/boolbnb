@@ -56,8 +56,7 @@ class ApartmentController extends Controller
             'beds' => 'nullable|numeric|min:1',
             'bathrooms' => 'nullable|numeric|min:1',
             'square_meters' => 'required|numeric|min:1',
-            'city' => 'required',
-            'country' => 'required',
+            'address' => 'required',
             'image'=>'nullable|image|max:2000',
             'visibility'=>'required|boolean',
             'services' => 'nullable|exists:services,id',
@@ -78,9 +77,9 @@ class ApartmentController extends Controller
 
         $new_apartment['slug'] = Str::slug($data['title']);
 
-        $new_apartment['address'] = "{$data['street_name']}, {$data['house_number']}, {$data['city']}, {$data['country']}";
+        // $new_apartment['address'] = "{$data['street_name']}, {$data['house_number']}, {$data['city']}, {$data['country']}";
 
-        $response = Http::get("https://api.tomtom.com/search/2/geocode/{$new_apartment['address']}.json?key=4j77acI2RkgcxaYW2waGQ74SEPwpmFML");
+        $response = Http::get("https://api.tomtom.com/search/2/geocode/{$data['address']}.json?key=4j77acI2RkgcxaYW2waGQ74SEPwpmFML");
 
         $new_apartment['latitude'] = $response->json()['results'][0]['position']['lat'];
         
