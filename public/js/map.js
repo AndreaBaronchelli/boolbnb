@@ -2172,8 +2172,9 @@ tt.map({
 var map = tt.map({
   key: "HWJIfN6faq5SWzGHD4GKXdsexiZdkTDa",
   container: "map",
-  center: [15.4, 53.0],
-  zoom: 3
+  center: [12.48, 41.90],
+  //Roma
+  zoom: 5
 });
 var ttSearchBox = new tt.plugins.SearchBox(tt.services, options);
 var searchMarkersManager = new SearchMarkersManager(map);
@@ -2319,11 +2320,29 @@ SearchMarker.prototype.remove = function () {
 
 var apartmentsArray = [];
 axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/apartment").then(function (response) {
-  apartmentsArray = response.data.apartments;
-  console.log(apartmentsArray);
+  apartmentsArray = response.data.apartments; // console.log(apartmentsArray);
+  // popup options
+
+  var markerHeight = 50,
+      markerRadius = 10,
+      linearOffset = 25;
+  var popupOffsets = {
+    'top': [0, 0],
+    'top-left': [0, 0],
+    'top-right': [0, 0],
+    'bottom': [0, -markerHeight],
+    'bottom-left': [linearOffset, (markerHeight - markerRadius + linearOffset) * -1],
+    'bottom-right': [-linearOffset, (markerHeight - markerRadius + linearOffset) * -1],
+    'left': [markerRadius, (markerHeight - markerRadius) * -1],
+    'right': [-markerRadius, (markerHeight - markerRadius) * -1]
+  };
   apartmentsArray.forEach(function (apartment) {
-    var marker = new tt.Marker().setLngLat([apartment.longitude, apartment.latitude]).addTo(map);
     console.log(apartment);
+    var marker = new tt.Marker().setLngLat([apartment.longitude, apartment.latitude]).setPopup(new tt.Popup({
+      offset: popupOffsets,
+      className: 'myClass'
+    }).setLngLat([apartment.longitude, apartment.latitude]).setHTML("\n                            <h2>".concat(apartment.title, "</h2>\n                            <span>").concat(apartment.address, "</span><br>\n                            <h4>Price: \u20AC").concat(apartment.price, "</h4>\n                            <a href=\"#\">View details</a>\n                            "))).addTo(map); // console.log(apartment)            
+    // console.log(marker.getPopup());
   });
 })["catch"](function (error) {
   console.log(error);
@@ -2338,7 +2357,7 @@ axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/apar
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/andrea/Desktop/Boolean/Esercizi/boolbnb/resources/js/map.js */"./resources/js/map.js");
+module.exports = __webpack_require__(/*! D:\Boolean\Esercizi Corso\boolbnb\resources\js\map.js */"./resources/js/map.js");
 
 
 /***/ })

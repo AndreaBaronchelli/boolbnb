@@ -21,8 +21,8 @@ tt.map({
 var map = tt.map({
     key: "HWJIfN6faq5SWzGHD4GKXdsexiZdkTDa",
     container: "map",
-    center: [15.4, 53.0],
-    zoom: 3
+    center: [12.48, 41.90], //Roma
+    zoom: 5
 });
 
 var ttSearchBox = new tt.plugins.SearchBox(tt.services, options);
@@ -173,13 +173,37 @@ axios
     .get("http://127.0.0.1:8000/api/apartment")
     .then(response => {
         apartmentsArray = response.data.apartments;
-        console.log(apartmentsArray);
+        // console.log(apartmentsArray);
+
+        // popup options
+        var markerHeight = 50, markerRadius = 10, linearOffset = 25;
+        var popupOffsets = {
+        'top': [0, 0],
+        'top-left': [0,0],
+        'top-right': [0,0],
+        'bottom': [0, -markerHeight],
+        'bottom-left': [linearOffset, (markerHeight - markerRadius + linearOffset) * -1],
+        'bottom-right': [-linearOffset, (markerHeight - markerRadius + linearOffset) * -1],
+        'left': [markerRadius, (markerHeight - markerRadius) * -1],
+        'right': [-markerRadius, (markerHeight - markerRadius) * -1]
+        };
+
         apartmentsArray.forEach(apartment => {
+            console.log(apartment);
             var marker = new tt.Marker()
                 .setLngLat([apartment.longitude, apartment.latitude])
+                .setPopup(new tt.Popup({offset: popupOffsets, className: 'myClass'})
+                            .setLngLat([apartment.longitude, apartment.latitude])
+                            .setHTML(`
+                            <h2>${apartment.title}</h2>
+                            <span>${apartment.address}</span><br>
+                            <h4>Price: €${apartment.price}</h4>
+                            <a href="#">View details</a>
+                            `)
+                )
                 .addTo(map);
-
-            console.log(apartment);
+            // console.log(apartment)            
+            // console.log(marker.getPopup());
         });
     })
     .catch(error => {

@@ -16,8 +16,8 @@
     <style>
 
         #map {
-            width: 50vw;
-            height: 50vh;
+            width: 100vw;
+            height: 80vh;
         }
     </style>
     <body>
