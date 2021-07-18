@@ -2016,6 +2016,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ApartmentCard",
   props: ['apartment']
@@ -6651,7 +6654,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".card[data-v-13e9f807] {\n  text-align: center;\n  border: 2px solid black;\n  border-radius: 10px;\n  margin: 10px;\n  padding: 10px;\n}", ""]);
+exports.push([module.i, ".card[data-v-13e9f807] {\n  text-align: center;\n  border: 2px solid black;\n  border-radius: 10px;\n  margin: 10px;\n  padding: 10px;\n  flex-basis: calc(100% / 5 - 10px);\n}\nimg[data-v-13e9f807] {\n  max-height: 220px;\n}", ""]);
 
 // exports
 
@@ -6689,7 +6692,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".cards-container[data-v-44832d06] {\n  display: flex;\n  flex-basis: calc(100% / 5 - 10px);\n}", ""]);
+exports.push([module.i, ".cards-container[data-v-44832d06] {\n  display: flex;\n}", ""]);
 
 // exports
 
@@ -38668,13 +38671,27 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "card" }, [
+    _c("img", {
+      attrs: {
+        src: "http://127.0.0.1:8000/storage/" + _vm.apartment.image,
+        alt: _vm.apartment.title
+      }
+    }),
+    _vm._v(" "),
     _c("h2", [_vm._v(_vm._s(_vm.apartment.title))]),
     _vm._v(" "),
-    _c("span", [_vm._v(_vm._s(_vm.apartment.address))]),
+    _c("div", [_c("span", [_vm._v(_vm._s(_vm.apartment.address))])]),
     _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(_vm.apartment.square_meters))]),
+    _c("div", [
+      _c("span", [_vm._v(_vm._s(_vm.apartment.square_meters) + " mq")])
+    ]),
     _vm._v(" "),
-    _c("h3", [_vm._v(_vm._s(_vm.apartment.price))])
+    _c("div", [
+      _c("span", [
+        _vm._v("Price per night: "),
+        _c("strong", [_vm._v("€" + _vm._s(_vm.apartment.price))])
+      ])
+    ])
   ])
 }
 var staticRenderFns = []

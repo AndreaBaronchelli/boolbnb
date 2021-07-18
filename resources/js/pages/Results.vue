@@ -29,6 +29,5 @@ export default {
 <style lang="scss" scoped>
     .cards-container {
         display: flex;
-        flex-basis: calc(100% / 5 - 10px);
     }
 </style>
