@@ -167,7 +167,7 @@ class ApartmentController extends Controller
 
         $data['slug'] = Str::slug($data['title'], '-');
 
-        $response = Http::get("https://api.tomtom.com/search/2/geocode/{$apartment['address']}.json?key=4j77acI2RkgcxaYW2waGQ74SEPwpmFML");
+        $response = Http::get("https://api.tomtom.com/search/2/geocode/{$data['address']}.json?key=4j77acI2RkgcxaYW2waGQ74SEPwpmFML");
 
         $apartment['latitude'] = $response->json()['results'][0]['position']['lat'];
         
