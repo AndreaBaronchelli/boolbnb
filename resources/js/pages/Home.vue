@@ -1,7 +1,7 @@
 <template>
     <main>
         
-        <h1>test</h1>
+        <h1>Homepage</h1>
 
     </main>
 </template>

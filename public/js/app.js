@@ -38719,7 +38719,9 @@ var render = function() {
   return _c(
     "header",
     [
-      _c("a", { attrs: { href: "#" } }, [_vm._v("BoolBnB")]),
+      _c("router-link", { attrs: { to: { name: "home" } } }, [
+        _vm._v("Homepage")
+      ]),
       _vm._v(" "),
       _c("SearchBar", { on: { searchText: _vm.search } })
     ],
@@ -38799,7 +38801,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("main", [_c("h1", [_vm._v("test")])])
+    return _c("main", [_c("h1", [_vm._v("Homepage")])])
   }
 ]
 render._withStripped = true

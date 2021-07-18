@@ -1,6 +1,6 @@
 <template>
     <header>
-        <a href="#">BoolBnB</a>
+        <router-link :to="{name:'home'}">Homepage</router-link>
         <SearchBar @searchText="search" />
     </header>
 </template>
