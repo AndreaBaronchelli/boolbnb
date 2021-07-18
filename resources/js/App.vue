@@ -3,7 +3,7 @@
         <Header @searchText="performSearch" />
 
         <main>
-            <router-view></router-view>
+            <router-view :apartmentArray="apartmentsArray" ></router-view>
         </main>
     </div>
 </template>

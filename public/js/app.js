@@ -2049,6 +2049,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "SearchBar",
   data: function data() {
@@ -2120,8 +2123,23 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Results"
+  name: "Results",
+  props: ['apartmentArray']
 });
 
 /***/ }),
@@ -38486,7 +38504,11 @@ var render = function() {
     [
       _c("Header", { on: { searchText: _vm.performSearch } }),
       _vm._v(" "),
-      _c("main", [_c("router-view")], 1)
+      _c(
+        "main",
+        [_c("router-view", { attrs: { apartmentArray: _vm.apartmentsArray } })],
+        1
+      )
     ],
     1
   )
@@ -38545,21 +38567,27 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { attrs: { id: "searchbox" } }),
-    _vm._v(" "),
-    _c(
-      "button",
-      {
-        on: {
-          click: function($event) {
-            _vm.$emit("searchText", _vm.getSearchValue())
-          }
-        }
-      },
-      [_vm._v("Search")]
-    )
-  ])
+  return _c(
+    "div",
+    [
+      _c("div", { attrs: { id: "searchbox" } }),
+      _vm._v(" "),
+      _c("router-link", { attrs: { to: { name: "results" } } }, [
+        _c(
+          "button",
+          {
+            on: {
+              click: function($event) {
+                _vm.$emit("searchText", _vm.getSearchValue())
+              }
+            }
+          },
+          [_vm._v("Search")]
+        )
+      ])
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -38583,9 +38611,16 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("main")
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("main", [_c("h1", [_vm._v("test")])])
+  }
+]
 render._withStripped = true
 
 
@@ -38607,7 +38642,19 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("div", [
+    _c("h1", [_vm._v("results")]),
+    _vm._v(" "),
+    _c(
+      "ul",
+      _vm._l(_vm.apartmentArray, function(apartment) {
+        return _c("li", { key: apartment.id }, [
+          _vm._v("\r\n            " + _vm._s(apartment.title) + "\r\n        ")
+        ])
+      }),
+      0
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -54518,8 +54565,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/andrea/Desktop/Boolean/Esercizi/boolbnb/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/andrea/Desktop/Boolean/Esercizi/boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\Boolean\Esercizi Corso\boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\Boolean\Esercizi Corso\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

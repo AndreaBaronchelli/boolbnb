@@ -1,7 +1,10 @@
 <template>
     <div>
+    
         <div id="searchbox"></div>
-        <button @click="$emit('searchText', getSearchValue())">Search</button>
+        <router-link :to="{name:'results'}">
+            <button @click="$emit('searchText', getSearchValue())">Search</button>
+        </router-link>
     </div>
 </template>
 
