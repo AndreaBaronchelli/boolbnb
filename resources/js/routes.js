@@ -1,19 +1,24 @@
-import Vue from 'vue';
+import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from './pages/Home.vue';
+import Home from "./pages/Home.vue";
+import Results from "./pages/Results.vue";
 
 Vue.use(VueRouter);
 
 const router = new VueRouter({
-
-    mode: 'history',
+    mode: "history",
     routes: [
         {
-            path: '/',
-            name: 'home',
-            component: Home,
+            path: "/",
+            name: "home",
+            component: Home
+        },
+        {
+            path: "/results",
+            name: "results",
+            component: Results
         }
     ]
-})
+});
 
 export default router;

@@ -3,12 +3,7 @@
         <Header @searchText="performSearch" />
 
         <main>
-            <!-- <router-view></router-view> -->
-            <ul>
-                <li v-for="apartment in apartmentsArray" :key="apartment.id">
-                    {{ apartment.title }}
-                </li>
-            </ul>
+            <router-view></router-view>
         </main>
     </div>
 </template>
