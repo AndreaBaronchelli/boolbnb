@@ -6,30 +6,34 @@
 </template>
 
 <script>
-import SearchBar from '../components/SearchBar'
+import SearchBar from "../components/SearchBar";
 
 export default {
-    name: 'Header',
+    name: "Header",
     components: {
-        SearchBar,
+        SearchBar
     },
     data() {
         return {
             // searchText: '',
-        }
+        };
     },
     methods: {
         test() {
             console.log(this.searchText);
         },
         search(searchText) {
-            this.$emit('searchText', searchText);
+            this.$emit("searchText", searchText);
             // this.searchText = searchText;
         }
     }
-}
+};
 </script>
 
-<style lang='scss' scoped>
-
+<style lang="scss" scoped>
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 </style>
