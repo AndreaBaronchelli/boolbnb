@@ -135,6 +135,8 @@
         
         document.getElementById('searchbox').appendChild(searchBoxHTML);
 
+        ttSearchBox.setValue(document.getElementById('address').value);
+
         document.getElementById('searchbox').addEventListener('focusout', function(e) {
             
         document.getElementById('address').value = ttSearchBox.getValue();
