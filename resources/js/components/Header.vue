@@ -14,9 +14,7 @@ export default {
         SearchBar
     },
     data() {
-        return {
-            // searchText: '',
-        };
+        return {};
     },
     methods: {
         test() {
@@ -24,7 +22,6 @@ export default {
         },
         search(searchText) {
             this.$emit("searchText", searchText);
-            // this.searchText = searchText;
         }
     }
 };

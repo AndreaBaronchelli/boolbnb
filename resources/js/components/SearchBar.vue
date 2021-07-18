@@ -1,11 +1,6 @@
 <template>
     <div>
         <div id="searchbox"></div>
-        <!-- <input
-            type="text"
-            placeholder="Where do you want to go?"
-            v-model.trim="searchText"
-        /> -->
         <button @click="$emit('searchText', getSearchValue())">Search</button>
     </div>
 </template>
@@ -14,9 +9,7 @@
 export default {
     name: "SearchBar",
     data() {
-        return {
-            searchText: this.search
-        };
+        return {};
     },
     mounted() {
         this.createSearchBar();

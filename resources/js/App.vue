@@ -32,7 +32,6 @@ export default {
                 .get(`http://127.0.0.1:8000/api/apartment/${searchText}`)
                 .then(response => {
                     this.apartmentsArray = response.data;
-                    // console.log(response.data);
                 })
                 .catch(err => {
                     console.log(err);

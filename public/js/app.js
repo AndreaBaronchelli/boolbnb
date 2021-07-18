@@ -1990,7 +1990,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/apartment/".concat(searchText)).then(function (response) {
-        _this.apartmentsArray = response.data; // console.log(response.data);
+        _this.apartmentsArray = response.data;
       })["catch"](function (err) {
         console.log(err);
       });
@@ -2024,15 +2024,14 @@ __webpack_require__.r(__webpack_exports__);
     SearchBar: _components_SearchBar__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   data: function data() {
-    return {// searchText: '',
-    };
+    return {};
   },
   methods: {
     test: function test() {
       console.log(this.searchText);
     },
     search: function search(searchText) {
-      this.$emit("searchText", searchText); // this.searchText = searchText;
+      this.$emit("searchText", searchText);
     }
   }
 });
@@ -2055,17 +2054,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "SearchBar",
   data: function data() {
-    return {
-      searchText: this.search
-    };
+    return {};
   },
   mounted: function mounted() {
     this.createSearchBar();
