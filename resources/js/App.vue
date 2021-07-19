@@ -6,6 +6,8 @@
             <router-view
                 :apartmentArray="apartmentsArray"
                 @searchText="performSearch"
+                @searchArray="newSearch"
+                :query="searchText"
             ></router-view>
         </main>
     </div>
@@ -21,11 +23,13 @@ export default {
     },
     data() {
         return {
-            apartmentsArray: []
+            apartmentsArray: [],
+            searchText: "",
         };
     },
     methods: {
         performSearch(searchText) {
+            this.searchText = searchText;
             axios
                 .get(`http://127.0.0.1:8000/api/apartment/${searchText}`)
                 .then(response => {
@@ -34,6 +38,16 @@ export default {
                 .catch(err => {
                     console.log(err);
                 });
+        },
+        newSearch(searchArray) {
+            console.log(searchArray);
+            axios.get(`http://127.0.0.1:8000/api/apartment/${searchArray.search}/${searchArray.radius}/${searchArray.rooms}/${searchArray.beds}`)
+            .then(response => {
+                console.log(response.data);
+            })
+            .catch(err => {
+                console.log(err);
+            })
         }
     }
 };

@@ -58,10 +58,22 @@ class ApartmentController extends Controller
 
         $apartments = Apartment::all()->whereBetween('latitude', [$minLat, $maxLat], 'longitude', [$minLon, $maxLon])->where('rooms', '>=', $rooms)->where('beds', '>=', $beds);
 
+        // $services = Service::all();
+        // $new_array= [];
+        // $serviceArray = $services->toArray();
+        // for ($i=0; $i<count($serviceArray); $i++) {
+        //     foreach ($apartments->services as $apartment) {
+        //         if ($apartment->id == $serviceArray[$i]) {
+        //             array_push($new_array, $apartment);
+        //         }
+        //     }
+        // }
+
         // $apartments->filter(function($))
 
-        dd($apartments);
+        // dd($new_array);
         
+        return response()->json($apartments);
     }
 
 }

@@ -27,7 +27,7 @@
             <option value="4">3+</option>
         </select>
 
-        <button @click="test">test</button>
+        <!-- <button >test</button> -->
         
         <div class="services">
             <div class="service" v-for="(service, index) in services" :key="`${service.id} - ${index}`">
@@ -36,7 +36,7 @@
                 <label :for="service.id">{{service.name}}</label>
             </div>
         </div>
-        <button type="submit">Search</button>
+        <button type="submit" @click="emitData">Search</button>
         
     </div>
 </template>
@@ -45,29 +45,31 @@
 import SearchBar from "./SearchBar.vue";
 export default {
     name: "AdvancedSearch",
+    props: ['query'],
     components: {
         SearchBar
     },
     data() {
         return {
             services: {},
-            radius: 0,
-            beds: 0,
-            rooms: 0,
+            radius: 20,
+            beds: 1,
+            rooms: 1,
             checkedServices: [],
         }
     },
     mounted() {
         this.createSearchBar();
+        document.getElementsByClassName("tt-search-box-input")[0].value = this.query;
     },
     created() {
         this.getServices();
     },
     methods: {
-        test() {
-            console.log(this.radius, this.beds, this.rooms, this.checkedServices);
-            console.log(document.getElementsByClassName("tt-search-box-input")[0].value);
-        },
+        // test() {
+        //     console.log(this.radius, this.beds, this.rooms, this.checkedServices);
+        //     console.log(document.getElementsByClassName("tt-search-box-input")[0].value);
+        // },
         getServices() {
             axios.get("http://127.0.0.1:8000/api/service")
             .then(response => {
@@ -98,6 +100,11 @@ export default {
                 "tt-search-box-input"
             )[0].value;
             document.getElementById('address').value = search;
+        },
+        emitData() {
+            var searchText = document.getElementsByClassName("tt-search-box-input")[0].value;
+
+            this.$emit("searchArray", {rooms: this.rooms, beds: this.beds, radius: this.radius, checkedServices: this.checkedServices, search: searchText });
         }
     }
 };

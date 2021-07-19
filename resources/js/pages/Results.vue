@@ -2,7 +2,7 @@
     <div class="container">
         <h1>results</h1>
         <div class="main-content">
-            <AdvancedSearch />
+            <AdvancedSearch @searchArray="performingSearch" :query="query" />
             <div v-if="Array.isArray(apartmentArray)">
                 <h2>No results found</h2>
             </div>
@@ -26,7 +26,26 @@ export default {
         ApartmentCard,
         AdvancedSearch
     },
-    props: ["apartmentArray"]
+    props: ["apartmentArray", 'query'],
+    data() {
+        return {
+            // rooms: '',
+        }
+    },
+    methods: {
+        performingSearch(searchArray) {
+            // this.rooms = searchArray;
+            this.$emit('searchArray',searchArray);
+            // console.log(this.rooms);
+            // axios.get(`http://127.0.0.1:8000/api/apartment/${searchText}`)
+            // .then(response => {
+
+            // })
+            // .catch(err => {
+            //     console.log(err);
+            // })
+        }
+    }
 };
 </script>
 

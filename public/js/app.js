@@ -1971,6 +1971,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1980,15 +1982,25 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      apartmentsArray: []
+      apartmentsArray: [],
+      searchText: ""
     };
   },
   methods: {
     performSearch: function performSearch(searchText) {
       var _this = this;
 
+      this.searchText = searchText;
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/apartment/".concat(searchText)).then(function (response) {
         _this.apartmentsArray = response.data;
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
+    newSearch: function newSearch(searchArray) {
+      console.log(searchArray);
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/apartment/".concat(searchArray.search, "/").concat(searchArray.radius, "/").concat(searchArray.rooms, "/").concat(searchArray.beds)).then(function (response) {
+        console.log(response.data);
       })["catch"](function (err) {
         console.log(err);
       });
@@ -2054,29 +2066,31 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "AdvancedSearch",
+  props: ['query'],
   components: {
     SearchBar: _SearchBar_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   data: function data() {
     return {
       services: {},
-      radius: 0,
-      beds: 0,
-      rooms: 0,
+      radius: 20,
+      beds: 1,
+      rooms: 1,
       checkedServices: []
     };
   },
   mounted: function mounted() {
     this.createSearchBar();
+    document.getElementsByClassName("tt-search-box-input")[0].value = this.query;
   },
   created: function created() {
     this.getServices();
   },
   methods: {
-    test: function test() {
-      console.log(this.radius, this.beds, this.rooms, this.checkedServices);
-      console.log(document.getElementsByClassName("tt-search-box-input")[0].value);
-    },
+    // test() {
+    //     console.log(this.radius, this.beds, this.rooms, this.checkedServices);
+    //     console.log(document.getElementsByClassName("tt-search-box-input")[0].value);
+    // },
     getServices: function getServices() {
       var _this = this;
 
@@ -2105,6 +2119,16 @@ __webpack_require__.r(__webpack_exports__);
     getSearchValue: function getSearchValue() {
       var search = document.getElementsByClassName("tt-search-box-input")[0].value;
       document.getElementById('address').value = search;
+    },
+    emitData: function emitData() {
+      var searchText = document.getElementsByClassName("tt-search-box-input")[0].value;
+      this.$emit("searchArray", {
+        rooms: this.rooms,
+        beds: this.beds,
+        radius: this.radius,
+        checkedServices: this.checkedServices,
+        search: searchText
+      });
     }
   }
 });
@@ -2316,7 +2340,23 @@ __webpack_require__.r(__webpack_exports__);
     ApartmentCard: _components_ApartmentCard_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     AdvancedSearch: _components_AdvancedSearch_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
-  props: ["apartmentArray"]
+  props: ["apartmentArray", 'query'],
+  data: function data() {
+    return {// rooms: '',
+    };
+  },
+  methods: {
+    performingSearch: function performingSearch(searchArray) {
+      // this.rooms = searchArray;
+      this.$emit('searchArray', searchArray); // console.log(this.rooms);
+      // axios.get(`http://127.0.0.1:8000/api/apartment/${searchText}`)
+      // .then(response => {
+      // })
+      // .catch(err => {
+      //     console.log(err);
+      // })
+    }
+  }
 });
 
 /***/ }),
@@ -38881,8 +38921,11 @@ var render = function() {
         "main",
         [
           _c("router-view", {
-            attrs: { apartmentArray: _vm.apartmentsArray },
-            on: { searchText: _vm.performSearch }
+            attrs: {
+              apartmentArray: _vm.apartmentsArray,
+              query: _vm.searchText
+            },
+            on: { searchText: _vm.performSearch, searchArray: _vm.newSearch }
           })
         ],
         1
@@ -39043,8 +39086,6 @@ var render = function() {
       ]
     ),
     _vm._v(" "),
-    _c("button", { on: { click: _vm.test } }, [_vm._v("test")]),
-    _vm._v(" "),
     _c(
       "div",
       { staticClass: "services" },
@@ -39103,7 +39144,9 @@ var render = function() {
       0
     ),
     _vm._v(" "),
-    _c("button", { attrs: { type: "submit" } }, [_vm._v("Search")])
+    _c("button", { attrs: { type: "submit" }, on: { click: _vm.emitData } }, [
+      _vm._v("Search")
+    ])
   ])
 }
 var staticRenderFns = []
@@ -39300,7 +39343,10 @@ var render = function() {
       "div",
       { staticClass: "main-content" },
       [
-        _c("AdvancedSearch"),
+        _c("AdvancedSearch", {
+          attrs: { query: _vm.query },
+          on: { searchArray: _vm.performingSearch }
+        }),
         _vm._v(" "),
         Array.isArray(_vm.apartmentArray)
           ? _c("div", [_c("h2", [_vm._v("No results found")])])
