@@ -1,18 +1,14 @@
 <template>
     <header>
-        <router-link :to="{name:'home'}">Homepage</router-link>
-        <SearchBar @searchText="search" />
+        <div class="container">
+            <router-link :to="{ name: 'home' }">Homepage</router-link>
+        </div>
     </header>
 </template>
 
 <script>
-import SearchBar from "../components/SearchBar";
-
 export default {
     name: "Header",
-    components: {
-        SearchBar
-    },
     data() {
         return {};
     },
@@ -27,10 +23,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-</style>
+<style lang="scss" scoped></style>

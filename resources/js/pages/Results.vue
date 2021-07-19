@@ -1,33 +1,42 @@
 <template>
-
-<div>
-
-    <h1>results</h1>
-    <div class="cards-container">
-        <ApartmentCard v-for="apartment in apartmentArray" :key="apartment.id"
-            :apartment="apartment"
-        />
+    <div class="container">
+        <h1>results</h1>
+        <div class="main-content">
+            <AdvancedSearch />
+            <div class="cards-container">
+                <ApartmentCard
+                    v-for="apartment in apartmentArray"
+                    :key="apartment.id"
+                    :apartment="apartment"
+                />
+            </div>
+            <div>
+                <h2>No results found</h2>
+            </div>
+        </div>
     </div>
-
-
-</div>
-
-
 </template>
 
 <script>
-import ApartmentCard from "../components/ApartmentCard.vue"
+import ApartmentCard from "../components/ApartmentCard.vue";
+import AdvancedSearch from "../components/AdvancedSearch.vue";
 export default {
     name: "Results",
     components: {
-        ApartmentCard
+        ApartmentCard,
+        AdvancedSearch
     },
-    props: ['apartmentArray'],
+    props: ["apartmentArray"]
 };
 </script>
 
 <style lang="scss" scoped>
-    .cards-container {
-        display: flex;
-    }
+.main-content {
+    display: flex;
+}
+.cards-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 </style>

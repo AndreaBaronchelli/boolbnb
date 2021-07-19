@@ -1,9 +1,10 @@
 <template>
-    <div>
-    
+    <div class="searchbar">
         <div id="searchbox"></div>
-        <router-link :to="{name:'results'}">
-            <button @click="$emit('searchText', getSearchValue())">Search</button>
+        <router-link :to="{ name: 'results' }">
+            <button @click="$emit('searchText', getSearchValue())">
+                Search
+            </button>
         </router-link>
     </div>
 </template>
@@ -48,4 +49,12 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.searchbar {
+    display: flex;
+    align-items: center;
+}
+button {
+    margin-left: 1rem;
+}
+</style>

@@ -3,7 +3,10 @@
         <Header @searchText="performSearch" />
 
         <main>
-            <router-view :apartmentArray="apartmentsArray" ></router-view>
+            <router-view
+                :apartmentArray="apartmentsArray"
+                @searchText="performSearch"
+            ></router-view>
         </main>
     </div>
 </template>
@@ -37,6 +40,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../sass/frontoffice/_utilities";
 body {
     font-family: sans-serif;
     margin: 0;
