@@ -3,15 +3,15 @@
         <h1>results</h1>
         <div class="main-content">
             <AdvancedSearch />
-            <div class="cards-container">
+            <div v-if="Array.isArray(apartmentArray)">
+                <h2>No results found</h2>
+            </div>
+            <div class="cards-container" v-else>
                 <ApartmentCard
                     v-for="apartment in apartmentArray"
                     :key="apartment.id"
                     :apartment="apartment"
                 />
-            </div>
-            <div>
-                <h2>No results found</h2>
             </div>
         </div>
     </div>
