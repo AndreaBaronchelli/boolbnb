@@ -1,8 +1,8 @@
 <template>
     <div class="searchbar">
         <div id="searchbox"></div>
-        <router-link :to="{ name: 'results' }">
-            <button @click="$emit('searchText', getSearchValue())">
+        <router-link :to="{ name: 'results', params: { search: searchText } }">
+            <button @click="clickFunction()">
                 Search
             </button>
         </router-link>
@@ -13,7 +13,9 @@
 export default {
     name: "SearchBar",
     data() {
-        return {};
+        return {
+            searchText: 0
+        };
     },
     mounted() {
         this.createSearchBar();
@@ -44,6 +46,12 @@ export default {
                 "tt-search-box-input"
             )[0].value;
             return search;
+        },
+        clickFunction() {
+            this.searchText = document.getElementsByClassName(
+                "tt-search-box-input"
+            )[0].value;
+            this.$emit("searchText", this.getSearchValue());
         }
     }
 };

@@ -2196,7 +2196,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "SearchBar",
   data: function data() {
-    return {};
+    return {
+      searchText: 0
+    };
   },
   mounted: function mounted() {
     this.createSearchBar();
@@ -2224,6 +2226,10 @@ __webpack_require__.r(__webpack_exports__);
     getSearchValue: function getSearchValue() {
       var search = document.getElementsByClassName("tt-search-box-input")[0].value;
       return search;
+    },
+    clickFunction: function clickFunction() {
+      this.searchText = document.getElementsByClassName("tt-search-box-input")[0].value;
+      this.$emit("searchText", this.getSearchValue());
     }
   }
 });
@@ -6854,7 +6860,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.advanced-search {\r\n    display: flex;\r\n    flex-direction: column;\n}\n.form {\r\n    display: flex;\r\n    flex-direction: column;\n}\r\n", ""]);
+exports.push([module.i, "\n.advanced-search {\n    display: flex;\n    flex-direction: column;\n}\n.form {\n    display: flex;\n    flex-direction: column;\n}\n", ""]);
 
 // exports
 
@@ -39090,19 +39096,25 @@ var render = function() {
     [
       _c("div", { attrs: { id: "searchbox" } }),
       _vm._v(" "),
-      _c("router-link", { attrs: { to: { name: "results" } } }, [
-        _c(
-          "button",
-          {
-            on: {
-              click: function($event) {
-                _vm.$emit("searchText", _vm.getSearchValue())
+      _c(
+        "router-link",
+        {
+          attrs: { to: { name: "results", params: { search: _vm.searchText } } }
+        },
+        [
+          _c(
+            "button",
+            {
+              on: {
+                click: function($event) {
+                  return _vm.clickFunction()
+                }
               }
-            }
-          },
-          [_vm._v("\n            Search\n        ")]
-        )
-      ])
+            },
+            [_vm._v("\n            Search\n        ")]
+          )
+        ]
+      )
     ],
     1
   )
@@ -55281,7 +55293,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: "home",
     component: _pages_Home_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   }, {
-    path: "/results",
+    path: "/results/:search",
     name: "results",
     component: _pages_Results_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   }]
@@ -55308,8 +55320,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Boolean\Esercizi Corso\boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\Boolean\Esercizi Corso\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/andrea/Desktop/Boolean/Esercizi/boolbnb/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/andrea/Desktop/Boolean/Esercizi/boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
