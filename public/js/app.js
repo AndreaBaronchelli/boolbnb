@@ -2014,11 +2014,88 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "AdvancedSearch",
   components: {
     SearchBar: _SearchBar_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      services: {}
+    };
+  },
+  mounted: function mounted() {
+    this.createSearchBar();
+  },
+  created: function created() {
+    this.getServices();
+  },
+  methods: {
+    getServices: function getServices() {
+      var _this = this;
+
+      axios.get("http://127.0.0.1:8000/api/service").then(function (response) {
+        _this.services = response.data;
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
+    createSearchBar: function createSearchBar() {
+      var options = {
+        searchOptions: {
+          key: "HWJIfN6faq5SWzGHD4GKXdsexiZdkTDa",
+          language: "en-GB",
+          limit: 5
+        },
+        autocompleteOptions: {
+          key: "HWJIfN6faq5SWzGHD4GKXdsexiZdkTDa",
+          language: "en-GB"
+        }
+      };
+      var ttSearchBox = new tt.plugins.SearchBox(tt.services, options);
+      var searchBoxHTML = ttSearchBox.getSearchBoxHTML();
+      document.getElementById("advanced-searchbox").appendChild(searchBoxHTML);
+    },
+    getSearchValue: function getSearchValue() {
+      var search = document.getElementsByClassName("tt-search-box-input")[0].value;
+      document.getElementById('address').value = search;
+    }
   }
 });
 
@@ -6777,7 +6854,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.advanced-search {\r\n    display: flex;\n}\r\n", ""]);
+exports.push([module.i, "\n.advanced-search {\r\n    display: flex;\r\n    flex-direction: column;\n}\n.form {\r\n    display: flex;\r\n    flex-direction: column;\n}\r\n", ""]);
 
 // exports
 
@@ -38820,15 +38897,88 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "advanced-search" }, [
+    _c("h3", [_vm._v("AdvancedSearch")]),
+    _vm._v(" "),
+    _c("form", { staticClass: "form", attrs: { action: "" } }, [
+      _c("div", { attrs: { id: "advanced-searchbox" } }),
+      _vm._v(" "),
+      _c("label", { attrs: { for: "radius" } }, [_vm._v("Search radius")]),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _c("label", { attrs: { for: "rooms" } }, [_vm._v("Min rooms number")]),
+      _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
+      _c("label", { attrs: { for: "beds" } }, [_vm._v("Min beds number")]),
+      _vm._v(" "),
+      _vm._m(2),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "services" },
+        _vm._l(_vm.services, function(service) {
+          return _c("div", { key: service.id, staticClass: "service" }, [
+            _c("input", {
+              attrs: { type: "checkbox", name: service.name, id: service.id }
+            }),
+            _vm._v(" "),
+            _c("label", { attrs: { for: service.id } }, [
+              _vm._v(_vm._s(service.name))
+            ])
+          ])
+        }),
+        0
+      ),
+      _vm._v(" "),
+      _c("button", { attrs: { type: "submit" } }, [_vm._v("Search")])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "advanced-search" }, [
-      _c("h3", [_vm._v("AdvancedSearch")])
+    return _c("select", { attrs: { name: "radius", id: "radius" } }, [
+      _c("option", { attrs: { value: "10" } }, [_vm._v("10 km")]),
+      _vm._v(" "),
+      _c("option", { attrs: { selected: "", value: "20" } }, [_vm._v("20 km")]),
+      _vm._v(" "),
+      _c("option", { attrs: { value: "30" } }, [_vm._v("30 km")]),
+      _vm._v(" "),
+      _c("option", { attrs: { value: "40" } }, [_vm._v("40 km")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("select", { attrs: { name: "rooms", id: "rooms" } }, [
+      _c("option", { attrs: { value: "1" } }, [_vm._v("1")]),
+      _vm._v(" "),
+      _c("option", { attrs: { value: "2" } }, [_vm._v("2")]),
+      _vm._v(" "),
+      _c("option", { attrs: { value: "3" } }, [_vm._v("3")]),
+      _vm._v(" "),
+      _c("option", { attrs: { value: "4" } }, [_vm._v("4")]),
+      _vm._v(" "),
+      _c("option", { attrs: { value: "5" } }, [_vm._v("4+")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("select", { attrs: { name: "beds", id: "beds" } }, [
+      _c("option", { attrs: { value: "1" } }, [_vm._v("1")]),
+      _vm._v(" "),
+      _c("option", { attrs: { value: "2" } }, [_vm._v("2")]),
+      _vm._v(" "),
+      _c("option", { attrs: { value: "3" } }, [_vm._v("3")]),
+      _vm._v(" "),
+      _c("option", { attrs: { value: "4" } }, [_vm._v("3+")])
     ])
   }
 ]
