@@ -18,4 +18,5 @@ Route::namespace('Api')->group(function(){
     Route::get('/apartment', 'ApartmentController@index');
     Route::get('/apartment/{address}', 'ApartmentController@search');
     Route::get('/service', 'ServiceController@service');
+    Route::get('/apartment/{address}/{radius}/{rooms}/{beds}', 'ApartmentController@advancedSearch');
 });

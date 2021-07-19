@@ -1,41 +1,43 @@
 <template>
     <div class="advanced-search">
         <h3>AdvancedSearch</h3>
-        <form class="form" action="">
-            <div id="advanced-searchbox"></div>
-            <!-- <input type="text" id="address"> -->
-            <label for="radius">Search radius</label>
-            <select name="radius" id="radius">
-                <option value="10">10 km</option>
-                <option selected value="20">20 km</option>
-                <option value="30">30 km</option>
-                <option value="40">40 km</option>
-            </select>
-            <label for="rooms">Min rooms number</label>
-            <select name="rooms" id="rooms">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">4+</option>
-            </select>
-            <label for="beds">Min beds number</label>
-            <select name="beds" id="beds">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">3+</option>
-            </select>
-            
-            <div class="services">
-                <div class="service" v-for="service in services" :key="service.id">
-                    <input
-                    type="checkbox" :name="service.name" :id="service.id">
-                    <label :for="service.id">{{service.name}}</label>
-                </div>
+        
+        <div id="advanced-searchbox"></div>
+        <!-- <input type="text" id="address"> -->
+        <label for="radius">Search radius</label>
+        <select v-model="radius" name="radius" id="radius">
+            <option value="10">10 km</option>
+            <option selected value="20">20 km</option>
+            <option value="30">30 km</option>
+            <option value="40">40 km</option>
+        </select>
+        <label for="rooms">Min rooms number</label>
+        <select v-model="rooms" name="rooms" id="rooms">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">4+</option>
+        </select>
+        <label for="beds">Min beds number</label>
+        <select v-model="beds" name="beds" id="beds">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">3+</option>
+        </select>
+
+        <button @click="test">test</button>
+        
+        <div class="services">
+            <div class="service" v-for="(service, index) in services" :key="`${service.id} - ${index}`">
+                <input
+                type="checkbox" v-model="checkedServices[index]" :name="service.name" :id="service.id">
+                <label :for="service.id">{{service.name}}</label>
             </div>
-            <button type="submit">Search</button>
-        </form>
+        </div>
+        <button type="submit">Search</button>
+        
     </div>
 </template>
 
@@ -49,6 +51,10 @@ export default {
     data() {
         return {
             services: {},
+            radius: 0,
+            beds: 0,
+            rooms: 0,
+            checkedServices: [],
         }
     },
     mounted() {
@@ -58,6 +64,10 @@ export default {
         this.getServices();
     },
     methods: {
+        test() {
+            console.log(this.radius, this.beds, this.rooms, this.checkedServices);
+            console.log(document.getElementsByClassName("tt-search-box-input")[0].value);
+        },
         getServices() {
             axios.get("http://127.0.0.1:8000/api/service")
             .then(response => {
