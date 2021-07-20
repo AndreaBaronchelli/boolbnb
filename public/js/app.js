@@ -2267,6 +2267,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "MessageForm",
   data: function data() {
@@ -2274,12 +2281,15 @@ __webpack_require__.r(__webpack_exports__);
       name: '',
       email: '',
       phone_number: '',
-      num_guests: 0,
-      message: ''
+      num_guests: '',
+      message: '',
+      errors: {}
     };
   },
   methods: {
     sendMessage: function sendMessage() {
+      var _this = this;
+
       axios.post('http://127.0.0.1:8000/api/messageSubmit', {
         name: this.name,
         email: this.email,
@@ -2288,8 +2298,14 @@ __webpack_require__.r(__webpack_exports__);
         message: this.message
       }).then(function (response) {
         console.log(response.data);
+
+        if (response.data.errors) {
+          _this.errors = response.data.errors;
+        } else {//clear fields
+        }
       })["catch"](function (error) {
         console.log(error.data);
+        _this.errors = error.data;
       });
     }
   }
@@ -39523,7 +39539,7 @@ var render = function() {
       },
       [
         _c("div", { staticClass: "name" }, [
-          _c("label", { attrs: { for: "name" } }, [_vm._v("Name")]),
+          _c("label", { attrs: { for: "name" } }, [_vm._v("Name*")]),
           _c("br"),
           _vm._v(" "),
           _c("input", {
@@ -39548,8 +39564,14 @@ var render = function() {
           })
         ]),
         _vm._v(" "),
+        _vm._l(_vm.errors.name, function(error, index) {
+          return _c("div", { key: "err-name-" + index }, [
+            _vm._v(_vm._s(error))
+          ])
+        }),
+        _vm._v(" "),
         _c("div", { staticClass: "email" }, [
-          _c("label", { attrs: { for: "email" } }, [_vm._v("Email")]),
+          _c("label", { attrs: { for: "email" } }, [_vm._v("Email*")]),
           _c("br"),
           _vm._v(" "),
           _c("input", {
@@ -39574,9 +39596,15 @@ var render = function() {
           })
         ]),
         _vm._v(" "),
+        _vm._l(_vm.errors.email, function(error, index) {
+          return _c("div", { key: "err-email-" + index }, [
+            _vm._v(_vm._s(error))
+          ])
+        }),
+        _vm._v(" "),
         _c("div", { staticClass: "phone" }, [
           _c("label", { attrs: { for: "phone_number" } }, [
-            _vm._v("Phone Number")
+            _vm._v("Phone Number*")
           ]),
           _c("br"),
           _vm._v(" "),
@@ -39606,9 +39634,15 @@ var render = function() {
           })
         ]),
         _vm._v(" "),
+        _vm._l(_vm.errors.phone_number, function(error, index) {
+          return _c("div", { key: "err-phone-" + index }, [
+            _vm._v(_vm._s(error))
+          ])
+        }),
+        _vm._v(" "),
         _c("div", { staticClass: "guests" }, [
           _c("label", { attrs: { for: "num_guests" } }, [
-            _vm._v("Number of guests")
+            _vm._v("Number of guests*")
           ]),
           _c("br"),
           _vm._v(" "),
@@ -39638,8 +39672,14 @@ var render = function() {
           })
         ]),
         _vm._v(" "),
+        _vm._l(_vm.errors.num_guests, function(error, index) {
+          return _c("div", { key: "err-guests-" + index }, [
+            _vm._v(_vm._s(error))
+          ])
+        }),
+        _vm._v(" "),
         _c("div", { staticClass: "message" }, [
-          _c("label", { attrs: { for: "message" } }, [_vm._v("Message")]),
+          _c("label", { attrs: { for: "message" } }, [_vm._v("Message*")]),
           _c("br"),
           _vm._v(" "),
           _c("textarea", {
@@ -39670,8 +39710,15 @@ var render = function() {
           })
         ]),
         _vm._v(" "),
+        _vm._l(_vm.errors.message, function(error, index) {
+          return _c("div", { key: "err-message-" + index }, [
+            _vm._v(_vm._s(error))
+          ])
+        }),
+        _vm._v(" "),
         _c("button", { attrs: { type: "submit" } }, [_vm._v("Invia")])
-      ]
+      ],
+      2
     )
   ])
 }
