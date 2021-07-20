@@ -26,6 +26,10 @@
                     </li>
                 </ul>
             </div>
+            <router-link
+                :to="{ name: 'results', params: { search: this.query } }"
+                >Back to results</router-link
+            >
         </div>
         <div v-else>Loading...</div>
     </div>
@@ -41,6 +45,7 @@ export default {
             apartment: null
         };
     },
+    props: ["query"],
     created() {
         this.getDetails();
     },

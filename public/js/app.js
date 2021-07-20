@@ -2330,6 +2330,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ApartmentDetails",
@@ -2338,6 +2342,7 @@ __webpack_require__.r(__webpack_exports__);
       apartment: null
     };
   },
+  props: ["query"],
   created: function created() {
     this.getDetails();
   },
@@ -2400,6 +2405,12 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_ApartmentCard_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/ApartmentCard.vue */ "./resources/js/components/ApartmentCard.vue");
 /* harmony import */ var _components_AdvancedSearch_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/AdvancedSearch.vue */ "./resources/js/components/AdvancedSearch.vue");
+var _name$data$components;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
 //
 //
 //
@@ -2421,44 +2432,46 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 
-/* harmony default export */ __webpack_exports__["default"] = ({
+/* harmony default export */ __webpack_exports__["default"] = (_name$data$components = {
   name: "Results",
+  data: function data() {
+    return {
+      query: ""
+    };
+  },
   components: {
     ApartmentCard: _components_ApartmentCard_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     AdvancedSearch: _components_AdvancedSearch_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
-  },
-  props: ["query"],
-  data: function data() {
-    return {
-      apartmentsArray: []
-    };
-  },
-  created: function created() {
-    this.performSearch();
-  },
-  methods: {
-    performSearch: function performSearch() {
-      var _this = this;
-
-      axios.get("http://127.0.0.1:8000/api/apartment/".concat(this.$route.params.search)).then(function (response) {
-        console.log(response.data);
-        _this.apartmentsArray = response.data;
-      })["catch"](function (err) {
-        console.log(err);
-      });
-    },
-    performingSearch: function performingSearch(searchArray) {
-      // this.rooms = searchArray;
-      this.$emit("searchArray", searchArray); // console.log(this.rooms);
-      // axios.get(`http://127.0.0.1:8000/api/apartment/${searchText}`)
-      // .then(response => {
-      // })
-      // .catch(err => {
-      //     console.log(err);
-      // })
-    }
   }
-});
+}, _defineProperty(_name$data$components, "data", function data() {
+  return {
+    apartmentsArray: null
+  };
+}), _defineProperty(_name$data$components, "created", function created() {
+  this.performSearch();
+}), _defineProperty(_name$data$components, "methods", {
+  performSearch: function performSearch() {
+    var _this = this;
+
+    this.query = this.$route.params.search;
+    axios.get("http://127.0.0.1:8000/api/apartment/".concat(this.$route.params.search)).then(function (response) {
+      console.log(response.data);
+      _this.apartmentsArray = response.data;
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  },
+  performingSearch: function performingSearch(searchArray) {
+    // this.rooms = searchArray;
+    this.$emit("searchArray", searchArray); // console.log(this.rooms);
+    // axios.get(`http://127.0.0.1:8000/api/apartment/${searchText}`)
+    // .then(response => {
+    // })
+    // .catch(err => {
+    //     console.log(err);
+    // })
+  }
+}), _name$data$components);
 
 /***/ }),
 
@@ -39470,42 +39483,56 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _vm.apartment
-      ? _c("div", [
-          _c("img", {
-            attrs: {
-              src: "http://127.0.0.1:8000/storage/" + _vm.apartment.image,
-              alt: _vm.apartment.title
-            }
-          }),
-          _vm._v(" "),
-          _c("h2", [_vm._v(_vm._s(_vm.apartment.title))]),
-          _vm._v(" "),
-          _c("div", [_c("span", [_vm._v(_vm._s(_vm.apartment.address))])]),
-          _vm._v(" "),
-          _c("div", [
-            _c("span", [_vm._v(_vm._s(_vm.apartment.square_meters) + " mq")])
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("span", [
-              _vm._v("Price per night:\n                "),
-              _c("strong", [_vm._v("€" + _vm._s(_vm.apartment.price))])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _vm._v("\n            Available services:\n            "),
+      ? _c(
+          "div",
+          [
+            _c("img", {
+              attrs: {
+                src: "http://127.0.0.1:8000/storage/" + _vm.apartment.image,
+                alt: _vm.apartment.title
+              }
+            }),
+            _vm._v(" "),
+            _c("h2", [_vm._v(_vm._s(_vm.apartment.title))]),
+            _vm._v(" "),
+            _c("div", [_c("span", [_vm._v(_vm._s(_vm.apartment.address))])]),
+            _vm._v(" "),
+            _c("div", [
+              _c("span", [_vm._v(_vm._s(_vm.apartment.square_meters) + " mq")])
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("span", [
+                _vm._v("Price per night:\n                "),
+                _c("strong", [_vm._v("€" + _vm._s(_vm.apartment.price))])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _vm._v("\n            Available services:\n            "),
+              _c(
+                "ul",
+                _vm._l(_vm.apartment.services, function(service) {
+                  return _c("li", { key: service.id }, [
+                    _c("strong", [_vm._v(_vm._s(service.name))])
+                  ])
+                }),
+                0
+              )
+            ]),
+            _vm._v(" "),
             _c(
-              "ul",
-              _vm._l(_vm.apartment.services, function(service) {
-                return _c("li", { key: service.id }, [
-                  _c("strong", [_vm._v(_vm._s(service.name))])
-                ])
-              }),
-              0
+              "router-link",
+              {
+                attrs: {
+                  to: { name: "results", params: { search: this.query } }
+                }
+              },
+              [_vm._v("Back to results")]
             )
-          ])
-        ])
+          ],
+          1
+        )
       : _c("div", [_vm._v("Loading...")])
   ])
 }
@@ -39578,13 +39605,15 @@ var render = function() {
         _vm._v(" "),
         Array.isArray(_vm.apartmentsArray)
           ? _c("div", [_c("h2", [_vm._v("No results found")])])
+          : !_vm.apartmentsArray
+          ? _c("div", [_vm._v("Loading...")])
           : _c(
               "div",
               { staticClass: "cards-container" },
               _vm._l(_vm.apartmentsArray, function(apartment) {
                 return _c("ApartmentCard", {
                   key: apartment.id,
-                  attrs: { apartment: apartment }
+                  attrs: { apartment: apartment, query: _vm.query }
                 })
               }),
               1
