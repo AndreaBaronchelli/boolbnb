@@ -34,7 +34,9 @@
                 <textarea id="message" cols="30" rows="10" placeholder="Write your message here, I will answer you quickly :)" v-model="message"></textarea>
             </div>
             <div v-for="(error, index) in errors.message" :key="`err-message-${index}`">{{error}}</div>
-            <button type="submit">Invia</button>
+            <button type="submit" :disabled="sending">
+                {{ sending ? "Sending.." : "Send" }}
+            </button>
         </form>
         
   </div>
@@ -56,7 +58,8 @@ export default {
         }
     },
     methods: {
-        sendMessage(){      
+        sendMessage(){  
+            this.sending = true;    
             axios.post('http://127.0.0.1:8000/api/messageSubmit', {
                 name: this.name,
                 email: this.email,
@@ -67,6 +70,7 @@ export default {
             )
             .then(response => {
                 console.log(response.data);
+                this.sending = false;
                 if (response.data.errors) {
                     this.errors = response.data.errors;
                     this.success = false;

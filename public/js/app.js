@@ -2274,6 +2274,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "MessageForm",
   data: function data() {
@@ -2292,6 +2294,7 @@ __webpack_require__.r(__webpack_exports__);
     sendMessage: function sendMessage() {
       var _this = this;
 
+      this.sending = true;
       axios.post('http://127.0.0.1:8000/api/messageSubmit', {
         name: this.name,
         email: this.email,
@@ -2300,6 +2303,7 @@ __webpack_require__.r(__webpack_exports__);
         message: this.message
       }).then(function (response) {
         console.log(response.data);
+        _this.sending = false;
 
         if (response.data.errors) {
           _this.errors = response.data.errors;
@@ -39742,7 +39746,13 @@ var render = function() {
           ])
         }),
         _vm._v(" "),
-        _c("button", { attrs: { type: "submit" } }, [_vm._v("Invia")])
+        _c("button", { attrs: { type: "submit", disabled: _vm.sending } }, [
+          _vm._v(
+            "\n              " +
+              _vm._s(_vm.sending ? "Sending.." : "Send") +
+              "\n          "
+          )
+        ])
       ],
       2
     )
