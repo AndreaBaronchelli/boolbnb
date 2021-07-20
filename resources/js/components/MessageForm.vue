@@ -11,31 +11,31 @@
         <div class="error-field" v-for="(error, index) in errors.name" :key="`err-name-${index}`">{{error}}</div>
         <div class="field">
             <label for="name">Name*</label><br>
-            <input type="text" id="name" placeholder="Your name" v-model="name">
+            <input type="text" id="name" placeholder="Your name" v-model="message.name">
         </div>
         <!-- email -->
         <div class="error-field" v-for="(error, index) in errors.email" :key="`err-email-${index}`">{{error}}</div>
         <div class="field">
             <label for="email">Email*</label><br>
-            <input type="email" id="email" placeholder="Your email" v-model="email">
+            <input type="email" id="email" placeholder="Your email" v-model="message.email">
         </div>
         <!-- phone -->
         <div class="error-field" v-for="(error, index) in errors.phone_number" :key="`err-phone-${index}`">{{error}}</div>
         <div class="field">
             <label for="phone_number">Phone Number*</label><br>
-            <input type="tel" id="phone_number" placeholder="Your phone number" v-model="phone_number">
+            <input type="tel" id="phone_number" placeholder="Your phone number" v-model="message.phone_number">
         </div>
         <!-- num guests -->
         <div class="error-field" v-for="(error, index) in errors.num_guests" :key="`err-guests-${index}`">{{error}}</div>
         <div class="field">
             <label for="num_guests">Number of guests*</label><br>
-            <input type="number" id="num_guests" placeholder="Number of guests for your booking" v-model="num_guests">
+            <input type="number" id="num_guests" placeholder="Number of guests for your booking" v-model="message.num_guests">
         </div>
         <!-- Message -->
         <div class="error-field" v-for="(error, index) in errors.message" :key="`err-message-${index}`">{{error}}</div>
         <div class="field">
             <label for="message">Message*</label><br>
-            <textarea id="message" cols="30" rows="10" placeholder="Write your message here, I will answer you quickly :)" v-model="message"></textarea>
+            <textarea id="message" cols="30" rows="10" placeholder="Write your message here, I will answer you quickly :)" v-model="message.message"></textarea>
         </div>
         <button type="submit" :disabled="sending">
             {{ sending ? "Sending.." : "Send" }}
@@ -51,11 +51,10 @@ export default {
     props: ['apartment_id'],
     data() {
         return {
-            name: '',
-            email: '',
-            phone_number: '',
-            num_guests: '',
-            message: '',
+            message: {
+                apartment_id: this.apartment_id,
+                // gli altri valori (name, email, ecc...)vengono creati automaticamente compilando i campi della form
+            },
             errors: {},
             success: false,
             sending: false,
@@ -64,14 +63,9 @@ export default {
     methods: {
         sendMessage(){  
             this.sending = true;    
-            axios.post('http://127.0.0.1:8000/api/messageSubmit', {
-                name: this.name,
-                email: this.email,
-                phone_number: this.phone_number,
-                num_guests: this.num_guests,
-                message: this.message,
-                apartment_id: this.apartment_id,
-            },
+            console.log(this.message);
+            //invio a questo endpoind l'oggetto message con tutti i campi della form
+            axios.post('http://127.0.0.1:8000/api/messageSubmit', this.message
             )
             .then(response => {
                 console.log(response.data);

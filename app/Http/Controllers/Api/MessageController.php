@@ -33,5 +33,6 @@ class MessageController extends Controller
         $new_message->save();
         
         return response()->json($data);
+        // return response()->json($request->all());
     }
 }

@@ -2284,11 +2284,10 @@ __webpack_require__.r(__webpack_exports__);
   props: ['apartment_id'],
   data: function data() {
     return {
-      name: '',
-      email: '',
-      phone_number: '',
-      num_guests: '',
-      message: '',
+      message: {
+        apartment_id: this.apartment_id // gli altri valori (name, email, ecc...)vengono creati automaticamente compilando i campi della form
+
+      },
       errors: {},
       success: false,
       sending: false
@@ -2299,14 +2298,9 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.sending = true;
-      axios.post('http://127.0.0.1:8000/api/messageSubmit', {
-        name: this.name,
-        email: this.email,
-        phone_number: this.phone_number,
-        num_guests: this.num_guests,
-        message: this.message,
-        apartment_id: this.apartment_id
-      }).then(function (response) {
+      console.log(this.message); //invio a questo endpoind l'oggetto message con tutti i campi della form
+
+      axios.post('http://127.0.0.1:8000/api/messageSubmit', this.message).then(function (response) {
         console.log(response.data);
         _this.sending = false;
 
@@ -39642,18 +39636,18 @@ var render = function() {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.name,
-                expression: "name"
+                value: _vm.message.name,
+                expression: "message.name"
               }
             ],
             attrs: { type: "text", id: "name", placeholder: "Your name" },
-            domProps: { value: _vm.name },
+            domProps: { value: _vm.message.name },
             on: {
               input: function($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.name = $event.target.value
+                _vm.$set(_vm.message, "name", $event.target.value)
               }
             }
           })
@@ -39676,18 +39670,18 @@ var render = function() {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.email,
-                expression: "email"
+                value: _vm.message.email,
+                expression: "message.email"
               }
             ],
             attrs: { type: "email", id: "email", placeholder: "Your email" },
-            domProps: { value: _vm.email },
+            domProps: { value: _vm.message.email },
             on: {
               input: function($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.email = $event.target.value
+                _vm.$set(_vm.message, "email", $event.target.value)
               }
             }
           })
@@ -39712,8 +39706,8 @@ var render = function() {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.phone_number,
-                expression: "phone_number"
+                value: _vm.message.phone_number,
+                expression: "message.phone_number"
               }
             ],
             attrs: {
@@ -39721,13 +39715,13 @@ var render = function() {
               id: "phone_number",
               placeholder: "Your phone number"
             },
-            domProps: { value: _vm.phone_number },
+            domProps: { value: _vm.message.phone_number },
             on: {
               input: function($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.phone_number = $event.target.value
+                _vm.$set(_vm.message, "phone_number", $event.target.value)
               }
             }
           })
@@ -39752,8 +39746,8 @@ var render = function() {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.num_guests,
-                expression: "num_guests"
+                value: _vm.message.num_guests,
+                expression: "message.num_guests"
               }
             ],
             attrs: {
@@ -39761,13 +39755,13 @@ var render = function() {
               id: "num_guests",
               placeholder: "Number of guests for your booking"
             },
-            domProps: { value: _vm.num_guests },
+            domProps: { value: _vm.message.num_guests },
             on: {
               input: function($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.num_guests = $event.target.value
+                _vm.$set(_vm.message, "num_guests", $event.target.value)
               }
             }
           })
@@ -39790,8 +39784,8 @@ var render = function() {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.message,
-                expression: "message"
+                value: _vm.message.message,
+                expression: "message.message"
               }
             ],
             attrs: {
@@ -39801,13 +39795,13 @@ var render = function() {
               placeholder:
                 "Write your message here, I will answer you quickly :)"
             },
-            domProps: { value: _vm.message },
+            domProps: { value: _vm.message.message },
             on: {
               input: function($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.message = $event.target.value
+                _vm.$set(_vm.message, "message", $event.target.value)
               }
             }
           })
