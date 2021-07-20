@@ -31,7 +31,7 @@ class ApartmentController extends Controller
         return response()->json($apartment);
     }
 
-    //get post detail by slug
+    //get apartment detail by slug
     public function search($address){
 
         $response = Http::get("https://api.tomtom.com/search/2/search/${address}.json?radius=20000&key=4j77acI2RkgcxaYW2waGQ74SEPwpmFML");
@@ -44,7 +44,9 @@ class ApartmentController extends Controller
         $minLon = $posLon - 0.2;
         $maxLon = $posLon + 0.2;
 
-        $apartments = Apartment::all()->whereBetween('latitude', [$minLat, $maxLat], 'longitude', [$minLon, $maxLon]);
+        $apartments = Apartment::whereBetween('latitude', [$minLat, $maxLat])
+            ->whereBetween('longitude', [$minLon, $maxLon]) 
+            ->get();
 
 
         return response()->json($apartments);
