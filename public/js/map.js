@@ -2358,7 +2358,7 @@ axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/apar
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Maurizio\Desktop\boolbnb\resources\js\map.js */"./resources/js/map.js");
+module.exports = __webpack_require__(/*! /Users/andrea/Desktop/Boolean/Esercizi/boolbnb/resources/js/map.js */"./resources/js/map.js");
 
 
 /***/ })

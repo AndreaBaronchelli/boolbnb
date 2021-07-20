@@ -1,6 +1,5 @@
 <template>
     <div class="card">
-        <!-- DA RISOLVERE -->
         <img
             :src="`http://127.0.0.1:8000/storage/${apartment.image}`"
             :alt="apartment.title"
@@ -17,6 +16,13 @@
                 >Price per night: <strong>€{{ apartment.price }}</strong></span
             >
         </div>
+        <router-link
+            :to="{
+                name: 'apartment-details',
+                params: { slug: apartment.slug }
+            }"
+            >See Details</router-link
+        >
     </div>
 </template>
 

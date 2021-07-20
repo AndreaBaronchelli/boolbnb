@@ -24,6 +24,13 @@ class ApartmentController extends Controller
 
     }
 
+    public function show($slug) {
+
+        $apartment = Apartment::where('slug', $slug)->with('services')->first();
+
+        return response()->json($apartment);
+    }
+
     //get post detail by slug
     public function search($address){
 
