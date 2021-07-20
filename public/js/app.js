@@ -2278,6 +2278,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "MessageForm",
+  props: ['apartment_id'],
   data: function data() {
     return {
       name: '',
@@ -2300,7 +2301,8 @@ __webpack_require__.r(__webpack_exports__);
         email: this.email,
         phone_number: this.phone_number,
         num_guests: this.num_guests,
-        message: this.message
+        message: this.message,
+        apartment_id: this.apartment_id
       }).then(function (response) {
         console.log(response.data);
         _this.sending = false;
@@ -39871,7 +39873,7 @@ var render = function() {
               )
             ]),
             _vm._v(" "),
-            _c("MessageForm"),
+            _c("MessageForm", { attrs: { apartment_id: _vm.apartment.id } }),
             _vm._v(" "),
             _c(
               "router-link",

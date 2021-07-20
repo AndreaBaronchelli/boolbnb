@@ -11,7 +11,8 @@ class Message extends Model
         'email',
         'phone_number',
         'num_guests',
-        'message'
+        'message',
+        'apartment_id'
     ];
 
     // Link to Apartments table

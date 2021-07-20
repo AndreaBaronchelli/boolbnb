@@ -45,6 +45,7 @@
 <script>
 export default {
     name: "MessageForm",
+    props: ['apartment_id'],
     data() {
         return {
             name: '',
@@ -65,7 +66,8 @@ export default {
                 email: this.email,
                 phone_number: this.phone_number,
                 num_guests: this.num_guests,
-                message: this.message
+                message: this.message,
+                apartment_id: this.apartment_id,
             },
             )
             .then(response => {

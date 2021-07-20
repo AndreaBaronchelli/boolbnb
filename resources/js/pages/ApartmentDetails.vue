@@ -26,7 +26,7 @@
                     </li>
                 </ul>
             </div>
-            <MessageForm />
+            <MessageForm :apartment_id="apartment.id" />
             <router-link
                 :to="{ name: 'results', params: { search: this.query } }"
                 >Back to results</router-link
