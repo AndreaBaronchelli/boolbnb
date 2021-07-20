@@ -1,7 +1,9 @@
 <template>
     <header>
         <div class="container">
-            <router-link :to="{ name: 'home' }">Homepage</router-link>
+            <router-link :to="{ name: 'home' }">Logo
+            </router-link>
+            
         </div>
     </header>
 </template>
@@ -23,4 +25,9 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+header{
+    padding:20px;
+    background: white;
+}
+</style>
