@@ -75,13 +75,13 @@ export default {
                     this.success = false;
                 } else {
                     //clear fields
-                    this.name = '';
-                    this.email = '';
-                    this.phone_number = '';
-                    this.num_guests = '';
-                    this.message = '';
-                    this.errors = {};
-                    this.success = true;
+                    this.message.name = '';
+                    this.message.email = '';
+                    this.message.phone_number = '';
+                    this.message.num_guests = '';
+                    this.message.message = '';
+                    this.message.errors = {};
+                    this.message.success = true;
                 }
             })
             .catch(error => {
