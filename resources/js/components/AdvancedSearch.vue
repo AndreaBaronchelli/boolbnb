@@ -34,15 +34,12 @@
                 v-for="(service, index) in services" 
                 :key="`${service.id} - ${index}`">
                 <input
-                type="checkbox" 
+                type="checkbox" class="checkbox"
                 v-model="checkedServices[index]" 
                 :name="service.name" 
                 :id="service.id">
-                <label :for="service.id">{{service.name}}</label>
+                <label class="radio" id="radio" :for="service.id">{{service.name}}</label>
             </div>
-
-          
-
         </div>
         <button type="submit" @click="emitData">Search</button>
         
@@ -120,14 +117,102 @@ export default {
 </script>
 
 <style>
+template{
+    padding: 20px;
+}
 .advanced-search {
     display: flex;
     flex-direction: column;
+    background:white;
+    padding: 10px;
+    border-radius: 10px;
+    margin-right: 20px;
+    color:#511d1f;
 }
+select{
+    padding:10px;
+    border-color: #fb5a5f;
+    color:#fb5a5f;
+    
+}
+select:active,
+select:visited,
+select:target{
+    border:none;
+}
+label{
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+option{
+    color:#fb5a5f;
+}
+.checkbox {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+	margin: 30px;
+}
+.checkbox + label {
+	position: relative;
+	padding: 0 0 0 30px;
+	cursor: pointer;
+}
+.checkbox + label:before {
+	content: '';
+	position: absolute;
+	top:-35%;
+	left: 0;
+	width: 20px;
+	height: 20px;
+    border-radius: 25%;
+	background: #fb5a5f;
+	transition: .2s;
+}
+.checkbox + label:after {
+	content: '';
+	position: absolute;
+	top: -1px;
+	left: 0px;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background: #FFF;
+	transition: .2s;
+}
+.checkbox:checked + label:before {
+	background: #511d1f;
+}
+.checkbox:checked + label:after {
+	left: 10px;
+}
+.service{
+    margin-top: 0.2rem;
+    display: flex;
+    align-items:center;
+    justify-content: flex-start;
+
+}
+
 
 .form {
     display: flex;
     flex-direction: column;
 
+}
+button{
+    height: 52px;
+   line-height:52px;
+   font-size: 16px;
+   background:#fb5a5f;
+   text-decoration: none;
+   color:white;
+   padding: 0 10px;
+   border-width: 0;
+   margin:1rem 0;
+}
+button:hover{
+    background:#fd7d82;
 }
 </style>
