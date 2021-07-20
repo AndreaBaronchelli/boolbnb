@@ -1,7 +1,6 @@
 <template>
     <div class="cont">
         <Header @searchText="performSearch" />
-    <div>
 
         <main>
             <router-view
@@ -63,29 +62,29 @@ export default {
 @import "../sass/frontoffice/_utilities";
 @import "../sass/_variables";
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-main{
-    background:lightgray;
+main {
+    background: lightgray;
     padding: 20px 0;
-    h1{
-        color:#511d1f;
+    h1 {
+        color: #511d1f;
     }
 }
 
-.tt-search-box{
-       margin-top:0;
+.tt-search-box {
+    margin-top: 0;
 }
-.tt-search-box-input-container{
+.tt-search-box-input-container {
     padding: 0;
     height: 30px;
-    padding:10px;
+    padding: 10px;
     border: 1px solid #fb5a5f;
 }
-svg{
+svg {
     fill: #fb5a5f;
 }
 </style>
