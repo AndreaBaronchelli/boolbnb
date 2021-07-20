@@ -24,11 +24,14 @@ class MessageController extends Controller
             return response()->json([ 'errors' => $validator->errors() ]);
         }
 
-        $message = $request->all();
+        $data = $request->all();
 
         // save
+        $new_message = new Message();
+        $new_message->fill($data);
+
+        $new_message->save();
         
-        
-        return response()->json($message);
+        return response()->json($data);
     }
 }
