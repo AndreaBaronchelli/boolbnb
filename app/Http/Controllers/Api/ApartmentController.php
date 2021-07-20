@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Api;
 
 use App\Apartment;
 use App\Service;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\DB;
 
 
 class ApartmentController extends Controller
@@ -37,10 +39,14 @@ class ApartmentController extends Controller
 
         $apartments = Apartment::all()->whereBetween('latitude', [$minLat, $maxLat], 'longitude', [$minLon, $maxLon]);
 
+
         return response()->json($apartments);
     }
 
-    public function advancedSearch($address, $radius, $rooms, $beds) {
+    public function advancedSearch($address, $radius, $rooms, $beds, $services) {
+        //from services
+
+        
         
         //coordiates from tomtom
         $response = Http::get("https://api.tomtom.com/search/2/search/${address}.json?radius=20000&key=4j77acI2RkgcxaYW2waGQ74SEPwpmFML");
@@ -58,7 +64,43 @@ class ApartmentController extends Controller
 
         $apartments = Apartment::all()->whereBetween('latitude', [$minLat, $maxLat], 'longitude', [$minLon, $maxLon])->where('rooms', '>=', $rooms)->where('beds', '>=', $beds);
 
-        // $services = Service::all();
+        // dd($apartments);
+
+        $filteredApartments = [];
+
+        foreach ($apartments as $apartment) {
+            
+            // ottieni id appartamento
+            $id_apartment = $apartment->id;
+
+            // ottieni tutti i servizi dell'appartamento
+            $servizi_apartment = DB::table('apartment_service')->where([
+                ['apartment_id', '=', $id_apartment]
+            ])->get();
+
+            // conteggio servizi trovati
+            $founded = 0;
+
+            
+           
+
+            // cerca servizi corrispodenti
+            foreach ($servizi_apartment as $service) {
+                if (in_array($service->service_id, $services)) {
+                    $founded++;
+                }
+            }
+
+            if( $founded == count($services) ){
+                array_push($filteredApartments, $apartment);
+            }
+            
+
+
+        }
+
+        //dd($filteredApartments);
+        //$services = Service::all();
         // $new_array= [];
         // $serviceArray = $services->toArray();
         // for ($i=0; $i<count($serviceArray); $i++) {
@@ -73,7 +115,7 @@ class ApartmentController extends Controller
 
         // dd($new_array);
         
-        return response()->json($apartments);
+        return response()->json($filteredApartments);
     }
 
 }

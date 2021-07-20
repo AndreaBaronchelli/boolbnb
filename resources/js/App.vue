@@ -41,7 +41,7 @@ export default {
         },
         newSearch(searchArray) {
             console.log(searchArray);
-            axios.get(`http://127.0.0.1:8000/api/apartment/${searchArray.search}/${searchArray.radius}/${searchArray.rooms}/${searchArray.beds}`)
+            axios.get(`http://127.0.0.1:8000/api/apartment/${searchArray.search}/${searchArray.radius}/${searchArray.rooms}/${searchArray.beds}/${searchArray.checkedServices}`)
             .then(response => {
                 console.log(response.data);
             })

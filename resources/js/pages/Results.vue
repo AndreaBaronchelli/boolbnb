@@ -30,8 +30,11 @@ export default {
     data() {
         return {
             // rooms: '',
+            
         }
     },
+    
+    
     methods: {
         performingSearch(searchArray) {
             // this.rooms = searchArray;

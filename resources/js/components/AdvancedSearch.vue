@@ -30,11 +30,19 @@
         <!-- <button >test</button> -->
         
         <div class="services">
-            <div class="service" v-for="(service, index) in services" :key="`${service.id} - ${index}`">
+            <div class="service" 
+                v-for="(service, index) in services" 
+                :key="`${service.id} - ${index}`">
                 <input
-                type="checkbox" v-model="checkedServices[index]" :name="service.name" :id="service.id">
+                type="checkbox" 
+                v-model="checkedServices[index]" 
+                :name="service.name" 
+                :id="service.id">
                 <label :for="service.id">{{service.name}}</label>
             </div>
+
+          
+
         </div>
         <button type="submit" @click="emitData">Search</button>
         
@@ -58,6 +66,7 @@ export default {
             checkedServices: [],
         }
     },
+    
     mounted() {
         this.createSearchBar();
         document.getElementsByClassName("tt-search-box-input")[0].value = this.query;

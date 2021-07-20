@@ -1999,7 +1999,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     newSearch: function newSearch(searchArray) {
       console.log(searchArray);
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/apartment/".concat(searchArray.search, "/").concat(searchArray.radius, "/").concat(searchArray.rooms, "/").concat(searchArray.beds)).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/apartment/".concat(searchArray.search, "/").concat(searchArray.radius, "/").concat(searchArray.rooms, "/").concat(searchArray.beds, "/").concat(searchArray.checkedServices)).then(function (response) {
         console.log(response.data);
       })["catch"](function (err) {
         console.log(err);
@@ -2020,6 +2020,14 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _SearchBar_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SearchBar.vue */ "./resources/js/components/SearchBar.vue");
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -55485,8 +55493,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Boolean\Esercizi Corso\boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\Boolean\Esercizi Corso\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Maurizio\Desktop\boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Maurizio\Desktop\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
