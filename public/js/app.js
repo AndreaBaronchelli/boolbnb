@@ -2265,24 +2265,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "MessageForm",
   data: function data() {
     return {
-      message: {}
+      name: '',
+      email: '',
+      phone_number: '',
+      num_guests: 0,
+      message: ''
     };
   },
   methods: {
     sendMessage: function sendMessage() {
-      message = this.message;
-      axios.post('/formSubmit', {
-        name: message.name,
-        mail: message.mail,
-        phone: message.phoneNumber,
-        guests: message.guests,
-        text: message.textMessage
-      }).then(function (response) {//
-      })["catch"](function (error) {//
+      axios.post('http://127.0.0.1:8000/api/messageSubmit', {
+        name: this.name,
+        email: this.email,
+        phone_number: this.phone_number,
+        num_guests: this.num_guests,
+        message: this.message
+      }).then(function (response) {
+        console.log(response.data);
+      })["catch"](function (error) {
+        console.log(error.data);
       });
     }
   }
@@ -39504,165 +39511,168 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "message-form" }, [
-    _c("div", { staticClass: "name" }, [
-      _c("label", { attrs: { for: "user-name" } }, [_vm._v("Name")]),
-      _c("br"),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.message.name,
-            expression: "message.name"
-          }
-        ],
-        attrs: {
-          type: "text",
-          name: "user-name",
-          id: "user-name",
-          placeholder: "Your name"
-        },
-        domProps: { value: _vm.message.name },
+    _c(
+      "form",
+      {
         on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.$set(_vm.message, "name", $event.target.value)
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.sendMessage.apply(null, arguments)
           }
         }
-      })
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "email" }, [
-      _c("label", { attrs: { for: "email" } }, [_vm._v("Email")]),
-      _c("br"),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.message.mail,
-            expression: "message.mail"
-          }
-        ],
-        attrs: {
-          type: "email",
-          name: "email",
-          id: "email",
-          placeholder: "Your email"
-        },
-        domProps: { value: _vm.message.mail },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+      },
+      [
+        _c("div", { staticClass: "name" }, [
+          _c("label", { attrs: { for: "name" } }, [_vm._v("Name")]),
+          _c("br"),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.name,
+                expression: "name"
+              }
+            ],
+            attrs: { type: "text", id: "name", placeholder: "Your name" },
+            domProps: { value: _vm.name },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.name = $event.target.value
+              }
             }
-            _vm.$set(_vm.message, "mail", $event.target.value)
-          }
-        }
-      })
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "phone" }, [
-      _c("label", { attrs: { for: "phone-num" } }, [_vm._v("Phone Number")]),
-      _c("br"),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.message.phoneNumber,
-            expression: "message.phoneNumber"
-          }
-        ],
-        attrs: {
-          type: "tel",
-          name: "phone-num",
-          id: "phone-num",
-          placeholder: "Your phone number"
-        },
-        domProps: { value: _vm.message.phoneNumber },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "email" }, [
+          _c("label", { attrs: { for: "email" } }, [_vm._v("Email")]),
+          _c("br"),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.email,
+                expression: "email"
+              }
+            ],
+            attrs: { type: "email", id: "email", placeholder: "Your email" },
+            domProps: { value: _vm.email },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.email = $event.target.value
+              }
             }
-            _vm.$set(_vm.message, "phoneNumber", $event.target.value)
-          }
-        }
-      })
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "guests" }, [
-      _c("label", { attrs: { for: "guests" } }, [_vm._v("Number of guests")]),
-      _c("br"),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.message.guests,
-            expression: "message.guests"
-          }
-        ],
-        attrs: {
-          type: "number",
-          name: "guests",
-          id: "guests",
-          placeholder: "Number of guests for your booking"
-        },
-        domProps: { value: _vm.message.guests },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "phone" }, [
+          _c("label", { attrs: { for: "phone_number" } }, [
+            _vm._v("Phone Number")
+          ]),
+          _c("br"),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.phone_number,
+                expression: "phone_number"
+              }
+            ],
+            attrs: {
+              type: "tel",
+              id: "phone_number",
+              placeholder: "Your phone number"
+            },
+            domProps: { value: _vm.phone_number },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.phone_number = $event.target.value
+              }
             }
-            _vm.$set(_vm.message, "guests", $event.target.value)
-          }
-        }
-      })
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "message" }, [
-      _c("label", { attrs: { for: "message" } }, [_vm._v("Message")]),
-      _c("br"),
-      _vm._v(" "),
-      _c("textarea", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.message.textMessage,
-            expression: "message.textMessage"
-          }
-        ],
-        attrs: {
-          name: "message",
-          id: "message",
-          cols: "30",
-          rows: "10",
-          placeholder: "Write your message here, I will answer you quickly :)"
-        },
-        domProps: { value: _vm.message.textMessage },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "guests" }, [
+          _c("label", { attrs: { for: "num_guests" } }, [
+            _vm._v("Number of guests")
+          ]),
+          _c("br"),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.num_guests,
+                expression: "num_guests"
+              }
+            ],
+            attrs: {
+              type: "number",
+              id: "num_guests",
+              placeholder: "Number of guests for your booking"
+            },
+            domProps: { value: _vm.num_guests },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.num_guests = $event.target.value
+              }
             }
-            _vm.$set(_vm.message, "textMessage", $event.target.value)
-          }
-        }
-      })
-    ]),
-    _vm._v(" "),
-    _c("button", { staticClass: "btn", on: { click: _vm.sendMessage } }, [
-      _vm._v("Invia")
-    ])
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "message" }, [
+          _c("label", { attrs: { for: "message" } }, [_vm._v("Message")]),
+          _c("br"),
+          _vm._v(" "),
+          _c("textarea", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.message,
+                expression: "message"
+              }
+            ],
+            attrs: {
+              id: "message",
+              cols: "30",
+              rows: "10",
+              placeholder:
+                "Write your message here, I will answer you quickly :)"
+            },
+            domProps: { value: _vm.message },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.message = $event.target.value
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("button", { attrs: { type: "submit" } }, [_vm._v("Invia")])
+      ]
+    )
   ])
 }
 var staticRenderFns = []
