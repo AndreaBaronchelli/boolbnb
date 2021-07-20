@@ -1,6 +1,33 @@
 <template>
     <div class="container">
-        <h1>{{ apartment.title }}</h1>
+        <div v-if="apartment">
+            <img
+                :src="`http://127.0.0.1:8000/storage/${apartment.image}`"
+                :alt="apartment.title"
+            />
+            <h2>{{ apartment.title }}</h2>
+            <div>
+                <span>{{ apartment.address }}</span>
+            </div>
+            <div>
+                <span>{{ apartment.square_meters }} mq</span>
+            </div>
+            <div>
+                <span
+                    >Price per night:
+                    <strong>€{{ apartment.price }}</strong></span
+                >
+            </div>
+            <div>
+                Available services:
+                <ul>
+                    <li v-for="service in apartment.services" :key="service.id">
+                        <strong>{{ service.name }}</strong>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div v-else>Loading...</div>
     </div>
 </template>
 
@@ -35,4 +62,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+img {
+    max-width: 500px;
+}
+</style>
