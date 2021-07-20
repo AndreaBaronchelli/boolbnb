@@ -71,8 +71,13 @@ export default {
             tt.setProductInfo("BoolBnB", "1.0");
             tt.map({
                 key: "4j77acI2RkgcxaYW2waGQ74SEPwpmFML",
-                container: "map"
+                container: "map",
+                center: [12.48, 41.9], //Roma
+                zoom: 4
             });
+            // var marker = new tt.Marker()
+            //     .setLngLat([this.apartment.longitude, this.apartment.latitude])
+            //     .addTo(map);
         }
     }
 };
@@ -83,7 +88,7 @@ img {
     max-width: 500px;
 }
 #map {
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
 }
 </style>

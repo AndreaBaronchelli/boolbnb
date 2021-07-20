@@ -2379,8 +2379,13 @@ __webpack_require__.r(__webpack_exports__);
       _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_1___default.a.setProductInfo("BoolBnB", "1.0");
       _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_1___default.a.map({
         key: "4j77acI2RkgcxaYW2waGQ74SEPwpmFML",
-        container: "map"
-      });
+        container: "map",
+        center: [12.48, 41.9],
+        //Roma
+        zoom: 4
+      }); // var marker = new tt.Marker()
+      //     .setLngLat([this.apartment.longitude, this.apartment.latitude])
+      //     .addTo(map);
     }
   }
 });
@@ -7011,7 +7016,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "img[data-v-1b16c839] {\n  max-width: 500px;\n}\n#map[data-v-1b16c839] {\n  width: 200px;\n  height: 200px;\n}", ""]);
+exports.push([module.i, "img[data-v-1b16c839] {\n  max-width: 500px;\n}\n#map[data-v-1b16c839] {\n  width: 300px;\n  height: 300px;\n}", ""]);
 
 // exports
 
