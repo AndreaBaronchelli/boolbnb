@@ -2283,7 +2283,9 @@ __webpack_require__.r(__webpack_exports__);
       phone_number: '',
       num_guests: '',
       message: '',
-      errors: {}
+      errors: {},
+      success: false,
+      sending: false
     };
   },
   methods: {
@@ -2301,7 +2303,16 @@ __webpack_require__.r(__webpack_exports__);
 
         if (response.data.errors) {
           _this.errors = response.data.errors;
-        } else {//clear fields
+          _this.success = false;
+        } else {
+          //clear fields
+          _this.name = '';
+          _this.email = '';
+          _this.phone_number = '';
+          _this.num_guests = '';
+          _this.message = '';
+          _this.errors = {};
+          _this.success = true;
         }
       })["catch"](function (error) {
         console.log(error.data);
@@ -39527,6 +39538,21 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "message-form" }, [
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.success,
+            expression: "success"
+          }
+        ]
+      },
+      [_vm._v("Message sended successfully")]
+    ),
+    _vm._v(" "),
     _c(
       "form",
       {

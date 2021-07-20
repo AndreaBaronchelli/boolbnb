@@ -1,9 +1,9 @@
 <template>
   <div class="message-form">
+
+        <div v-show="success">Message sended successfully</div>
       
         <form @submit.prevent="sendMessage">
-
-
             <!-- name -->
             <div class="name">
                 <label for="name">Name*</label><br>
@@ -51,6 +51,8 @@ export default {
             num_guests: '',
             message: '',
             errors: {},
+            success: false,
+            sending: false,
         }
     },
     methods: {
@@ -67,8 +69,17 @@ export default {
                 console.log(response.data);
                 if (response.data.errors) {
                     this.errors = response.data.errors;
+                    this.success = false;
                 } else {
                     //clear fields
+                    this.name = '';
+                    this.email = '';
+                    this.phone_number = '';
+                    this.num_guests = '';
+                    this.message = '';
+
+                    this.errors = {};
+                    this.success = true;
                 }
             })
             .catch(error => {
