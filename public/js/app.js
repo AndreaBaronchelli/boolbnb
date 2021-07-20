@@ -1972,7 +1972,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1987,6 +1986,9 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    setQuery: function setQuery(searchText) {
+      this.searchText = searchText;
+    },
     performSearch: function performSearch(searchText) {
       var _this = this;
 
@@ -2425,15 +2427,29 @@ __webpack_require__.r(__webpack_exports__);
     ApartmentCard: _components_ApartmentCard_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     AdvancedSearch: _components_AdvancedSearch_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
-  props: ["apartmentArray", 'query'],
+  props: ["query"],
   data: function data() {
-    return {// rooms: '',
+    return {
+      apartmentsArray: []
     };
   },
+  created: function created() {
+    this.performSearch();
+  },
   methods: {
+    performSearch: function performSearch() {
+      var _this = this;
+
+      axios.get("http://127.0.0.1:8000/api/apartment/".concat(this.$route.params.search)).then(function (response) {
+        console.log(response.data);
+        _this.apartmentsArray = response.data;
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
     performingSearch: function performingSearch(searchArray) {
       // this.rooms = searchArray;
-      this.$emit('searchArray', searchArray); // console.log(this.rooms);
+      this.$emit("searchArray", searchArray); // console.log(this.rooms);
       // axios.get(`http://127.0.0.1:8000/api/apartment/${searchText}`)
       // .then(response => {
       // })
@@ -39049,17 +39065,14 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("Header", { on: { searchText: _vm.performSearch } }),
+      _c("Header"),
       _vm._v(" "),
       _c(
         "main",
         [
           _c("router-view", {
-            attrs: {
-              apartmentArray: _vm.apartmentsArray,
-              query: _vm.searchText
-            },
-            on: { searchText: _vm.performSearch, searchArray: _vm.newSearch }
+            attrs: { query: _vm.searchText },
+            on: { searchText: _vm.setQuery, searchArray: _vm.newSearch }
           })
         ],
         1
@@ -39563,12 +39576,12 @@ var render = function() {
           on: { searchArray: _vm.performingSearch }
         }),
         _vm._v(" "),
-        Array.isArray(_vm.apartmentArray)
+        Array.isArray(_vm.apartmentsArray)
           ? _c("div", [_c("h2", [_vm._v("No results found")])])
           : _c(
               "div",
               { staticClass: "cards-container" },
-              _vm._l(_vm.apartmentArray, function(apartment) {
+              _vm._l(_vm.apartmentsArray, function(apartment) {
                 return _c("ApartmentCard", {
                   key: apartment.id,
                   attrs: { apartment: apartment }

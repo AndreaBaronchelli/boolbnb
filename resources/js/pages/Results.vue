@@ -3,12 +3,12 @@
         <h1>results</h1>
         <div class="main-content">
             <AdvancedSearch @searchArray="performingSearch" :query="query" />
-            <div v-if="Array.isArray(apartmentArray)">
+            <div v-if="Array.isArray(apartmentsArray)">
                 <h2>No results found</h2>
             </div>
             <div class="cards-container" v-else>
                 <ApartmentCard
-                    v-for="apartment in apartmentArray"
+                    v-for="apartment in apartmentsArray"
                     :key="apartment.id"
                     :apartment="apartment"
                 />
@@ -26,19 +26,32 @@ export default {
         ApartmentCard,
         AdvancedSearch
     },
-    props: ["apartmentArray", 'query'],
+    props: ["query"],
     data() {
         return {
-            // rooms: '',
-            
-        }
+            apartmentsArray: []
+        };
     },
-    
-    
+    created() {
+        this.performSearch();
+    },
     methods: {
+        performSearch() {
+            axios
+                .get(
+                    `http://127.0.0.1:8000/api/apartment/${this.$route.params.search}`
+                )
+                .then(response => {
+                    console.log(response.data);
+                    this.apartmentsArray = response.data;
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+        },
         performingSearch(searchArray) {
             // this.rooms = searchArray;
-            this.$emit('searchArray',searchArray);
+            this.$emit("searchArray", searchArray);
             // console.log(this.rooms);
             // axios.get(`http://127.0.0.1:8000/api/apartment/${searchText}`)
             // .then(response => {

@@ -1,11 +1,10 @@
 <template>
     <div>
-        <Header @searchText="performSearch" />
+        <Header />
 
         <main>
             <router-view
-                :apartmentArray="apartmentsArray"
-                @searchText="performSearch"
+                @searchText="setQuery"
                 @searchArray="newSearch"
                 :query="searchText"
             ></router-view>
@@ -28,6 +27,9 @@ export default {
         };
     },
     methods: {
+        setQuery(searchText) {
+            this.searchText = searchText;
+        },
         performSearch(searchText) {
             this.searchText = searchText;
             axios
