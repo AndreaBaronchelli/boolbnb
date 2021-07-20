@@ -27,9 +27,11 @@ Route::prefix('admin')
         Route::get('/', 'HomeController@index')->name('home');
         Route::resource('/apartments', 'ApartmentController');
         Route::resource('/sponsors', 'SponsorController');
+        
     });
 
 // FRONT OFFICE
 Route::get('{any?}', function () {
     return view('guest.home');
 })->where("any", ".*");
+

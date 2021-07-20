@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+@section('head')
+    <link rel='stylesheet' type='text/css' href='https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox.css'>
+    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.1.2-public-preview.15/services/services-web.min.js"></script>
+    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox-web.js"></script>
+@endsection
+
 @section('content')
     <div class="container">
         <form action="{{ route('admin.apartments.store') }}" method="post" class="form form-horizontal" enctype="multipart/form-data">
@@ -56,40 +62,10 @@
                 @enderror
             </div>
 
-            <div class="mb-3">
-                <label for="street_name" class="form-label">Street Name</label> 
-                <input type="text" id="street_name" name="street_name" placeholder="Street Name Here..." class="form-control @error('street_name') is-invalid @enderror" value="{{ old('street_name') }}">
-                @error('street_name')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
-
-            <div class="mb-3">
-                <label for="house_number" class="form-label">House Number</label> 
-                <input type="text" id="house_number" name="house_number" placeholder="House Number Here..." class="form-control @error('house_number') is-invalid @enderror" value="{{ old('house_number') }}">
-                @error('house_number')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
-
-            <div class="mb-3">
-                <label for="city" class="form-label">City*</label> 
-                <input type="text" id="city" name="city" placeholder="City Here..." class="form-control @error('city') is-invalid @enderror" value="{{ old('city') }}">
-                @error('city')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
-
-            <div class="mb-3">
-                <label for="country" class="form-label">Country*</label> 
-                <input type="text" id="country" name="country" placeholder="Country Here..." class="form-control @error('country') is-invalid @enderror" value="{{ old('country') }}">
-                @error('country')
+            <div class="mb-3" id="searchbox">
+                <label for="address" class="form-label">Address*</label> 
+                <input type="text" id="address" name="address" placeholder="Address Here..." class="d-none form-control @error('address') is-invalid @enderror" value="{{ old('address') }}">
+                @error('address')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
@@ -141,4 +117,29 @@
             <button type="submit" class='btn btn-primary'>SUBMIT</button>
         </form>
     </div>
+
+    <script>
+        var options = {
+            searchOptions: {
+                key: 'HWJIfN6faq5SWzGHD4GKXdsexiZdkTDa',
+                language: 'en-GB',
+                limit: 5
+            },
+            autocompleteOptions: {
+                key: 'HWJIfN6faq5SWzGHD4GKXdsexiZdkTDa',
+                language: 'en-GB'
+            }
+        };
+        var ttSearchBox = new tt.plugins.SearchBox(tt.services, options);
+        var searchBoxHTML = ttSearchBox.getSearchBoxHTML();
+        
+        document.getElementById('searchbox').appendChild(searchBoxHTML);
+
+        ttSearchBox.setValue(document.getElementById('address').value);
+
+        document.getElementById('searchbox').addEventListener('focusout', function(e) {
+            
+        document.getElementById('address').value = ttSearchBox.getValue();
+        })
+    </script>
 @endsection

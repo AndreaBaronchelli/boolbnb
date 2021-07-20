@@ -10946,3 +10946,8 @@ td {
   width: 90px;
 }
 
+.container {
+  max-width: 1170px;
+  margin: 0 auto;
+}
+

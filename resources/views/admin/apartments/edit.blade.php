@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+@section('head')
+    <link rel='stylesheet' type='text/css' href='https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox.css'>
+    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.1.2-public-preview.15/services/services-web.min.js"></script>
+    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox-web.js"></script>
+@endsection
+
 @section('content')
     <div class="container">
         <h1 class="text-secondary">Edit {{$apartment->title}}</h1>
@@ -69,9 +75,9 @@
                 @enderror
             </div>
 
-            <div class="mb-3">
+            <div class="mb-3" id="searchbox">
                 <label for="address" class="form-label">Address*</label> 
-                <input type="text" id="address" name="address" placeholder="Address Here..." class="form-control @error('address') is-invalid @enderror" value="{{ $apartment->address }}">
+                <input type="text" id="address" name="address" placeholder="Address Here..." class="d-none form-control @error('address') is-invalid @enderror" value="{{ $apartment->address }}">
                 @error('address')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -134,5 +140,30 @@
             <button type="submit" class='btn btn-primary'>SUBMIT</button>
         </form>
     </div>
+
+    <script>
+        var options = {
+            searchOptions: {
+                key: 'HWJIfN6faq5SWzGHD4GKXdsexiZdkTDa',
+                language: 'en-GB',
+                limit: 5
+            },
+            autocompleteOptions: {
+                key: 'HWJIfN6faq5SWzGHD4GKXdsexiZdkTDa',
+                language: 'en-GB'
+            }
+        };
+        var ttSearchBox = new tt.plugins.SearchBox(tt.services, options);
+        var searchBoxHTML = ttSearchBox.getSearchBoxHTML();
+        
+        document.getElementById('searchbox').appendChild(searchBoxHTML);
+
+        ttSearchBox.setValue(document.getElementById('address').value); 
+
+        document.getElementById('searchbox').addEventListener('focusout', function(e) {
+            
+        document.getElementById('address').value = ttSearchBox.getValue();
+        })
+    </script>
     
 @endsection
