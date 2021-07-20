@@ -20,4 +20,5 @@ Route::namespace('Api')->group(function(){
     Route::get('/service', 'ServiceController@service');
     Route::get('/apartment/{address}/{radius}/{rooms}/{beds}/{services}', 'ApartmentController@advancedSearch');
     Route::get('/apartment={slug}', 'ApartmentController@show');
+    Route::post('/messageSubmit', 'MessageController@send');
 });
