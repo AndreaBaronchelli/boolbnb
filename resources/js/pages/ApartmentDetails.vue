@@ -72,8 +72,8 @@ export default {
             tt.map({
                 key: "4j77acI2RkgcxaYW2waGQ74SEPwpmFML",
                 container: "map",
-                center: [12.48, 41.9], //Roma
-                zoom: 4
+                center: [this.apartment.longitude, this.apartment.latitude], //Roma
+                zoom: 16
             });
             // var marker = new tt.Marker()
             //     .setLngLat([this.apartment.longitude, this.apartment.latitude])

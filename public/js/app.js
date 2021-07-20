@@ -2380,9 +2380,9 @@ __webpack_require__.r(__webpack_exports__);
       _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_1___default.a.map({
         key: "4j77acI2RkgcxaYW2waGQ74SEPwpmFML",
         container: "map",
-        center: [12.48, 41.9],
+        center: [this.apartment.longitude, this.apartment.latitude],
         //Roma
-        zoom: 4
+        zoom: 16
       }); // var marker = new tt.Marker()
       //     .setLngLat([this.apartment.longitude, this.apartment.latitude])
       //     .addTo(map);
@@ -39635,9 +39635,7 @@ var render = function() {
           on: { searchArray: _vm.performingSearch }
         }),
         _vm._v(" "),
-        Array.isArray(_vm.apartmentsArray)
-          ? _c("div", [_c("h2", [_vm._v("No results found")])])
-          : !_vm.apartmentsArray
+        !_vm.apartmentsArray
           ? _c("div", [_vm._v("Loading...")])
           : _c(
               "div",
