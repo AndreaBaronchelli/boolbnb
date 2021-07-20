@@ -26,6 +26,7 @@
                     </li>
                 </ul>
             </div>
+            <div id="map" class="map"></div>
             <router-link
                 :to="{ name: 'results', params: { search: this.query } }"
                 >Back to results</router-link
@@ -37,6 +38,7 @@
 
 <script>
 import axios from "axios";
+import tt from "@tomtom-international/web-sdk-maps";
 
 export default {
     name: "ApartmentDetails",
@@ -49,6 +51,9 @@ export default {
     created() {
         this.getDetails();
     },
+    updated() {
+        this.createMap();
+    },
     methods: {
         getDetails() {
             axios
@@ -56,12 +61,18 @@ export default {
                     `http://127.0.0.1:8000/api/apartment=${this.$route.params.slug}`
                 )
                 .then(response => {
-                    console.log(response.data);
                     this.apartment = response.data;
                 })
                 .catch(error => {
                     console.log(error);
                 });
+        },
+        createMap() {
+            tt.setProductInfo("BoolBnB", "1.0");
+            tt.map({
+                key: "4j77acI2RkgcxaYW2waGQ74SEPwpmFML",
+                container: "map"
+            });
         }
     }
 };
@@ -70,5 +81,9 @@ export default {
 <style lang="scss" scoped>
 img {
     max-width: 500px;
+}
+#map {
+    width: 200px;
+    height: 200px;
 }
 </style>
