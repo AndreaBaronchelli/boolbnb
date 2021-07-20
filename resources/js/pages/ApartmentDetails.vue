@@ -26,6 +26,7 @@
                     </li>
                 </ul>
             </div>
+            <MessageForm />
             <router-link
                 :to="{ name: 'results', params: { search: this.query } }"
                 >Back to results</router-link
@@ -37,9 +38,13 @@
 
 <script>
 import axios from "axios";
+import MessageForm from "../components/MessageForm.vue"
 
 export default {
     name: "ApartmentDetails",
+    components: {
+        MessageForm,
+    },
     data() {
         return {
             apartment: null
