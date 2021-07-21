@@ -2320,13 +2320,13 @@ __webpack_require__.r(__webpack_exports__);
           _this.success = false;
         } else {
           //clear fields
-          _this.name = '';
-          _this.email = '';
-          _this.phone_number = '';
-          _this.num_guests = '';
-          _this.message = '';
-          _this.errors = {};
-          _this.success = true;
+          _this.message.name = '';
+          _this.message.email = '';
+          _this.message.phone_number = '';
+          _this.message.num_guests = '';
+          _this.message.message = '';
+          _this.message.errors = {};
+          _this.message.success = true;
         }
       })["catch"](function (error) {
         console.log(error.data);
@@ -7219,7 +7219,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\ntemplate{\n    padding: 20px;\n}\n.advanced-search {\n    display: flex;\n    flex-direction: column;\n    background:white;\n    padding: 10px;\n    border-radius: 10px;\n    margin-right: 20px;\n    color:#511d1f;\n}\nselect{\n    padding:10px;\n    border-color: #fb5a5f;\n    color:#fb5a5f;\n}\nselect:active,\nselect:visited,\nselect:target{\n    border:none;\n}\nlabel{\n    margin-top: 1rem;\n    margin-bottom: 0.5rem;\n    font-weight: bold;\n}\noption{\n    color:#fb5a5f;\n}\n.checkbox {\n\tposition: absolute;\n\tz-index: -1;\n\topacity: 0;\n\tmargin: 30px;\n}\n.checkbox + label {\n\tposition: relative;\n\tpadding: 0 0 0 30px;\n\tcursor: pointer;\n}\n.checkbox + label:before {\n\tcontent: '';\n\tposition: absolute;\n\ttop:-35%;\n\tleft: 0;\n\twidth: 20px;\n\theight: 20px;\n    border-radius: 25%;\n\tbackground: #fb5a5f;\n\ttransition: .2s;\n}\n.checkbox + label:after {\n\tcontent: '';\n\tposition: absolute;\n\ttop: -1px;\n\tleft: 0px;\n\twidth: 10px;\n\theight: 10px;\n\tborder-radius: 50%;\n\tbackground: #FFF;\n\ttransition: .2s;\n}\n.checkbox:checked + label:before {\n\tbackground: #511d1f;\n}\n.checkbox:checked + label:after {\n\tleft: 10px;\n}\n.service{\n    margin-top: 0.2rem;\n    display: flex;\n    align-items:center;\n    justify-content: flex-start;\n}\n.form {\n    display: flex;\n    flex-direction: column;\n}\nbutton{\n    height: 52px;\n   line-height:52px;\n   font-size: 16px;\n   background:#fb5a5f;\n   text-decoration: none;\n   color:white;\n   padding: 0 10px;\n   border-width: 0;\n   margin:1rem 0;\n}\nbutton:hover{\n    background:#fd7d82;\n}\n", ""]);
+exports.push([module.i, "\ntemplate{\r\n    padding: 20px;\n}\n.advanced-search {\r\n    display: flex;\r\n    flex-direction: column;\r\n    background:white;\r\n    padding: 10px;\r\n    border-radius: 10px;\r\n    margin-right: 20px;\r\n    color:#511d1f;\n}\nselect{\r\n    padding:10px;\r\n    border-color: #fb5a5f;\r\n    color:#fb5a5f;\n}\nselect:active,\r\nselect:visited,\r\nselect:target{\r\n    border:none;\n}\nlabel{\r\n    margin-top: 1rem;\r\n    margin-bottom: 0.5rem;\r\n    font-weight: bold;\n}\noption{\r\n    color:#fb5a5f;\n}\n.checkbox {\r\n\tposition: absolute;\r\n\tz-index: -1;\r\n\topacity: 0;\r\n\tmargin: 30px;\n}\n.checkbox + label {\r\n\tposition: relative;\r\n\tpadding: 0 0 0 30px;\r\n\tcursor: pointer;\n}\n.checkbox + label:before {\r\n\tcontent: '';\r\n\tposition: absolute;\r\n\ttop:-35%;\r\n\tleft: 0;\r\n\twidth: 20px;\r\n\theight: 20px;\r\n    border-radius: 25%;\r\n\tbackground: #fb5a5f;\r\n\ttransition: .2s;\n}\n.checkbox + label:after {\r\n\tcontent: '';\r\n\tposition: absolute;\r\n\ttop: -1px;\r\n\tleft: 0px;\r\n\twidth: 10px;\r\n\theight: 10px;\r\n\tborder-radius: 50%;\r\n\tbackground: #FFF;\r\n\ttransition: .2s;\n}\n.checkbox:checked + label:before {\r\n\tbackground: #511d1f;\n}\n.checkbox:checked + label:after {\r\n\tleft: 10px;\n}\n.service{\r\n    margin-top: 0.2rem;\r\n    display: flex;\r\n    align-items:center;\r\n    justify-content: flex-start;\n}\n.form {\r\n    display: flex;\r\n    flex-direction: column;\n}\nbutton{\r\n    height: 52px;\r\n   line-height:52px;\r\n   font-size: 16px;\r\n   background:#fb5a5f;\r\n   text-decoration: none;\r\n   color:white;\r\n   padding: 0 10px;\r\n   border-width: 0;\r\n   margin:1rem 0;\n}\nbutton:hover{\r\n    background:#fd7d82;\n}\r\n", ""]);
 
 // exports
 
@@ -39890,9 +39890,9 @@ var render = function() {
         _vm._v(" "),
         _c("button", { attrs: { type: "submit", disabled: _vm.sending } }, [
           _vm._v(
-            "\n            " +
+            "\r\n            " +
               _vm._s(_vm.sending ? "Sending.." : "Send") +
-              "\n        "
+              "\r\n        "
           )
         ])
       ],
@@ -56435,8 +56435,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/andrea/Desktop/Boolean/Esercizi/boolbnb/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/andrea/Desktop/Boolean/Esercizi/boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\Boolean\Esercizi Corso\boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\Boolean\Esercizi Corso\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
