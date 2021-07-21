@@ -4,6 +4,17 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        
+        @if (Auth::check()) 
+            <meta name="user-id" content="{{ Auth::user()->id }}">
+            <meta name="user-name" content="{{ Auth::user()->first_name }}">
+            <meta name="user-email" content="{{ Auth::user()->email }}">
+        @elseif (!Auth::check())
+            <meta name="user-id" content="">
+            <meta name="user-name" content="">
+            <meta name="user-email" content="">
+        @endif
+
         <title>BoolBnB</title>
 
         <!-- Fonts -->

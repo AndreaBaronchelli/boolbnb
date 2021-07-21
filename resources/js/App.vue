@@ -7,6 +7,7 @@
                 @searchText="setQuery"
                 @searchArray="newSearch"
                 :query="searchText"
+                :user="user"
             ></router-view>
         </main>
     </div>
@@ -23,7 +24,12 @@ export default {
     data() {
         return {
             apartmentsArray: [],
-            searchText: ""
+            searchText: "",
+            user: {
+                user_id: document.querySelector("meta[name='user-id']").getAttribute('content'),
+                user_name: document.querySelector("meta[name='user-name']").getAttribute('content'),
+                user_email: document.querySelector("meta[name='user-email']").getAttribute('content'),
+                },
         };
     },
     methods: {

@@ -1984,6 +1984,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1994,7 +1995,12 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       apartmentsArray: [],
-      searchText: ""
+      searchText: "",
+      user: {
+        user_id: document.querySelector("meta[name='user-id']").getAttribute('content'),
+        user_name: document.querySelector("meta[name='user-name']").getAttribute('content'),
+        user_email: document.querySelector("meta[name='user-email']").getAttribute('content')
+      }
     };
   },
   methods: {
@@ -2292,7 +2298,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "MessageForm",
-  props: ['apartment_id'],
+  props: ['apartment_id', 'user'],
+  created: function created() {
+    this.checkLoggedUser();
+  },
   data: function data() {
     return {
       message: {
@@ -2301,10 +2310,20 @@ __webpack_require__.r(__webpack_exports__);
       },
       errors: {},
       success: false,
-      sending: false
+      sending: false,
+      fielDisabled: false
     };
   },
   methods: {
+    checkLoggedUser: function checkLoggedUser() {
+      console.log(this.user);
+
+      if (this.user.user_name != null) {
+        this.message.name = this.user.user_name;
+        this.message.email = this.user.user_email;
+        this.fielDisabled = true;
+      }
+    },
     sendMessage: function sendMessage() {
       var _this = this;
 
@@ -2466,7 +2485,7 @@ __webpack_require__.r(__webpack_exports__);
       apartment: null
     };
   },
-  props: ["query"],
+  props: ["query", "user"],
   created: function created() {
     this.getDetails();
   },
@@ -39321,7 +39340,7 @@ var render = function() {
         "main",
         [
           _c("router-view", {
-            attrs: { query: _vm.searchText },
+            attrs: { query: _vm.searchText, user: _vm.user },
             on: { searchText: _vm.setQuery, searchArray: _vm.newSearch }
           })
         ],
@@ -40016,7 +40035,9 @@ var render = function() {
             _vm._v(" "),
             _c("div", { staticClass: "map", attrs: { id: "map" } }),
             _vm._v(" "),
-            _c("MessageForm", { attrs: { apartment_id: _vm.apartment.id } }),
+            _c("MessageForm", {
+              attrs: { apartment_id: _vm.apartment.id, user: _vm.user }
+            }),
             _vm._v(" "),
             _c(
               "router-link",
