@@ -3,6 +3,7 @@
         <h1>results</h1>
         <div class="main-content">
             <AdvancedSearch @searchArray="performingSearch" :query="query" />
+<<<<<<< HEAD
             <div v-if="Array.isArray(apartmentArray)">
                 <h2>No results found</h2>
                 </div>
@@ -13,6 +14,19 @@
                         :apartment="apartment"
                     />
                 </div>
+=======
+            <!-- <div v-if="(apartmentsArray = [])">
+                <h2>No results found</h2>
+            </div> -->
+            <div v-if="!apartmentsArray">Loading...</div>
+            <div class="cards-container" v-else>
+                <ApartmentCard
+                    v-for="apartment in apartmentsArray"
+                    :key="apartment.id"
+                    :apartment="apartment"
+                    :query="query"
+                />
+>>>>>>> master
             </div>
         </div>
 </template>
@@ -22,20 +36,36 @@ import ApartmentCard from "../components/ApartmentCard.vue";
 import AdvancedSearch from "../components/AdvancedSearch.vue";
 export default {
     name: "Results",
+    data() {
+        return {
+            query: ""
+        };
+    },
     components: {
         ApartmentCard,
         AdvancedSearch
     },
+<<<<<<< HEAD
     props: ["apartmentArray", 'query'],
     data() {
         return {
             // rooms: '',
             
         }
+=======
+    data() {
+        return {
+            apartmentsArray: null
+        };
+    },
+    created() {
+        this.performSearch();
+>>>>>>> master
     },
     
     
     methods: {
+<<<<<<< HEAD
         performingSearch(searchArray) {
             // this.rooms = searchArray;
             this.$emit('searchArray',searchArray);
@@ -47,6 +77,38 @@ export default {
             // .catch(err => {
             //     console.log(err);
             // })
+=======
+        performSearch() {
+            this.query = this.$route.params.search;
+            axios
+                .get(
+                    `http://127.0.0.1:8000/api/apartment/${this.$route.params.search}`
+                )
+                .then(response => {
+                    this.apartmentsArray = response.data;
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+        },
+        performingSearch(searchArray) {
+            var services = "0";
+            if (searchArray.checkedServices.length > 0) {
+                services = searchArray.checkedServices;
+            }
+            console.log(services);
+            axios
+                .get(
+                    `http://127.0.0.1:8000/api/apartment/advancedSearch/${searchArray.search}&${searchArray.radius}&${searchArray.rooms}&${searchArray.beds}&${services}`
+                )
+                .then(response => {
+                    console.log(response.data);
+                    this.apartmentsArray = response.data;
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+>>>>>>> master
         }
     }
 };

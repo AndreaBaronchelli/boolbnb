@@ -1,6 +1,7 @@
 <template>
     <header>
         <div class="container">
+<<<<<<< HEAD
             <router-link :to="{ name: 'home' }">
                 <img class="logo" :src="`./images/boolBnb.png`" alt="boolBnb.png">
             </router-link>
@@ -12,6 +13,11 @@
                     <p>login</p>
                 </router-link>  
             </div> 
+=======
+            <router-link :to="{ name: 'home' }">Logo
+            </router-link>
+            
+>>>>>>> master
         </div>
     </header>
 </template>
@@ -35,6 +41,7 @@ export default {
 
 <style lang="scss" scoped>
 header{
+<<<<<<< HEAD
     padding:10px 20px;
     background: white;
     position: relative;
@@ -60,5 +67,9 @@ header{
     .logo{
         width: 160px;
     }
+=======
+    padding:20px;
+    background: white;
+>>>>>>> master
 }
 </style>
