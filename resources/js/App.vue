@@ -1,10 +1,11 @@
 <template>
     <div class="cont">
         <Header @searchText="performSearch" />
+    <div>
+
         <main>
             <router-view
-                :apartmentArray="apartmentsArray"
-                @searchText="performSearch"
+                @searchText="setQuery"
                 @searchArray="newSearch"
                 :query="searchText"
             ></router-view>
@@ -23,10 +24,13 @@ export default {
     data() {
         return {
             apartmentsArray: [],
-            searchText: "",
+            searchText: ""
         };
     },
     methods: {
+        setQuery(searchText) {
+            this.searchText = searchText;
+        },
         performSearch(searchText) {
             this.searchText = searchText;
             axios
@@ -40,13 +44,16 @@ export default {
         },
         newSearch(searchArray) {
             console.log(searchArray);
-            axios.get(`http://127.0.0.1:8000/api/apartment/${searchArray.search}/${searchArray.radius}/${searchArray.rooms}/${searchArray.beds}/${searchArray.checkedServices}`)
-            .then(response => {
-                console.log(response.data);
-            })
-            .catch(err => {
-                console.log(err);
-            })
+            axios
+                .get(
+                    `http://127.0.0.1:8000/api/apartment/${searchArray.search}/${searchArray.radius}/${searchArray.rooms}/${searchArray.beds}/${searchArray.checkedServices}`
+                )
+                .then(response => {
+                    console.log(response.data);
+                })
+                .catch(err => {
+                    console.log(err);
+                });
         }
     }
 };

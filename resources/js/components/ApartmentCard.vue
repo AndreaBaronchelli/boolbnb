@@ -1,12 +1,9 @@
 <template>
+<div>
     <div class="card">
-        <!-- DA RISOLVERE -->
-        <div class="img-cont">
-            <img
-            :src="`http://127.0.0.1:8000/storage/${apartment.image}`"
-            :alt="apartment.title"
-            />
-        </div>
+        <img
+        :src="`http://127.0.0.1:8000/storage/${apartment.image}`"
+        :alt="apartment.title"/>
         
         <h2>{{ apartment.title }}</h2>
         <div>
@@ -20,7 +17,17 @@
                 Price per night: <strong>€{{ apartment.price }}</strong>
             </p>
         </div>
+        <router-link
+            :to="{
+                name: 'apartment-details',
+                params: { slug: apartment.slug }
+            }"
+            >See Details
+        </router-link>
     </div>
+</div>
+
+    
 </template>
 
 <script>
