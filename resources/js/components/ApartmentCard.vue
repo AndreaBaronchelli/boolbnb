@@ -1,28 +1,25 @@
 <template>
     <div class="card">
-        <img
+        <!-- DA RISOLVERE -->
+        <div class="img-cont">
+            <img
             :src="`http://127.0.0.1:8000/storage/${apartment.image}`"
             :alt="apartment.title"
-        />
+            />
+        </div>
+        
         <h2>{{ apartment.title }}</h2>
         <div>
-            <span>{{ apartment.address }}</span>
+            <p>{{ apartment.address }}</p>
         </div>
         <div>
-            <span>{{ apartment.square_meters }} mq</span>
+            <p>{{ apartment.square_meters }} mq</p>
         </div>
         <div>
-            <span
-                >Price per night: <strong>€{{ apartment.price }}</strong></span
-            >
+            <p>
+                Price per night: <strong>€{{ apartment.price }}</strong>
+            </p>
         </div>
-        <router-link
-            :to="{
-                name: 'apartment-details',
-                params: { slug: apartment.slug }
-            }"
-            >See Details</router-link
-        >
     </div>
 </template>
 
@@ -35,15 +32,26 @@ export default {
 
 <style lang="scss" scoped>
 .card {
-    width: 400px;
+    width: 250px;
     text-align: center;
-    border: 2px solid black;
+    background: white;
     border-radius: 10px;
-    margin: 10px;
-    padding: 10px;
+    padding: 20px 10px;
+    margin:10px;
+    font-size: 16px;
+    p{
+        margin-bottom: 5px;
+    }
 }
 
-img {
-    max-height: 220px;
+.img-cont{
+    width: 80%;
+    margin-left: 10%;
+    height: 100px;
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 }
 </style>

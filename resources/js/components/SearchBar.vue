@@ -2,13 +2,12 @@
     <div class="searchbar">
         <div id="searchbox"></div>
         <router-link :to="{ name: 'results', params: { search: searchText } }">
-            <button @click="clickFunction()">
+            <div class="button" @click="clickFunction()">
                 Search
-            </button>
+            </div>
         </router-link>
     </div>
 </template>
-
 <script>
 export default {
     name: "SearchBar",
@@ -61,8 +60,26 @@ export default {
 .searchbar {
     display: flex;
     align-items: center;
+    justify-content: center;
+    } 
+#searchbox{
+    width: 50%;
 }
-button {
-    margin-left: 1rem;
+.button {
+   height: 52px;
+   line-height:52px;
+   font-size: 16px;
+   background:#fb5a5f;
+   text-decoration: none;
+   color:white;
+   padding: 0 10px;
+   position: relative;
+   z-index: 8;
+}
+.button:hover{
+    background:#fd7d82;
+}
+a{
+ text-decoration: none; 
 }
 </style>
