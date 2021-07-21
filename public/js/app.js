@@ -2005,9 +2005,6 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    setQuery: function setQuery(searchText) {
-      this.searchText = searchText;
-    },
     performSearch: function performSearch(searchText) {
       var _this = this;
 
@@ -2088,6 +2085,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+<<<<<<< HEAD
+//
+//
+//
+=======
+>>>>>>> master
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "AdvancedSearch",
@@ -2194,9 +2197,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ApartmentCard",
   props: ["apartment"]
@@ -2223,6 +2223,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+<<<<<<< HEAD
+//
+//
+//
+//
+//
+//
+//
+//
+=======
+>>>>>>> master
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Header",
   data: function data() {
@@ -2546,6 +2557,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Home",
@@ -2601,6 +2615,27 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /* harmony default export */ __webpack_exports__["default"] = (_name$data$components = {
   name: "Results",
+<<<<<<< HEAD
+  components: {
+    ApartmentCard: _components_ApartmentCard_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    AdvancedSearch: _components_AdvancedSearch_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  props: ["apartmentArray", 'query'],
+  data: function data() {
+    return {// rooms: '',
+    };
+  },
+  methods: {
+    performingSearch: function performingSearch(searchArray) {
+      // this.rooms = searchArray;
+      this.$emit('searchArray', searchArray); // console.log(this.rooms);
+      // axios.get(`http://127.0.0.1:8000/api/apartment/${searchText}`)
+      // .then(response => {
+      // })
+      // .catch(err => {
+      //     console.log(err);
+      // })
+=======
   data: function data() {
     return {
       query: ""
@@ -2634,6 +2669,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
     if (searchArray.checkedServices.length > 0) {
       services = searchArray.checkedServices;
+>>>>>>> master
     }
 
     console.log(services);
@@ -7102,7 +7138,11 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
+<<<<<<< HEAD
+exports.push([module.i, ".container {\n  max-width: 1170px;\n  margin: 0 auto;\n}\nbody {\n  font-family: \"Roboto\", sans-serif;\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\nmain {\n  background: lightgray;\n  padding: 20px 10px;\n}\nmain h1 {\n  color: #511d1f;\n  position: relative;\n  z-index: 9;\n}\n.tt-search-box {\n  margin-top: 0;\n}\n.tt-search-box-input-container {\n  padding: 0;\n  height: 30px;\n  padding: 10px;\n  border: 1px solid #fb5a5f;\n}\nsvg {\n  fill: #fb5a5f;\n}", ""]);
+=======
 exports.push([module.i, ".container {\n  max-width: 1170px;\n  margin: 0 auto;\n}\nbody {\n  font-family: \"Roboto\", sans-serif;\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\nmain {\n  background: lightgray;\n  padding: 20px 0;\n}\nmain h1 {\n  color: #511d1f;\n}\n.tt-search-box {\n  margin-top: 0;\n}\n.tt-search-box-input-container {\n  padding: 0;\n  height: 30px;\n  padding: 10px;\n  border: 1px solid #fb5a5f;\n}\nsvg {\n  fill: #fb5a5f;\n}", ""]);
+>>>>>>> master
 
 // exports
 
@@ -7121,7 +7161,26 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".card[data-v-13e9f807] {\n  width: 400px;\n  text-align: center;\n  border: 2px solid black;\n  border-radius: 10px;\n  margin: 10px;\n  padding: 10px;\n}\nimg[data-v-13e9f807] {\n  max-height: 220px;\n}", ""]);
+exports.push([module.i, ".card[data-v-13e9f807] {\n  width: 250px;\n  text-align: center;\n  background: white;\n  border-radius: 10px;\n  padding: 20px 10px;\n  margin: 10px;\n  font-size: 16px;\n}\n.card p[data-v-13e9f807] {\n  margin-bottom: 5px;\n}\n.img-cont[data-v-13e9f807] {\n  width: 80%;\n  margin-left: 10%;\n  height: 100px;\n}\n.img-cont img[data-v-13e9f807] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Header.vue?vue&type=style&index=0&id=1f42fb90&lang=scss&scoped=true&":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Header.vue?vue&type=style&index=0&id=1f42fb90&lang=scss&scoped=true& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "header[data-v-1f42fb90] {\n  padding: 10px 20px;\n  background: white;\n  position: relative;\n  box-shadow: 5px 0 10px black;\n  z-index: 10;\n}\nheader .container[data-v-1f42fb90] {\n  display: flex;\n  justify-content: space-between;\n}\nheader .container .register[data-v-1f42fb90] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\nheader .container .register a[data-v-1f42fb90] {\n  text-decoration: none;\n  margin-left: 20px;\n  color: #fb5a5f;\n  font-size: 18px;\n}\nheader .logo[data-v-1f42fb90] {\n  width: 160px;\n}", ""]);
 
 // exports
 
@@ -7178,7 +7237,11 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
+<<<<<<< HEAD
+exports.push([module.i, ".searchbar[data-v-6849e9f0] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n#searchbox[data-v-6849e9f0] {\n  width: 50%;\n}\n.button[data-v-6849e9f0] {\n  height: 52px;\n  line-height: 52px;\n  font-size: 16px;\n  background: #fb5a5f;\n  text-decoration: none;\n  color: white;\n  padding: 0 10px;\n  position: relative;\n  z-index: 8;\n}\n.button[data-v-6849e9f0]:hover {\n  background: #fd7d82;\n}\na[data-v-6849e9f0] {\n  text-decoration: none;\n}", ""]);
+=======
 exports.push([module.i, ".searchbar[data-v-6849e9f0] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n#searchbox[data-v-6849e9f0] {\n  width: 50%;\n}\n.button[data-v-6849e9f0] {\n  height: 52px;\n  line-height: 52px;\n  font-size: 16px;\n  background: #fb5a5f;\n  text-decoration: none;\n  color: white;\n  padding: 0 10px;\n}\n.button[data-v-6849e9f0]:hover {\n  background: #fd7d82;\n}\na[data-v-6849e9f0] {\n  text-decoration: none;\n}", ""]);
+>>>>>>> master
 
 // exports
 
@@ -7216,7 +7279,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".searchbar[data-v-b3c5cf30] {\n  width: 100%;\n}", ""]);
+exports.push([module.i, ".cotainer[data-v-b3c5cf30] {\n  position: relative;\n}\n.img[data-v-b3c5cf30] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 100vh;\n  width: 100vw;\n  background: white;\n}\n.img .sfondo[data-v-b3c5cf30] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  filter: opacity(50%);\n  /* filter: grayscale(50%); */\n}\n.searchbar[data-v-b3c5cf30] {\n  width: 100%;\n}", ""]);
 
 // exports
 
@@ -7235,7 +7298,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".main-content[data-v-44832d06] {\n  display: flex;\n}\n.cards-container[data-v-44832d06] {\n  display: flex;\n  justify-content: center;\n  flex-wrap: wrap;\n}", ""]);
+exports.push([module.i, ".main-content[data-v-44832d06] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: flex-start;\n  color: #511d1f;\n}\n.main-content h2[data-v-44832d06] {\n  padding: 20px;\n}\n.cards-container[data-v-44832d06] {\n  padding: 20px 0;\n  display: flex;\n  flex-wrap: wrap;\n}", ""]);
 
 // exports
 
@@ -7254,7 +7317,11 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
+<<<<<<< HEAD
+exports.push([module.i, "\ntemplate{\r\n    padding: 20px;\n}\n.block{\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    background:white;\r\n    border-radius: 10px;\r\n    padding: 10px;\r\n    color:#511d1f;\n}\n.cont-select{\r\n    display: flex;\r\n    flex-direction: column;\n}\n.cont-select label{\r\n    margin-bottom: 5px;\n}\n.advanced-search {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: center;\n}\n.left,\r\n.right{\r\n    display: flex;\r\n    flex-direction: column;\r\n    width: 250px;\r\n    padding: 20px;\n}\n.left{\r\n    margin-bottom: 20px;\r\n    justify-content: space-between;\n}\nselect{\r\n    padding:10px;\r\n    border-color: #fb5a5f;\r\n    color:#fb5a5f;\n}\nselect:active,\r\nselect:visited,\r\nselect:target{\r\n    border:none;\n}\nlabel{\r\n    font-weight: bold;\n}\noption{\r\n    color:#fb5a5f;\n}\n.checkbox {\r\n\tposition: absolute;\r\n\tz-index: -1;\r\n\topacity: 0;\r\n\tmargin: 30px;\n}\n.checkbox + label {\r\n\tposition: relative;\r\n\tpadding: 0 0 0 30px;\r\n\tcursor: pointer;\n}\n.checkbox + label:before {\r\n\tcontent: '';\r\n\tposition: absolute;\r\n\ttop:-35%;\r\n\tleft: 0;\r\n\twidth: 20px;\r\n\theight: 20px;\r\n\tbackground: white;\r\n    border:solid 1px #fb5a5f;\r\n\ttransition: .2s;\n}\n.checkbox + label:after {\r\n\tcontent: '';\r\n\tposition: absolute;\r\n\ttop: -1px;\r\n\tleft: 0px;\r\n\twidth: 10px;\r\n\theight: 10px;\r\n\tborder-radius: 50%;\r\n\tbackground: #511d1f;\r\n\ttransition: .2s;\n}\n.checkbox:checked + label:before {\r\n\tbackground: #fb5a5f;\n}\n.checkbox:checked + label:after {\r\n\tleft: 10px;\n}\n.service{\r\n    height: 30px;\r\n    display: flex;\r\n    align-items:center;\r\n    justify-content: flex-start;\r\n    width: 100%;\n}\n.form {\r\n    display: flex;\r\n    flex-direction: column;\n}\nbutton{\r\n    height: 52px;\r\n   line-height:52px;\r\n   font-size: 16px;\r\n   background:#fb5a5f;\r\n   text-decoration: none;\r\n   color:white;\r\n   padding: 0 30px;\r\n   border-width: 0;\r\n   margin:1rem 0;\n}\nbutton:hover{\r\n    background:#fd7d82;\n}\r\n", ""]);
+=======
 exports.push([module.i, "\ntemplate {\r\n    padding: 20px;\n}\n.advanced-search {\r\n    display: flex;\r\n    flex-direction: column;\r\n    background: white;\r\n    padding: 10px;\r\n    border-radius: 10px;\r\n    margin-right: 20px;\r\n    color: #511d1f;\n}\nselect {\r\n    padding: 10px;\r\n    border-color: #fb5a5f;\r\n    color: #fb5a5f;\n}\nselect:active,\r\nselect:visited,\r\nselect:target {\r\n    border: none;\n}\nlabel {\r\n    margin-top: 1rem;\r\n    margin-bottom: 0.5rem;\r\n    font-weight: bold;\n}\noption {\r\n    color: #fb5a5f;\n}\n.checkbox {\r\n    position: absolute;\r\n    z-index: -1;\r\n    opacity: 0;\r\n    margin: 30px;\n}\n.checkbox + label {\r\n    position: relative;\r\n    padding: 0 0 0 30px;\r\n    cursor: pointer;\n}\n.checkbox + label:before {\r\n    content: \"\";\r\n    position: absolute;\r\n    top: -35%;\r\n    left: 0;\r\n    width: 20px;\r\n    height: 20px;\r\n    border-radius: 25%;\r\n    background: #fb5a5f;\r\n    transition: 0.2s;\n}\n.checkbox + label:after {\r\n    content: \"\";\r\n    position: absolute;\r\n    top: -1px;\r\n    left: 0px;\r\n    width: 10px;\r\n    height: 10px;\r\n    border-radius: 50%;\r\n    background: #fff;\r\n    transition: 0.2s;\n}\n.checkbox:checked + label:before {\r\n    background: #511d1f;\n}\n.checkbox:checked + label:after {\r\n    left: 10px;\n}\n.service {\r\n    margin-top: 0.2rem;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: flex-start;\n}\n.form {\r\n    display: flex;\r\n    flex-direction: column;\n}\nbutton {\r\n    height: 52px;\r\n    line-height: 52px;\r\n    font-size: 16px;\r\n    background: #fb5a5f;\r\n    text-decoration: none;\r\n    color: white;\r\n    padding: 0 10px;\r\n    border-width: 0;\r\n    margin: 1rem 0;\n}\nbutton:hover {\r\n    background: #fd7d82;\n}\r\n", ""]);
+>>>>>>> master
 
 // exports
 
@@ -38567,6 +38634,8 @@ if(false) {}
 
 /***/ }),
 
+<<<<<<< HEAD
+=======
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/MessageForm.vue?vue&type=style&index=0&id=367b72d0&lang=scss&scoped=true&":
 /*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/MessageForm.vue?vue&type=style&index=0&id=367b72d0&lang=scss&scoped=true& ***!
@@ -38597,6 +38666,7 @@ if(false) {}
 
 /***/ }),
 
+>>>>>>> master
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SearchBar.vue?vue&type=style&index=0&id=6849e9f0&lang=scss&scoped=true&":
 /*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/SearchBar.vue?vue&type=style&index=0&id=6849e9f0&lang=scss&scoped=true& ***!
@@ -39357,11 +39427,18 @@ var render = function() {
         [
           _c("router-view", {
             attrs: {
+<<<<<<< HEAD
+              apartmentArray: _vm.apartmentsArray,
+              query: _vm.searchText
+            },
+            on: { searchText: _vm.performSearch, searchArray: _vm.newSearch }
+=======
               query: _vm.searchText,
               user: _vm.user,
               apartmentsArray: _vm.apartmentsArray
             },
             on: { searchText: _vm.setQuery, searchArray: _vm.newSearch }
+>>>>>>> master
           })
         ],
         1
@@ -39392,149 +39469,222 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "advanced-search" }, [
+  return _c("div", { staticClass: "block" }, [
     _c("h3", [_vm._v("AdvancedSearch")]),
     _vm._v(" "),
-    _c("div", { attrs: { id: "advanced-searchbox" } }),
-    _vm._v(" "),
-    _c("label", { attrs: { for: "radius" } }, [_vm._v("Search radius")]),
-    _vm._v(" "),
-    _c(
-      "select",
-      {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.radius,
-            expression: "radius"
-          }
-        ],
-        attrs: { name: "radius", id: "radius" },
-        on: {
-          change: function($event) {
-            var $$selectedVal = Array.prototype.filter
-              .call($event.target.options, function(o) {
-                return o.selected
-              })
-              .map(function(o) {
-                var val = "_value" in o ? o._value : o.value
-                return val
-              })
-            _vm.radius = $event.target.multiple
-              ? $$selectedVal
-              : $$selectedVal[0]
-          }
-        }
-      },
-      [
-        _c("option", { attrs: { value: "10" } }, [_vm._v("10 km")]),
+    _c("div", { staticClass: "advanced-search" }, [
+      _c("div", { staticClass: "left" }, [
+        _c("div", { attrs: { id: "advanced-searchbox" } }),
         _vm._v(" "),
-        _c("option", { attrs: { selected: "", value: "20" } }, [
-          _vm._v("20 km")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "30" } }, [_vm._v("30 km")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "40" } }, [_vm._v("40 km")])
-      ]
-    ),
-    _vm._v(" "),
-    _c("label", { attrs: { for: "rooms" } }, [_vm._v("Min rooms number")]),
-    _vm._v(" "),
-    _c(
-      "select",
-      {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.rooms,
-            expression: "rooms"
-          }
-        ],
-        attrs: { name: "rooms", id: "rooms" },
-        on: {
-          change: function($event) {
-            var $$selectedVal = Array.prototype.filter
-              .call($event.target.options, function(o) {
-                return o.selected
-              })
-              .map(function(o) {
-                var val = "_value" in o ? o._value : o.value
-                return val
-              })
-            _vm.rooms = $event.target.multiple
-              ? $$selectedVal
-              : $$selectedVal[0]
-          }
-        }
-      },
-      [
-        _c("option", { attrs: { value: "1" } }, [_vm._v("1")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "2" } }, [_vm._v("2")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "3" } }, [_vm._v("3")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "4" } }, [_vm._v("4")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "5" } }, [_vm._v("4+")])
-      ]
-    ),
-    _vm._v(" "),
-    _c("label", { attrs: { for: "beds" } }, [_vm._v("Min beds number")]),
-    _vm._v(" "),
-    _c(
-      "select",
-      {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.beds,
-            expression: "beds"
-          }
-        ],
-        attrs: { name: "beds", id: "beds" },
-        on: {
-          change: function($event) {
-            var $$selectedVal = Array.prototype.filter
-              .call($event.target.options, function(o) {
-                return o.selected
-              })
-              .map(function(o) {
-                var val = "_value" in o ? o._value : o.value
-                return val
-              })
-            _vm.beds = $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-          }
-        }
-      },
-      [
-        _c("option", { attrs: { value: "1" } }, [_vm._v("1")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "2" } }, [_vm._v("2")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "3" } }, [_vm._v("3")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "4" } }, [_vm._v("3+")])
-      ]
-    ),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "services" },
-      _vm._l(_vm.services, function(service, index) {
-        return _c(
-          "div",
-          { key: service.id + " - " + index, staticClass: "service" },
-          [
-            _c("input", {
+        _c("div", { staticClass: "cont-select" }, [
+          _c("label", { attrs: { for: "radius" } }, [_vm._v("Search radius")]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
               directives: [
                 {
                   name: "model",
                   rawName: "v-model",
+                  value: _vm.radius,
+                  expression: "radius"
+                }
+              ],
+              attrs: { name: "radius", id: "radius" },
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.radius = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                }
+              }
+            },
+            [
+              _c("option", { attrs: { value: "10" } }, [_vm._v("10 km")]),
+              _vm._v(" "),
+              _c("option", { attrs: { selected: "", value: "20" } }, [
+                _vm._v("20 km")
+              ]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "30" } }, [_vm._v("30 km")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "40" } }, [_vm._v("40 km")])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "cont-select" }, [
+          _c("label", { attrs: { for: "rooms" } }, [
+            _vm._v("Min rooms number")
+          ]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.rooms,
+                  expression: "rooms"
+                }
+              ],
+              attrs: { name: "rooms", id: "rooms" },
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.rooms = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                }
+              }
+            },
+            [
+              _c("option", { attrs: { value: "1" } }, [_vm._v("1")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "2" } }, [_vm._v("2")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "3" } }, [_vm._v("3")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "4" } }, [_vm._v("4")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "5" } }, [_vm._v("4+")])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "cont-select" }, [
+          _c("label", { attrs: { for: "beds" } }, [_vm._v("Min beds number")]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+<<<<<<< HEAD
+                  value: _vm.beds,
+                  expression: "beds"
+                }
+              ],
+              attrs: { name: "beds", id: "beds" },
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.beds = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                }
+              }
+            },
+            [
+              _c("option", { attrs: { value: "1" } }, [_vm._v("1")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "2" } }, [_vm._v("2")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "3" } }, [_vm._v("3")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "4" } }, [_vm._v("3+")])
+            ]
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "right" }, [
+        _c(
+          "div",
+          { staticClass: "services" },
+          _vm._l(_vm.services, function(service, index) {
+            return _c(
+              "div",
+              { key: service.id + " - " + index, staticClass: "service" },
+              [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.checkedServices[index],
+                      expression: "checkedServices[index]"
+                    }
+                  ],
+                  staticClass: "checkbox",
+                  attrs: {
+                    type: "checkbox",
+                    name: service.name,
+                    id: service.id
+                  },
+                  domProps: {
+                    checked: Array.isArray(_vm.checkedServices[index])
+                      ? _vm._i(_vm.checkedServices[index], null) > -1
+                      : _vm.checkedServices[index]
+                  },
+                  on: {
+                    change: function($event) {
+                      var $$a = _vm.checkedServices[index],
+                        $$el = $event.target,
+                        $$c = $$el.checked ? true : false
+                      if (Array.isArray($$a)) {
+                        var $$v = null,
+                          $$i = _vm._i($$a, $$v)
+                        if ($$el.checked) {
+                          $$i < 0 &&
+                            _vm.$set(
+                              _vm.checkedServices,
+                              index,
+                              $$a.concat([$$v])
+                            )
+                        } else {
+                          $$i > -1 &&
+                            _vm.$set(
+                              _vm.checkedServices,
+                              index,
+                              $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                            )
+                        }
+                      } else {
+                        _vm.$set(_vm.checkedServices, index, $$c)
+                      }
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  {
+                    staticClass: "radio",
+                    attrs: { id: "radio", for: service.id }
+                  },
+                  [_vm._v(_vm._s(service.name))]
+                )
+              ]
+            )
+          }),
+          0
+=======
                   value: _vm.checkedServices,
                   expression: "checkedServices"
                 }
@@ -39576,10 +39726,10 @@ var render = function() {
               [_vm._v(_vm._s(service.name))]
             )
           ]
+>>>>>>> master
         )
-      }),
-      0
-    ),
+      ])
+    ]),
     _vm._v(" "),
     _c("button", { attrs: { type: "submit" }, on: { click: _vm.emitData } }, [
       _vm._v("Search")
@@ -39608,47 +39758,29 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "card" },
-    [
+  return _c("div", { staticClass: "card" }, [
+    _c("div", { staticClass: "img-cont" }, [
       _c("img", {
         attrs: {
           src: "http://127.0.0.1:8000/storage/" + _vm.apartment.image,
           alt: _vm.apartment.title
         }
-      }),
-      _vm._v(" "),
-      _c("h2", [_vm._v(_vm._s(_vm.apartment.title))]),
-      _vm._v(" "),
-      _c("div", [_c("span", [_vm._v(_vm._s(_vm.apartment.address))])]),
-      _vm._v(" "),
-      _c("div", [
-        _c("span", [_vm._v(_vm._s(_vm.apartment.square_meters) + " mq")])
-      ]),
-      _vm._v(" "),
-      _c("div", [
-        _c("span", [
-          _vm._v("Price per night: "),
-          _c("strong", [_vm._v("€" + _vm._s(_vm.apartment.price))])
-        ])
-      ]),
-      _vm._v(" "),
-      _c(
-        "router-link",
-        {
-          attrs: {
-            to: {
-              name: "apartment-details",
-              params: { slug: _vm.apartment.slug }
-            }
-          }
-        },
-        [_vm._v("See Details")]
-      )
-    ],
-    1
-  )
+      })
+    ]),
+    _vm._v(" "),
+    _c("h2", [_vm._v(_vm._s(_vm.apartment.title))]),
+    _vm._v(" "),
+    _c("div", [_c("p", [_vm._v(_vm._s(_vm.apartment.address))])]),
+    _vm._v(" "),
+    _c("div", [_c("p", [_vm._v(_vm._s(_vm.apartment.square_meters) + " mq")])]),
+    _vm._v(" "),
+    _c("div", [
+      _c("p", [
+        _vm._v("\n            Price per night: "),
+        _c("strong", [_vm._v("€" + _vm._s(_vm.apartment.price))])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -39678,8 +39810,31 @@ var render = function() {
       { staticClass: "container" },
       [
         _c("router-link", { attrs: { to: { name: "home" } } }, [
+<<<<<<< HEAD
+          _c("img", {
+            staticClass: "logo",
+            attrs: { src: "./images/boolBnb.png", alt: "boolBnb.png" }
+          })
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "register" },
+          [
+            _c("router-link", { attrs: { to: { name: "home" } } }, [
+              _c("p", [_vm._v("become a host")])
+            ]),
+            _vm._v(" "),
+            _c("router-link", { attrs: { to: { name: "home" } } }, [
+              _c("p", [_vm._v("login")])
+            ])
+          ],
+          1
+        )
+=======
           _vm._v("Logo\n        ")
         ])
+>>>>>>> master
       ],
       1
     )
@@ -40109,7 +40264,14 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("main", { staticClass: "container" }, [
-    _c("h1", [_vm._v("Homepage")]),
+    _c("div", { staticClass: "img" }, [
+      _c("img", {
+        staticClass: "sfondo",
+        attrs: { src: "./images/santorini.jpg", alt: "boolBnb.png" }
+      })
+    ]),
+    _vm._v(" "),
+    _c("h1", [_vm._v("Where would you like to go?")]),
     _vm._v(" "),
     _c(
       "div",
@@ -40153,12 +40315,17 @@ var render = function() {
           on: { searchArray: _vm.performingSearch }
         }),
         _vm._v(" "),
+<<<<<<< HEAD
+        Array.isArray(_vm.apartmentArray)
+          ? _c("div", [_c("h2", [_vm._v("No results found")])])
+=======
         !_vm.apartmentsArray
           ? _c("div", [_vm._v("Loading...")])
+>>>>>>> master
           : _c(
               "div",
               { staticClass: "cards-container" },
-              _vm._l(_vm.apartmentsArray, function(apartment) {
+              _vm._l(_vm.apartmentArray, function(apartment) {
                 return _c("ApartmentCard", {
                   key: apartment.id,
                   attrs: { apartment: apartment, query: _vm.query }
@@ -56488,8 +56655,13 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
+__webpack_require__(/*! C:\Users\marco\Desktop\progetto_finale\boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\marco\Desktop\progetto_finale\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+=======
 __webpack_require__(/*! C:\Users\Maurizio\Desktop\boolbnb\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! C:\Users\Maurizio\Desktop\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+>>>>>>> master
 
 
 /***/ })

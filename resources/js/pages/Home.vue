@@ -1,6 +1,9 @@
 <template>
     <main class="container">
-        <h1>Homepage</h1>
+        <div class="img">
+            <img class="sfondo" :src="`./images/santorini.jpg`" alt="boolBnb.png">
+        </div>
+        <h1>Where would you like to go?</h1>
         <div class="searchbar"><SearchBar @searchText="search" /></div>
     </main>
 </template>
@@ -21,6 +24,27 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.cotainer{
+    position: relative;
+}
+
+.img{
+    position: absolute;
+    top:0;
+    left:0;
+    height: 100vh;
+    width: 100vw;
+    background: white;
+    .sfondo{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: opacity(50%);
+        /* filter: grayscale(50%); */
+}
+    
+}
+    
 .searchbar {
     width: 100%;
 }

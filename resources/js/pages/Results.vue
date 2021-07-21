@@ -3,6 +3,18 @@
         <h1>results</h1>
         <div class="main-content">
             <AdvancedSearch @searchArray="performingSearch" :query="query" />
+<<<<<<< HEAD
+            <div v-if="Array.isArray(apartmentArray)">
+                <h2>No results found</h2>
+                </div>
+                <div class="cards-container" v-else>
+                    <ApartmentCard
+                        v-for="apartment in apartmentArray"
+                        :key="apartment.id"
+                        :apartment="apartment"
+                    />
+                </div>
+=======
             <!-- <div v-if="(apartmentsArray = [])">
                 <h2>No results found</h2>
             </div> -->
@@ -14,9 +26,9 @@
                     :apartment="apartment"
                     :query="query"
                 />
+>>>>>>> master
             </div>
         </div>
-    </div>
 </template>
 
 <script>
@@ -33,6 +45,14 @@ export default {
         ApartmentCard,
         AdvancedSearch
     },
+<<<<<<< HEAD
+    props: ["apartmentArray", 'query'],
+    data() {
+        return {
+            // rooms: '',
+            
+        }
+=======
     data() {
         return {
             apartmentsArray: null
@@ -40,8 +60,24 @@ export default {
     },
     created() {
         this.performSearch();
+>>>>>>> master
     },
+    
+    
     methods: {
+<<<<<<< HEAD
+        performingSearch(searchArray) {
+            // this.rooms = searchArray;
+            this.$emit('searchArray',searchArray);
+            // console.log(this.rooms);
+            // axios.get(`http://127.0.0.1:8000/api/apartment/${searchText}`)
+            // .then(response => {
+
+            // })
+            // .catch(err => {
+            //     console.log(err);
+            // })
+=======
         performSearch() {
             this.query = this.$route.params.search;
             axios
@@ -72,6 +108,7 @@ export default {
                 .catch(err => {
                     console.log(err);
                 });
+>>>>>>> master
         }
     }
 };
@@ -80,10 +117,18 @@ export default {
 <style lang="scss" scoped>
 .main-content {
     display: flex;
+    flex-wrap: wrap;
+    justify-content:flex-start;
+    color:#511d1f;
+    h2{
+        
+        padding: 20px;
+    }
 }
-.cards-container {
+.cards-container{
+    padding: 20px 0;
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
 }
+
 </style>

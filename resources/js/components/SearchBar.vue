@@ -73,6 +73,11 @@ export default {
    text-decoration: none;
    color:white;
    padding: 0 10px;
+<<<<<<< HEAD
+   position: relative;
+   z-index: 8;
+=======
+>>>>>>> master
 }
 .button:hover{
     background:#fd7d82;
