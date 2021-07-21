@@ -63,9 +63,11 @@ body {
 }
 main{
     background:lightgray;
-    padding: 20px 0;
+    padding: 20px 10px;
     h1{
-        color:#511d1f;
+        color:$thirdColor;
+        position: relative;
+        z-index: 9;
     }
 }
 
@@ -77,6 +79,7 @@ main{
     height: 30px;
     padding:10px;
     border: 1px solid #fb5a5f;
+   
 }
 svg{
     fill: #fb5a5f;
