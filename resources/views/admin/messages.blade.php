@@ -31,8 +31,6 @@
                                 @endif
                              @endforeach
                         </td>
-                        {{-- <td> {{ $user_apartments[$message->apartment_id]->title }} </td> --}}
-                        {{-- <td> {{ $message->user_apartments->title }} </td> --}}
                         <td> {{ $message->num_guests }} </td>
                         <td colspan="2">{{ $message->message }}</td>                        
                     </tr>
