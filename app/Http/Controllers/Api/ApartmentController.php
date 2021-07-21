@@ -71,60 +71,22 @@ class ApartmentController extends Controller
         $minLon = $posLon - $base * $radius;
         $maxLon = $posLon + $base * $radius;
 
-        $apartments = Apartment::all()->whereBetween('latitude', [$minLat, $maxLat], 'longitude', [$minLon, $maxLon])->where('rooms', '>=', $rooms)->where('beds', '>=', $beds);
+        $apartments = Apartment::whereBetween('latitude', [$minLat, $maxLat])
+            ->whereBetween('longitude', [$minLon, $maxLon]) 
+            ->where('rooms', '>=', $rooms)
+            ->where('beds', '>=', $beds);
 
-        // dd($apartments);
-
-        $filteredApartments = [];
-
-        foreach ($apartments as $apartment) {
-            
-            // ottieni id appartamento
-            $id_apartment = $apartment->id;
-
-            // ottieni tutti i servizi dell'appartamento
-            $servizi_apartment = DB::table('apartment_service')->where([
-                ['apartment_id', '=', $id_apartment]
-            ])->get();
-
-            // conteggio servizi trovati
-            $founded = 0;
-
-            
-           
-
-            // cerca servizi corrispodenti
-            foreach ($servizi_apartment as $service) {
-                if (in_array($service->service_id, $services)) {
-                    $founded++;
-                }
-            }
-
-            if( $founded == count($services) ){
-                array_push($filteredApartments, $apartment);
-            }
-            
-
-
-        }
-
-        //dd($filteredApartments);
-        //$services = Service::all();
-        // $new_array= [];
-        // $serviceArray = $services->toArray();
-        // for ($i=0; $i<count($serviceArray); $i++) {
-        //     foreach ($apartments->services as $apartment) {
-        //         if ($apartment->id == $serviceArray[$i]) {
-        //             array_push($new_array, $apartment);
-        //         }
-        //     }
-        // }
-
-        // $apartments->filter(function($))
-
-        // dd($new_array);
         
-        return response()->json($filteredApartments);
+
+
+
+       
+
+       
+
+        
+        
+        return response()->json($apartments);
     }
 
 }

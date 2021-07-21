@@ -49,7 +49,7 @@ export default {
                     `http://127.0.0.1:8000/api/apartment/${this.$route.params.search}`
                 )
                 .then(response => {
-                    console.log(response.data);
+                    //console.log(response.data);
                     this.apartmentsArray = response.data;
                 })
                 .catch(err => {

@@ -35,7 +35,7 @@
                 :key="`${service.id} - ${index}`">
                 <input
                 type="checkbox" class="checkbox"
-                v-model="checkedServices[index]" 
+                v-model="checkedServices[service.name]" 
                 :name="service.name" 
                 :id="service.id">
                 <label class="radio" id="radio" :for="service.id">{{service.name}}</label>
@@ -109,7 +109,7 @@ export default {
         },
         emitData() {
             var searchText = document.getElementsByClassName("tt-search-box-input")[0].value;
-
+            
             this.$emit("searchArray", {rooms: this.rooms, beds: this.beds, radius: this.radius, checkedServices: this.checkedServices, search: searchText });
         }
     }

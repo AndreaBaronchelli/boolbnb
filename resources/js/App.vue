@@ -42,7 +42,8 @@ export default {
                 });
         },
         newSearch(searchArray) {
-            console.log(searchArray);
+            console.log(searchArray.checkedServices);
+            /*
             axios
                 .get(
                     `http://127.0.0.1:8000/api/apartment/${searchArray.search}/${searchArray.radius}/${searchArray.rooms}/${searchArray.beds}/${searchArray.checkedServices}`
@@ -53,7 +54,9 @@ export default {
                 .catch(err => {
                     console.log(err);
                 });
+            */
         }
+        
     }
 };
 </script>
