@@ -22,7 +22,6 @@ class ApartmentController extends Controller
         $apartments = Apartment::all();
 
         return response()->json(compact('apartments'));
-
     }
 
     public function show($slug) {
@@ -32,7 +31,6 @@ class ApartmentController extends Controller
         return response()->json($apartment);
     }
 
-    //get apartment detail by slug
     public function search($address){
 
         $response = Http::get("https://api.tomtom.com/search/2/search/${address}.json?radius=20000&key=4j77acI2RkgcxaYW2waGQ74SEPwpmFML");
@@ -54,9 +52,6 @@ class ApartmentController extends Controller
     }
 
     public function advancedSearch($address, $radius, $rooms, $beds, $services) {
-        //from services
-
-        
         
         //coordiates from tomtom
         $response = Http::get("https://api.tomtom.com/search/2/search/${address}.json?radius=20000&key=4j77acI2RkgcxaYW2waGQ74SEPwpmFML");
@@ -72,60 +67,34 @@ class ApartmentController extends Controller
         $minLon = $posLon - $base * $radius;
         $maxLon = $posLon + $base * $radius;
 
-        $apartments = Apartment::all()->whereBetween('latitude', [$minLat, $maxLat], 'longitude', [$minLon, $maxLon])->where('rooms', '>=', $rooms)->where('beds', '>=', $beds);
-
-        // dd($apartments);
-
-        $filteredApartments = [];
-
-        foreach ($apartments as $apartment) {
+        $apartments = Apartment::whereBetween('latitude', [$minLat, $maxLat])
+            ->whereBetween('longitude', [$minLon, $maxLon]) 
+            ->where('rooms', '>=', $rooms)
+            ->where('beds', '>=', $beds)
+            ->get();
+        
+        if($services != 0) {
+            $servicesArray = [];
+            $filteredApartments = [];
+            $servicesArray = explode(',', $services);
             
-            // ottieni id appartamento
-            $id_apartment = $apartment->id;
-
-            // ottieni tutti i servizi dell'appartamento
-            $servizi_apartment = DB::table('apartment_service')->where([
-                ['apartment_id', '=', $id_apartment]
-            ])->get();
-
-            // conteggio servizi trovati
-            $founded = 0;
-
-            
-           
-
-            // cerca servizi corrispodenti
-            foreach ($servizi_apartment as $service) {
-                if (in_array($service->service_id, $services)) {
-                    $founded++;
+            foreach($apartments as $apartment) {
+                $servicesList = $apartment->services;
+                $service_in_apartment = [];
+                
+                foreach($servicesList as $single_service) {
+                    $service_in_apartment[] = $single_service->id;
+                }
+                
+                if(count(array_intersect($servicesArray, $service_in_apartment)) >= count($servicesArray)) {
+                    $filteredApartments[] = $apartment;
                 }
             }
 
-            if( $founded == count($services) ){
-                array_push($filteredApartments, $apartment);
-            }
-            
-
-
+            $apartments = $filteredApartments;
         }
 
-        //dd($filteredApartments);
-        //$services = Service::all();
-        // $new_array= [];
-        // $serviceArray = $services->toArray();
-        // for ($i=0; $i<count($serviceArray); $i++) {
-        //     foreach ($apartments->services as $apartment) {
-        //         if ($apartment->id == $serviceArray[$i]) {
-        //             array_push($new_array, $apartment);
-        //         }
-        //     }
-        // }
-
-        // $apartments->filter(function($))
-
-        // dd($new_array);
-        
-        return response()->json($filteredApartments);
+        return response()->json($apartments);
     }
 
 }

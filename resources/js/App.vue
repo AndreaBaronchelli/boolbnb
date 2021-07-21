@@ -8,6 +8,7 @@
                 @searchArray="newSearch"
                 :query="searchText"
                 :user="user"
+                :apartmentsArray="apartmentsArray"
             ></router-view>
         </main>
     </div>
@@ -26,10 +27,16 @@ export default {
             apartmentsArray: [],
             searchText: "",
             user: {
-                user_id: document.querySelector("meta[name='user-id']").getAttribute('content'),
-                user_name: document.querySelector("meta[name='user-name']").getAttribute('content'),
-                user_email: document.querySelector("meta[name='user-email']").getAttribute('content'),
-                },
+                user_id: document
+                    .querySelector("meta[name='user-id']")
+                    .getAttribute("content"),
+                user_name: document
+                    .querySelector("meta[name='user-name']")
+                    .getAttribute("content"),
+                user_email: document
+                    .querySelector("meta[name='user-email']")
+                    .getAttribute("content")
+            }
         };
     },
     methods: {
@@ -47,19 +54,7 @@ export default {
                     console.log(err);
                 });
         },
-        newSearch(searchArray) {
-            console.log(searchArray);
-            axios
-                .get(
-                    `http://127.0.0.1:8000/api/apartment/${searchArray.search}/${searchArray.radius}/${searchArray.rooms}/${searchArray.beds}/${searchArray.checkedServices}`
-                )
-                .then(response => {
-                    console.log(response.data);
-                })
-                .catch(err => {
-                    console.log(err);
-                });
-        }
+        newSearch(searchArray) {}
     }
 };
 </script>
