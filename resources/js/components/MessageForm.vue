@@ -80,8 +80,8 @@ export default {
                     this.message.phone_number = '';
                     this.message.num_guests = '';
                     this.message.message = '';
-                    this.message.errors = {};
-                    this.message.success = true;
+                    this.errors = {};
+                    this.success = true;
                 }
             })
             .catch(error => {
