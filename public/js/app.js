@@ -2325,8 +2325,8 @@ __webpack_require__.r(__webpack_exports__);
           _this.message.phone_number = '';
           _this.message.num_guests = '';
           _this.message.message = '';
-          _this.message.errors = {};
-          _this.message.success = true;
+          _this.errors = {};
+          _this.success = true;
         }
       })["catch"](function (error) {
         console.log(error.data);
