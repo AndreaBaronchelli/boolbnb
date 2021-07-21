@@ -22,6 +22,8 @@ class MessageController extends Controller
 
         // array of user's apartments, filtered by user_id
         $user_apartments = Apartment::where('user_id', $user_id)->get();
+
+        // dd($user_apartments);
         
         // apartments IDs
         $apartments_id = $user_apartments->pluck('id');
@@ -29,7 +31,10 @@ class MessageController extends Controller
         // user messages filtered using the IDs of his apartments
         $messages = Message::whereIn('apartment_id', $apartments_id)->orderBy('created_at', 'desc')->get();
 
-        return view('admin.messages', compact('messages'));
+        dump($messages);
+        dump($user_apartments);
+
+        return view('admin.messages', compact('messages', 'user_apartments'));
     }
 
     /**

@@ -11,9 +11,9 @@
                     <td>Name</td>
                     <td>Email</td>
                     <td>Phone</td>
+                    <td>Apartment</td>
                     <td>N. guests</td>
                     <td colspan="2">Message</td>
-                    
                 </tr>
             </thead>
             <tbody >
@@ -22,6 +22,17 @@
                         <td> {{ $message->name }} </td>
                         <td> {{ $message->email }} </td>
                         <td> {{ $message->phone_number }} </td>
+                        <td> 
+                            @foreach ($user_apartments as $apartment)
+                                @if ($message->apartment_id === $apartment->id)
+                                {{ 
+                                    $apartment->title
+                                }} 
+                                @endif
+                             @endforeach
+                        </td>
+                        {{-- <td> {{ $user_apartments[$message->apartment_id]->title }} </td> --}}
+                        {{-- <td> {{ $message->user_apartments->title }} </td> --}}
                         <td> {{ $message->num_guests }} </td>
                         <td colspan="2">{{ $message->message }}</td>                        
                     </tr>
