@@ -12,6 +12,7 @@
         <div>
             <p>{{ apartment.address }}</p>
         </div>
+
         <div>
             <p>{{ apartment.square_meters }} mq</p>
         </div>
@@ -25,7 +26,8 @@
                 name: 'apartment-details',
                 params: { slug: apartment.slug }
             }"
-        ></router-link>
+            >See Details</router-link
+        >
     </div>
 </template>
 

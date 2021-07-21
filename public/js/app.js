@@ -2197,6 +2197,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ApartmentCard",
   props: ["apartment"]
@@ -39652,14 +39654,18 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _c("router-link", {
-        attrs: {
-          to: {
-            name: "apartment-details",
-            params: { slug: _vm.apartment.slug }
+      _c(
+        "router-link",
+        {
+          attrs: {
+            to: {
+              name: "apartment-details",
+              params: { slug: _vm.apartment.slug }
+            }
           }
-        }
-      })
+        },
+        [_vm._v("See Details")]
+      )
     ],
     1
   )
