@@ -1,9 +1,12 @@
 <template>
     <header>
         <div class="container">
-<<<<<<< HEAD
             <router-link :to="{ name: 'home' }">
-                <img class="logo" :src="`./images/boolBnb.png`" alt="boolBnb.png">
+                <img
+                    class="logo"
+                    :src="`./images/boolBnb.png`"
+                    alt="boolBnb.png"
+                />
             </router-link>
             <div class="register">
                 <router-link :to="{ name: 'home' }">
@@ -11,13 +14,8 @@
                 </router-link>
                 <router-link :to="{ name: 'home' }">
                     <p>login</p>
-                </router-link>  
-            </div> 
-=======
-            <router-link :to="{ name: 'home' }">Logo
-            </router-link>
-            
->>>>>>> master
+                </router-link>
+            </div>
         </div>
     </header>
 </template>
@@ -40,36 +38,30 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-header{
-<<<<<<< HEAD
-    padding:10px 20px;
+header {
+    padding: 10px 20px;
     background: white;
     position: relative;
-    box-shadow: 5px 0 10px  black;
-    
+    box-shadow: 5px 0 10px black;
+
     z-index: 10;
-    .container{
+    .container {
         display: flex;
         justify-content: space-between;
-        .register{
+        .register {
             display: flex;
             justify-content: center;
             align-items: center;
-            a{
+            a {
                 text-decoration: none;
                 margin-left: 20px;
-                color:#fb5a5f;
+                color: #fb5a5f;
                 font-size: 18px;
             }
-            
         }
     }
-    .logo{
+    .logo {
         width: 160px;
     }
-=======
-    padding:20px;
-    background: white;
->>>>>>> master
 }
 </style>

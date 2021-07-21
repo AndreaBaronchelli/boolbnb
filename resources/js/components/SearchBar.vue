@@ -61,28 +61,25 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    } 
-#searchbox{
+}
+#searchbox {
     width: 50%;
 }
 .button {
-   height: 52px;
-   line-height:52px;
-   font-size: 16px;
-   background:#fb5a5f;
-   text-decoration: none;
-   color:white;
-   padding: 0 10px;
-<<<<<<< HEAD
-   position: relative;
-   z-index: 8;
-=======
->>>>>>> master
+    height: 52px;
+    line-height: 52px;
+    font-size: 16px;
+    background: #fb5a5f;
+    text-decoration: none;
+    color: white;
+    padding: 0 10px;
+    position: relative;
+    z-index: 8;
 }
-.button:hover{
-    background:#fd7d82;
+.button:hover {
+    background: #fd7d82;
 }
-a{
- text-decoration: none; 
+a {
+    text-decoration: none;
 }
 </style>

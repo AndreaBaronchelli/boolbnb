@@ -3,11 +3,11 @@
         <!-- DA RISOLVERE -->
         <div class="img-cont">
             <img
-            :src="`http://127.0.0.1:8000/storage/${apartment.image}`"
-            :alt="apartment.title"
+                :src="`http://127.0.0.1:8000/storage/${apartment.image}`"
+                :alt="apartment.title"
             />
         </div>
-        
+
         <h2>{{ apartment.title }}</h2>
         <div>
             <p>{{ apartment.address }}</p>
@@ -20,6 +20,12 @@
                 Price per night: <strong>€{{ apartment.price }}</strong>
             </p>
         </div>
+        <router-link
+            :to="{
+                name: 'apartment-details',
+                params: { slug: apartment.slug }
+            }"
+        ></router-link>
     </div>
 </template>
 
@@ -37,18 +43,18 @@ export default {
     background: white;
     border-radius: 10px;
     padding: 20px 10px;
-    margin:10px;
+    margin: 10px;
     font-size: 16px;
-    p{
+    p {
         margin-bottom: 5px;
     }
 }
 
-.img-cont{
+.img-cont {
     width: 80%;
     margin-left: 10%;
     height: 100px;
-    img{
+    img {
         width: 100%;
         height: 100%;
         object-fit: cover;
