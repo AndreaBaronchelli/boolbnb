@@ -7,6 +7,7 @@
                 @searchText="setQuery"
                 @searchArray="newSearch"
                 :query="searchText"
+                :apartmentsArray="apartmentsArray"
             ></router-view>
         </main>
     </div>
@@ -41,19 +42,7 @@ export default {
                     console.log(err);
                 });
         },
-        newSearch(searchArray) {
-            console.log(searchArray);
-            axios
-                .get(
-                    `http://127.0.0.1:8000/api/apartment/${searchArray.search}/${searchArray.radius}/${searchArray.rooms}/${searchArray.beds}/${searchArray.checkedServices}`
-                )
-                .then(response => {
-                    console.log(response.data);
-                })
-                .catch(err => {
-                    console.log(err);
-                });
-        }
+        newSearch(searchArray) {}
     }
 };
 </script>

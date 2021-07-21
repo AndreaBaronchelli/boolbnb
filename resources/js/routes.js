@@ -23,7 +23,7 @@ const router = new VueRouter({
             path: "/apartment=:slug",
             name: "apartment-details",
             component: ApartmentDetails
-        },
+        }
     ]
 });
 

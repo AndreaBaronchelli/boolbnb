@@ -1984,6 +1984,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2011,14 +2012,7 @@ __webpack_require__.r(__webpack_exports__);
         console.log(err);
       });
     },
-    newSearch: function newSearch(searchArray) {
-      console.log(searchArray);
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/apartment/".concat(searchArray.search, "/").concat(searchArray.radius, "/").concat(searchArray.rooms, "/").concat(searchArray.beds, "/").concat(searchArray.checkedServices)).then(function (response) {
-        console.log(response.data);
-      })["catch"](function (err) {
-        console.log(err);
-      });
-    }
+    newSearch: function newSearch(searchArray) {}
   }
 });
 
@@ -2082,10 +2076,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "AdvancedSearch",
-  props: ['query'],
+  props: ["query"],
   components: {
     SearchBar: _SearchBar_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
@@ -2137,7 +2137,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     getSearchValue: function getSearchValue() {
       var search = document.getElementsByClassName("tt-search-box-input")[0].value;
-      document.getElementById('address').value = search;
+      document.getElementById("address").value = search;
     },
     emitData: function emitData() {
       var searchText = document.getElementsByClassName("tt-search-box-input")[0].value;
@@ -2320,13 +2320,13 @@ __webpack_require__.r(__webpack_exports__);
           _this.success = false;
         } else {
           //clear fields
-          _this.name = '';
-          _this.email = '';
-          _this.phone_number = '';
-          _this.num_guests = '';
-          _this.message = '';
-          _this.errors = {};
-          _this.success = true;
+          _this.message.name = '';
+          _this.message.email = '';
+          _this.message.phone_number = '';
+          _this.message.num_guests = '';
+          _this.message.message = '';
+          _this.message.errors = {};
+          _this.message.success = true;
         }
       })["catch"](function (error) {
         console.log(error.data);
@@ -2414,6 +2414,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tomtom-international/web-sdk-maps */ "./node_modules/@tomtom-international/web-sdk-maps/dist/maps.min.js");
 /* harmony import */ var _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_MessageForm_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/MessageForm.vue */ "./resources/js/components/MessageForm.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2593,21 +2603,27 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
     this.query = this.$route.params.search;
     axios.get("http://127.0.0.1:8000/api/apartment/".concat(this.$route.params.search)).then(function (response) {
-      console.log(response.data);
       _this.apartmentsArray = response.data;
     })["catch"](function (err) {
       console.log(err);
     });
   },
   performingSearch: function performingSearch(searchArray) {
-    // this.rooms = searchArray;
-    this.$emit("searchArray", searchArray); // console.log(this.rooms);
-    // axios.get(`http://127.0.0.1:8000/api/apartment/${searchText}`)
-    // .then(response => {
-    // })
-    // .catch(err => {
-    //     console.log(err);
-    // })
+    var _this2 = this;
+
+    var services = "0";
+
+    if (searchArray.checkedServices.length > 0) {
+      services = searchArray.checkedServices;
+    }
+
+    console.log(services);
+    axios.get("http://127.0.0.1:8000/api/apartment/advancedSearch/".concat(searchArray.search, "&").concat(searchArray.radius, "&").concat(searchArray.rooms, "&").concat(searchArray.beds, "&").concat(services)).then(function (response) {
+      console.log(response.data);
+      _this2.apartmentsArray = response.data;
+    })["catch"](function (err) {
+      console.log(err);
+    });
   }
 }), _name$data$components);
 
@@ -7219,7 +7235,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\ntemplate{\n    padding: 20px;\n}\n.advanced-search {\n    display: flex;\n    flex-direction: column;\n    background:white;\n    padding: 10px;\n    border-radius: 10px;\n    margin-right: 20px;\n    color:#511d1f;\n}\nselect{\n    padding:10px;\n    border-color: #fb5a5f;\n    color:#fb5a5f;\n}\nselect:active,\nselect:visited,\nselect:target{\n    border:none;\n}\nlabel{\n    margin-top: 1rem;\n    margin-bottom: 0.5rem;\n    font-weight: bold;\n}\noption{\n    color:#fb5a5f;\n}\n.checkbox {\n\tposition: absolute;\n\tz-index: -1;\n\topacity: 0;\n\tmargin: 30px;\n}\n.checkbox + label {\n\tposition: relative;\n\tpadding: 0 0 0 30px;\n\tcursor: pointer;\n}\n.checkbox + label:before {\n\tcontent: '';\n\tposition: absolute;\n\ttop:-35%;\n\tleft: 0;\n\twidth: 20px;\n\theight: 20px;\n    border-radius: 25%;\n\tbackground: #fb5a5f;\n\ttransition: .2s;\n}\n.checkbox + label:after {\n\tcontent: '';\n\tposition: absolute;\n\ttop: -1px;\n\tleft: 0px;\n\twidth: 10px;\n\theight: 10px;\n\tborder-radius: 50%;\n\tbackground: #FFF;\n\ttransition: .2s;\n}\n.checkbox:checked + label:before {\n\tbackground: #511d1f;\n}\n.checkbox:checked + label:after {\n\tleft: 10px;\n}\n.service{\n    margin-top: 0.2rem;\n    display: flex;\n    align-items:center;\n    justify-content: flex-start;\n}\n.form {\n    display: flex;\n    flex-direction: column;\n}\nbutton{\n    height: 52px;\n   line-height:52px;\n   font-size: 16px;\n   background:#fb5a5f;\n   text-decoration: none;\n   color:white;\n   padding: 0 10px;\n   border-width: 0;\n   margin:1rem 0;\n}\nbutton:hover{\n    background:#fd7d82;\n}\n", ""]);
+exports.push([module.i, "\ntemplate {\n    padding: 20px;\n}\n.advanced-search {\n    display: flex;\n    flex-direction: column;\n    background: white;\n    padding: 10px;\n    border-radius: 10px;\n    margin-right: 20px;\n    color: #511d1f;\n}\nselect {\n    padding: 10px;\n    border-color: #fb5a5f;\n    color: #fb5a5f;\n}\nselect:active,\nselect:visited,\nselect:target {\n    border: none;\n}\nlabel {\n    margin-top: 1rem;\n    margin-bottom: 0.5rem;\n    font-weight: bold;\n}\noption {\n    color: #fb5a5f;\n}\n.checkbox {\n    position: absolute;\n    z-index: -1;\n    opacity: 0;\n    margin: 30px;\n}\n.checkbox + label {\n    position: relative;\n    padding: 0 0 0 30px;\n    cursor: pointer;\n}\n.checkbox + label:before {\n    content: \"\";\n    position: absolute;\n    top: -35%;\n    left: 0;\n    width: 20px;\n    height: 20px;\n    border-radius: 25%;\n    background: #fb5a5f;\n    transition: 0.2s;\n}\n.checkbox + label:after {\n    content: \"\";\n    position: absolute;\n    top: -1px;\n    left: 0px;\n    width: 10px;\n    height: 10px;\n    border-radius: 50%;\n    background: #fff;\n    transition: 0.2s;\n}\n.checkbox:checked + label:before {\n    background: #511d1f;\n}\n.checkbox:checked + label:after {\n    left: 10px;\n}\n.service {\n    margin-top: 0.2rem;\n    display: flex;\n    align-items: center;\n    justify-content: flex-start;\n}\n.form {\n    display: flex;\n    flex-direction: column;\n}\nbutton {\n    height: 52px;\n    line-height: 52px;\n    font-size: 16px;\n    background: #fb5a5f;\n    text-decoration: none;\n    color: white;\n    padding: 0 10px;\n    border-width: 0;\n    margin: 1rem 0;\n}\nbutton:hover {\n    background: #fd7d82;\n}\n", ""]);
 
 // exports
 
@@ -39321,7 +39337,10 @@ var render = function() {
         "main",
         [
           _c("router-view", {
-            attrs: { query: _vm.searchText },
+            attrs: {
+              query: _vm.searchText,
+              apartmentsArray: _vm.apartmentsArray
+            },
             on: { searchText: _vm.setQuery, searchArray: _vm.newSearch }
           })
         ],
@@ -39496,38 +39515,36 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.checkedServices[index],
-                  expression: "checkedServices[index]"
+                  value: _vm.checkedServices,
+                  expression: "checkedServices"
                 }
               ],
               staticClass: "checkbox",
               attrs: { type: "checkbox", name: service.name, id: service.id },
               domProps: {
-                checked: Array.isArray(_vm.checkedServices[index])
-                  ? _vm._i(_vm.checkedServices[index], null) > -1
-                  : _vm.checkedServices[index]
+                value: service.id,
+                checked: Array.isArray(_vm.checkedServices)
+                  ? _vm._i(_vm.checkedServices, service.id) > -1
+                  : _vm.checkedServices
               },
               on: {
                 change: function($event) {
-                  var $$a = _vm.checkedServices[index],
+                  var $$a = _vm.checkedServices,
                     $$el = $event.target,
                     $$c = $$el.checked ? true : false
                   if (Array.isArray($$a)) {
-                    var $$v = null,
+                    var $$v = service.id,
                       $$i = _vm._i($$a, $$v)
                     if ($$el.checked) {
-                      $$i < 0 &&
-                        _vm.$set(_vm.checkedServices, index, $$a.concat([$$v]))
+                      $$i < 0 && (_vm.checkedServices = $$a.concat([$$v]))
                     } else {
                       $$i > -1 &&
-                        _vm.$set(
-                          _vm.checkedServices,
-                          index,
-                          $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                        )
+                        (_vm.checkedServices = $$a
+                          .slice(0, $$i)
+                          .concat($$a.slice($$i + 1)))
                     }
                   } else {
-                    _vm.$set(_vm.checkedServices, index, $$c)
+                    _vm.checkedServices = $$c
                   }
                 }
               }
@@ -39989,6 +40006,20 @@ var render = function() {
             _c("h2", [_vm._v(_vm._s(_vm.apartment.title))]),
             _vm._v(" "),
             _c("div", [_c("span", [_vm._v(_vm._s(_vm.apartment.address))])]),
+            _vm._v(" "),
+            _c("div", [
+              _c("span", [
+                _vm._v("Rooms: "),
+                _c("strong", [_vm._v(_vm._s(_vm.apartment.rooms))])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("span", [
+                _vm._v("Beds: "),
+                _c("strong", [_vm._v(_vm._s(_vm.apartment.beds))])
+              ])
+            ]),
             _vm._v(" "),
             _c("div", [
               _c("span", [_vm._v(_vm._s(_vm.apartment.square_meters) + " mq")])
