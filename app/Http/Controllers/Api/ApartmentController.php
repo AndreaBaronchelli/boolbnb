@@ -21,7 +21,6 @@ class ApartmentController extends Controller
         $apartments = Apartment::all();
 
         return response()->json(compact('apartments'));
-
     }
 
     public function show($slug) {
@@ -31,7 +30,6 @@ class ApartmentController extends Controller
         return response()->json($apartment);
     }
 
-    //get apartment detail by slug
     public function search($address){
 
         $response = Http::get("https://api.tomtom.com/search/2/search/${address}.json?radius=20000&key=4j77acI2RkgcxaYW2waGQ74SEPwpmFML");
@@ -53,9 +51,6 @@ class ApartmentController extends Controller
     }
 
     public function advancedSearch($address, $radius, $rooms, $beds, $services) {
-        //from services
-
-        
         
         //coordiates from tomtom
         $response = Http::get("https://api.tomtom.com/search/2/search/${address}.json?radius=20000&key=4j77acI2RkgcxaYW2waGQ74SEPwpmFML");
@@ -74,18 +69,30 @@ class ApartmentController extends Controller
         $apartments = Apartment::whereBetween('latitude', [$minLat, $maxLat])
             ->whereBetween('longitude', [$minLon, $maxLon]) 
             ->where('rooms', '>=', $rooms)
-            ->where('beds', '>=', $beds);
-
+            ->where('beds', '>=', $beds)
+            ->get();
         
+        if($services != 0) {
+            $servicesArray = [];
+            $filteredApartments = [];
+            $servicesArray = explode(',', $services);
+            
+            foreach($apartments as $apartment) {
+                $servicesList = $apartment->services;
+                $service_in_apartment = [];
+                
+                foreach($servicesList as $single_service) {
+                    $service_in_apartment[] = $single_service->id;
+                }
+                
+                if(count(array_intersect($servicesArray, $service_in_apartment)) >= count($servicesArray)) {
+                    $filteredApartments[] = $apartment;
+                }
+            }
 
+            $apartments = $filteredApartments;
+        }
 
-
-       
-
-       
-
-        
-        
         return response()->json($apartments);
     }
 
