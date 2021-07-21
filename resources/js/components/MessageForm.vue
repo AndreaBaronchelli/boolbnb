@@ -48,7 +48,10 @@
 <script>
 export default {
     name: "MessageForm",
-    props: ['apartment_id'],
+    props: ['apartment_id', 'user'],
+    created() {
+        this.checkLoggedUser();
+    },
     data() {
         return {
             message: {
@@ -58,9 +61,18 @@ export default {
             errors: {},
             success: false,
             sending: false,
+            fielDisabled: false,
         }
     },
     methods: {
+        checkLoggedUser() {
+            console.log(this.user);
+            if (this.user.user_name != null) {
+                this.message.name = this.user.user_name
+                this.message.email = this.user.user_email
+                this.fielDisabled = true;
+            }
+        },
         sendMessage(){  
             this.sending = true;    
             console.log(this.message);

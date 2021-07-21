@@ -37,7 +37,7 @@
                 </ul>
             </div>
             <div id="map" class="map"></div>
-            <MessageForm :apartment_id="apartment.id" />
+            <MessageForm :apartment_id="apartment.id" :user="user" />
             <router-link
                 :to="{ name: 'results', params: { search: this.query } }"
                 >Back to results</router-link
@@ -62,7 +62,7 @@ export default {
             apartment: null
         };
     },
-    props: ["query"],
+    props: ["query", "user"],
     created() {
         this.getDetails();
     },

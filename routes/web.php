@@ -27,6 +27,7 @@ Route::prefix('admin')
         Route::get('/', 'HomeController@index')->name('home');
         Route::resource('/apartments', 'ApartmentController');
         Route::resource('/sponsors', 'SponsorController');
+        Route::resource('/messages', 'MessageController');
         
     });
 
