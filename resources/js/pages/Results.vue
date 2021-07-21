@@ -6,6 +6,7 @@
             <!-- <div v-if="(apartmentsArray = [])">
                 <h2>No results found</h2>
 <<<<<<< HEAD
+<<<<<<< HEAD
                 </div>
                 <div class="cards-container" v-else>
                     <ApartmentCard
@@ -15,6 +16,8 @@
                     />
                 </div>
 =======
+=======
+>>>>>>> master
             </div> -->
             <div v-if="!apartmentsArray">Loading...</div>
             <div class="cards-container" v-else>
@@ -77,6 +80,23 @@ export default {
             // .catch(err => {
             //     console.log(err);
             // })
+            var services = "0";
+            if (searchArray.checkedServices.length > 0) {
+                services = searchArray.checkedServices;
+            }
+            console.log(services);
+            axios
+                .get(
+                    `http://127.0.0.1:8000/api/apartment/advancedSearch/${searchArray.search}&${searchArray.radius}&${searchArray.rooms}&${searchArray.beds}&${services}`
+                )
+                .then(response => {
+                    console.log(response.data);
+                    this.apartmentsArray = response.data;
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+
         }
     }
 };

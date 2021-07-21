@@ -46743,6 +46743,7 @@
             /*!*************************************!*\
   !*** multi ./resources/js/admin.js ***!
   \*************************************/
+<<<<<<< HEAD
             /*! no static exports found */
             /***/ function(module, exports, __webpack_require__) {
                 module.exports = __webpack_require__(
@@ -46754,6 +46755,15 @@
 
                 /***/
             }
+=======
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! /Users/andrea/Desktop/Boolean/Esercizi/boolbnb/resources/js/admin.js */"./resources/js/admin.js");
+
+
+/***/ })
+>>>>>>> master
 
         /******/
     }

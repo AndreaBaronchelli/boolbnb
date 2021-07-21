@@ -2827,6 +2827,7 @@
             /*!***********************************!*\
   !*** multi ./resources/js/map.js ***!
   \***********************************/
+<<<<<<< HEAD
             /*! no static exports found */
             /***/ function(module, exports, __webpack_require__) {
                 module.exports = __webpack_require__(
@@ -2838,6 +2839,15 @@
 
                 /***/
             }
+=======
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! /Users/andrea/Desktop/Boolean/Esercizi/boolbnb/resources/js/map.js */"./resources/js/map.js");
+
+
+/***/ })
+>>>>>>> master
 
         /******/
     }

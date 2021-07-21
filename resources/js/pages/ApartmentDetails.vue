@@ -10,6 +10,16 @@
                 <span>{{ apartment.address }}</span>
             </div>
             <div>
+                <span
+                    >Rooms: <strong>{{ apartment.rooms }}</strong></span
+                >
+            </div>
+            <div>
+                <span
+                    >Beds: <strong>{{ apartment.beds }}</strong></span
+                >
+            </div>
+            <div>
                 <span>{{ apartment.square_meters }} mq</span>
             </div>
             <div>

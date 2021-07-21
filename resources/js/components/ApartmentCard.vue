@@ -22,8 +22,13 @@
                 name: 'apartment-details',
                 params: { slug: apartment.slug }
             }"
+<<<<<<< HEAD
             >See Details
         </router-link>
+=======
+            >See Details</router-link
+        >
+>>>>>>> master
     </div>
 </div>
 

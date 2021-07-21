@@ -8,6 +8,7 @@
                 @searchText="setQuery"
                 @searchArray="newSearch"
                 :query="searchText"
+                :apartmentsArray="apartmentsArray"
             ></router-view>
         </main>
     </div>
@@ -63,7 +64,7 @@ export default {
 @import "../sass/frontoffice/_utilities";
 @import "../sass/_variables";
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -78,17 +79,17 @@ main{
     }
 }
 
-.tt-search-box{
-       margin-top:0;
+.tt-search-box {
+    margin-top: 0;
 }
-.tt-search-box-input-container{
+.tt-search-box-input-container {
     padding: 0;
     height: 30px;
-    padding:10px;
+    padding: 10px;
     border: 1px solid #fb5a5f;
    
 }
-svg{
+svg {
     fill: #fb5a5f;
 }
 </style>
