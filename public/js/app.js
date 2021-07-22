@@ -2365,10 +2365,12 @@ __webpack_require__.r(__webpack_exports__);
     checkLoggedUser: function checkLoggedUser() {
       console.log(this.user);
 
-      if (this.user.user_name != null) {
+      if (this.user.user_name != "") {
         this.message.name = this.user.user_name;
         this.message.email = this.user.user_email;
         this.fielDisabled = true;
+      } else {
+        this.fielDisabled = false;
       }
     },
     sendMessage: function sendMessage() {
@@ -39884,7 +39886,12 @@ var render = function() {
                 expression: "message.name"
               }
             ],
-            attrs: { type: "text", id: "name", placeholder: "Your name" },
+            attrs: {
+              type: "text",
+              id: "name",
+              placeholder: "Your name",
+              disabled: this.fielDisabled ? "" : _vm.disabled
+            },
             domProps: { value: _vm.message.name },
             on: {
               input: function($event) {
@@ -39918,7 +39925,12 @@ var render = function() {
                 expression: "message.email"
               }
             ],
-            attrs: { type: "email", id: "email", placeholder: "Your email" },
+            attrs: {
+              type: "email",
+              id: "email",
+              placeholder: "Your email",
+              disabled: this.fielDisabled ? "" : _vm.disabled
+            },
             domProps: { value: _vm.message.email },
             on: {
               input: function($event) {

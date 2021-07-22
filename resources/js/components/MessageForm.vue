@@ -11,13 +11,13 @@
         <div class="error-field" v-for="(error, index) in errors.name" :key="`err-name-${index}`">{{error}}</div>
         <div class="field">
             <label for="name">Name*</label><br>
-            <input type="text" id="name" placeholder="Your name" v-model="message.name">
+            <input type="text" id="name" placeholder="Your name" :disabled="this.fielDisabled ? '' : disabled" v-model="message.name">
         </div>
         <!-- email -->
         <div class="error-field" v-for="(error, index) in errors.email" :key="`err-email-${index}`">{{error}}</div>
         <div class="field">
             <label for="email">Email*</label><br>
-            <input type="email" id="email" placeholder="Your email" v-model="message.email">
+            <input type="email" id="email" placeholder="Your email" :disabled="this.fielDisabled ? '' : disabled" v-model="message.email">
         </div>
         <!-- phone -->
         <div class="error-field" v-for="(error, index) in errors.phone_number" :key="`err-phone-${index}`">{{error}}</div>
@@ -67,10 +67,12 @@ export default {
     methods: {
         checkLoggedUser() {
             console.log(this.user);
-            if (this.user.user_name != null) {
+            if (this.user.user_name != "") {
                 this.message.name = this.user.user_name
                 this.message.email = this.user.user_email
                 this.fielDisabled = true;
+            } else {
+                this.fielDisabled = false;
             }
         },
         sendMessage(){  

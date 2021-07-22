@@ -45,6 +45,7 @@ class ApartmentController extends Controller
 
         $apartments = Apartment::whereBetween('latitude', [$minLat, $maxLat])
             ->whereBetween('longitude', [$minLon, $maxLon]) 
+            ->where('visibility', '=', 1)
             ->get();
 
 
@@ -71,6 +72,7 @@ class ApartmentController extends Controller
             ->whereBetween('longitude', [$minLon, $maxLon]) 
             ->where('rooms', '>=', $rooms)
             ->where('beds', '>=', $beds)
+            ->where('visibility', '=', 1)
             ->get();
         
         if($services != 0) {
