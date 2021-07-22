@@ -40271,7 +40271,9 @@ var render = function() {
           on: { searchArray: _vm.performingSearch }
         }),
         _vm._v(" "),
-        !_vm.apartmentsArray
+        _vm.apartmentsArray.length === 0
+          ? _c("div", [_c("h2", [_vm._v("No results found")])])
+          : !_vm.apartmentsArray
           ? _c("div", [_vm._v("Loading...")])
           : _c(
               "div",
