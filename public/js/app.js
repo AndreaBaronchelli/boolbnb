@@ -2269,9 +2269,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Header",
+  props: ['user'],
   data: function data() {
     return {};
   },
@@ -39400,7 +39400,10 @@ var render = function() {
     "div",
     { staticClass: "cont" },
     [
-      _c("Header", { on: { searchText: _vm.performSearch } }),
+      _c("Header", {
+        attrs: { user: _vm.user },
+        on: { searchText: _vm.performSearch }
+      }),
       _vm._v(" "),
       _c(
         "main",
@@ -39760,7 +39763,17 @@ var render = function() {
           })
         ]),
         _vm._v(" "),
-        _vm._m(0)
+        this.user.user_name != ""
+          ? _c("div", { staticClass: "register" }, [
+              _c("a", { attrs: { href: "http://127.0.0.1:8000/admin" } }, [
+                _vm._v("Ciao " + _vm._s(this.user.user_name))
+              ])
+            ])
+          : _c("div", { staticClass: "register" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _vm._m(1)
+            ])
       ],
       1
     )
@@ -39771,14 +39784,16 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "register" }, [
-      _c("a", { attrs: { href: "http://127.0.0.1:8000/login" } }, [
-        _c("p", [_vm._v(" Login")])
-      ]),
-      _vm._v(" "),
-      _c("a", { attrs: { href: "http://127.0.0.1:8000/register" } }, [
-        _c("p", [_vm._v("Register")])
-      ])
+    return _c("a", { attrs: { href: "http://127.0.0.1:8000/login" } }, [
+      _c("p", [_vm._v(" Login")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { attrs: { href: "http://127.0.0.1:8000/register" } }, [
+      _c("p", [_vm._v("Register")])
     ])
   }
 ]
@@ -56591,8 +56606,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Maurizio\Desktop\boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Maurizio\Desktop\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\Boolean\Esercizi Corso\boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\Boolean\Esercizi Corso\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

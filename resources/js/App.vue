@@ -1,6 +1,6 @@
 <template>
     <div class="cont">
-        <Header @searchText="performSearch" />
+        <Header @searchText="performSearch" :user="user" />
         <main>
             <router-view
                 :apartmentArray="apartmentsArray"

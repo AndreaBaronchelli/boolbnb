@@ -8,23 +8,22 @@
                     alt="boolBnb.png"
                 />
             </router-link>
-            <div class="register">
+            <div class="register" v-if="this.user.user_name != ''">
+                <a href="http://127.0.0.1:8000/admin">Ciao {{this.user.user_name}}</a>
+            </div>
+            <div v-else class="register">
+                <a href="http://127.0.0.1:8000/login">
+                    <p> Login</p>
+                </a>
+                <a href="http://127.0.0.1:8000/register">
+                    <p>Register</p>
+                </a>
                 <!-- <router-link :to="{ name: 'login' }">
                     <p> Login</p>
                 </router-link>
                 <router-link :to="{ name: 'home' }">
                     <p>Register</p>
                 </router-link> -->
-
-                <a href="http://127.0.0.1:8000/login">
-                    
-                    <p> Login</p>
-
-                </a>
-
-                <a href="http://127.0.0.1:8000/register">
-                    <p>Register</p>
-                </a>
             </div>
         </div>
     </header>
@@ -33,6 +32,7 @@
 <script>
 export default {
     name: "Header",
+    props: ['user'],
     data() {
         return {};
     },
