@@ -59,7 +59,12 @@ export default {
     },
     data() {
         return {
-            apartment: null
+            apartment: null,
+            stats: {
+                apartment_id: '',
+                // IP_address: '40.021.2.120', //in controller
+                // country: 'IT' //in controller
+            }
         };
     },
     props: ["query", "user"],
@@ -77,6 +82,8 @@ export default {
                 )
                 .then(response => {
                     this.apartment = response.data;
+                    this.stats.apartment_id = this.apartment.id;
+                    this.storeViewStats();
                 })
                 .catch(error => {
                     console.log(error);
@@ -93,7 +100,18 @@ export default {
             // var marker = new tt.Marker()
             //     .setLngLat([this.apartment.longitude, this.apartment.latitude])
             //     .addTo(map);
+        },
+        storeViewStats() {
+            axios.post('http://127.0.0.1:8000/api/stats', this.stats
+            )
+            .then(response => {
+                console.log(response.data);
+            })
+            .catch(error => {
+                console.log(error.data);
+            });
         }
+
     }
 };
 </script>

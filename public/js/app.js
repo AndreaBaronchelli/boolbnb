@@ -2539,7 +2539,12 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      apartment: null
+      apartment: null,
+      stats: {
+        apartment_id: '' // IP_address: '40.021.2.120', //in controller
+        // country: 'IT' //in controller
+
+      }
     };
   },
   props: ["query", "user"],
@@ -2555,6 +2560,9 @@ __webpack_require__.r(__webpack_exports__);
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/apartment=".concat(this.$route.params.slug)).then(function (response) {
         _this.apartment = response.data;
+        _this.stats.apartment_id = _this.apartment.id;
+
+        _this.storeViewStats();
       })["catch"](function (error) {
         console.log(error);
       });
@@ -2570,6 +2578,13 @@ __webpack_require__.r(__webpack_exports__);
       }); // var marker = new tt.Marker()
       //     .setLngLat([this.apartment.longitude, this.apartment.latitude])
       //     .addTo(map);
+    },
+    storeViewStats: function storeViewStats() {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('http://127.0.0.1:8000/api/stats', this.stats).then(function (response) {
+        console.log(response.data);
+      })["catch"](function (error) {
+        console.log(error.data);
+      });
     }
   }
 });

@@ -39,5 +39,32 @@
             </div>
         </div>
 
+        {{-- chart --}}
+        <canvas id="myChart" width="400" height="400"></canvas>
+
+
     </div>
+
+    <script>
+        let myChart = document.getElementById('myChart').getContext('2d');
+
+        let dataChart = new Chart(myChart, {
+            type: 'bar',
+            data: {
+                labels: ['1', '2', '3',],
+                datasets: {
+                    label: ['pop'],
+                    data: [
+                        10,
+                        20,
+                        25
+                    ]
+                }
+            },
+            options: {
+
+            }
+        });
+
+    </script>
 @endsection
