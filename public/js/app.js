@@ -40271,23 +40271,21 @@ var render = function() {
           on: { searchArray: _vm.performingSearch }
         }),
         _vm._v(" "),
-        _vm.apartmentsArray.length === 0
+        _vm.apartmentsArray.length == 0
           ? _c("div", [_c("h2", [_vm._v("No results found")])])
           : !_vm.apartmentsArray
           ? _c("div", [_vm._v("Loading...")])
-          : _vm._e(),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "cards-container" },
-          _vm._l(_vm.apartmentsArray, function(apartment) {
-            return _c("ApartmentCard", {
-              key: apartment.id,
-              attrs: { apartment: apartment, query: _vm.query }
-            })
-          }),
-          1
-        )
+          : _c(
+              "div",
+              { staticClass: "cards-container" },
+              _vm._l(_vm.apartmentsArray, function(apartment) {
+                return _c("ApartmentCard", {
+                  key: apartment.id,
+                  attrs: { apartment: apartment, query: _vm.query }
+                })
+              }),
+              1
+            )
       ],
       1
     )
