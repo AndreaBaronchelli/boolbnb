@@ -2172,6 +2172,12 @@ __webpack_require__.r(__webpack_exports__);
     },
     emitData: function emitData() {
       var searchText = document.getElementsByClassName("tt-search-box-input")[0].value;
+
+      if (searchText == "") {
+        document.getElementsByClassName("tt-search-box-input")[0].value = this.query;
+        searchText = this.query;
+      }
+
       this.$emit("searchArray", {
         rooms: this.rooms,
         beds: this.beds,
@@ -2389,8 +2395,7 @@ __webpack_require__.r(__webpack_exports__);
       },
       errors: {},
       success: false,
-      sending: false,
-      fielDisabled: false
+      sending: false
     };
   },
   methods: {
@@ -2400,7 +2405,6 @@ __webpack_require__.r(__webpack_exports__);
       if (this.user.user_name != null) {
         this.message.name = this.user.user_name;
         this.message.email = this.user.user_email;
-        this.fielDisabled = true;
       }
     },
     sendMessage: function sendMessage() {
@@ -2418,8 +2422,8 @@ __webpack_require__.r(__webpack_exports__);
           _this.success = false;
         } else {
           //clear fields
-          _this.message.name = '';
-          _this.message.email = '';
+          // this.message.name = '';
+          // this.message.email = '';
           _this.message.phone_number = '';
           _this.message.num_guests = '';
           _this.message.message = '';
@@ -2673,10 +2677,6 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_ApartmentCard_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/ApartmentCard.vue */ "./resources/js/components/ApartmentCard.vue");
 /* harmony import */ var _components_AdvancedSearch_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/AdvancedSearch.vue */ "./resources/js/components/AdvancedSearch.vue");
-var _name$data$components;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 //
 //
 //
@@ -2700,52 +2700,51 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 
 
-/* harmony default export */ __webpack_exports__["default"] = (_name$data$components = {
+/* harmony default export */ __webpack_exports__["default"] = ({
   name: "Results",
   data: function data() {
     return {
-      query: ""
+      query: "",
+      apartmentsArray: null
     };
   },
   components: {
     ApartmentCard: _components_ApartmentCard_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     AdvancedSearch: _components_AdvancedSearch_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
-  }
-}, _defineProperty(_name$data$components, "data", function data() {
-  return {
-    apartmentsArray: null
-  };
-}), _defineProperty(_name$data$components, "created", function created() {
-  this.performSearch();
-}), _defineProperty(_name$data$components, "methods", {
-  performSearch: function performSearch() {
-    var _this = this;
-
-    this.query = this.$route.params.search;
-    axios.get("http://127.0.0.1:8000/api/apartment/".concat(this.$route.params.search)).then(function (response) {
-      _this.apartmentsArray = response.data;
-    })["catch"](function (err) {
-      console.log(err);
-    });
   },
-  performingSearch: function performingSearch(searchArray) {
-    var _this2 = this;
+  created: function created() {
+    this.performSearch();
+  },
+  methods: {
+    performSearch: function performSearch() {
+      var _this = this;
 
-    var services = "0";
+      this.query = this.$route.params.search;
+      axios.get("http://127.0.0.1:8000/api/apartment/".concat(this.$route.params.search)).then(function (response) {
+        _this.apartmentsArray = response.data;
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
+    performingSearch: function performingSearch(searchArray) {
+      var _this2 = this;
 
-    if (searchArray.checkedServices.length > 0) {
-      services = searchArray.checkedServices;
+      var services = "0";
+
+      if (searchArray.checkedServices.length > 0) {
+        services = searchArray.checkedServices;
+      }
+
+      console.log(services);
+      axios.get("http://127.0.0.1:8000/api/apartment/advancedSearch/".concat(searchArray.search, "&").concat(searchArray.radius, "&").concat(searchArray.rooms, "&").concat(searchArray.beds, "&").concat(services)).then(function (response) {
+        console.log(response.data);
+        _this2.apartmentsArray = response.data;
+      })["catch"](function (err) {
+        console.log(err);
+      });
     }
-
-    console.log(services);
-    axios.get("http://127.0.0.1:8000/api/apartment/advancedSearch/".concat(searchArray.search, "&").concat(searchArray.radius, "&").concat(searchArray.rooms, "&").concat(searchArray.beds, "&").concat(services)).then(function (response) {
-      console.log(response.data);
-      _this2.apartmentsArray = response.data;
-    })["catch"](function (err) {
-      console.log(err);
-    });
   }
-}), _name$data$components);
+});
 
 /***/ }),
 
@@ -7279,7 +7278,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "form[data-v-367b72d0] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  background: white;\n  border-radius: 10px;\n  margin-top: 20px;\n  padding: 20px;\n  color: #511d1f;\n}\nform h2[data-v-367b72d0] {\n  color: #a63c3f;\n}\n.cont[data-v-367b72d0] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  width: 100%;\n}\n.cont .date[data-v-367b72d0] {\n  margin: 20px;\n}\n.cont input[data-v-367b72d0] {\n  width: 220px;\n  height: 30px;\n  border: solid 1px #fb5a5f;\n  margin-top: 5px;\n  padding: 10px;\n}\n.cont textarea[data-v-367b72d0] {\n  width: 220px;\n  height: 220px;\n  border: solid 1px #fb5a5f;\n  margin-top: 5px;\n  padding: 10px;\n}\n.field[data-v-367b72d0] {\n  margin-bottom: 15px;\n}\n.error-field[data-v-367b72d0] {\n  color: red;\n}\n.success[data-v-367b72d0] {\n  color: green;\n}\nbutton[data-v-367b72d0] {\n  padding: 0 30px;\n  margin: 0;\n}", ""]);
+exports.push([module.i, "form[data-v-367b72d0] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  background: white;\n  border-radius: 10px;\n  margin-top: 20px;\n  padding: 20px;\n  color: #511d1f;\n}\nform h2[data-v-367b72d0] {\n  color: #a63c3f;\n}\n.cont[data-v-367b72d0] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  width: 100%;\n}\n.cont .date[data-v-367b72d0] {\n  margin: 20px;\n}\n.cont input[data-v-367b72d0] {\n  width: 220px;\n  height: 30px;\n  border: solid 1px #fb5a5f;\n  margin-top: 5px;\n  padding: 10px;\n}\n.cont textarea[data-v-367b72d0] {\n  width: 240px;\n  height: 300px;\n  border: solid 1px #fb5a5f;\n  margin-top: 5px;\n  padding: 10px;\n}\n.field[data-v-367b72d0] {\n  margin-bottom: 15px;\n}\n.error-field[data-v-367b72d0] {\n  color: white;\n  background-color: #fb5a5f;\n  border-radius: 8px;\n  padding: 2px 7px;\n  font-size: 13px;\n  text-align: center;\n}\n.success[data-v-367b72d0] {\n  color: #18511b;\n  background-color: #66ff7b;\n  border-radius: 10px;\n  padding: 3px 10px;\n  text-align: center;\n  margin-top: 10px;\n}\nbutton[data-v-367b72d0] {\n  padding: 0 30px;\n  margin: 0;\n}", ""]);
 
 // exports
 
@@ -7317,7 +7316,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".container[data-v-1b16c839] {\n  padding: 100px 0 70px 0;\n}\n.cont-img-info[data-v-1b16c839] {\n  background: white;\n  padding: 20px;\n  border-radius: 10px;\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  color: #511d1f;\n  margin-top: 20px;\n}\na[data-v-1b16c839] {\n  text-decoration: none;\n  color: #fb5a5f;\n  padding-bottom: 20px;\n  font-size: 18px;\n}\n.img-cont[data-v-1b16c839],\n.map[data-v-1b16c839],\n.info-cont[data-v-1b16c839] {\n  margin: 10px;\n}\n.info-cont[data-v-1b16c839] {\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n}\n.info-cont h2[data-v-1b16c839] {\n  margin: 0 0 10px 0;\n  color: #a63c3f;\n}\n.info-cont p[data-v-1b16c839] {\n  margin: 5px 0;\n}\n.cont-form[data-v-1b16c839] {\n  width: 100%;\n}\nimg[data-v-1b16c839] {\n  height: 300px;\n}\n#map[data-v-1b16c839] {\n  width: 300px;\n  height: 300px;\n}", ""]);
+exports.push([module.i, ".container[data-v-1b16c839] {\n  padding: 100px 0 70px 0;\n}\n.cont-img-info[data-v-1b16c839] {\n  background: white;\n  padding: 20px;\n  border-radius: 10px;\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  color: #511d1f;\n  margin-top: 20px;\n}\na[data-v-1b16c839] {\n  text-decoration: none;\n  color: #fb5a5f;\n  padding-bottom: 20px;\n  font-size: 18px;\n}\n.img-cont[data-v-1b16c839],\n.map[data-v-1b16c839],\n.info-cont[data-v-1b16c839] {\n  margin: 10px;\n}\n.info-cont[data-v-1b16c839] {\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n}\n.info-cont h2[data-v-1b16c839] {\n  margin: 0 0 10px 0;\n  color: #a63c3f;\n}\n.info-cont p[data-v-1b16c839] {\n  margin: 5px 0;\n}\n.cont-form[data-v-1b16c839] {\n  width: 100%;\n}\nimg[data-v-1b16c839] {\n  height: 300px;\n}\n#map[data-v-1b16c839] {\n  width: 830px;\n  height: 200px;\n}", ""]);
 
 // exports
 
@@ -39946,22 +39945,6 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "message-form" }, [
     _c(
-      "div",
-      {
-        directives: [
-          {
-            name: "show",
-            rawName: "v-show",
-            value: _vm.success,
-            expression: "success"
-          }
-        ],
-        staticClass: "success"
-      },
-      [_vm._v("Message sended successfully")]
-    ),
-    _vm._v(" "),
-    _c(
       "form",
       {
         on: {
@@ -39972,7 +39955,7 @@ var render = function() {
         }
       },
       [
-        _c("h2", [_vm._v("Contat us for booking")]),
+        _c("h2", [_vm._v("Contact us for booking")]),
         _vm._v(" "),
         _c("div", { staticClass: "cont" }, [
           _c(
@@ -40190,7 +40173,23 @@ var render = function() {
               _vm._s(_vm.sending ? "Sending.." : "Send") +
               "\r\n        "
           )
-        ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.success,
+                expression: "success"
+              }
+            ],
+            staticClass: "success"
+          },
+          [_vm._v("Message sended successfully")]
+        )
       ]
     )
   ])
@@ -56859,8 +56858,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\marco\Desktop\progetto_finale\boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\marco\Desktop\progetto_finale\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\Boolean\Esercizi Corso\boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\Boolean\Esercizi Corso\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

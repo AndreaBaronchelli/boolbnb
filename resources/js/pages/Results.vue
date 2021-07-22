@@ -26,17 +26,13 @@ export default {
     name: "Results",
     data() {
         return {
-            query: ""
+            query: "",
+            apartmentsArray: null,
         };
     },
     components: {
         ApartmentCard,
         AdvancedSearch
-    },
-    data() {
-        return {
-            apartmentsArray: null
-        };
     },
     created() {
         this.performSearch();
