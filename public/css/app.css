@@ -10946,6 +10946,10 @@ td {
   width: 90px;
 }
 
+.navbar-brand img {
+  width: 160px;
+}
+
 .container {
   max-width: 1170px;
   margin: 0 auto;

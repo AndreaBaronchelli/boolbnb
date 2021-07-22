@@ -1,52 +1,75 @@
 <template>
     <div class="block">
+
         <h3>AdvancedSearch</h3>
+        <div class="advanced-search">
+            <div class="left">
 
-        <div id="advanced-searchbox"></div>
-        <!-- <input type="text" id="address"> -->
-        <label for="radius">Search radius</label>
-        <select v-model="radius" name="radius" id="radius">
-            <option value="10">10 km</option>
-            <option selected value="20">20 km</option>
-            <option value="30">30 km</option>
-            <option value="40">40 km</option>
-        </select>
-        <label for="rooms">Min rooms number</label>
-        <select v-model="rooms" name="rooms" id="rooms">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">4+</option>
-        </select>
-        <label for="beds">Min beds number</label>
-        <select v-model="beds" name="beds" id="beds">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">3+</option>
-        </select>
+                <div id="advanced-searchbox"></div>
+                <!-- <input type="text" id="address"> -->
 
-        <!-- <button >test</button> -->
+                <div class="cont-select">
+                    <label for="radius">Search radius</label>
+                    <select v-model="radius" name="radius" id="radius">
+                        <option value="10">10 km</option>
+                        <option selected value="20">20 km</option>
+                        <option value="30">30 km</option>
+                        <option value="40">40 km</option>
+                    </select>
 
-        <div class="services">
-            <div
-                class="service"
-                v-for="(service, index) in services"
-                :key="`${service.id} - ${index}`"
-            >
-                <input
-                    type="checkbox"
-                    class="checkbox"
-                    v-model="checkedServices"
-                    :name="service.name"
-                    :id="service.id"
-                    :value="service.id"
-                />
-                <label class="radio" id="radio" :for="service.id">{{
-                    service.name
-                }}</label>
+                </div>
+                <div class="cont-select">
+
+                    <label for="rooms">Min rooms number</label>
+                    <select v-model="rooms" name="rooms" id="rooms">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">4+</option>
+                    </select>
+
+                </div>
+
+                <div class="cont-select">
+
+                    <label for="beds">Min beds number</label>
+                    <select v-model="beds" name="beds" id="beds">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">3+</option>
+                    </select>
+
+                </div>
+
             </div>
+
+            <!-- <button >test</button> -->
+            <div class="right">
+
+                <div class="services">
+                    <div
+                        class="service"
+                        v-for="(service, index) in services"
+                        :key="`${service.id} - ${index}`"
+                    >
+                        <input
+                            type="checkbox"
+                            class="checkbox"
+                            v-model="checkedServices"
+                            :name="service.name"
+                            :id="service.id"
+                            :value="service.id"
+                        />
+                        <label class="radio" id="radio" :for="service.id">{{
+                            service.name
+                        }}</label>
+                    </div>
+                </div>
+
+            </div>
+            
         </div>
         <button type="submit" @click="emitData">Search</button>
     </div>
@@ -160,6 +183,7 @@ template {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+   
 }
 .left,
 .right {
@@ -235,10 +259,7 @@ option {
     width: 100%;
 }
 
-.form {
-    display: flex;
-    flex-direction: column;
-}
+
 button {
     height: 52px;
     line-height: 52px;

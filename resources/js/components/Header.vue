@@ -9,12 +9,22 @@
                 />
             </router-link>
             <div class="register">
-                <router-link :to="{ name: 'home' }">
-                    <p>become a host</p>
+                <!-- <router-link :to="{ name: 'login' }">
+                    <p> Login</p>
                 </router-link>
                 <router-link :to="{ name: 'home' }">
-                    <p>login</p>
-                </router-link>
+                    <p>Register</p>
+                </router-link> -->
+
+                <a href="http://127.0.0.1:8000/login">
+                    
+                    <p> Login</p>
+
+                </a>
+
+                <a href="http://127.0.0.1:8000/register">
+                    <p>Register</p>
+                </a>
             </div>
         </div>
     </header>
