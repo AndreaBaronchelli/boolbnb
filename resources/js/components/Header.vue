@@ -52,7 +52,7 @@ header {
     padding: 10px 20px;
     background: white;
     position: relative;
-    box-shadow: 5px 0 10px black;
+    box-shadow:0 2px 10px black;
 
     z-index: 10;
     .container {

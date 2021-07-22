@@ -2343,6 +2343,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "MessageForm",
   props: ['apartment_id', 'user'],
@@ -2480,6 +2486,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tomtom-international/web-sdk-maps */ "./node_modules/@tomtom-international/web-sdk-maps/dist/maps.min.js");
 /* harmony import */ var _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_MessageForm_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/MessageForm.vue */ "./resources/js/components/MessageForm.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -7190,7 +7205,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "header[data-v-1f42fb90] {\n  padding: 10px 20px;\n  background: white;\n  position: relative;\n  box-shadow: 5px 0 10px black;\n  z-index: 10;\n}\nheader .container[data-v-1f42fb90] {\n  display: flex;\n  justify-content: space-between;\n}\nheader .container .register[data-v-1f42fb90] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\nheader .container .register a[data-v-1f42fb90] {\n  text-decoration: none;\n  margin-left: 20px;\n  color: #fb5a5f;\n  font-size: 18px;\n}\nheader .logo[data-v-1f42fb90] {\n  width: 160px;\n}", ""]);
+exports.push([module.i, "header[data-v-1f42fb90] {\n  padding: 10px 20px;\n  background: white;\n  position: relative;\n  box-shadow: 0 2px 10px black;\n  z-index: 10;\n}\nheader .container[data-v-1f42fb90] {\n  display: flex;\n  justify-content: space-between;\n}\nheader .container .register[data-v-1f42fb90] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\nheader .container .register a[data-v-1f42fb90] {\n  text-decoration: none;\n  margin-left: 20px;\n  color: #fb5a5f;\n  font-size: 18px;\n}\nheader .logo[data-v-1f42fb90] {\n  width: 160px;\n}", ""]);
 
 // exports
 
@@ -7209,7 +7224,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".field[data-v-367b72d0] {\n  margin-bottom: 15px;\n}\n.error-field[data-v-367b72d0] {\n  color: red;\n}\n.success[data-v-367b72d0] {\n  color: green;\n}\nbutton[data-v-367b72d0] {\n  width: 100px;\n  padding: 5px 20px;\n}", ""]);
+exports.push([module.i, "form[data-v-367b72d0] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  background: white;\n  border-radius: 10px;\n  margin-top: 20px;\n  padding: 20px;\n  color: #511d1f;\n}\nform h2[data-v-367b72d0] {\n  color: #a63c3f;\n}\n.cont[data-v-367b72d0] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  width: 100%;\n}\n.cont .date[data-v-367b72d0] {\n  margin: 20px;\n}\n.cont input[data-v-367b72d0] {\n  width: 220px;\n  height: 30px;\n  border: solid 1px #fb5a5f;\n  margin-top: 5px;\n  padding: 10px;\n}\n.cont textarea[data-v-367b72d0] {\n  width: 220px;\n  height: 220px;\n  border: solid 1px #fb5a5f;\n  margin-top: 5px;\n  padding: 10px;\n}\n.field[data-v-367b72d0] {\n  margin-bottom: 15px;\n}\n.error-field[data-v-367b72d0] {\n  color: red;\n}\n.success[data-v-367b72d0] {\n  color: green;\n}\nbutton[data-v-367b72d0] {\n  padding: 0 30px;\n  margin: 0;\n}", ""]);
 
 // exports
 
@@ -7247,7 +7262,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "img[data-v-1b16c839] {\n  max-width: 500px;\n}\n#map[data-v-1b16c839] {\n  width: 300px;\n  height: 300px;\n}", ""]);
+exports.push([module.i, ".cont-img-info[data-v-1b16c839] {\n  background: white;\n  padding: 20px;\n  border-radius: 10px;\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  color: #511d1f;\n  margin-top: 20px;\n}\na[data-v-1b16c839] {\n  text-decoration: none;\n  color: #fb5a5f;\n  padding-bottom: 20px;\n  font-size: 18px;\n}\n.img-cont[data-v-1b16c839],\n.map[data-v-1b16c839],\n.info-cont[data-v-1b16c839] {\n  margin: 10px;\n}\n.info-cont[data-v-1b16c839] {\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n}\n.info-cont h2[data-v-1b16c839] {\n  margin: 0 0 10px 0;\n  color: #a63c3f;\n}\n.info-cont p[data-v-1b16c839] {\n  margin: 5px 0;\n}\n.cont-form[data-v-1b16c839] {\n  width: 100%;\n}\nimg[data-v-1b16c839] {\n  height: 300px;\n}\n#map[data-v-1b16c839] {\n  width: 300px;\n  height: 300px;\n}", ""]);
 
 // exports
 
@@ -39819,8 +39834,6 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "message-form" }, [
-    _c("h3", [_vm._v("Contat us for booking")]),
-    _vm._v(" "),
     _c(
       "div",
       {
@@ -39848,192 +39861,216 @@ var render = function() {
         }
       },
       [
-        _vm._l(_vm.errors.name, function(error, index) {
-          return _c(
+        _c("h2", [_vm._v("Contat us for booking")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "cont" }, [
+          _c(
             "div",
-            { key: "err-name-" + index, staticClass: "error-field" },
-            [_vm._v(_vm._s(error))]
-          )
-        }),
-        _vm._v(" "),
-        _c("div", { staticClass: "field" }, [
-          _c("label", { attrs: { for: "name" } }, [_vm._v("Name*")]),
-          _c("br"),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.message.name,
-                expression: "message.name"
-              }
+            { staticClass: "date" },
+            [
+              _vm._l(_vm.errors.name, function(error, index) {
+                return _c(
+                  "div",
+                  { key: "err-name-" + index, staticClass: "error-field" },
+                  [_vm._v(_vm._s(error))]
+                )
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "field" }, [
+                _c("label", { attrs: { for: "name" } }, [_vm._v("Name*")]),
+                _c("br"),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.message.name,
+                      expression: "message.name"
+                    }
+                  ],
+                  attrs: { type: "text", id: "name", placeholder: "Your name" },
+                  domProps: { value: _vm.message.name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.message, "name", $event.target.value)
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _vm._l(_vm.errors.email, function(error, index) {
+                return _c(
+                  "div",
+                  { key: "err-email-" + index, staticClass: "error-field" },
+                  [_vm._v(_vm._s(error))]
+                )
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "field" }, [
+                _c("label", { attrs: { for: "email" } }, [_vm._v("Email*")]),
+                _c("br"),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.message.email,
+                      expression: "message.email"
+                    }
+                  ],
+                  attrs: {
+                    type: "email",
+                    id: "email",
+                    placeholder: "Your email"
+                  },
+                  domProps: { value: _vm.message.email },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.message, "email", $event.target.value)
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _vm._l(_vm.errors.phone_number, function(error, index) {
+                return _c(
+                  "div",
+                  { key: "err-phone-" + index, staticClass: "error-field" },
+                  [_vm._v(_vm._s(error))]
+                )
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "field" }, [
+                _c("label", { attrs: { for: "phone_number" } }, [
+                  _vm._v("Phone Number*")
+                ]),
+                _c("br"),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.message.phone_number,
+                      expression: "message.phone_number"
+                    }
+                  ],
+                  attrs: {
+                    type: "tel",
+                    id: "phone_number",
+                    placeholder: "Your phone number"
+                  },
+                  domProps: { value: _vm.message.phone_number },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.message, "phone_number", $event.target.value)
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _vm._l(_vm.errors.num_guests, function(error, index) {
+                return _c(
+                  "div",
+                  { key: "err-guests-" + index, staticClass: "error-field" },
+                  [_vm._v(_vm._s(error))]
+                )
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "field" }, [
+                _c("label", { attrs: { for: "num_guests" } }, [
+                  _vm._v("Number of guests*")
+                ]),
+                _c("br"),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.message.num_guests,
+                      expression: "message.num_guests"
+                    }
+                  ],
+                  attrs: {
+                    type: "number",
+                    id: "num_guests",
+                    placeholder: "Number of guests for your booking"
+                  },
+                  domProps: { value: _vm.message.num_guests },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.message, "num_guests", $event.target.value)
+                    }
+                  }
+                })
+              ])
             ],
-            attrs: { type: "text", id: "name", placeholder: "Your name" },
-            domProps: { value: _vm.message.name },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.message, "name", $event.target.value)
-              }
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _vm._l(_vm.errors.email, function(error, index) {
-          return _c(
+            2
+          ),
+          _vm._v(" "),
+          _c(
             "div",
-            { key: "err-email-" + index, staticClass: "error-field" },
-            [_vm._v(_vm._s(error))]
-          )
-        }),
-        _vm._v(" "),
-        _c("div", { staticClass: "field" }, [
-          _c("label", { attrs: { for: "email" } }, [_vm._v("Email*")]),
-          _c("br"),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.message.email,
-                expression: "message.email"
-              }
+            { staticClass: "date" },
+            [
+              _vm._l(_vm.errors.message, function(error, index) {
+                return _c(
+                  "div",
+                  { key: "err-message-" + index, staticClass: "error-field" },
+                  [_vm._v(_vm._s(error))]
+                )
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "field" }, [
+                _c("label", { attrs: { for: "message" } }, [
+                  _vm._v("Message*")
+                ]),
+                _c("br"),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.message.message,
+                      expression: "message.message"
+                    }
+                  ],
+                  attrs: {
+                    id: "message",
+                    cols: "30",
+                    rows: "10",
+                    placeholder:
+                      "Write your message here, I will answer you quickly :)"
+                  },
+                  domProps: { value: _vm.message.message },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.message, "message", $event.target.value)
+                    }
+                  }
+                })
+              ])
             ],
-            attrs: { type: "email", id: "email", placeholder: "Your email" },
-            domProps: { value: _vm.message.email },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.message, "email", $event.target.value)
-              }
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _vm._l(_vm.errors.phone_number, function(error, index) {
-          return _c(
-            "div",
-            { key: "err-phone-" + index, staticClass: "error-field" },
-            [_vm._v(_vm._s(error))]
+            2
           )
-        }),
-        _vm._v(" "),
-        _c("div", { staticClass: "field" }, [
-          _c("label", { attrs: { for: "phone_number" } }, [
-            _vm._v("Phone Number*")
-          ]),
-          _c("br"),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.message.phone_number,
-                expression: "message.phone_number"
-              }
-            ],
-            attrs: {
-              type: "tel",
-              id: "phone_number",
-              placeholder: "Your phone number"
-            },
-            domProps: { value: _vm.message.phone_number },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.message, "phone_number", $event.target.value)
-              }
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _vm._l(_vm.errors.num_guests, function(error, index) {
-          return _c(
-            "div",
-            { key: "err-guests-" + index, staticClass: "error-field" },
-            [_vm._v(_vm._s(error))]
-          )
-        }),
-        _vm._v(" "),
-        _c("div", { staticClass: "field" }, [
-          _c("label", { attrs: { for: "num_guests" } }, [
-            _vm._v("Number of guests*")
-          ]),
-          _c("br"),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.message.num_guests,
-                expression: "message.num_guests"
-              }
-            ],
-            attrs: {
-              type: "number",
-              id: "num_guests",
-              placeholder: "Number of guests for your booking"
-            },
-            domProps: { value: _vm.message.num_guests },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.message, "num_guests", $event.target.value)
-              }
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _vm._l(_vm.errors.message, function(error, index) {
-          return _c(
-            "div",
-            { key: "err-message-" + index, staticClass: "error-field" },
-            [_vm._v(_vm._s(error))]
-          )
-        }),
-        _vm._v(" "),
-        _c("div", { staticClass: "field" }, [
-          _c("label", { attrs: { for: "message" } }, [_vm._v("Message*")]),
-          _c("br"),
-          _vm._v(" "),
-          _c("textarea", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.message.message,
-                expression: "message.message"
-              }
-            ],
-            attrs: {
-              id: "message",
-              cols: "30",
-              rows: "10",
-              placeholder:
-                "Write your message here, I will answer you quickly :)"
-            },
-            domProps: { value: _vm.message.message },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.message, "message", $event.target.value)
-              }
-            }
-          })
         ]),
         _vm._v(" "),
         _c("button", { attrs: { type: "submit", disabled: _vm.sending } }, [
@@ -40043,8 +40080,7 @@ var render = function() {
               "\r\n        "
           )
         ])
-      ],
-      2
+      ]
     )
   ])
 }
@@ -40122,80 +40158,93 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _vm.apartment
-      ? _c(
-          "div",
-          [
-            _c("img", {
-              attrs: {
-                src: "http://127.0.0.1:8000/storage/" + _vm.apartment.image,
-                alt: _vm.apartment.title
-              }
-            }),
-            _vm._v(" "),
-            _c("h2", [_vm._v(_vm._s(_vm.apartment.title))]),
-            _vm._v(" "),
-            _c("div", [_c("span", [_vm._v(_vm._s(_vm.apartment.address))])]),
-            _vm._v(" "),
-            _c("div", [
-              _c("span", [
-                _vm._v("Rooms: "),
-                _c("strong", [_vm._v(_vm._s(_vm.apartment.rooms))])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("span", [
-                _vm._v("Beds: "),
-                _c("strong", [_vm._v(_vm._s(_vm.apartment.beds))])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("span", [_vm._v(_vm._s(_vm.apartment.square_meters) + " mq")])
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("span", [
-                _vm._v("Price per night:\n                "),
-                _c("strong", [_vm._v("€" + _vm._s(_vm.apartment.price))])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _vm._v("\n            Available services:\n            "),
-              _c(
-                "ul",
-                _vm._l(_vm.apartment.services, function(service) {
-                  return _c("li", { key: service.id }, [
-                    _c("strong", [_vm._v(_vm._s(service.name))])
+  return _c(
+    "div",
+    { staticClass: "container" },
+    [
+      _c(
+        "router-link",
+        { attrs: { to: { name: "results", params: { search: this.query } } } },
+        [_vm._v("\n            Back to results\n            ")]
+      ),
+      _vm._v(" "),
+      _vm.apartment
+        ? _c("div", [
+            _c("div", { staticClass: "cont-img-info" }, [
+              _c("div", { staticClass: "img-cont" }, [
+                _c("img", {
+                  attrs: {
+                    src: "http://127.0.0.1:8000/storage/" + _vm.apartment.image,
+                    alt: _vm.apartment.title
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "info-cont" }, [
+                _c("h2", [_vm._v(_vm._s(_vm.apartment.title))]),
+                _vm._v(" "),
+                _c("div", [_c("p", [_vm._v(_vm._s(_vm.apartment.address))])]),
+                _vm._v(" "),
+                _c("div", [
+                  _c("p", [
+                    _vm._v("\n                        Rooms: "),
+                    _c("strong", [_vm._v(_vm._s(_vm.apartment.rooms))])
                   ])
-                }),
-                0
-              )
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _c("p", [
+                    _vm._v("\n                        Beds: "),
+                    _c("strong", [_vm._v(_vm._s(_vm.apartment.beds))])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _c("p", [_vm._v(_vm._s(_vm.apartment.square_meters) + " mq")])
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _c("p", [
+                    _vm._v(
+                      "\n                        Price per night:\n                        "
+                    ),
+                    _c("strong", [_vm._v("€" + _vm._s(_vm.apartment.price))])
+                  ])
+                ]),
+                _vm._v(
+                  "\n                Available services:\n                "
+                ),
+                _c("div", [
+                  _c(
+                    "ul",
+                    _vm._l(_vm.apartment.services, function(service) {
+                      return _c("li", { key: service.id }, [
+                        _c("strong", [_vm._v(_vm._s(service.name))])
+                      ])
+                    }),
+                    0
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "map", attrs: { id: "map" } })
             ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "map", attrs: { id: "map" } }),
-            _vm._v(" "),
-            _c("MessageForm", {
-              attrs: { apartment_id: _vm.apartment.id, user: _vm.user }
-            }),
             _vm._v(" "),
             _c(
-              "router-link",
-              {
-                attrs: {
-                  to: { name: "results", params: { search: this.query } }
-                }
-              },
-              [_vm._v("Back to results")]
+              "div",
+              { staticClass: "cont-form" },
+              [
+                _c("MessageForm", {
+                  attrs: { apartment_id: _vm.apartment.id, user: _vm.user }
+                })
+              ],
+              1
             )
-          ],
-          1
-        )
-      : _c("div", [_vm._v("Loading...")])
-  ])
+          ])
+        : _c("div", [_vm._v("Loading...")])
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -56608,8 +56657,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Boolean\Esercizi Corso\boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\Boolean\Esercizi Corso\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\marco\Desktop\progetto_finale\boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\marco\Desktop\progetto_finale\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
