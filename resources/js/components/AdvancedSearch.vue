@@ -169,7 +169,6 @@ template {
     align-items: center;
     background: white;
     border-radius: 10px;
-    padding: 10px;
     color: #511d1f;
 }
 .cont-select {
@@ -234,7 +233,7 @@ option {
     border: solid 1px #fb5a5f;
     transition: 0.2s;
 }
-.checkbox + label:after {
+/* .checkbox + label:after {
     content: "";
     position: absolute;
     top: -1px;
@@ -244,13 +243,13 @@ option {
     border-radius: 50%;
     background: #511d1f;
     transition: 0.2s;
-}
+} */
 .checkbox:checked + label:before {
     background: #fb5a5f;
 }
-.checkbox:checked + label:after {
+/* .checkbox:checked + label:after {
     left: 10px;
-}
+} */
 .service {
     height: 30px;
     display: flex;

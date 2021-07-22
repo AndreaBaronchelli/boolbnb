@@ -1,10 +1,10 @@
 <template>
     <div class="container">
-            <router-link
-                :to="{ name: 'results', params: { search: this.query } }">
-                Back to results
-                </router-link>
-            <div v-if="apartment">
+        <router-link
+            :to="{ name: 'results', params: { search: this.query } }">
+            Back to results
+        </router-link>
+        <div v-if="apartment">
             <div class="cont-img-info">
                 <div class="img-cont">
                 <img
@@ -108,6 +108,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.container{
+    padding:100px 0 70px 0;
+}
 .cont-img-info{
     background: white;
     padding:20px;

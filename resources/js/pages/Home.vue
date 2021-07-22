@@ -1,4 +1,5 @@
 <template>
+<div class="cont">
     <main class="container">
         <div class="img">
             <img class="sfondo" :src="`./images/santorini.jpg`" alt="boolBnb.png">
@@ -8,8 +9,10 @@
         <div class="sponsored">
             <ApartmentCard/>
         </div>
-        
     </main>
+    
+</div>
+
 </template>
 
 <script>
@@ -19,7 +22,7 @@ export default {
     name: "Home",
     components: {
         SearchBar,
-        ApartmentCard
+        ApartmentCard,
     },
     methods: {
         search(searchText) {
@@ -30,8 +33,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .cotainer{
     position: relative;
+}
+.cont{
+    padding:150px 0 70px 0;
 }
 h1{
     position: relative;
@@ -42,10 +49,11 @@ h1{
     z-index: 3;
 }
 .img{
+    padding-top:70px;
     position: absolute;
     top:0;
     left:0;
-    height: 500px;
+    height: 400px;
     width: 100vw;
     background: white;
     .sfondo{
@@ -61,4 +69,5 @@ h1{
 .searchbar {
     width: 100%;
 }
+
 </style>

@@ -51,9 +51,10 @@ export default {
 header {
     padding: 10px 20px;
     background: white;
-    position: relative;
+    position: fixed;
+    top:0;
+    width: 100%;
     box-shadow:0 2px 10px black;
-
     z-index: 10;
     .container {
         display: flex;

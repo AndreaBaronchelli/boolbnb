@@ -79,6 +79,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.container{
+    padding: 70px 0 100px 0;
+}
 .main-content {
     display: flex;
     flex-wrap: wrap;
