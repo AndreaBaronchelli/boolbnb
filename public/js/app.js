@@ -40275,17 +40275,19 @@ var render = function() {
           ? _c("div", [_c("h2", [_vm._v("No results found")])])
           : !_vm.apartmentsArray
           ? _c("div", [_vm._v("Loading...")])
-          : _c(
-              "div",
-              { staticClass: "cards-container" },
-              _vm._l(_vm.apartmentsArray, function(apartment) {
-                return _c("ApartmentCard", {
-                  key: apartment.id,
-                  attrs: { apartment: apartment, query: _vm.query }
-                })
-              }),
-              1
-            )
+          : _vm._e(),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "cards-container" },
+          _vm._l(_vm.apartmentsArray, function(apartment) {
+            return _c("ApartmentCard", {
+              key: apartment.id,
+              attrs: { apartment: apartment, query: _vm.query }
+            })
+          }),
+          1
+        )
       ],
       1
     )
@@ -56608,8 +56610,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Boolean\Esercizi Corso\boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\Boolean\Esercizi Corso\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Maurizio\Desktop\boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Maurizio\Desktop\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -7,7 +7,7 @@
                 <h2>No results found</h2>
             </div>
             <div v-else-if="!apartmentsArray">Loading...</div>
-            <div class="cards-container" v-else>
+            <div class="cards-container" >
                 <ApartmentCard
                     v-for="apartment in apartmentsArray"
                     :key="apartment.id"
