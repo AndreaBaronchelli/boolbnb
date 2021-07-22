@@ -2601,6 +2601,11 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_SearchBar_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/SearchBar.vue */ "./resources/js/components/SearchBar.vue");
+/* harmony import */ var _components_ApartmentCard_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/ApartmentCard.vue */ "./resources/js/components/ApartmentCard.vue");
+//
+//
+//
+//
 //
 //
 //
@@ -2612,10 +2617,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Home",
   components: {
-    SearchBar: _components_SearchBar_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    SearchBar: _components_SearchBar_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    ApartmentCard: _components_ApartmentCard_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   methods: {
     search: function search(searchText) {
@@ -7186,7 +7193,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".card[data-v-13e9f807] {\n  width: 250px;\n  text-align: center;\n  background: white;\n  border-radius: 10px;\n  padding: 20px 10px;\n  margin: 10px;\n  font-size: 16px;\n}\n.card p[data-v-13e9f807] {\n  margin-bottom: 5px;\n}\n.img-cont[data-v-13e9f807] {\n  width: 80%;\n  margin-left: 10%;\n  height: 100px;\n}\n.img-cont img[data-v-13e9f807] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}", ""]);
+exports.push([module.i, ".card[data-v-13e9f807] {\n  width: 250px;\n  text-align: center;\n  background: white;\n  border-radius: 10px;\n  padding: 20px 10px;\n  margin: 10px;\n  font-size: 16px;\n}\n.card p[data-v-13e9f807] {\n  margin-bottom: 5px;\n}\n.card p[data-v-13e9f807]:last-child {\n  margin-bottom: 15px;\n}\na[data-v-13e9f807] {\n  text-decoration: none;\n  color: #fb5a5f;\n  font-size: 18px;\n}\n.img-cont[data-v-13e9f807] {\n  width: 80%;\n  margin-left: 10%;\n  height: 100px;\n}\n.img-cont img[data-v-13e9f807] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}", ""]);
 
 // exports
 
@@ -7281,7 +7288,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".cotainer[data-v-b3c5cf30] {\n  position: relative;\n}\n.img[data-v-b3c5cf30] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 100vh;\n  width: 100vw;\n  background: white;\n}\n.img .sfondo[data-v-b3c5cf30] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  filter: opacity(50%);\n  /* filter: grayscale(50%); */\n}\n.searchbar[data-v-b3c5cf30] {\n  width: 100%;\n}", ""]);
+exports.push([module.i, ".cotainer[data-v-b3c5cf30] {\n  position: relative;\n}\nh1[data-v-b3c5cf30] {\n  position: relative;\n  z-index: 3;\n}\n.sponsored[data-v-b3c5cf30] {\n  position: relative;\n  z-index: 3;\n}\n.img[data-v-b3c5cf30] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 500px;\n  width: 100vw;\n  background: white;\n}\n.img .sfondo[data-v-b3c5cf30] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  filter: opacity(50%);\n  /* filter: grayscale(50%); */\n}\n.searchbar[data-v-b3c5cf30] {\n  width: 100%;\n}", ""]);
 
 // exports
 
@@ -40283,7 +40290,9 @@ var render = function() {
       { staticClass: "searchbar" },
       [_c("SearchBar", { on: { searchText: _vm.search } })],
       1
-    )
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "sponsored" }, [_c("ApartmentCard")], 1)
   ])
 }
 var staticRenderFns = []

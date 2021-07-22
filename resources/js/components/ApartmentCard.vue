@@ -50,7 +50,16 @@ export default {
     p {
         margin-bottom: 5px;
     }
+    p:last-child {
+        margin-bottom: 15px;
+    }
 }
+a{
+    text-decoration: none;
+    color:#fb5a5f;
+    font-size: 18px;
+}
+
 
 .img-cont {
     width: 80%;

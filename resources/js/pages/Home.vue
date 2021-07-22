@@ -5,15 +5,21 @@
         </div>
         <h1>Where would you like to go?</h1>
         <div class="searchbar"><SearchBar @searchText="search" /></div>
+        <div class="sponsored">
+            <ApartmentCard/>
+        </div>
+        
     </main>
 </template>
 
 <script>
 import SearchBar from "../components/SearchBar.vue";
+import ApartmentCard from "../components/ApartmentCard.vue";
 export default {
     name: "Home",
     components: {
-        SearchBar
+        SearchBar,
+        ApartmentCard
     },
     methods: {
         search(searchText) {
@@ -27,12 +33,19 @@ export default {
 .cotainer{
     position: relative;
 }
-
+h1{
+    position: relative;
+    z-index: 3;
+}
+.sponsored{
+    position: relative;
+    z-index: 3;
+}
 .img{
     position: absolute;
     top:0;
     left:0;
-    height: 100vh;
+    height: 500px;
     width: 100vw;
     background: white;
     .sfondo{
