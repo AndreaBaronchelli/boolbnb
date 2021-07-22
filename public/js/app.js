@@ -2647,6 +2647,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = (_name$data$components = {
@@ -2662,7 +2663,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   }
 }, _defineProperty(_name$data$components, "data", function data() {
   return {
-    apartmentsArray: null
+    apartmentsArray: []
   };
 }), _defineProperty(_name$data$components, "created", function created() {
   this.performSearch();
@@ -2684,11 +2685,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
     if (searchArray.checkedServices.length > 0) {
       services = searchArray.checkedServices;
-    }
+    } //console.log(services);
 
-    console.log(services);
+
     axios.get("http://127.0.0.1:8000/api/apartment/advancedSearch/".concat(searchArray.search, "&").concat(searchArray.radius, "&").concat(searchArray.rooms, "&").concat(searchArray.beds, "&").concat(services)).then(function (response) {
-      console.log(response.data);
+      //console.log(response.data);
       _this2.apartmentsArray = response.data;
     })["catch"](function (err) {
       console.log(err);
@@ -40271,10 +40272,10 @@ var render = function() {
           on: { searchArray: _vm.performingSearch }
         }),
         _vm._v(" "),
-        _vm.apartmentsArray.length == 0
+        !_vm.apartmentsArray
+          ? _c("div")
+          : _vm.apartmentsArray.length === 0
           ? _c("div", [_c("h2", [_vm._v("No results found")])])
-          : !_vm.apartmentsArray
-          ? _c("div", [_vm._v("Loading...")])
           : _c(
               "div",
               { staticClass: "cards-container" },

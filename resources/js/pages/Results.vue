@@ -3,10 +3,11 @@
         <h1>results</h1>
         <div class="main-content">
             <AdvancedSearch @searchArray="performingSearch" :query="query" />
-            <div v-if="apartmentsArray.length == 0">
+            <div v-if="!apartmentsArray"></div>
+
+            <div v-else-if="apartmentsArray.length === 0">
                 <h2>No results found</h2>
             </div>
-            <div v-else-if="!apartmentsArray">Loading...</div>
             <div class="cards-container" v-else>
                 <ApartmentCard
                     v-for="apartment in apartmentsArray"
@@ -26,22 +27,26 @@ export default {
     name: "Results",
     data() {
         return {
-            query: ""
+            query: "",
+            
         };
     },
     components: {
         ApartmentCard,
         AdvancedSearch
     },
-    data() {
-        return {
-            apartmentsArray: null
-        };
+    data(){
+        return{
+
+            apartmentsArray: []
+        }
     },
+    
+    
     created() {
         this.performSearch();
+       
     },
-
     methods: {
         performSearch() {
             this.query = this.$route.params.search;
@@ -61,20 +66,21 @@ export default {
             if (searchArray.checkedServices.length > 0) {
                 services = searchArray.checkedServices;
             }
-            console.log(services);
+            //console.log(services);
             axios
                 .get(
                     `http://127.0.0.1:8000/api/apartment/advancedSearch/${searchArray.search}&${searchArray.radius}&${searchArray.rooms}&${searchArray.beds}&${services}`
                 )
                 .then(response => {
-                    console.log(response.data);
+                    //console.log(response.data);
                     this.apartmentsArray = response.data;
                 })
                 .catch(err => {
                     console.log(err);
                 });
-        }
-    }
+        },
+    },
+       
 };
 </script>
 

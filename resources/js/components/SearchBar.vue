@@ -1,7 +1,7 @@
 <template>
     <div class="searchbar">
         <div id="searchbox"></div>
-        <router-link :to="{ name: 'results', params: { search: searchText } }">
+        <router-link :to="{ name: 'results', params: { search: searchText } }" >
             <div class="button" @click="clickFunction()">
                 Search
             </div>

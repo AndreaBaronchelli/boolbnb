@@ -38,9 +38,11 @@ map.addControl(ttSearchBox, "top-left");
 function handleResultsFound(event) {
     var results = event.data.results.fuzzySearch.results;
 
-    if (results.length === 0) {
+    if (results.length === 0 ) {
         searchMarkersManager.clear();
+        
     }
+    
     searchMarkersManager.draw(results);
     fitToViewport(results);
 }
