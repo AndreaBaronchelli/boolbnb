@@ -19,6 +19,8 @@ class SponsorController extends Controller
         return view('admin.sponsors', compact('apartments', 'sponsors'));
     }
 
+
+
     public function update(Request $request, $id)
     {
         $user = User::find(Auth::id());
@@ -32,5 +34,11 @@ class SponsorController extends Controller
         }
 
         return view('admin.home', compact('user'));
+    }
+
+    public function braintree(Request $request){
+
+        //dd($request->all());
+        return view('admin.pay');
     }
 }

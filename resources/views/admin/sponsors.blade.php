@@ -15,13 +15,13 @@
             <tbody >
                 @foreach ($apartments as $apartment)
                     <tr>
-                        <td> {{ $apartment->title }} </td>
-                        <td> {{ $apartment->address }} </td>
-                        <td>{{ $apartment->visibility ? 'Public' : 'Private' }}</td>
-                        <td>
-                            <form action="{{route('admin.sponsors.update', $apartment->id)}}" method="post">
-                                @csrf
-                                @method('PATCH')
+                        <form action="{{route('admin.sponsor.pay', $apartment->id)}}" method="post">
+                            @csrf
+                            @method('POST')
+                            <td id="apartment" name="apartment" value="{{$apartment->title}}"> {{ $apartment->title }} </td>
+                            <td> {{ $apartment->address }} </td>
+                            <td>{{ $apartment->visibility ? 'Public' : 'Private' }}</td>
+                            <td>
                                 <select name="sponsors" id="sponsors">
                                     @foreach ($sponsors as $sponsor)
                                         <option value="{{ $sponsor->id }}">
@@ -29,9 +29,10 @@
                                         </option>
                                     @endforeach
                                 </select>
+
                                 <input type="submit" class="btn btn-primary" value="SUBMIT">
-                            </form>
-                        </td>
+                            </td>
+                        </form>
                     </tr>
                 @endforeach
             </tbody>
