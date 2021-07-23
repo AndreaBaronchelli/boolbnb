@@ -93,7 +93,9 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open 'C:\\Users\\Maurizio\\Desktop\\boolbnb\\resources\\js\\map.js'");
+/*
+File vuoto, problem with map.js nel npm run watch
+*/
 
 /***/ }),
 
