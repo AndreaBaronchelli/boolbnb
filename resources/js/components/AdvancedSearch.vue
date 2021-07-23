@@ -29,7 +29,6 @@
                         <option value="5">4+</option>
                     </select>
                 </div>
-
                 <div class="cont-select">
                     <label for="beds">Min beds number</label>
                     <select v-model="beds" name="beds" id="beds">
@@ -39,10 +38,7 @@
                         <option value="4">3+</option>
                     </select>
                 </div>
-
             </div>
-
-            <!-- <button >test</button> -->
             <div class="right">
                 <div class="services">
                     <div
@@ -63,9 +59,7 @@
                         }}</label>
                     </div>
                 </div>
-
             </div>
-            
         </div>
         <button type="submit" @click="emitData">Search</button>
     </div>
@@ -99,10 +93,6 @@ export default {
         this.getServices();
     },
     methods: {
-        // test() {
-        //     console.log(this.radius, this.beds, this.rooms, this.checkedServices);
-        //     console.log(document.getElementsByClassName("tt-search-box-input")[0].value);
-        // },
         getServices() {
             axios
                 .get("http://127.0.0.1:8000/api/service")
@@ -143,9 +133,11 @@ export default {
                 "tt-search-box-input"
             )[0].value;
 
-            if(searchText == "") {
-                document.getElementsByClassName("tt-search-box-input")[0].value = this.query;
-                searchText = this.query
+            if (searchText == "") {
+                document.getElementsByClassName(
+                    "tt-search-box-input"
+                )[0].value = this.query;
+                searchText = this.query;
             }
             this.$emit("searchArray", {
                 rooms: this.rooms,

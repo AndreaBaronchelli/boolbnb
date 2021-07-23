@@ -1987,8 +1987,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 
@@ -2019,8 +2017,7 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (err) {
         console.log(err);
       });
-    },
-    newSearch: function newSearch(searchArray) {}
+    }
   }
 });
 
@@ -2036,12 +2033,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _SearchBar_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SearchBar.vue */ "./resources/js/components/SearchBar.vue");
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -2133,10 +2124,6 @@ __webpack_require__.r(__webpack_exports__);
     this.getServices();
   },
   methods: {
-    // test() {
-    //     console.log(this.radius, this.beds, this.rooms, this.checkedServices);
-    //     console.log(document.getElementsByClassName("tt-search-box-input")[0].value);
-    // },
     getServices: function getServices() {
       var _this = this;
 
@@ -2293,20 +2280,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Header",
-  props: ['user'],
+  props: ["user"],
   data: function data() {
     return {};
   },
   methods: {
-    test: function test() {
-      console.log(this.searchText);
-    },
     search: function search(searchText) {
       this.$emit("searchText", searchText);
     }
@@ -2377,9 +2357,62 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "MessageForm",
-  props: ['apartment_id', 'user'],
+  props: ["apartment_id", "user"],
   created: function created() {
     this.checkLoggedUser();
   },
@@ -2396,8 +2429,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     checkLoggedUser: function checkLoggedUser() {
-      console.log(this.user);
-
       if (this.user.user_name != null) {
         this.message.name = this.user.user_name;
         this.message.email = this.user.user_email;
@@ -2406,10 +2437,9 @@ __webpack_require__.r(__webpack_exports__);
     sendMessage: function sendMessage() {
       var _this = this;
 
-      this.sending = true;
-      console.log(this.message); //invio a questo endpoind l'oggetto message con tutti i campi della form
+      this.sending = true; //invio a questo endpoind l'oggetto message con tutti i campi della form
 
-      axios.post('http://127.0.0.1:8000/api/messageSubmit', this.message).then(function (response) {
+      axios.post("http://127.0.0.1:8000/api/messageSubmit", this.message).then(function (response) {
         console.log(response.data);
         _this.sending = false;
 
@@ -2418,11 +2448,9 @@ __webpack_require__.r(__webpack_exports__);
           _this.success = false;
         } else {
           //clear fields
-          // this.message.name = '';
-          // this.message.email = '';
-          _this.message.phone_number = '';
-          _this.message.num_guests = '';
-          _this.message.message = '';
+          _this.message.phone_number = "";
+          _this.message.num_guests = "";
+          _this.message.message = "";
           _this.errors = {};
           _this.success = true;
         }
@@ -2466,9 +2494,6 @@ __webpack_require__.r(__webpack_exports__);
     this.createSearchBar();
   },
   methods: {
-    test: function test() {
-      this.getSearchValue();
-    },
     createSearchBar: function createSearchBar() {
       var options = {
         searchOptions: {
@@ -2570,6 +2595,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -2608,9 +2636,7 @@ __webpack_require__.r(__webpack_exports__);
         center: [this.apartment.longitude, this.apartment.latitude],
         //Roma
         zoom: 16
-      }); // var marker = new tt.Marker()
-      //     .setLngLat([this.apartment.longitude, this.apartment.latitude])
-      //     .addTo(map);
+      });
     }
   }
 });
@@ -2701,6 +2727,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       query: "",
+      search: "",
       apartmentsArray: null
     };
   },
@@ -2716,7 +2743,8 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.query = this.$route.params.search;
-      axios.get("http://127.0.0.1:8000/api/apartment/".concat(this.$route.params.search)).then(function (response) {
+      this.search = encodeURI(this.$route.params.search);
+      axios.get("http://127.0.0.1:8000/api/apartment/".concat(this.search)).then(function (response) {
         _this.apartmentsArray = response.data;
       })["catch"](function (err) {
         console.log(err);
@@ -2731,9 +2759,7 @@ __webpack_require__.r(__webpack_exports__);
         services = searchArray.checkedServices;
       }
 
-      console.log(services);
       axios.get("http://127.0.0.1:8000/api/apartment/advancedSearch/".concat(searchArray.search, "&").concat(searchArray.radius, "&").concat(searchArray.rooms, "&").concat(searchArray.beds, "&").concat(services)).then(function (response) {
-        console.log(response.data);
         _this2.apartmentsArray = response.data;
       })["catch"](function (err) {
         console.log(err);
@@ -39510,7 +39536,7 @@ var render = function() {
               user: _vm.user,
               apartmentsArray: _vm.apartmentsArray
             },
-            on: { searchText: _vm.performSearch, searchArray: _vm.newSearch }
+            on: { searchText: _vm.performSearch }
           })
         ],
         1
@@ -39915,7 +39941,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("a", { attrs: { href: "http://127.0.0.1:8000/login" } }, [
-      _c("p", [_vm._v(" Login")])
+      _c("p", [_vm._v("Login")])
     ])
   },
   function() {
@@ -39971,7 +39997,13 @@ var render = function() {
                 return _c(
                   "div",
                   { key: "err-name-" + index, staticClass: "error-field" },
-                  [_vm._v(_vm._s(error))]
+                  [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(error) +
+                        "\n                "
+                    )
+                  ]
                 )
               }),
               _vm._v(" "),
@@ -40005,7 +40037,13 @@ var render = function() {
                 return _c(
                   "div",
                   { key: "err-email-" + index, staticClass: "error-field" },
-                  [_vm._v(_vm._s(error))]
+                  [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(error) +
+                        "\n                "
+                    )
+                  ]
                 )
               }),
               _vm._v(" "),
@@ -40043,7 +40081,13 @@ var render = function() {
                 return _c(
                   "div",
                   { key: "err-phone-" + index, staticClass: "error-field" },
-                  [_vm._v(_vm._s(error))]
+                  [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(error) +
+                        "\n                "
+                    )
+                  ]
                 )
               }),
               _vm._v(" "),
@@ -40083,7 +40127,13 @@ var render = function() {
                 return _c(
                   "div",
                   { key: "err-guests-" + index, staticClass: "error-field" },
-                  [_vm._v(_vm._s(error))]
+                  [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(error) +
+                        "\n                "
+                    )
+                  ]
                 )
               }),
               _vm._v(" "),
@@ -40130,7 +40180,13 @@ var render = function() {
                 return _c(
                   "div",
                   { key: "err-message-" + index, staticClass: "error-field" },
-                  [_vm._v(_vm._s(error))]
+                  [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(error) +
+                        "\n                "
+                    )
+                  ]
                 )
               }),
               _vm._v(" "),
@@ -40174,9 +40230,9 @@ var render = function() {
         _vm._v(" "),
         _c("button", { attrs: { type: "submit", disabled: _vm.sending } }, [
           _vm._v(
-            "\r\n            " +
+            "\n            " +
               _vm._s(_vm.sending ? "Sending.." : "Send") +
-              "\r\n        "
+              "\n        "
           )
         ]),
         _vm._v(" "),
@@ -40193,7 +40249,7 @@ var render = function() {
             ],
             staticClass: "success"
           },
-          [_vm._v("Message sended successfully")]
+          [_vm._v("\n            Message sended successfully\n        ")]
         )
       ]
     )

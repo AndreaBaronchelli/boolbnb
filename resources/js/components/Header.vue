@@ -9,21 +9,17 @@
                 />
             </router-link>
             <div class="register" v-if="this.user.user_name != ''">
-                <a href="http://127.0.0.1:8000/admin">Ciao {{this.user.user_name}}</a>
+                <a href="http://127.0.0.1:8000/admin"
+                    >Ciao {{ this.user.user_name }}</a
+                >
             </div>
             <div v-else class="register">
                 <a href="http://127.0.0.1:8000/login">
-                    <p> Login</p>
+                    <p>Login</p>
                 </a>
                 <a href="http://127.0.0.1:8000/register">
                     <p>Register</p>
                 </a>
-                <!-- <router-link :to="{ name: 'login' }">
-                    <p> Login</p>
-                </router-link>
-                <router-link :to="{ name: 'home' }">
-                    <p>Register</p>
-                </router-link> -->
             </div>
         </div>
     </header>
@@ -32,14 +28,11 @@
 <script>
 export default {
     name: "Header",
-    props: ['user'],
+    props: ["user"],
     data() {
         return {};
     },
     methods: {
-        test() {
-            console.log(this.searchText);
-        },
         search(searchText) {
             this.$emit("searchText", searchText);
         }
@@ -52,9 +45,9 @@ header {
     padding: 10px 20px;
     background: white;
     position: fixed;
-    top:0;
+    top: 0;
     width: 100%;
-    box-shadow:0 2px 10px black;
+    box-shadow: 0 2px 10px black;
     z-index: 10;
     .container {
         display: flex;
