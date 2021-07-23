@@ -2109,10 +2109,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "AdvancedSearch",
@@ -7221,7 +7217,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".card[data-v-13e9f807] {\n  width: 250px;\n  text-align: center;\n  background: white;\n  border-radius: 10px;\n  padding: 20px 10px;\n  margin: 10px;\n  font-size: 16px;\n}\n.card p[data-v-13e9f807] {\n  margin-bottom: 5px;\n}\n.card p[data-v-13e9f807]:last-child {\n  margin-bottom: 15px;\n}\na[data-v-13e9f807] {\n  text-decoration: none;\n  color: #fb5a5f;\n  font-size: 18px;\n}\n.img-cont[data-v-13e9f807] {\n  width: 80%;\n  margin-left: 10%;\n  height: 100px;\n}\n.img-cont img[data-v-13e9f807] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}", ""]);
+exports.push([module.i, ".card[data-v-13e9f807] {\n  width: 250px;\n  text-align: center;\n  background: white;\n  border-radius: 10px;\n  padding: 20px 10px;\n  margin: 10px;\n  font-size: 16px;\n}\n.card p[data-v-13e9f807] {\n  margin-bottom: 5px;\n}\n.card p[data-v-13e9f807]:last-child {\n  margin-bottom: 15px;\n}\n.card h2[data-v-13e9f807] {\n  color: #a63c3f;\n}\na[data-v-13e9f807] {\n  text-decoration: none;\n  color: #fb5a5f;\n  font-size: 18px;\n}\n.img-cont[data-v-13e9f807] {\n  width: 80%;\n  margin-left: 10%;\n  height: 100px;\n}\n.img-cont img[data-v-13e9f807] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}", ""]);
 
 // exports
 
@@ -7354,7 +7350,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".container[data-v-44832d06] {\n  padding: 70px 0 100px 0;\n}\n.main-content[data-v-44832d06] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: flex-start;\n  color: #511d1f;\n}\n.main-content h2[data-v-44832d06] {\n  padding: 20px;\n}\n.cards-container[data-v-44832d06] {\n  padding: 20px 0;\n  display: flex;\n  flex-wrap: wrap;\n}", ""]);
+exports.push([module.i, ".container[data-v-44832d06] {\n  padding: 100px 0 100px 0;\n}\n.main-content[data-v-44832d06] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: flex-start;\n  color: #511d1f;\n}\n.main-content h2[data-v-44832d06] {\n  padding: 20px;\n}\n.cards-container[data-v-44832d06] {\n  padding: 20px 0;\n  display: flex;\n  flex-wrap: wrap;\n}", ""]);
 
 // exports
 
@@ -7373,7 +7369,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\ntemplate {\r\n    padding: 20px;\n}\n.block {\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    background: white;\r\n    border-radius: 10px;\r\n    color: #511d1f;\n}\n.cont-select {\r\n    display: flex;\r\n    flex-direction: column;\n}\n.cont-select label {\r\n    margin-bottom: 5px;\n}\n.advanced-search {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: center;\n}\n.left,\r\n.right {\r\n    display: flex;\r\n    flex-direction: column;\r\n    width: 250px;\r\n    padding: 20px;\n}\n.left {\r\n    margin-bottom: 20px;\r\n    justify-content: space-between;\n}\nselect {\r\n    padding: 10px;\r\n    border-color: #fb5a5f;\r\n    color: #fb5a5f;\n}\nselect:active,\r\nselect:visited,\r\nselect:target {\r\n    border: none;\n}\nlabel {\r\n    font-weight: bold;\n}\noption {\r\n    color: #fb5a5f;\n}\n.checkbox {\r\n    position: absolute;\r\n    z-index: -1;\r\n    opacity: 0;\r\n    margin: 30px;\n}\n.checkbox + label {\r\n    position: relative;\r\n    padding: 0 0 0 30px;\r\n    cursor: pointer;\n}\n.checkbox + label:before {\r\n    content: \"\";\r\n    position: absolute;\r\n    top: -35%;\r\n    left: 0;\r\n    width: 20px;\r\n    height: 20px;\r\n    background: white;\r\n    border: solid 1px #fb5a5f;\r\n    transition: 0.2s;\n}\r\n/* .checkbox + label:after {\r\n    content: \"\";\r\n    position: absolute;\r\n    top: -1px;\r\n    left: 0px;\r\n    width: 10px;\r\n    height: 10px;\r\n    border-radius: 50%;\r\n    background: #511d1f;\r\n    transition: 0.2s;\r\n} */\n.checkbox:checked + label:before {\r\n    background: #fb5a5f;\n}\r\n/* .checkbox:checked + label:after {\r\n    left: 10px;\r\n} */\n.service {\r\n    height: 30px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: flex-start;\r\n    width: 100%;\n}\nbutton {\r\n    height: 52px;\r\n    line-height: 52px;\r\n    font-size: 16px;\r\n    background: #fb5a5f;\r\n    text-decoration: none;\r\n    color: white;\r\n    padding: 0 10px;\r\n    border-width: 0;\r\n    margin: 1rem 0;\n}\nbutton:hover {\r\n    background: #fd7d82;\n}\nbutton {\r\n    height: 52px;\r\n    line-height: 52px;\r\n    font-size: 16px;\r\n    background: #fb5a5f;\r\n    text-decoration: none;\r\n    color: white;\r\n    padding: 0 30px;\r\n    border-width: 0;\r\n    margin: 1rem 0;\n}\nbutton:hover {\r\n    background: #fd7d82;\n}\r\n", ""]);
+exports.push([module.i, "\ntemplate {\r\n    padding: 20px;\n}\n.block {\r\n    width: 100%;\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    background: white;\r\n    border-radius: 10px;\r\n    color: #511d1f;\n}\n.services{\r\n    margin:0 auto;\r\n    display:flex;\r\n    flex-wrap: wrap;\n}\n.service {\r\n    height: 30px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: flex-start;\r\n    width: 160px;\r\n    margin-right: 20px;\n}\nh4{\r\n    margin-bottom: 5px;\r\n    margin-top:0;\n}\n.cont-select {\r\n    display: flex;\r\n    flex-direction: column;\r\n    margin:10px 20px 0 20px;\n}\n.cont-search{\r\n    margin:10px 20px 0 20px;\n}\n.cont-select label {\r\n    margin-bottom: 5px;\n}\n.advanced-search {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: center;\r\n    align-items: flex-start;\n}\n.left,\r\n.right {\r\n    width: 100%;\r\n    display: flex;\r\n    padding: 20px;\r\n    flex-wrap: wrap;\r\n    justify-content: flex-start;\n}\n.right{\r\n    margin:0 20px;\n}\n.right label{\r\n    white-space: nowrap;\n}\nselect {\r\n    width: 240px;\r\n    height: 52px;\r\n    padding: 10px;\r\n    border-color: #fb5a5f;\r\n    color: #fb5a5f;\n}\nselect:active,\r\nselect:visited,\r\nselect:target {\r\n    border: none;\n}\nlabel {\r\n    font-weight: bold;\n}\noption {\r\n    color: #fb5a5f;\n}\n.checkbox {\r\n    position: absolute;\r\n    z-index: -1;\r\n    opacity: 0;\r\n    margin: 30px;\n}\n.checkbox + label {\r\n    position: relative;\r\n    padding: 0 0 0 30px;\r\n    cursor: pointer;\n}\n.checkbox + label:before {\r\n    content: \"\";\r\n    position: absolute;\r\n    top: -35%;\r\n    left: 0;\r\n    width: 20px;\r\n    height: 20px;\r\n    background: white;\r\n    border: solid 1px #fb5a5f;\r\n    transition: 0.2s;\n}\r\n/* .checkbox + label:after {\r\n    content: \"\";\r\n    position: absolute;\r\n    top: -1px;\r\n    left: 0px;\r\n    width: 10px;\r\n    height: 10px;\r\n    border-radius: 50%;\r\n    background: #511d1f;\r\n    transition: 0.2s;\r\n} */\n.checkbox:checked + label:before {\r\n    background: #fb5a5f;\n}\r\n/* .checkbox:checked + label:after {\r\n    left: 10px;\r\n} */\nbutton {\r\n    height: 52px;\r\n    line-height: 52px;\r\n    font-size: 16px;\r\n    background: #fb5a5f;\r\n    text-decoration: none;\r\n    color: white;\r\n    padding: 0 10px;\r\n    border-width: 0;\r\n    margin: 1rem 0;\n}\nbutton:hover {\r\n    background: #fd7d82;\n}\nbutton {\r\n    height: 52px;\r\n    line-height: 52px;\r\n    font-size: 16px;\r\n    background: #fb5a5f;\r\n    text-decoration: none;\r\n    color: white;\r\n    padding: 0 30px;\r\n    border-width: 0;\r\n    margin: 1rem 0;\n}\nbutton:hover {\r\n    background: #fd7d82;\n}\r\n", ""]);
 
 // exports
 
@@ -39548,11 +39544,9 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "block" }, [
-    _c("h3", [_vm._v("AdvancedSearch")]),
-    _vm._v(" "),
     _c("div", { staticClass: "advanced-search" }, [
       _c("div", { staticClass: "left" }, [
-        _c("div", { attrs: { id: "advanced-searchbox" } }),
+        _vm._m(0),
         _vm._v(" "),
         _c("div", { staticClass: "cont-select" }, [
           _c("label", { attrs: { for: "radius" } }, [_vm._v("Search radius")]),
@@ -39764,7 +39758,18 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "cont-search" }, [
+      _c("h4", [_vm._v("Search")]),
+      _vm._v(" "),
+      _c("div", { attrs: { id: "advanced-searchbox" } })
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -40423,8 +40428,6 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c("h1", [_vm._v("results")]),
-    _vm._v(" "),
     _c(
       "div",
       { staticClass: "main-content" },
@@ -56858,8 +56861,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Boolean\Esercizi Corso\boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\Boolean\Esercizi Corso\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\marco\Desktop\progetto_finale\boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\marco\Desktop\progetto_finale\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <h1>results</h1>
+        <!-- <h1>results</h1> -->
         <div class="main-content">
             <AdvancedSearch @searchArray="performingSearch" :query="query" />
             <div v-if="apartmentsArray.length === 0">
@@ -76,7 +76,7 @@ export default {
 
 <style lang="scss" scoped>
 .container{
-    padding: 70px 0 100px 0;
+    padding:100px 0 100px 0;
 }
 .main-content {
     display: flex;

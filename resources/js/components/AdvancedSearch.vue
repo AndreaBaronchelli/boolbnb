@@ -1,13 +1,15 @@
 <template>
     <div class="block">
 
-        <h3>AdvancedSearch</h3>
+        <!-- <h3>AdvancedSearch</h3> -->
+        
         <div class="advanced-search">
             <div class="left">
-
-                <div id="advanced-searchbox"></div>
                 <!-- <input type="text" id="address"> -->
-
+                <div class="cont-search">
+                    <h4>Search</h4>
+                    <div id="advanced-searchbox"></div>
+                </div>
                 <div class="cont-select">
                     <label for="radius">Search radius</label>
                     <select v-model="radius" name="radius" id="radius">
@@ -16,10 +18,8 @@
                         <option value="30">30 km</option>
                         <option value="40">40 km</option>
                     </select>
-
                 </div>
                 <div class="cont-select">
-
                     <label for="rooms">Min rooms number</label>
                     <select v-model="rooms" name="rooms" id="rooms">
                         <option value="1">1</option>
@@ -28,11 +28,9 @@
                         <option value="4">4</option>
                         <option value="5">4+</option>
                     </select>
-
                 </div>
 
                 <div class="cont-select">
-
                     <label for="beds">Min beds number</label>
                     <select v-model="beds" name="beds" id="beds">
                         <option value="1">1</option>
@@ -40,14 +38,12 @@
                         <option value="3">3</option>
                         <option value="4">3+</option>
                     </select>
-
                 </div>
 
             </div>
 
             <!-- <button >test</button> -->
             <div class="right">
-
                 <div class="services">
                     <div
                         class="service"
@@ -168,6 +164,7 @@ template {
     padding: 20px;
 }
 .block {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -175,9 +172,30 @@ template {
     border-radius: 10px;
     color: #511d1f;
 }
+.services{
+    margin:0 auto;
+    display:flex;
+    flex-wrap: wrap;
+}
+.service {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 160px;
+    margin-right: 20px;
+}
+h4{
+    margin-bottom: 5px;
+    margin-top:0;
+}
 .cont-select {
     display: flex;
     flex-direction: column;
+    margin:10px 20px 0 20px;
+}
+.cont-search{
+    margin:10px 20px 0 20px;
 }
 .cont-select label {
     margin-bottom: 5px;
@@ -186,20 +204,27 @@ template {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: flex-start;
    
 }
 .left,
 .right {
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    width: 250px;
     padding: 20px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }
-.left {
-    margin-bottom: 20px;
-    justify-content: space-between;
+.right{
+    margin:0 20px;
 }
+.right label{
+    white-space: nowrap;
+}
+
 select {
+    width: 240px;
+    height: 52px;
     padding: 10px;
     border-color: #fb5a5f;
     color: #fb5a5f;
@@ -254,14 +279,6 @@ option {
 /* .checkbox:checked + label:after {
     left: 10px;
 } */
-.service {
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-}
-
 
 button {
     height: 52px;

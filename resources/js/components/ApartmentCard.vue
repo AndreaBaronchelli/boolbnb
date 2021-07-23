@@ -53,6 +53,9 @@ export default {
     p:last-child {
         margin-bottom: 15px;
     }
+    h2{
+        color:#a63c3f;
+    }
 }
 a{
     text-decoration: none;
