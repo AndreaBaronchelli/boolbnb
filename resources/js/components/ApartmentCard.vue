@@ -67,7 +67,7 @@ a{
 .img-cont {
     width: 80%;
     margin-left: 10%;
-    height: 100px;
+    height: 150px;
     img {
         width: 100%;
         height: 100%;

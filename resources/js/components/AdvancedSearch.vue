@@ -7,7 +7,7 @@
             <div class="left">
                 <!-- <input type="text" id="address"> -->
                 <div class="cont-search">
-                    <h4>Search</h4>
+                    <p>Search address</p>
                     <div id="advanced-searchbox"></div>
                 </div>
                 <div class="cont-select">
@@ -177,9 +177,10 @@ template {
     width: 160px;
     margin-right: 20px;
 }
-h4{
+p{
     margin-bottom: 5px;
     margin-top:0;
+    font-size: 14px;
 }
 .cont-select {
     display: flex;
@@ -227,7 +228,8 @@ select:target {
     border: none;
 }
 label {
-    font-weight: bold;
+    /* font-weight: bold; */
+    font-size: 14px;
 }
 option {
     color: #fb5a5f;
@@ -246,10 +248,10 @@ option {
 .checkbox + label:before {
     content: "";
     position: absolute;
-    top: -35%;
+    /* top: -35%; */
     left: 0;
-    width: 20px;
-    height: 20px;
+    width: 14px;
+    height: 14px;
     background: white;
     border: solid 1px #fb5a5f;
     transition: 0.2s;
