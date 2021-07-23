@@ -26,7 +26,8 @@ export default {
     name: "Results",
     data() {
         return {
-            query: ""
+            query: "",
+            search: ""
         };
     },
     components: {
@@ -43,12 +44,11 @@ export default {
     },
 
     methods: {
-        performSearch() {
+        performSearch(searchArray) {
             this.query = this.$route.params.search;
+            this.search = encodeURI(this.$route.params.search);
             axios
-                .get(
-                    `http://127.0.0.1:8000/api/apartment/${this.$route.params.search}`
-                )
+                .get(`http://127.0.0.1:8000/api/apartment/${this.search}`)
                 .then(response => {
                     this.apartmentsArray = response.data;
                 })
@@ -61,7 +61,7 @@ export default {
             if (searchArray.checkedServices.length > 0) {
                 services = searchArray.checkedServices;
             }
-            console.log(services);
+
             axios
                 .get(
                     `http://127.0.0.1:8000/api/apartment/advancedSearch/${searchArray.search}&${searchArray.radius}&${searchArray.rooms}&${searchArray.beds}&${services}`
@@ -79,7 +79,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container{
+.container {
     padding: 70px 0 100px 0;
 }
 .main-content {

@@ -1,10 +1,8 @@
 <template>
     <div class="block">
-
         <h3>AdvancedSearch</h3>
         <div class="advanced-search">
             <div class="left">
-
                 <div id="advanced-searchbox"></div>
                 <!-- <input type="text" id="address"> -->
 
@@ -16,10 +14,8 @@
                         <option value="30">30 km</option>
                         <option value="40">40 km</option>
                     </select>
-
                 </div>
                 <div class="cont-select">
-
                     <label for="rooms">Min rooms number</label>
                     <select v-model="rooms" name="rooms" id="rooms">
                         <option value="1">1</option>
@@ -28,11 +24,9 @@
                         <option value="4">4</option>
                         <option value="5">4+</option>
                     </select>
-
                 </div>
 
                 <div class="cont-select">
-
                     <label for="beds">Min beds number</label>
                     <select v-model="beds" name="beds" id="beds">
                         <option value="1">1</option>
@@ -40,14 +34,11 @@
                         <option value="3">3</option>
                         <option value="4">3+</option>
                     </select>
-
                 </div>
-
             </div>
 
             <!-- <button >test</button> -->
             <div class="right">
-
                 <div class="services">
                     <div
                         class="service"
@@ -67,9 +58,7 @@
                         }}</label>
                     </div>
                 </div>
-
             </div>
-            
         </div>
         <button type="submit" @click="emitData">Search</button>
     </div>
@@ -182,7 +171,6 @@ template {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-   
 }
 .left,
 .right {
@@ -257,7 +245,6 @@ option {
     justify-content: flex-start;
     width: 100%;
 }
-
 
 button {
     height: 52px;
