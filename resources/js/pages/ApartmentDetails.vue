@@ -88,7 +88,7 @@ export default {
                 key: "4j77acI2RkgcxaYW2waGQ74SEPwpmFML",
                 container: "map",
                 center: [this.apartment.longitude, this.apartment.latitude], //Roma
-                zoom: 16
+                zoom: 18
             });
             // var marker = new tt.Marker()
             //     .setLngLat([this.apartment.longitude, this.apartment.latitude])
