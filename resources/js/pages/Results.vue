@@ -28,7 +28,7 @@ export default {
         return {
             query: "",
             search: "",
-            apartmentsArray: null,
+            apartmentsArray: null
         };
     },
     components: {
@@ -40,7 +40,7 @@ export default {
     },
 
     methods: {
-        performSearch(searchArray) {
+        performSearch() {
             this.query = this.$route.params.search;
             this.search = encodeURI(this.$route.params.search);
             axios
@@ -63,7 +63,6 @@ export default {
                     `http://127.0.0.1:8000/api/apartment/advancedSearch/${searchArray.search}&${searchArray.radius}&${searchArray.rooms}&${searchArray.beds}&${services}`
                 )
                 .then(response => {
-                    console.log(response.data);
                     this.apartmentsArray = response.data;
                 })
                 .catch(err => {

@@ -20,9 +20,6 @@ export default {
         this.createSearchBar();
     },
     methods: {
-        test() {
-            this.getSearchValue();
-        },
         createSearchBar() {
             var options = {
                 searchOptions: {

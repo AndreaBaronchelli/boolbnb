@@ -1987,8 +1987,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 
@@ -2019,8 +2017,7 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (err) {
         console.log(err);
       });
-    },
-    newSearch: function newSearch(searchArray) {}
+    }
   }
 });
 
@@ -2036,11 +2033,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _SearchBar_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SearchBar.vue */ "./resources/js/components/SearchBar.vue");
-//
-//
-//
-//
-//
 //
 //
 //
@@ -2126,10 +2118,6 @@ __webpack_require__.r(__webpack_exports__);
     this.getServices();
   },
   methods: {
-    // test() {
-    //     console.log(this.radius, this.beds, this.rooms, this.checkedServices);
-    //     console.log(document.getElementsByClassName("tt-search-box-input")[0].value);
-    // },
     getServices: function getServices() {
       var _this = this;
 
@@ -2286,20 +2274,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Header",
-  props: ['user'],
+  props: ["user"],
   data: function data() {
     return {};
   },
   methods: {
-    test: function test() {
-      console.log(this.searchText);
-    },
     search: function search(searchText) {
       this.$emit("searchText", searchText);
     }
@@ -2370,9 +2351,62 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "MessageForm",
-  props: ['apartment_id', 'user'],
+  props: ["apartment_id", "user"],
   created: function created() {
     this.checkLoggedUser();
   },
@@ -2389,8 +2423,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     checkLoggedUser: function checkLoggedUser() {
-      console.log(this.user);
-
       if (this.user.user_name != null) {
         this.message.name = this.user.user_name;
         this.message.email = this.user.user_email;
@@ -2399,10 +2431,9 @@ __webpack_require__.r(__webpack_exports__);
     sendMessage: function sendMessage() {
       var _this = this;
 
-      this.sending = true;
-      console.log(this.message); //invio a questo endpoind l'oggetto message con tutti i campi della form
+      this.sending = true; //invio a questo endpoind l'oggetto message con tutti i campi della form
 
-      axios.post('http://127.0.0.1:8000/api/messageSubmit', this.message).then(function (response) {
+      axios.post("http://127.0.0.1:8000/api/messageSubmit", this.message).then(function (response) {
         console.log(response.data);
         _this.sending = false;
 
@@ -2411,11 +2442,9 @@ __webpack_require__.r(__webpack_exports__);
           _this.success = false;
         } else {
           //clear fields
-          // this.message.name = '';
-          // this.message.email = '';
-          _this.message.phone_number = '';
-          _this.message.num_guests = '';
-          _this.message.message = '';
+          _this.message.phone_number = "";
+          _this.message.num_guests = "";
+          _this.message.message = "";
           _this.errors = {};
           _this.success = true;
         }
@@ -2459,9 +2488,6 @@ __webpack_require__.r(__webpack_exports__);
     this.createSearchBar();
   },
   methods: {
-    test: function test() {
-      this.getSearchValue();
-    },
     createSearchBar: function createSearchBar() {
       var options = {
         searchOptions: {
@@ -2563,6 +2589,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -2601,9 +2630,7 @@ __webpack_require__.r(__webpack_exports__);
         center: [this.apartment.longitude, this.apartment.latitude],
         //Roma
         zoom: 16
-      }); // var marker = new tt.Marker()
-      //     .setLngLat([this.apartment.longitude, this.apartment.latitude])
-      //     .addTo(map);
+      });
     }
   }
 });
@@ -2706,7 +2733,7 @@ __webpack_require__.r(__webpack_exports__);
     this.performSearch();
   },
   methods: {
-    performSearch: function performSearch(searchArray) {
+    performSearch: function performSearch() {
       var _this = this;
 
       this.query = this.$route.params.search;
@@ -2727,7 +2754,6 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       axios.get("http://127.0.0.1:8000/api/apartment/advancedSearch/".concat(searchArray.search, "&").concat(searchArray.radius, "&").concat(searchArray.rooms, "&").concat(searchArray.beds, "&").concat(services)).then(function (response) {
-        console.log(response.data);
         _this2.apartmentsArray = response.data;
       })["catch"](function (err) {
         console.log(err);
@@ -7363,7 +7389,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\ntemplate {\r\n    padding: 20px;\n}\n.block {\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    background: white;\r\n    border-radius: 10px;\r\n    color: #511d1f;\n}\n.cont-select {\r\n    display: flex;\r\n    flex-direction: column;\n}\n.cont-select label {\r\n    margin-bottom: 5px;\n}\n.advanced-search {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: center;\n}\n.left,\r\n.right {\r\n    display: flex;\r\n    flex-direction: column;\r\n    width: 250px;\r\n    padding: 20px;\n}\n.left {\r\n    margin-bottom: 20px;\r\n    justify-content: space-between;\n}\nselect {\r\n    padding: 10px;\r\n    border-color: #fb5a5f;\r\n    color: #fb5a5f;\n}\nselect:active,\r\nselect:visited,\r\nselect:target {\r\n    border: none;\n}\nlabel {\r\n    font-weight: bold;\n}\noption {\r\n    color: #fb5a5f;\n}\n.checkbox {\r\n    position: absolute;\r\n    z-index: -1;\r\n    opacity: 0;\r\n    margin: 30px;\n}\n.checkbox + label {\r\n    position: relative;\r\n    padding: 0 0 0 30px;\r\n    cursor: pointer;\n}\n.checkbox + label:before {\r\n    content: \"\";\r\n    position: absolute;\r\n    top: -35%;\r\n    left: 0;\r\n    width: 20px;\r\n    height: 20px;\r\n    background: white;\r\n    border: solid 1px #fb5a5f;\r\n    transition: 0.2s;\n}\r\n/* .checkbox + label:after {\r\n    content: \"\";\r\n    position: absolute;\r\n    top: -1px;\r\n    left: 0px;\r\n    width: 10px;\r\n    height: 10px;\r\n    border-radius: 50%;\r\n    background: #511d1f;\r\n    transition: 0.2s;\r\n} */\n.checkbox:checked + label:before {\r\n    background: #fb5a5f;\n}\r\n/* .checkbox:checked + label:after {\r\n    left: 10px;\r\n} */\n.service {\r\n    height: 30px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: flex-start;\r\n    width: 100%;\n}\nbutton {\r\n    height: 52px;\r\n    line-height: 52px;\r\n    font-size: 16px;\r\n    background: #fb5a5f;\r\n    text-decoration: none;\r\n    color: white;\r\n    padding: 0 10px;\r\n    border-width: 0;\r\n    margin: 1rem 0;\n}\nbutton:hover {\r\n    background: #fd7d82;\n}\nbutton {\r\n    height: 52px;\r\n    line-height: 52px;\r\n    font-size: 16px;\r\n    background: #fb5a5f;\r\n    text-decoration: none;\r\n    color: white;\r\n    padding: 0 30px;\r\n    border-width: 0;\r\n    margin: 1rem 0;\n}\nbutton:hover {\r\n    background: #fd7d82;\n}\r\n", ""]);
+exports.push([module.i, "\ntemplate {\n    padding: 20px;\n}\n.block {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    background: white;\n    border-radius: 10px;\n    color: #511d1f;\n}\n.cont-select {\n    display: flex;\n    flex-direction: column;\n}\n.cont-select label {\n    margin-bottom: 5px;\n}\n.advanced-search {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: center;\n}\n.left,\n.right {\n    display: flex;\n    flex-direction: column;\n    width: 250px;\n    padding: 20px;\n}\n.left {\n    margin-bottom: 20px;\n    justify-content: space-between;\n}\nselect {\n    padding: 10px;\n    border-color: #fb5a5f;\n    color: #fb5a5f;\n}\nselect:active,\nselect:visited,\nselect:target {\n    border: none;\n}\nlabel {\n    font-weight: bold;\n}\noption {\n    color: #fb5a5f;\n}\n.checkbox {\n    position: absolute;\n    z-index: -1;\n    opacity: 0;\n    margin: 30px;\n}\n.checkbox + label {\n    position: relative;\n    padding: 0 0 0 30px;\n    cursor: pointer;\n}\n.checkbox + label:before {\n    content: \"\";\n    position: absolute;\n    top: -35%;\n    left: 0;\n    width: 20px;\n    height: 20px;\n    background: white;\n    border: solid 1px #fb5a5f;\n    transition: 0.2s;\n}\n/* .checkbox + label:after {\n    content: \"\";\n    position: absolute;\n    top: -1px;\n    left: 0px;\n    width: 10px;\n    height: 10px;\n    border-radius: 50%;\n    background: #511d1f;\n    transition: 0.2s;\n} */\n.checkbox:checked + label:before {\n    background: #fb5a5f;\n}\n/* .checkbox:checked + label:after {\n    left: 10px;\n} */\n.service {\n    height: 30px;\n    display: flex;\n    align-items: center;\n    justify-content: flex-start;\n    width: 100%;\n}\nbutton {\n    height: 52px;\n    line-height: 52px;\n    font-size: 16px;\n    background: #fb5a5f;\n    text-decoration: none;\n    color: white;\n    padding: 0 10px;\n    border-width: 0;\n    margin: 1rem 0;\n}\nbutton:hover {\n    background: #fd7d82;\n}\nbutton {\n    height: 52px;\n    line-height: 52px;\n    font-size: 16px;\n    background: #fb5a5f;\n    text-decoration: none;\n    color: white;\n    padding: 0 30px;\n    border-width: 0;\n    margin: 1rem 0;\n}\nbutton:hover {\n    background: #fd7d82;\n}\n", ""]);
 
 // exports
 
@@ -39504,7 +39530,7 @@ var render = function() {
               user: _vm.user,
               apartmentsArray: _vm.apartmentsArray
             },
-            on: { searchText: _vm.performSearch, searchArray: _vm.newSearch }
+            on: { searchText: _vm.performSearch }
           })
         ],
         1
@@ -39900,7 +39926,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("a", { attrs: { href: "http://127.0.0.1:8000/login" } }, [
-      _c("p", [_vm._v(" Login")])
+      _c("p", [_vm._v("Login")])
     ])
   },
   function() {
@@ -39956,7 +39982,13 @@ var render = function() {
                 return _c(
                   "div",
                   { key: "err-name-" + index, staticClass: "error-field" },
-                  [_vm._v(_vm._s(error))]
+                  [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(error) +
+                        "\n                "
+                    )
+                  ]
                 )
               }),
               _vm._v(" "),
@@ -39990,7 +40022,13 @@ var render = function() {
                 return _c(
                   "div",
                   { key: "err-email-" + index, staticClass: "error-field" },
-                  [_vm._v(_vm._s(error))]
+                  [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(error) +
+                        "\n                "
+                    )
+                  ]
                 )
               }),
               _vm._v(" "),
@@ -40028,7 +40066,13 @@ var render = function() {
                 return _c(
                   "div",
                   { key: "err-phone-" + index, staticClass: "error-field" },
-                  [_vm._v(_vm._s(error))]
+                  [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(error) +
+                        "\n                "
+                    )
+                  ]
                 )
               }),
               _vm._v(" "),
@@ -40068,7 +40112,13 @@ var render = function() {
                 return _c(
                   "div",
                   { key: "err-guests-" + index, staticClass: "error-field" },
-                  [_vm._v(_vm._s(error))]
+                  [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(error) +
+                        "\n                "
+                    )
+                  ]
                 )
               }),
               _vm._v(" "),
@@ -40115,7 +40165,13 @@ var render = function() {
                 return _c(
                   "div",
                   { key: "err-message-" + index, staticClass: "error-field" },
-                  [_vm._v(_vm._s(error))]
+                  [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(error) +
+                        "\n                "
+                    )
+                  ]
                 )
               }),
               _vm._v(" "),
@@ -40159,9 +40215,9 @@ var render = function() {
         _vm._v(" "),
         _c("button", { attrs: { type: "submit", disabled: _vm.sending } }, [
           _vm._v(
-            "\r\n            " +
+            "\n            " +
               _vm._s(_vm.sending ? "Sending.." : "Send") +
-              "\r\n        "
+              "\n        "
           )
         ]),
         _vm._v(" "),
@@ -40178,7 +40234,7 @@ var render = function() {
             ],
             staticClass: "success"
           },
-          [_vm._v("Message sended successfully")]
+          [_vm._v("\n            Message sended successfully\n        ")]
         )
       ]
     )
@@ -56848,8 +56904,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Boolean\Esercizi Corso\boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\Boolean\Esercizi Corso\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/andrea/Desktop/Boolean/Esercizi/boolbnb/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/andrea/Desktop/Boolean/Esercizi/boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

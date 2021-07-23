@@ -5,14 +5,12 @@
             <router-view
                 :apartmentArray="apartmentsArray"
                 @searchText="performSearch"
-                @searchArray="newSearch"
                 :query="searchText"
                 :user="user"
                 :apartmentsArray="apartmentsArray"
             ></router-view>
         </main>
-        <Footer/>
-
+        <Footer />
     </div>
 </template>
 
@@ -54,8 +52,7 @@ export default {
                 .catch(err => {
                     console.log(err);
                 });
-        },
-        newSearch(searchArray) {}
+        }
     }
 };
 </script>
