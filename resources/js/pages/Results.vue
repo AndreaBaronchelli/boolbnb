@@ -27,7 +27,8 @@ export default {
     data() {
         return {
             query: "",
-            search: ""
+            search: "",
+            apartmentsArray: null,
         };
     },
     components: {
