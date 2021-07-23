@@ -7361,7 +7361,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".cotainer[data-v-b3c5cf30] {\n  position: relative;\n}\n.cont[data-v-b3c5cf30] {\n  padding: 150px 0 70px 0;\n}\nh1[data-v-b3c5cf30] {\n  position: relative;\n  z-index: 3;\n}\n.sponsored[data-v-b3c5cf30] {\n  position: relative;\n  z-index: 3;\n}\n.img[data-v-b3c5cf30] {\n  padding-top: 70px;\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 400px;\n  width: 100vw;\n  background: white;\n}\n.img .sfondo[data-v-b3c5cf30] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  filter: opacity(50%);\n  /* filter: grayscale(50%); */\n}\n.searchbar[data-v-b3c5cf30] {\n  width: 100%;\n}", ""]);
+exports.push([module.i, ".cotainer[data-v-b3c5cf30] {\n  position: relative;\n}\n.cont[data-v-b3c5cf30] {\n  padding: 150px 0 70px 0;\n}\nh1[data-v-b3c5cf30] {\n  position: relative;\n  z-index: 3;\n}\n.sponsored[data-v-b3c5cf30] {\n  position: relative;\n  z-index: 3;\n}\n.img[data-v-b3c5cf30] {\n  /*  padding-top:70px; */\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 500px;\n  width: 100vw;\n  background: white;\n}\n.img .sfondo[data-v-b3c5cf30] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  filter: opacity(50%);\n  /* filter: grayscale(50%); */\n}\n.searchbar[data-v-b3c5cf30] {\n  width: 100%;\n}", ""]);
 
 // exports
 
