@@ -28,6 +28,7 @@ Route::prefix('admin')
         Route::resource('/apartments', 'ApartmentController');
         Route::resource('/sponsors', 'SponsorController');
         Route::resource('/messages', 'MessageController');
+        //pay route
         Route::post('/payment/{apartment}', 'SponsorController@braintree')->name('sponsor.pay');
         
         
