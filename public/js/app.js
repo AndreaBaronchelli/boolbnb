@@ -2026,154 +2026,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AdvancedSearch.vue?vue&type=script&lang=js&":
-/*!*************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/AdvancedSearch.vue?vue&type=script&lang=js& ***!
-  \*************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _SearchBar_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SearchBar.vue */ "./resources/js/components/SearchBar.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: "AdvancedSearch",
-  props: ["query"],
-  components: {
-    SearchBar: _SearchBar_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
-  },
-  data: function data() {
-    return {
-      services: {},
-      radius: 20,
-      beds: 1,
-      rooms: 1,
-      checkedServices: []
-    };
-  },
-  mounted: function mounted() {
-    this.createSearchBar();
-    document.getElementsByClassName("tt-search-box-input")[0].value = this.query;
-  },
-  created: function created() {
-    this.getServices();
-  },
-  methods: {
-    // test() {
-    //     console.log(this.radius, this.beds, this.rooms, this.checkedServices);
-    //     console.log(document.getElementsByClassName("tt-search-box-input")[0].value);
-    // },
-    getServices: function getServices() {
-      var _this = this;
-
-      axios.get("http://127.0.0.1:8000/api/service").then(function (response) {
-        _this.services = response.data;
-      })["catch"](function (err) {
-        console.log(err);
-      });
-    },
-    createSearchBar: function createSearchBar() {
-      var options = {
-        searchOptions: {
-          key: "HWJIfN6faq5SWzGHD4GKXdsexiZdkTDa",
-          language: "en-GB",
-          limit: 5
-        },
-        autocompleteOptions: {
-          key: "HWJIfN6faq5SWzGHD4GKXdsexiZdkTDa",
-          language: "en-GB"
-        }
-      };
-      var ttSearchBox = new tt.plugins.SearchBox(tt.services, options);
-      var searchBoxHTML = ttSearchBox.getSearchBoxHTML();
-      document.getElementById("advanced-searchbox").appendChild(searchBoxHTML);
-    },
-    getSearchValue: function getSearchValue() {
-      var search = document.getElementsByClassName("tt-search-box-input")[0].value;
-      document.getElementById("address").value = search;
-    },
-    emitData: function emitData() {
-      var searchText = document.getElementsByClassName("tt-search-box-input")[0].value;
-      this.$emit("searchArray", {
-        rooms: this.rooms,
-        beds: this.beds,
-        radius: this.radius,
-        checkedServices: this.checkedServices,
-        search: searchText
-      });
-    }
-  }
-});
-
-/***/ }),
-
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ApartmentCard.vue?vue&type=script&lang=js&":
 /*!************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ApartmentCard.vue?vue&type=script&lang=js& ***!
@@ -2378,8 +2230,7 @@ __webpack_require__.r(__webpack_exports__);
       },
       errors: {},
       success: false,
-      sending: false,
-      fielDisabled: false
+      sending: false
     };
   },
   methods: {
@@ -2389,7 +2240,6 @@ __webpack_require__.r(__webpack_exports__);
       if (this.user.user_name != null) {
         this.message.name = this.user.user_name;
         this.message.email = this.user.user_email;
-        this.fielDisabled = true;
       }
     },
     sendMessage: function sendMessage() {
@@ -2407,8 +2257,8 @@ __webpack_require__.r(__webpack_exports__);
           _this.success = false;
         } else {
           //clear fields
-          _this.message.name = '';
-          _this.message.email = '';
+          // this.message.name = '';
+          // this.message.email = '';
           _this.message.phone_number = '';
           _this.message.num_guests = '';
           _this.message.message = '';
@@ -2656,86 +2506,9 @@ __webpack_require__.r(__webpack_exports__);
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/Results.vue?vue&type=script&lang=js& ***!
   \*************************************************************************************************************************************************************/
 /*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_ApartmentCard_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/ApartmentCard.vue */ "./resources/js/components/ApartmentCard.vue");
-/* harmony import */ var _components_AdvancedSearch_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/AdvancedSearch.vue */ "./resources/js/components/AdvancedSearch.vue");
-var _name$data$components;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-/* harmony default export */ __webpack_exports__["default"] = (_name$data$components = {
-  name: "Results",
-  data: function data() {
-    return {
-      query: "",
-      search: ""
-    };
-  },
-  components: {
-    ApartmentCard: _components_ApartmentCard_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    AdvancedSearch: _components_AdvancedSearch_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
-  }
-}, _defineProperty(_name$data$components, "data", function data() {
-  return {
-    apartmentsArray: null
-  };
-}), _defineProperty(_name$data$components, "created", function created() {
-  this.performSearch();
-}), _defineProperty(_name$data$components, "methods", {
-  performSearch: function performSearch(searchArray) {
-    var _this = this;
-
-    this.query = this.$route.params.search;
-    this.search = encodeURI(this.$route.params.search);
-    axios.get("http://127.0.0.1:8000/api/apartment/".concat(this.search)).then(function (response) {
-      _this.apartmentsArray = response.data;
-    })["catch"](function (err) {
-      console.log(err);
-    });
-  },
-  performingSearch: function performingSearch(searchArray) {
-    var _this2 = this;
-
-    var services = "0";
-
-    if (searchArray.checkedServices.length > 0) {
-      services = searchArray.checkedServices;
-    }
-
-    axios.get("http://127.0.0.1:8000/api/apartment/advancedSearch/".concat(searchArray.search, "&").concat(searchArray.radius, "&").concat(searchArray.rooms, "&").concat(searchArray.beds, "&").concat(services)).then(function (response) {
-      console.log(response.data);
-      _this2.apartmentsArray = response.data;
-    })["catch"](function (err) {
-      console.log(err);
-    });
-  }
-}), _name$data$components);
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/andrea/Desktop/Boolean/Esercizi/boolbnb/resources/js/pages/Results.vue: Unexpected token (30:0)\n\n\u001b[0m \u001b[90m 28 |\u001b[39m         \u001b[36mreturn\u001b[39m {\u001b[0m\n\u001b[0m \u001b[90m 29 |\u001b[39m             query\u001b[33m:\u001b[39m \u001b[32m\"\"\u001b[39m\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 30 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 31 |\u001b[39m             search\u001b[33m:\u001b[39m \u001b[32m\"\"\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 32 |\u001b[39m \u001b[33m===\u001b[39m\u001b[33m===\u001b[39m\u001b[33m=\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 33 |\u001b[39m             apartmentsArray\u001b[33m:\u001b[39m \u001b[36mnull\u001b[39m\u001b[33m,\u001b[39m\u001b[0m\n    at Parser._raise (/Users/andrea/Desktop/Boolean/Esercizi/boolbnb/node_modules/@babel/parser/lib/index.js:816:17)\n    at Parser.raiseWithData (/Users/andrea/Desktop/Boolean/Esercizi/boolbnb/node_modules/@babel/parser/lib/index.js:809:17)\n    at Parser.raise (/Users/andrea/Desktop/Boolean/Esercizi/boolbnb/node_modules/@babel/parser/lib/index.js:770:17)\n    at Parser.unexpected (/Users/andrea/Desktop/Boolean/Esercizi/boolbnb/node_modules/@babel/parser/lib/index.js:9893:16)\n    at Parser.parseIdentifierName (/Users/andrea/Desktop/Boolean/Esercizi/boolbnb/node_modules/@babel/parser/lib/index.js:12106:18)\n    at Parser.parseIdentifier (/Users/andrea/Desktop/Boolean/Esercizi/boolbnb/node_modules/@babel/parser/lib/index.js:12084:23)\n    at Parser.parseMaybePrivateName (/Users/andrea/Desktop/Boolean/Esercizi/boolbnb/node_modules/@babel/parser/lib/index.js:11378:19)\n    at Parser.parsePropertyName (/Users/andrea/Desktop/Boolean/Esercizi/boolbnb/node_modules/@babel/parser/lib/index.js:11898:151)\n    at Parser.parsePropertyDefinition (/Users/andrea/Desktop/Boolean/Esercizi/boolbnb/node_modules/@babel/parser/lib/index.js:11783:22)\n    at Parser.parseObjectLike (/Users/andrea/Desktop/Boolean/Esercizi/boolbnb/node_modules/@babel/parser/lib/index.js:11699:25)\n    at Parser.parseExprAtom (/Users/andrea/Desktop/Boolean/Esercizi/boolbnb/node_modules/@babel/parser/lib/index.js:11223:23)\n    at Parser.parseExprSubscripts (/Users/andrea/Desktop/Boolean/Esercizi/boolbnb/node_modules/@babel/parser/lib/index.js:10881:23)\n    at Parser.parseUpdate (/Users/andrea/Desktop/Boolean/Esercizi/boolbnb/node_modules/@babel/parser/lib/index.js:10861:21)\n    at Parser.parseMaybeUnary (/Users/andrea/Desktop/Boolean/Esercizi/boolbnb/node_modules/@babel/parser/lib/index.js:10839:23)\n    at Parser.parseExprOps (/Users/andrea/Desktop/Boolean/Esercizi/boolbnb/node_modules/@babel/parser/lib/index.js:10696:23)\n    at Parser.parseMaybeConditional (/Users/andrea/Desktop/Boolean/Esercizi/boolbnb/node_modules/@babel/parser/lib/index.js:10670:23)\n    at Parser.parseMaybeAssign (/Users/andrea/Desktop/Boolean/Esercizi/boolbnb/node_modules/@babel/parser/lib/index.js:10633:21)\n    at Parser.parseExpressionBase (/Users/andrea/Desktop/Boolean/Esercizi/boolbnb/node_modules/@babel/parser/lib/index.js:10573:23)\n    at /Users/andrea/Desktop/Boolean/Esercizi/boolbnb/node_modules/@babel/parser/lib/index.js:10567:39\n    at Parser.allowInAnd (/Users/andrea/Desktop/Boolean/Esercizi/boolbnb/node_modules/@babel/parser/lib/index.js:12328:16)\n    at Parser.parseExpression (/Users/andrea/Desktop/Boolean/Esercizi/boolbnb/node_modules/@babel/parser/lib/index.js:10567:17)\n    at Parser.parseReturnStatement (/Users/andrea/Desktop/Boolean/Esercizi/boolbnb/node_modules/@babel/parser/lib/index.js:12912:28)\n    at Parser.parseStatementContent (/Users/andrea/Desktop/Boolean/Esercizi/boolbnb/node_modules/@babel/parser/lib/index.js:12582:21)\n    at Parser.parseStatement (/Users/andrea/Desktop/Boolean/Esercizi/boolbnb/node_modules/@babel/parser/lib/index.js:12534:17)\n    at Parser.parseBlockOrModuleBlockBody (/Users/andrea/Desktop/Boolean/Esercizi/boolbnb/node_modules/@babel/parser/lib/index.js:13123:25)\n    at Parser.parseBlockBody (/Users/andrea/Desktop/Boolean/Esercizi/boolbnb/node_modules/@babel/parser/lib/index.js:13114:10)\n    at Parser.parseBlock (/Users/andrea/Desktop/Boolean/Esercizi/boolbnb/node_modules/@babel/parser/lib/index.js:13098:10)\n    at Parser.parseFunctionBody (/Users/andrea/Desktop/Boolean/Esercizi/boolbnb/node_modules/@babel/parser/lib/index.js:11989:24)\n    at Parser.parseFunctionBodyAndFinish (/Users/andrea/Desktop/Boolean/Esercizi/boolbnb/node_modules/@babel/parser/lib/index.js:11973:10)\n    at Parser.parseMethod (/Users/andrea/Desktop/Boolean/Esercizi/boolbnb/node_modules/@babel/parser/lib/index.js:11923:10)\n    at Parser.parseObjectMethod (/Users/andrea/Desktop/Boolean/Esercizi/boolbnb/node_modules/@babel/parser/lib/index.js:11851:19)\n    at Parser.parseObjPropValue (/Users/andrea/Desktop/Boolean/Esercizi/boolbnb/node_modules/@babel/parser/lib/index.js:11884:23)\n    at Parser.parsePropertyDefinition (/Users/andrea/Desktop/Boolean/Esercizi/boolbnb/node_modules/@babel/parser/lib/index.js:11808:10)\n    at Parser.parseObjectLike (/Users/andrea/Desktop/Boolean/Esercizi/boolbnb/node_modules/@babel/parser/lib/index.js:11699:25)\n    at Parser.parseExprAtom (/Users/andrea/Desktop/Boolean/Esercizi/boolbnb/node_modules/@babel/parser/lib/index.js:11223:23)\n    at Parser.parseExprSubscripts (/Users/andrea/Desktop/Boolean/Esercizi/boolbnb/node_modules/@babel/parser/lib/index.js:10881:23)");
 
 /***/ }),
 
@@ -7269,7 +7042,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "form[data-v-367b72d0] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  background: white;\n  border-radius: 10px;\n  margin-top: 20px;\n  padding: 20px;\n  color: #511d1f;\n}\nform h2[data-v-367b72d0] {\n  color: #a63c3f;\n}\n.cont[data-v-367b72d0] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  width: 100%;\n}\n.cont .date[data-v-367b72d0] {\n  margin: 20px;\n}\n.cont input[data-v-367b72d0] {\n  width: 220px;\n  height: 30px;\n  border: solid 1px #fb5a5f;\n  margin-top: 5px;\n  padding: 10px;\n}\n.cont textarea[data-v-367b72d0] {\n  width: 220px;\n  height: 220px;\n  border: solid 1px #fb5a5f;\n  margin-top: 5px;\n  padding: 10px;\n}\n.field[data-v-367b72d0] {\n  margin-bottom: 15px;\n}\n.error-field[data-v-367b72d0] {\n  color: red;\n}\n.success[data-v-367b72d0] {\n  color: green;\n}\nbutton[data-v-367b72d0] {\n  padding: 0 30px;\n  margin: 0;\n}", ""]);
+exports.push([module.i, "form[data-v-367b72d0] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  background: white;\n  border-radius: 10px;\n  margin-top: 20px;\n  padding: 20px;\n  color: #511d1f;\n}\nform h2[data-v-367b72d0] {\n  color: #a63c3f;\n}\n.cont[data-v-367b72d0] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  width: 100%;\n}\n.cont .date[data-v-367b72d0] {\n  margin: 20px;\n}\n.cont input[data-v-367b72d0] {\n  width: 220px;\n  height: 30px;\n  border: solid 1px #fb5a5f;\n  margin-top: 5px;\n  padding: 10px;\n}\n.cont textarea[data-v-367b72d0] {\n  width: 240px;\n  height: 300px;\n  border: solid 1px #fb5a5f;\n  margin-top: 5px;\n  padding: 10px;\n}\n.field[data-v-367b72d0] {\n  margin-bottom: 15px;\n}\n.error-field[data-v-367b72d0] {\n  color: white;\n  background-color: #fb5a5f;\n  border-radius: 8px;\n  padding: 2px 7px;\n  font-size: 13px;\n  text-align: center;\n}\n.success[data-v-367b72d0] {\n  color: #18511b;\n  background-color: #66ff7b;\n  border-radius: 10px;\n  padding: 3px 10px;\n  text-align: center;\n  margin-top: 10px;\n}\nbutton[data-v-367b72d0] {\n  padding: 0 30px;\n  margin: 0;\n}", ""]);
 
 // exports
 
@@ -7307,7 +7080,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".container[data-v-1b16c839] {\n  padding: 100px 0 70px 0;\n}\n.cont-img-info[data-v-1b16c839] {\n  background: white;\n  padding: 20px;\n  border-radius: 10px;\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  color: #511d1f;\n  margin-top: 20px;\n}\na[data-v-1b16c839] {\n  text-decoration: none;\n  color: #fb5a5f;\n  padding-bottom: 20px;\n  font-size: 18px;\n}\n.img-cont[data-v-1b16c839],\n.map[data-v-1b16c839],\n.info-cont[data-v-1b16c839] {\n  margin: 10px;\n}\n.info-cont[data-v-1b16c839] {\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n}\n.info-cont h2[data-v-1b16c839] {\n  margin: 0 0 10px 0;\n  color: #a63c3f;\n}\n.info-cont p[data-v-1b16c839] {\n  margin: 5px 0;\n}\n.cont-form[data-v-1b16c839] {\n  width: 100%;\n}\nimg[data-v-1b16c839] {\n  height: 300px;\n}\n#map[data-v-1b16c839] {\n  width: 300px;\n  height: 300px;\n}", ""]);
+exports.push([module.i, ".container[data-v-1b16c839] {\n  padding: 100px 0 70px 0;\n}\n.cont-img-info[data-v-1b16c839] {\n  background: white;\n  padding: 20px;\n  border-radius: 10px;\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  color: #511d1f;\n  margin-top: 20px;\n}\na[data-v-1b16c839] {\n  text-decoration: none;\n  color: #fb5a5f;\n  padding-bottom: 20px;\n  font-size: 18px;\n}\n.img-cont[data-v-1b16c839],\n.map[data-v-1b16c839],\n.info-cont[data-v-1b16c839] {\n  margin: 10px;\n}\n.info-cont[data-v-1b16c839] {\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n}\n.info-cont h2[data-v-1b16c839] {\n  margin: 0 0 10px 0;\n  color: #a63c3f;\n}\n.info-cont p[data-v-1b16c839] {\n  margin: 5px 0;\n}\n.cont-form[data-v-1b16c839] {\n  width: 100%;\n}\nimg[data-v-1b16c839] {\n  height: 300px;\n}\n#map[data-v-1b16c839] {\n  width: 830px;\n  height: 200px;\n}", ""]);
 
 // exports
 
@@ -7346,25 +7119,6 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 // module
 exports.push([module.i, ".container[data-v-44832d06] {\n  padding: 70px 0 100px 0;\n}\n.main-content[data-v-44832d06] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: flex-start;\n  color: #511d1f;\n}\n.main-content h2[data-v-44832d06] {\n  padding: 20px;\n}\n.cards-container[data-v-44832d06] {\n  padding: 20px 0;\n  display: flex;\n  flex-wrap: wrap;\n}", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AdvancedSearch.vue?vue&type=style&index=0&lang=css&":
-/*!********************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/AdvancedSearch.vue?vue&type=style&index=0&lang=css& ***!
-  \********************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "\ntemplate {\n    padding: 20px;\n}\n.block {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    background: white;\n    border-radius: 10px;\n    color: #511d1f;\n}\n.cont-select {\n    display: flex;\n    flex-direction: column;\n}\n.cont-select label {\n    margin-bottom: 5px;\n}\n.advanced-search {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: center;\n}\n.left,\n.right {\n    display: flex;\n    flex-direction: column;\n    width: 250px;\n    padding: 20px;\n}\n.left {\n    margin-bottom: 20px;\n    justify-content: space-between;\n}\nselect {\n    padding: 10px;\n    border-color: #fb5a5f;\n    color: #fb5a5f;\n}\nselect:active,\nselect:visited,\nselect:target {\n    border: none;\n}\nlabel {\n    font-weight: bold;\n}\noption {\n    color: #fb5a5f;\n}\n.checkbox {\n    position: absolute;\n    z-index: -1;\n    opacity: 0;\n    margin: 30px;\n}\n.checkbox + label {\n    position: relative;\n    padding: 0 0 0 30px;\n    cursor: pointer;\n}\n.checkbox + label:before {\n    content: \"\";\n    position: absolute;\n    top: -35%;\n    left: 0;\n    width: 20px;\n    height: 20px;\n    background: white;\n    border: solid 1px #fb5a5f;\n    transition: 0.2s;\n}\n/* .checkbox + label:after {\n    content: \"\";\n    position: absolute;\n    top: -1px;\n    left: 0px;\n    width: 10px;\n    height: 10px;\n    border-radius: 50%;\n    background: #511d1f;\n    transition: 0.2s;\n} */\n.checkbox:checked + label:before {\n    background: #fb5a5f;\n}\n/* .checkbox:checked + label:after {\n    left: 10px;\n} */\n.service {\n    height: 30px;\n    display: flex;\n    align-items: center;\n    justify-content: flex-start;\n    width: 100%;\n}\nbutton {\n    height: 52px;\n    line-height: 52px;\n    font-size: 16px;\n    background: #fb5a5f;\n    text-decoration: none;\n    color: white;\n    padding: 0 10px;\n    border-width: 0;\n    margin: 1rem 0;\n}\nbutton:hover {\n    background: #fd7d82;\n}\nbutton {\n    height: 52px;\n    line-height: 52px;\n    font-size: 16px;\n    background: #fb5a5f;\n    text-decoration: none;\n    color: white;\n    padding: 0 30px;\n    border-width: 0;\n    margin: 1rem 0;\n}\nbutton:hover {\n    background: #fd7d82;\n}\n", ""]);
 
 // exports
 
@@ -38857,36 +38611,6 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AdvancedSearch.vue?vue&type=style&index=0&lang=css&":
-/*!************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/AdvancedSearch.vue?vue&type=style&index=0&lang=css& ***!
-  \************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./AdvancedSearch.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AdvancedSearch.vue?vue&type=style&index=0&lang=css&");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
-
-/***/ }),
-
 /***/ "./node_modules/style-loader/lib/addStyles.js":
 /*!****************************************************!*\
   !*** ./node_modules/style-loader/lib/addStyles.js ***!
@@ -39523,245 +39247,6 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AdvancedSearch.vue?vue&type=template&id=1b0282d6&":
-/*!*****************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/AdvancedSearch.vue?vue&type=template&id=1b0282d6& ***!
-  \*****************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "block" }, [
-    _c("h3", [_vm._v("AdvancedSearch")]),
-    _vm._v(" "),
-    _c("div", { staticClass: "advanced-search" }, [
-      _c("div", { staticClass: "left" }, [
-        _c("div", { attrs: { id: "advanced-searchbox" } }),
-        _vm._v(" "),
-        _c("div", { staticClass: "cont-select" }, [
-          _c("label", { attrs: { for: "radius" } }, [_vm._v("Search radius")]),
-          _vm._v(" "),
-          _c(
-            "select",
-            {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.radius,
-                  expression: "radius"
-                }
-              ],
-              attrs: { name: "radius", id: "radius" },
-              on: {
-                change: function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.radius = $event.target.multiple
-                    ? $$selectedVal
-                    : $$selectedVal[0]
-                }
-              }
-            },
-            [
-              _c("option", { attrs: { value: "10" } }, [_vm._v("10 km")]),
-              _vm._v(" "),
-              _c("option", { attrs: { selected: "", value: "20" } }, [
-                _vm._v("20 km")
-              ]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "30" } }, [_vm._v("30 km")]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "40" } }, [_vm._v("40 km")])
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "cont-select" }, [
-          _c("label", { attrs: { for: "rooms" } }, [
-            _vm._v("Min rooms number")
-          ]),
-          _vm._v(" "),
-          _c(
-            "select",
-            {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.rooms,
-                  expression: "rooms"
-                }
-              ],
-              attrs: { name: "rooms", id: "rooms" },
-              on: {
-                change: function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.rooms = $event.target.multiple
-                    ? $$selectedVal
-                    : $$selectedVal[0]
-                }
-              }
-            },
-            [
-              _c("option", { attrs: { value: "1" } }, [_vm._v("1")]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "2" } }, [_vm._v("2")]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "3" } }, [_vm._v("3")]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "4" } }, [_vm._v("4")]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "5" } }, [_vm._v("4+")])
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "cont-select" }, [
-          _c("label", { attrs: { for: "beds" } }, [_vm._v("Min beds number")]),
-          _vm._v(" "),
-          _c(
-            "select",
-            {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.beds,
-                  expression: "beds"
-                }
-              ],
-              attrs: { name: "beds", id: "beds" },
-              on: {
-                change: function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.beds = $event.target.multiple
-                    ? $$selectedVal
-                    : $$selectedVal[0]
-                }
-              }
-            },
-            [
-              _c("option", { attrs: { value: "1" } }, [_vm._v("1")]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "2" } }, [_vm._v("2")]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "3" } }, [_vm._v("3")]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "4" } }, [_vm._v("3+")])
-            ]
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "right" }, [
-        _c(
-          "div",
-          { staticClass: "services" },
-          _vm._l(_vm.services, function(service, index) {
-            return _c(
-              "div",
-              { key: service.id + " - " + index, staticClass: "service" },
-              [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.checkedServices,
-                      expression: "checkedServices"
-                    }
-                  ],
-                  staticClass: "checkbox",
-                  attrs: {
-                    type: "checkbox",
-                    name: service.name,
-                    id: service.id
-                  },
-                  domProps: {
-                    value: service.id,
-                    checked: Array.isArray(_vm.checkedServices)
-                      ? _vm._i(_vm.checkedServices, service.id) > -1
-                      : _vm.checkedServices
-                  },
-                  on: {
-                    change: function($event) {
-                      var $$a = _vm.checkedServices,
-                        $$el = $event.target,
-                        $$c = $$el.checked ? true : false
-                      if (Array.isArray($$a)) {
-                        var $$v = service.id,
-                          $$i = _vm._i($$a, $$v)
-                        if ($$el.checked) {
-                          $$i < 0 && (_vm.checkedServices = $$a.concat([$$v]))
-                        } else {
-                          $$i > -1 &&
-                            (_vm.checkedServices = $$a
-                              .slice(0, $$i)
-                              .concat($$a.slice($$i + 1)))
-                        }
-                      } else {
-                        _vm.checkedServices = $$c
-                      }
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "label",
-                  {
-                    staticClass: "radio",
-                    attrs: { id: "radio", for: service.id }
-                  },
-                  [_vm._v(_vm._s(service.name))]
-                )
-              ]
-            )
-          }),
-          0
-        )
-      ])
-    ]),
-    _vm._v(" "),
-    _c("button", { attrs: { type: "submit" }, on: { click: _vm.emitData } }, [
-      _vm._v("Search")
-    ])
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ApartmentCard.vue?vue&type=template&id=13e9f807&scoped=true&":
 /*!****************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ApartmentCard.vue?vue&type=template&id=13e9f807&scoped=true& ***!
@@ -39936,22 +39421,6 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "message-form" }, [
     _c(
-      "div",
-      {
-        directives: [
-          {
-            name: "show",
-            rawName: "v-show",
-            value: _vm.success,
-            expression: "success"
-          }
-        ],
-        staticClass: "success"
-      },
-      [_vm._v("Message sended successfully")]
-    ),
-    _vm._v(" "),
-    _c(
       "form",
       {
         on: {
@@ -39962,7 +39431,7 @@ var render = function() {
         }
       },
       [
-        _c("h2", [_vm._v("Contat us for booking")]),
+        _c("h2", [_vm._v("Contact us for booking")]),
         _vm._v(" "),
         _c("div", { staticClass: "cont" }, [
           _c(
@@ -40180,7 +39649,23 @@ var render = function() {
               _vm._s(_vm.sending ? "Sending.." : "Send") +
               "\n        "
           )
-        ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.success,
+                expression: "success"
+              }
+            ],
+            staticClass: "success"
+          },
+          [_vm._v("Message sended successfully")]
+        )
       ]
     )
   ])
@@ -56004,93 +55489,6 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
-
-/***/ }),
-
-/***/ "./resources/js/components/AdvancedSearch.vue":
-/*!****************************************************!*\
-  !*** ./resources/js/components/AdvancedSearch.vue ***!
-  \****************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _AdvancedSearch_vue_vue_type_template_id_1b0282d6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AdvancedSearch.vue?vue&type=template&id=1b0282d6& */ "./resources/js/components/AdvancedSearch.vue?vue&type=template&id=1b0282d6&");
-/* harmony import */ var _AdvancedSearch_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AdvancedSearch.vue?vue&type=script&lang=js& */ "./resources/js/components/AdvancedSearch.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _AdvancedSearch_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AdvancedSearch.vue?vue&type=style&index=0&lang=css& */ "./resources/js/components/AdvancedSearch.vue?vue&type=style&index=0&lang=css&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _AdvancedSearch_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _AdvancedSearch_vue_vue_type_template_id_1b0282d6___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _AdvancedSearch_vue_vue_type_template_id_1b0282d6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/AdvancedSearch.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/AdvancedSearch.vue?vue&type=script&lang=js&":
-/*!*****************************************************************************!*\
-  !*** ./resources/js/components/AdvancedSearch.vue?vue&type=script&lang=js& ***!
-  \*****************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdvancedSearch_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./AdvancedSearch.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AdvancedSearch.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdvancedSearch_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/AdvancedSearch.vue?vue&type=style&index=0&lang=css&":
-/*!*************************************************************************************!*\
-  !*** ./resources/js/components/AdvancedSearch.vue?vue&type=style&index=0&lang=css& ***!
-  \*************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AdvancedSearch_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./AdvancedSearch.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AdvancedSearch.vue?vue&type=style&index=0&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AdvancedSearch_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AdvancedSearch_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AdvancedSearch_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AdvancedSearch_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-
-
-/***/ }),
-
-/***/ "./resources/js/components/AdvancedSearch.vue?vue&type=template&id=1b0282d6&":
-/*!***********************************************************************************!*\
-  !*** ./resources/js/components/AdvancedSearch.vue?vue&type=template&id=1b0282d6& ***!
-  \***********************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdvancedSearch_vue_vue_type_template_id_1b0282d6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./AdvancedSearch.vue?vue&type=template&id=1b0282d6& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AdvancedSearch.vue?vue&type=template&id=1b0282d6&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdvancedSearch_vue_vue_type_template_id_1b0282d6___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdvancedSearch_vue_vue_type_template_id_1b0282d6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
 
 /***/ }),
 

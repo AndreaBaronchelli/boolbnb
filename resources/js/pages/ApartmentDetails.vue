@@ -152,7 +152,7 @@ img {
     height: 300px;
 }
 #map {
-    width: 300px;
-    height: 300px;
+    width: 830px;
+    height: 200px;
 }
 </style>

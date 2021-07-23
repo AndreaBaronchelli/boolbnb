@@ -34,11 +34,6 @@ export default {
         ApartmentCard,
         AdvancedSearch
     },
-    data() {
-        return {
-            apartmentsArray: null
-        };
-    },
     created() {
         this.performSearch();
     },

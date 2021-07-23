@@ -136,6 +136,10 @@ export default {
                 "tt-search-box-input"
             )[0].value;
 
+            if(searchText == "") {
+                document.getElementsByClassName("tt-search-box-input")[0].value = this.query;
+                searchText = this.query
+            }
             this.$emit("searchArray", {
                 rooms: this.rooms,
                 beds: this.beds,
