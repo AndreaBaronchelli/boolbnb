@@ -7,7 +7,9 @@
     <div id="dropin-container"></div>
     <button id="submit-button">Pay</button>
 </form>
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
     <script src="https://js.braintreegateway.com/web/dropin/1.31.0/js/dropin.min.js"></script>
+    
     <script>
         let button = document.getElementById('submit-button')
         braintree.dropin
@@ -15,18 +17,33 @@
             authorization: 'sandbox_fwz54fc9_wx43kfbnk6h5d235',
             container: document.getElementById('dropin-container'),
         }, 
-        (error, dropin) => {
-            if (error) {
-                console.log(error);
-            }
+        function(createErr, instance) {
             button.addEventListener('click', function(){
-                dropin.requestPaymentMethod(paymentError, payload)
-                    if(paymentError) {
-                        console.log(paymentError);
-                    }
-                    console.log(payload);
-            });
+                instance.requestPaymentMethod(function (requestPaymentMethodErr, payload) {
+                    $.ajax({
+                        type: 'POST',
+                        url: '/checkout',
+                        data: {'paymentMethodNonce': payload.nonce}
+                    }).done(function(result) {
+                    instance.teardown(function (teardownErr) {
+                        if (teardownErr) {
+                            console.error('Could not tear down Drop-in UI!');
+                        } else {
+                            console.info('Drop-in UI has been torn down!');
+                            $('#submit-button').remove();
+                        }
+                    });
 
+                    if (result.success) {
+                        $('#checkout-message').html('<h1>Success</h1><p>Your Drop-in UI is working! Check your <a href="https://sandbox.braintreegateway.com/login">sandbox Control Panel</a> for your test transactions.</p><p>Refresh to try another transaction.</p>');
+                    } else {
+                        console.log(result);
+                        $('#checkout-message').html('<h1>Error</h1><p>Check your console.</p>');
+                    }
+                });
+            });
         });
+
+    });
     </script>
 @endsection

@@ -10,6 +10,8 @@ use illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use App\User;
 use Illuminate\Support\Facades\Http;
+use Braintree\Gateway as Gateway;
+use Braintree\Transaction as Transaction;
 
 class SponsorController extends Controller
 {
