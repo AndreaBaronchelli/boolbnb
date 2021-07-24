@@ -1,12 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<form action="{{ route('admin.sponsors.store', [$apartment->id, $sponsor->id]) }}" method="post">
-    @csrf
-    @method('POST')
     <div id="dropin-container"></div>
     <button id="submit-button">Pay</button>
-</form>
     <script src="http://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
     <script src="https://js.braintreegateway.com/web/dropin/1.31.0/js/dropin.min.js"></script>
     
@@ -14,7 +10,7 @@
         let button = document.getElementById('submit-button')
         braintree.dropin
         .create({
-            authorization: "{{ Braintree_ClientToken::generate() }}",
+            authorization: "sandbox_hcdxfbtn_4r7xpn58mz345fqm",
             container: document.getElementById('dropin-container'),
         }, 
         function(createErr, instance) {
@@ -39,6 +35,7 @@
 
                     if (result.success) {
                         $('#checkout-message').html('<h1>Success</h1><p>Your Drop-in UI is working! Check your <a href="https://sandbox.braintreegateway.com/login">sandbox Control Panel</a> for your test transactions.</p><p>Refresh to try another transaction.</p>');
+                        
                     } else {
                         console.log(result);
                         $('#checkout-message').html('<h1>Error</h1><p>Check your console.</p>');
