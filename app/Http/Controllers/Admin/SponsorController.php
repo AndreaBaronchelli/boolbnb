@@ -39,6 +39,19 @@ class SponsorController extends Controller
 
         $apartment = Apartment::find($id);
 
+        $payload = $request->input('payload', false);
+
+        $status = Transaction::sale([
+	        'amount' => $sponsor->price,
+	        'paymentMethodNonce' => $payload['nonce'] ?? 'default value',
+	        'options' => [
+	        'submitForSettlement' => True
+	        ]
+        ]);
+        if($status->success = false) {
+            
+        }
+
         $apartment->sponsors()->attach($sponsor->id, ['start_time' => Carbon::now(), 'end_time' => Carbon::now()->addHours($sponsor['duration'])]);
 
         return redirect()->route('admin.apartments.show', $apartment->id)->with('sponsored', $apartment->title);

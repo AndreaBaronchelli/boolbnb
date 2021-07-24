@@ -14,17 +14,20 @@
         let button = document.getElementById('submit-button')
         braintree.dropin
         .create({
-            authorization: 'sandbox_fwz54fc9_wx43kfbnk6h5d235',
+            authorization: "{{ Braintree_ClientToken::generate() }}",
             container: document.getElementById('dropin-container'),
         }, 
         function(createErr, instance) {
             button.addEventListener('click', function(){
                 instance.requestPaymentMethod(function (requestPaymentMethodErr, payload) {
-                    $.ajax({
-                        type: 'POST',
-                        url: '/checkout',
-                        data: {'paymentMethodNonce': payload.nonce}
-                    }).done(function(result) {
+                    $.get("{{ route('admin.sponsors.store', [$apartment->id, $sponsor->id]) }}", {payload}, function (response) {
+                        if (response.success) {
+                            alert('Payment successfull!');
+                        } else {
+                            alert('Payment failed');
+                        }
+                    }, 'json')
+                    .done(function(result) {
                     instance.teardown(function (teardownErr) {
                         if (teardownErr) {
                             console.error('Could not tear down Drop-in UI!');
