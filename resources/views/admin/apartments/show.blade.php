@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+    @if (session('sponsored'))
+        <div class="alert alert-success mt-3">
+            {{ session('sponsored') }} is now sponsored!
+        </div>
+    @endif
     <div class="container">
         <a href="{{ route('admin.apartments.index') }}"> <-- Back to apartments list</a>
         <h1 class="text-secondary">{{$apartment->title}}</h1>

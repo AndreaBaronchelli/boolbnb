@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use App\User;
+use Illuminate\Support\Facades\Http;
 
 class SponsorController extends Controller
 {
@@ -18,19 +19,26 @@ class SponsorController extends Controller
         $sponsors = Sponsor::all();
         return view('admin.sponsors', compact('apartments', 'sponsors'));
     }
-
-    public function update(Request $request, $id)
+    
+    public function braintree(Request $request, $id) 
     {
-        $user = User::find(Auth::id());
         $data = $request->all();
-        
+
         $apartment = Apartment::find($id);
         $sponsor = Sponsor::find($data['sponsors']);
         
-        if (array_key_exists('sponsors', $data)) {
-            $apartment->sponsors()->attach($data['sponsors'], ['start_time' => Carbon::now(), 'end_time' => Carbon::now()->addHours($sponsor['duration'])]);
-        }
 
-        return view('admin.home', compact('user'));
+        return view('admin.payments.pay', compact('data', 'apartment', 'sponsor'));
+    }
+
+    public function store(Request $request, $id, $sponsor)
+    {   
+        $sponsor = Sponsor::find($sponsor);
+
+        $apartment = Apartment::find($id);
+
+        $apartment->sponsors()->attach($sponsor->id, ['start_time' => Carbon::now(), 'end_time' => Carbon::now()->addHours($sponsor['duration'])]);
+
+        return redirect()->route('admin.apartments.show', $apartment->id)->with('sponsored', $apartment->title);
     }
 }

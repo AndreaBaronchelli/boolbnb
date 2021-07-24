@@ -12,6 +12,9 @@
     <!-- Scripts -->
     <script src="{{ asset('js/admin.js') }}" defer></script>
 
+    {{-- BRAINTREE --}}
+    
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

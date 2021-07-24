@@ -28,6 +28,8 @@ Route::prefix('admin')
         Route::resource('/apartments', 'ApartmentController');
         Route::resource('/sponsors', 'SponsorController');
         Route::resource('/messages', 'MessageController');
+        Route::post('/sponsors/payments/{apartment}', 'SponsorController@braintree')->name('sponsors.payment');
+        Route::post('/sponsors/payments/store/{apartment}/{sponsor}', 'SponsorController@store')->name('sponsors.store');
         
     });
 

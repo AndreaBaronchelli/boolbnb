@@ -15,22 +15,22 @@
             <tbody >
                 @foreach ($apartments as $apartment)
                     <tr>
-                        <td> {{ $apartment->title }} </td>
-                        <td> {{ $apartment->address }} </td>
-                        <td>{{ $apartment->visibility ? 'Public' : 'Private' }}</td>
-                        <td>
-                            <form action="{{route('admin.sponsors.update', $apartment->id)}}" method="post">
-                                @csrf
-                                @method('PATCH')
-                                <select name="sponsors" id="sponsors">
-                                    @foreach ($sponsors as $sponsor)
-                                        <option value="{{ $sponsor->id }}">
-                                            {{ $sponsor->name }} | {{ $sponsor->duration }}hours | {{ $sponsor->price }}€
-                                        </option>
-                                    @endforeach
-                                </select>
-                                <input type="submit" class="btn btn-primary" value="SUBMIT">
-                            </form>
+                        <form action="{{route('admin.sponsors.payment', $apartment->id)}}" method="post">
+                            @csrf
+                            @method('POST')
+                            <td> {{ $apartment->title }} </td>
+                            <td> {{ $apartment->address }} </td>
+                            <td>{{ $apartment->visibility ? 'Public' : 'Private' }}</td>
+                            <td>
+                            <select name="sponsors" id="sponsors">
+                                @foreach ($sponsors as $sponsor)
+                                    <option value="{{ $sponsor->id }}">
+                                        {{ $sponsor->name }} | {{ $sponsor->duration }}hours | {{ $sponsor->price }}€
+                                    </option>
+                                @endforeach
+                            </select>
+                            <input type="submit" class="btn btn-primary" value="SUBMIT">
+                        </form>
                         </td>
                     </tr>
                 @endforeach
