@@ -12,6 +12,7 @@ use App\User;
 use Illuminate\Support\Facades\Http;
 use Braintree\Gateway as Gateway;
 use Braintree\Transaction as Transaction;
+use Psy\Command\DumpCommand;
 
 class SponsorController extends Controller
 {
@@ -35,19 +36,27 @@ class SponsorController extends Controller
 
     public function store(Request $request, $id, $sponsor)
     {   
+        dump($request);
         $sponsor = Sponsor::find($sponsor);
 
         $apartment = Apartment::find($id);
+        
+        $nonceFromTheClient = $_POST["payment_method_nonce"];
+        dump($nonceFromTheClient);
 
-        $payload = $request->input('payload', false);
-
+        // $payload = $request->input('payload', false);
+        // dump($payload);
+        
         $status = Transaction::sale([
-	        'amount' => $sponsor->price,
-	        'paymentMethodNonce' => $payload['nonce'] ?? 'default value',
+            'amount' => $sponsor->price,
+	        'paymentMethodNonce' => $nonceFromTheClient,
 	        'options' => [
-	        'submitForSettlement' => True
-	        ]
+                'submitForSettlement' => True
+                ]
         ]);
+
+        dump($status);
+            
         if($status->success = false) {
             
         }
