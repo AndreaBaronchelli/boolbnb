@@ -49,11 +49,11 @@ h1{
     z-index: 3;
 }
 .img{
-    padding-top:70px;
+   /*  padding-top:70px; */
     position: absolute;
     top:0;
     left:0;
-    height: 400px;
+    height: 500px;
     width: 100vw;
     background: white;
     .sfondo{

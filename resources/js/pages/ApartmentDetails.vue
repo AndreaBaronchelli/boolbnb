@@ -148,10 +148,10 @@ a {
     width: 100%;
 }
 img {
-    height: 300px;
+    height: 200px;
 }
 #map {
-    width: 830px;
+    width: 60%;
     height: 200px;
 }
 </style>
