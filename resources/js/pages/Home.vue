@@ -66,6 +66,7 @@ export default {
 
 .cont {
     padding: 150px 0 70px 0;
+    width: 100%;
 }
 h1 {
     position: relative;
@@ -78,6 +79,8 @@ h1 {
     text-align: center;
     color: $secondColor;
     padding-top: 200px;
+    width: 100%;
+    
 }
 .sponsored-apartments {
     display: flex;
@@ -90,7 +93,7 @@ h1 {
     top: 0;
     left: 0;
     height: 500px;
-    width: 100vw;
+    width: 100%;
     background: white;
     .sfondo {
         width: 100%;

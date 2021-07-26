@@ -150,7 +150,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 template {
     padding: 20px;
 }
