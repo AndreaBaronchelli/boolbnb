@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="container">
-        <h1>messages</h1>
+        <h1>Messages</h1>
 
         <table class="table mt-4 table-striped">
             <thead>

@@ -148,7 +148,7 @@ a {
     width: 100%;
 }
 img {
-    height: 200px;
+    height: 400px;
 }
 #map {
     width: 60%;

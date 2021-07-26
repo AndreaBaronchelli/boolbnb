@@ -1,8 +1,7 @@
 <template>
     <div class="block">
-
         <!-- <h3>AdvancedSearch</h3> -->
-        
+
         <div class="advanced-search">
             <div class="left">
                 <!-- <input type="text" id="address"> -->
@@ -164,9 +163,9 @@ template {
     border-radius: 10px;
     color: #511d1f;
 }
-.services{
-    margin:0 auto;
-    display:flex;
+.services {
+    margin: 0 auto;
+    display: flex;
     flex-wrap: wrap;
 }
 .service {
@@ -177,18 +176,18 @@ template {
     width: 160px;
     margin-right: 20px;
 }
-p{
+p {
     margin-bottom: 5px;
-    margin-top:0;
+    margin-top: 0;
     font-size: 14px;
 }
 .cont-select {
     display: flex;
     flex-direction: column;
-    margin:10px 20px 0 20px;
+    margin: 10px 20px 0 20px;
 }
-.cont-search{
-    margin:10px 20px 0 20px;
+.cont-search {
+    margin: 10px 20px 0 20px;
 }
 .cont-select label {
     margin-bottom: 5px;
@@ -198,7 +197,6 @@ p{
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
-   
 }
 .left,
 .right {
@@ -208,10 +206,10 @@ p{
     flex-wrap: wrap;
     justify-content: flex-start;
 }
-.right{
-    margin:0 20px;
+.right {
+    margin: 0 20px;
 }
-.right label{
+.right label {
     white-space: nowrap;
 }
 
