@@ -2675,6 +2675,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2683,9 +2692,28 @@ __webpack_require__.r(__webpack_exports__);
     SearchBar: _components_SearchBar_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     ApartmentCard: _components_ApartmentCard_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
+  data: function data() {
+    return {
+      apartments: []
+    };
+  },
+  mounted: function mounted() {
+    this.getSponsoredApartments();
+  },
   methods: {
     search: function search(searchText) {
       this.$emit("searchText", searchText);
+    },
+    getSponsoredApartments: function getSponsoredApartments() {
+      var _this = this;
+
+      axios.get("http://127.0.0.1:8000/api/sponsoredApartments").then(function (response) {
+        console.log(response.data.apartments.data);
+        _this.apartments = response.data.apartments.data;
+        console.log(_this.apartments);
+      })["catch"](function (err) {
+        console.log(err);
+      });
     }
   }
 });
@@ -7361,7 +7389,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".cotainer[data-v-b3c5cf30] {\n  position: relative;\n}\n.cont[data-v-b3c5cf30] {\n  padding: 150px 0 70px 0;\n}\nh1[data-v-b3c5cf30] {\n  position: relative;\n  z-index: 3;\n}\n.sponsored[data-v-b3c5cf30] {\n  position: relative;\n  z-index: 3;\n}\n.img[data-v-b3c5cf30] {\n  /*  padding-top:70px; */\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 500px;\n  width: 100vw;\n  background: white;\n}\n.img .sfondo[data-v-b3c5cf30] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  filter: opacity(50%);\n  /* filter: grayscale(50%); */\n}\n.searchbar[data-v-b3c5cf30] {\n  width: 100%;\n}", ""]);
+exports.push([module.i, ".cont[data-v-b3c5cf30] {\n  padding: 150px 0 70px 0;\n}\nh1[data-v-b3c5cf30] {\n  position: relative;\n  z-index: 3;\n}\n.sponsored[data-v-b3c5cf30] {\n  position: relative;\n  z-index: 3;\n  text-align: center;\n  color: #511d1f;\n  padding-top: 200px;\n}\n.sponsored-apartments[data-v-b3c5cf30] {\n  display: flex;\n}\n.img[data-v-b3c5cf30] {\n  /*  padding-top:70px; */\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 500px;\n  width: 100vw;\n  background: white;\n}\n.img .sfondo[data-v-b3c5cf30] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  filter: opacity(50%);\n  /* filter: grayscale(50%); */\n}\n.searchbar[data-v-b3c5cf30] {\n  width: 100%;\n}", ""]);
 
 // exports
 
@@ -7399,7 +7427,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\ntemplate {\r\n    padding: 20px;\n}\n.block {\r\n    width: 100%;\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    background: white;\r\n    border-radius: 10px;\r\n    color: #511d1f;\n}\n.services{\r\n    margin:0 auto;\r\n    display:flex;\r\n    flex-wrap: wrap;\n}\n.service {\r\n    height: 30px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: flex-start;\r\n    width: 160px;\r\n    margin-right: 20px;\n}\np{\r\n    margin-bottom: 5px;\r\n    margin-top:0;\r\n    font-size: 14px;\n}\n.cont-select {\r\n    display: flex;\r\n    flex-direction: column;\r\n    margin:10px 20px 0 20px;\n}\n.cont-search{\r\n    margin:10px 20px 0 20px;\n}\n.cont-select label {\r\n    margin-bottom: 5px;\n}\n.advanced-search {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: center;\r\n    align-items: flex-start;\n}\n.left,\r\n.right {\r\n    width: 100%;\r\n    display: flex;\r\n    padding: 20px;\r\n    flex-wrap: wrap;\r\n    justify-content: flex-start;\n}\n.right{\r\n    margin:0 20px;\n}\n.right label{\r\n    white-space: nowrap;\n}\nselect {\r\n    width: 240px;\r\n    height: 52px;\r\n    padding: 10px;\r\n    border-color: #fb5a5f;\r\n    color: #fb5a5f;\n}\nselect:active,\r\nselect:visited,\r\nselect:target {\r\n    border: none;\n}\nlabel {\r\n    /* font-weight: bold; */\r\n    font-size: 14px;\n}\noption {\r\n    color: #fb5a5f;\n}\n.checkbox {\r\n    position: absolute;\r\n    z-index: -1;\r\n    opacity: 0;\r\n    margin: 30px;\n}\n.checkbox + label {\r\n    position: relative;\r\n    padding: 0 0 0 30px;\r\n    cursor: pointer;\n}\n.checkbox + label:before {\r\n    content: \"\";\r\n    position: absolute;\r\n    /* top: -35%; */\r\n    left: 0;\r\n    width: 14px;\r\n    height: 14px;\r\n    background: white;\r\n    border: solid 1px #fb5a5f;\r\n    transition: 0.2s;\n}\r\n/* .checkbox + label:after {\r\n    content: \"\";\r\n    position: absolute;\r\n    top: -1px;\r\n    left: 0px;\r\n    width: 10px;\r\n    height: 10px;\r\n    border-radius: 50%;\r\n    background: #511d1f;\r\n    transition: 0.2s;\r\n} */\n.checkbox:checked + label:before {\r\n    background: #fb5a5f;\n}\r\n/* .checkbox:checked + label:after {\r\n    left: 10px;\r\n} */\nbutton {\r\n    height: 52px;\r\n    line-height: 52px;\r\n    font-size: 16px;\r\n    background: #fb5a5f;\r\n    text-decoration: none;\r\n    color: white;\r\n    padding: 0 10px;\r\n    border-width: 0;\r\n    margin: 1rem 0;\n}\nbutton:hover {\r\n    background: #fd7d82;\n}\nbutton {\r\n    height: 52px;\r\n    line-height: 52px;\r\n    font-size: 16px;\r\n    background: #fb5a5f;\r\n    text-decoration: none;\r\n    color: white;\r\n    padding: 0 30px;\r\n    border-width: 0;\r\n    margin: 1rem 0;\n}\nbutton:hover {\r\n    background: #fd7d82;\n}\r\n", ""]);
+exports.push([module.i, "\ntemplate {\n    padding: 20px;\n}\n.block {\n    width: 100%;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    background: white;\n    border-radius: 10px;\n    color: #511d1f;\n}\n.services{\n    margin:0 auto;\n    display:flex;\n    flex-wrap: wrap;\n}\n.service {\n    height: 30px;\n    display: flex;\n    align-items: center;\n    justify-content: flex-start;\n    width: 160px;\n    margin-right: 20px;\n}\np{\n    margin-bottom: 5px;\n    margin-top:0;\n    font-size: 14px;\n}\n.cont-select {\n    display: flex;\n    flex-direction: column;\n    margin:10px 20px 0 20px;\n}\n.cont-search{\n    margin:10px 20px 0 20px;\n}\n.cont-select label {\n    margin-bottom: 5px;\n}\n.advanced-search {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: center;\n    align-items: flex-start;\n}\n.left,\n.right {\n    width: 100%;\n    display: flex;\n    padding: 20px;\n    flex-wrap: wrap;\n    justify-content: flex-start;\n}\n.right{\n    margin:0 20px;\n}\n.right label{\n    white-space: nowrap;\n}\nselect {\n    width: 240px;\n    height: 52px;\n    padding: 10px;\n    border-color: #fb5a5f;\n    color: #fb5a5f;\n}\nselect:active,\nselect:visited,\nselect:target {\n    border: none;\n}\nlabel {\n    /* font-weight: bold; */\n    font-size: 14px;\n}\noption {\n    color: #fb5a5f;\n}\n.checkbox {\n    position: absolute;\n    z-index: -1;\n    opacity: 0;\n    margin: 30px;\n}\n.checkbox + label {\n    position: relative;\n    padding: 0 0 0 30px;\n    cursor: pointer;\n}\n.checkbox + label:before {\n    content: \"\";\n    position: absolute;\n    /* top: -35%; */\n    left: 0;\n    width: 14px;\n    height: 14px;\n    background: white;\n    border: solid 1px #fb5a5f;\n    transition: 0.2s;\n}\n/* .checkbox + label:after {\n    content: \"\";\n    position: absolute;\n    top: -1px;\n    left: 0px;\n    width: 10px;\n    height: 10px;\n    border-radius: 50%;\n    background: #511d1f;\n    transition: 0.2s;\n} */\n.checkbox:checked + label:before {\n    background: #fb5a5f;\n}\n/* .checkbox:checked + label:after {\n    left: 10px;\n} */\nbutton {\n    height: 52px;\n    line-height: 52px;\n    font-size: 16px;\n    background: #fb5a5f;\n    text-decoration: none;\n    color: white;\n    padding: 0 10px;\n    border-width: 0;\n    margin: 1rem 0;\n}\nbutton:hover {\n    background: #fd7d82;\n}\nbutton {\n    height: 52px;\n    line-height: 52px;\n    font-size: 16px;\n    background: #fb5a5f;\n    text-decoration: none;\n    color: white;\n    padding: 0 30px;\n    border-width: 0;\n    margin: 1rem 0;\n}\nbutton:hover {\n    background: #fd7d82;\n}\n", ""]);
 
 // exports
 
@@ -40476,7 +40504,21 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "sponsored" }, [_c("ApartmentCard")], 1)
+      _c("div", { staticClass: "sponsored" }, [
+        _c("h2", [_vm._v("Our monthly apartments")]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "sponsored-apartments" },
+          _vm._l(_vm.apartments, function(apartment) {
+            return _c("ApartmentCard", {
+              key: apartment.id,
+              attrs: { apartment: apartment }
+            })
+          }),
+          1
+        )
+      ])
     ])
   ])
 }
@@ -56936,8 +56978,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\marco\Desktop\progetto_finale\boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\marco\Desktop\progetto_finale\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/andrea/Desktop/Boolean/Esercizi/boolbnb/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/andrea/Desktop/Boolean/Esercizi/boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

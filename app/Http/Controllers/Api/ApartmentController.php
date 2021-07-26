@@ -18,8 +18,7 @@ class ApartmentController extends Controller
 
     public function index(){
 
-        // dd($address);
-        $apartments = Apartment::all();
+        $apartments = Apartment::where('visibility', true)->paginate(4);
 
         return response()->json(compact('apartments'));
     }
@@ -44,6 +43,7 @@ class ApartmentController extends Controller
         $maxLon = $posLon + 0.2;
 
         $apartments = Apartment::whereBetween('latitude', [$minLat, $maxLat])
+            ->where('visibility', true)
             ->whereBetween('longitude', [$minLon, $maxLon]) 
             ->get();
 
@@ -68,6 +68,7 @@ class ApartmentController extends Controller
         $maxLon = $posLon + $base * $radius;
 
         $apartments = Apartment::whereBetween('latitude', [$minLat, $maxLat])
+            ->where('visibility', true)
             ->whereBetween('longitude', [$minLon, $maxLon]) 
             ->where('rooms', '>=', $rooms)
             ->where('beds', '>=', $beds)

@@ -21,4 +21,5 @@ Route::namespace('Api')->group(function(){
     Route::get('/apartment/advancedSearch/{address}&{radius}&{rooms}&{beds}&{services}', 'ApartmentController@advancedSearch');
     Route::get('/apartment={slug}', 'ApartmentController@show');
     Route::post('/messageSubmit', 'MessageController@send');
+    Route::get('/sponsoredApartments', 'ApartmentController@index');
 });
