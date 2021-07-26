@@ -37,7 +37,7 @@
 
             <div class="mb-3">
                 <label for="rooms" class="form-label">Rooms Number*</label> 
-                <input type="number" id="rooms" name="rooms" placeholder="Rooms Number Here..." class="form-control @error('rooms') is-invalid @enderror" value="{{ $apartment->rooms }}">
+                <input min="1" type="number" id="rooms" name="rooms" placeholder="Rooms Number Here..." class="form-control @error('rooms') is-invalid @enderror" value="{{ $apartment->rooms }}">
                 @error('rooms')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -47,7 +47,7 @@
 
             <div class="mb-3">
                 <label for="beds" class="form-label">Beds Number</label> 
-                <input type="number" id="beds" name="beds" placeholder="Beds Number Here..." class="form-control @error('beds') is-invalid @enderror" value="{{ $apartment->beds }}">
+                <input min="1" type="number" id="beds" name="beds" placeholder="Beds Number Here..." class="form-control @error('beds') is-invalid @enderror" value="{{ $apartment->beds }}">
                 @error('beds')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -57,7 +57,7 @@
 
             <div class="mb-3">
                 <label for="bathrooms" class="form-label">Bathrooms Number</label> 
-                <input type="number" id="bathrooms" name="bathrooms" placeholder="Bathrooms Number Here..." class="form-control @error('bathrooms') is-invalid @enderror" value="{{ $apartment->bathrooms }}">
+                <input min="0" type="number" id="bathrooms" name="bathrooms" placeholder="Bathrooms Number Here..." class="form-control @error('bathrooms') is-invalid @enderror" value="{{ $apartment->bathrooms }}">
                 @error('bathrooms')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -67,7 +67,7 @@
 
             <div class="mb-3">
                 <label for="square_meters" class="form-label">Square Meters*</label> 
-                <input type="number" id="square_meters" name="square_meters" placeholder="Square Meters Here..." class="form-control @error('square_meters') is-invalid @enderror" value="{{ $apartment->square_meters }}">
+                <input min="1" type="number" id="square_meters" name="square_meters" placeholder="Square Meters Here..." class="form-control @error('square_meters') is-invalid @enderror" value="{{ $apartment->square_meters }}">
                 @error('square_meters')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>

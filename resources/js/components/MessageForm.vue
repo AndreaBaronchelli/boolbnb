@@ -70,6 +70,7 @@
                             id="num_guests"
                             placeholder="Number of guests for your booking"
                             v-model="message.num_guests"
+                            min="1"
                         />
                     </div>
                 </div>

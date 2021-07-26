@@ -2419,6 +2419,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "MessageForm",
   props: ["apartment_id", "user"],
@@ -40242,7 +40243,8 @@ var render = function() {
                   attrs: {
                     type: "number",
                     id: "num_guests",
-                    placeholder: "Number of guests for your booking"
+                    placeholder: "Number of guests for your booking",
+                    min: "1"
                   },
                   domProps: { value: _vm.message.num_guests },
                   on: {
@@ -57016,8 +57018,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/andrea/Desktop/Boolean/Esercizi/boolbnb/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/andrea/Desktop/Boolean/Esercizi/boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\Boolean\Esercizi Corso\boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\Boolean\Esercizi Corso\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
