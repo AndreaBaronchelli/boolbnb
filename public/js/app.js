@@ -2215,9 +2215,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ApartmentCard",
-  props: ["apartment"]
+  props: ["apartment", "query"]
 });
 
 /***/ }),
@@ -2803,6 +2804,8 @@ __webpack_require__.r(__webpack_exports__);
     },
     performingSearch: function performingSearch(searchArray) {
       var _this2 = this;
+
+      this.query = searchArray.search;
 
       if (searchArray.search != this.search) {
         this.$router.push({
@@ -7303,7 +7306,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "template[data-v-1b0282d6] {\n  padding: 20px;\n}\n.block[data-v-1b0282d6] {\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  background: white;\n  border-radius: 10px;\n  color: #a63c3f;\n}\nh3[data-v-1b0282d6] {\n  margin-bottom: 0;\n}\n.services[data-v-1b0282d6] {\n  margin: 0 auto;\n  display: flex;\n  flex-wrap: wrap;\n}\n.service[data-v-1b0282d6] {\n  height: 30px;\n  display: flex;\n  align-items: center;\n  justify-content: flex-start;\n  width: 160px;\n  margin-right: 20px;\n}\np[data-v-1b0282d6] {\n  margin-bottom: 5px;\n  margin-top: 0;\n  font-size: 14px;\n}\n.cont-select[data-v-1b0282d6] {\n  display: flex;\n  flex-direction: column;\n  margin: 10px 20px 0 20px;\n}\n.cont-search[data-v-1b0282d6] {\n  margin: 10px 20px 0 20px;\n}\n.cont-select label[data-v-1b0282d6] {\n  margin-bottom: 5px;\n}\n.advanced-search[data-v-1b0282d6] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  align-items: flex-start;\n}\n.left[data-v-1b0282d6],\n.right[data-v-1b0282d6] {\n  width: 100%;\n  display: flex;\n  padding: 20px;\n  flex-wrap: wrap;\n  justify-content: flex-start;\n}\n.right[data-v-1b0282d6] {\n  margin: 0 20px;\n}\n.right label[data-v-1b0282d6] {\n  white-space: nowrap;\n}\nselect[data-v-1b0282d6] {\n  width: 240px;\n  height: 52px;\n  padding: 10px;\n  border-color: #fb5a5f;\n  color: #fb5a5f;\n}\nselect[data-v-1b0282d6]:active,\nselect[data-v-1b0282d6]:visited,\nselect[data-v-1b0282d6]:target {\n  border: none;\n}\nlabel[data-v-1b0282d6] {\n  /* font-weight: bold; */\n  font-size: 14px;\n}\noption[data-v-1b0282d6] {\n  color: #fb5a5f;\n}\n.checkbox[data-v-1b0282d6] {\n  position: absolute;\n  z-index: -1;\n  opacity: 0;\n  margin: 30px;\n}\n.checkbox + label[data-v-1b0282d6] {\n  position: relative;\n  padding: 0 0 0 30px;\n  cursor: pointer;\n}\n.checkbox + label[data-v-1b0282d6]:before {\n  content: \"\";\n  position: absolute;\n  /* top: -35%; */\n  left: 0;\n  width: 14px;\n  height: 14px;\n  background: white;\n  border: solid 1px #fb5a5f;\n  transition: 0.2s;\n}\n\n/* .checkbox + label:after {\n    content: \"\";\n    position: absolute;\n    top: -1px;\n    left: 0px;\n    width: 10px;\n    height: 10px;\n    border-radius: 50%;\n    background: #511d1f;\n    transition: 0.2s;\n} */\n.checkbox:checked + label[data-v-1b0282d6]:before {\n  background: #fb5a5f;\n}\n\n/* .checkbox:checked + label:after {\n    left: 10px;\n} */\nbutton[data-v-1b0282d6] {\n  height: 52px;\n  line-height: 52px;\n  font-size: 16px;\n  background: #fb5a5f;\n  text-decoration: none;\n  color: white;\n  padding: 0 10px;\n  border-width: 0;\n  margin: 1rem 0;\n}\nbutton[data-v-1b0282d6]:hover {\n  background: #fb5a5f;\n}\nbutton[data-v-1b0282d6] {\n  height: 52px;\n  line-height: 52px;\n  font-size: 16px;\n  background: #fb5a5f;\n  text-decoration: none;\n  color: white;\n  padding: 0 30px;\n  border-width: 0;\n  margin: 1rem 0;\n}\nbutton[data-v-1b0282d6]:hover {\n  background: #fb5a5f;\n}", ""]);
+exports.push([module.i, "template[data-v-1b0282d6] {\n  padding: 20px;\n}\n.block[data-v-1b0282d6] {\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  background: white;\n  border-radius: 10px;\n  color: #a63c3f;\n}\nh3[data-v-1b0282d6] {\n  margin-bottom: 0;\n}\n.services[data-v-1b0282d6] {\n  margin: 0 auto;\n  display: flex;\n  flex-wrap: wrap;\n}\n.service[data-v-1b0282d6] {\n  height: 30px;\n  display: flex;\n  align-items: center;\n  justify-content: flex-start;\n  width: 160px;\n  margin-right: 20px;\n}\np[data-v-1b0282d6] {\n  margin-bottom: 5px;\n  margin-top: 0;\n  font-size: 14px;\n}\n.cont-select[data-v-1b0282d6] {\n  display: flex;\n  flex-direction: column;\n  margin: 10px 20px 0 20px;\n}\n.cont-search[data-v-1b0282d6] {\n  margin: 10px 20px 0 20px;\n}\n.cont-select label[data-v-1b0282d6] {\n  margin-bottom: 5px;\n}\n.advanced-search[data-v-1b0282d6] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  align-items: flex-start;\n}\n.left[data-v-1b0282d6],\n.right[data-v-1b0282d6] {\n  width: 100%;\n  display: flex;\n  padding: 20px;\n  flex-wrap: wrap;\n  justify-content: flex-start;\n}\n.right[data-v-1b0282d6] {\n  margin: 0 20px;\n}\n.right label[data-v-1b0282d6] {\n  white-space: nowrap;\n}\nselect[data-v-1b0282d6] {\n  width: 240px;\n  height: 52px;\n  padding: 10px;\n  border-color: #fb5a5f;\n  color: #fb5a5f;\n  cursor: pointer;\n}\nselect[data-v-1b0282d6]:active,\nselect[data-v-1b0282d6]:visited,\nselect[data-v-1b0282d6]:target {\n  border: none;\n}\nlabel[data-v-1b0282d6] {\n  /* font-weight: bold; */\n  font-size: 14px;\n}\noption[data-v-1b0282d6] {\n  color: #fb5a5f;\n}\n.checkbox[data-v-1b0282d6] {\n  position: absolute;\n  z-index: -1;\n  opacity: 0;\n  margin: 30px;\n}\n.checkbox + label[data-v-1b0282d6] {\n  position: relative;\n  padding: 0 0 0 30px;\n  cursor: pointer;\n}\n.checkbox + label[data-v-1b0282d6]:before {\n  content: \"\";\n  position: absolute;\n  /* top: -35%; */\n  left: 0;\n  width: 14px;\n  height: 14px;\n  background: white;\n  border: solid 1px #fb5a5f;\n  transition: 0.2s;\n}\n\n/* .checkbox + label:after {\n    content: \"\";\n    position: absolute;\n    top: -1px;\n    left: 0px;\n    width: 10px;\n    height: 10px;\n    border-radius: 50%;\n    background: #511d1f;\n    transition: 0.2s;\n} */\n.checkbox:checked + label[data-v-1b0282d6]:before {\n  background: #fb5a5f;\n}\n\n/* .checkbox:checked + label:after {\n    left: 10px;\n} */\nbutton[data-v-1b0282d6] {\n  height: 52px;\n  line-height: 52px;\n  font-size: 16px;\n  background: #fb5a5f;\n  text-decoration: none;\n  color: white;\n  padding: 0 10px;\n  border-width: 0;\n  margin: 1rem 0;\n  cursor: pointer;\n}\nbutton[data-v-1b0282d6]:hover {\n  background: #fb5a5f;\n}\nbutton[data-v-1b0282d6] {\n  height: 52px;\n  line-height: 52px;\n  font-size: 16px;\n  background: #fb5a5f;\n  text-decoration: none;\n  color: white;\n  padding: 0 30px;\n  border-width: 0;\n  margin: 1rem 0;\n}\nbutton[data-v-1b0282d6]:hover {\n  background: #fb5a5f;\n}", ""]);
 
 // exports
 
@@ -39911,6 +39914,7 @@ var render = function() {
         "router-link",
         {
           attrs: {
+            query: _vm.query,
             to: {
               name: "apartment-details",
               params: { slug: _vm.apartment.slug }

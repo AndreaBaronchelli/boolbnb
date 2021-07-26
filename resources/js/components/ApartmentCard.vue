@@ -22,6 +22,7 @@
             </p>
         </div>
         <router-link
+            :query="query"
             :to="{
                 name: 'apartment-details',
                 params: { slug: apartment.slug }
@@ -34,7 +35,7 @@
 <script>
 export default {
     name: "ApartmentCard",
-    props: ["apartment"]
+    props: ["apartment", "query"]
 };
 </script>
 
@@ -54,16 +55,15 @@ export default {
     p:last-child {
         margin-bottom: 15px;
     }
-    h2{
-        color:$thirdColor;
+    h2 {
+        color: $thirdColor;
     }
 }
-a{
+a {
     text-decoration: none;
-    color:$primeColor;
+    color: $primeColor;
     font-size: 18px;
 }
-
 
 .img-cont {
     width: 80%;

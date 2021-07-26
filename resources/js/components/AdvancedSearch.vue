@@ -164,7 +164,7 @@ template {
     border-radius: 10px;
     color: $thirdColor;
 }
-h3{
+h3 {
     margin-bottom: 0;
 }
 .services {
@@ -223,6 +223,7 @@ select {
     padding: 10px;
     border-color: $primeColor;
     color: $primeColor;
+    cursor: pointer;
 }
 select:active,
 select:visited,
@@ -286,6 +287,7 @@ button {
     padding: 0 10px;
     border-width: 0;
     margin: 1rem 0;
+    cursor: pointer;
 }
 button:hover {
     background: $primeColor;
