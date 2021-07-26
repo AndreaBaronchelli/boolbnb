@@ -2,7 +2,11 @@
     <div class="footer">
         <div class="container">
             <div class="credits">
-                © Created by Class #30's Team 4 😎
+                © Created by Class #30's 
+                <router-link class="link" :to="{ name: 'thanks' }">
+                    Team 4
+                </router-link>
+                😎
             </div>
             <div class="logo">
                 <i class="fab fa-facebook-f"></i>
@@ -15,7 +19,7 @@
 
 <script>
 export default {
-    name: "Footer"
+    name: "Footer",
 };
 </script>
 
@@ -44,5 +48,9 @@ export default {
     .logo{
             padding:10px 20px;
         }
+
+    .link {
+        color: white;
+    }
 }
 </style>
