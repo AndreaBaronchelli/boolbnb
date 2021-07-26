@@ -2528,7 +2528,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.searchText != "") {
         this.$router.push({
-          name: 'results',
+          name: "results",
           params: {
             search: encodeURI(this.searchText)
           }
@@ -40364,7 +40364,7 @@ var render = function() {
     _c("div", { attrs: { id: "searchbox" } }),
     _vm._v(" "),
     _c(
-      "button",
+      "div",
       {
         staticClass: "button",
         on: {
@@ -40373,7 +40373,7 @@ var render = function() {
           }
         }
       },
-      [_vm._v("\n            Search\n        ")]
+      [_vm._v("\n        Search\n    ")]
     )
   ])
 }

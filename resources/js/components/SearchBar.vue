@@ -2,9 +2,9 @@
     <div class="searchbar">
         <div id="searchbox"></div>
         <!-- <router-link :to="{ name: 'results', params: { search: searchText } }"> -->
-            <button class="button" @click="clickFunction()">
-                Search
-            </button>
+        <div class="button" @click="clickFunction()">
+            Search
+        </div>
         <!-- </router-link> -->
     </div>
 </template>
@@ -49,7 +49,10 @@ export default {
             )[0].value;
             this.$emit("searchText", this.getSearchValue());
             if (this.searchText != "") {
-                this.$router.push({name: 'results', params: { search: encodeURI(this.searchText) }})
+                this.$router.push({
+                    name: "results",
+                    params: { search: encodeURI(this.searchText) }
+                });
                 console.log(this.searchText);
             }
         }
