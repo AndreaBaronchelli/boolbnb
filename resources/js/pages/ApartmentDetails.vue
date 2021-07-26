@@ -120,7 +120,7 @@ export default {
 .cont-img-info {
     background: white;
     width: 100%;
-    padding: 20px;
+    padding: 20px 0;
     border-radius: 10px;
     display: flex;
     flex-wrap: wrap;

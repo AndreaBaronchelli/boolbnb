@@ -83,6 +83,9 @@
             </div>
 
             <div class="mb-3">
+                <div class="title-service mb-1">
+                    Available Services:
+                </div>
                 @foreach ($services as $service)
                     <span class="mr-2 d-inline-block">
                         <input 
