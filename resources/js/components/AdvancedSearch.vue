@@ -218,7 +218,7 @@ p {
 }
 
 select {
-    width: 240px;
+    width: 200px;
     height: 52px;
     padding: 10px;
     border-color: $primeColor;
