@@ -22,7 +22,6 @@ export default {
 <style lang="scss" scoped>
 .footer {
     width: 100%;
-    height: 50px;
     background: #a63c3f;
     position: fixed;
     bottom: 0;
@@ -30,15 +29,19 @@ export default {
     .container {
         height: 100%;
         width: 100%;
-        padding: 0 20px;
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
         align-items: center;
         color: white;
-        font-size: 20px;
+        font-size: 18px;
         i {
-            padding: 0 10px;
+            padding:10px;
         }
     }
+    .credits,
+    .logo{
+            padding:10px 20px;
+        }
 }
 </style>

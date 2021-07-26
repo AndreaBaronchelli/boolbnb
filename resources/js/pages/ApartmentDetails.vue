@@ -113,6 +113,7 @@ export default {
 }
 .cont-img-info {
     background: white;
+    width: 100%;
     padding: 20px;
     border-radius: 10px;
     display: flex;
@@ -132,6 +133,11 @@ a {
 .info-cont {
     margin: 10px;
 }
+.img-cont{
+    width: 60%;
+    min-width: 200px;
+    max-width: 600px;
+}
 .info-cont {
     display: flex;
     flex-direction: column;
@@ -148,7 +154,9 @@ a {
     width: 100%;
 }
 img {
-    height: 400px;
+    /* height: 400px; */
+    width: 100%;
+    
 }
 #map {
     width: 60%;

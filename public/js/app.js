@@ -7298,7 +7298,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".footer[data-v-61a7c374] {\n  width: 100%;\n  height: 50px;\n  background: #a63c3f;\n  position: fixed;\n  bottom: 0;\n  z-index: 10;\n}\n.footer .container[data-v-61a7c374] {\n  height: 100%;\n  width: 100%;\n  padding: 0 20px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  color: white;\n  font-size: 20px;\n}\n.footer .container i[data-v-61a7c374] {\n  padding: 0 10px;\n}", ""]);
+exports.push([module.i, ".footer[data-v-61a7c374] {\n  width: 100%;\n  background: #a63c3f;\n  position: fixed;\n  bottom: 0;\n  z-index: 10;\n}\n.footer .container[data-v-61a7c374] {\n  height: 100%;\n  width: 100%;\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-between;\n  align-items: center;\n  color: white;\n  font-size: 18px;\n}\n.footer .container i[data-v-61a7c374] {\n  padding: 10px;\n}\n.footer .credits[data-v-61a7c374],\n.footer .logo[data-v-61a7c374] {\n  padding: 10px 20px;\n}", ""]);
 
 // exports
 
@@ -7374,7 +7374,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".container[data-v-1b16c839] {\n  padding: 100px 0 70px 0;\n}\n.cont-img-info[data-v-1b16c839] {\n  background: white;\n  padding: 20px;\n  border-radius: 10px;\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  color: #511d1f;\n  margin-top: 20px;\n}\na[data-v-1b16c839] {\n  text-decoration: none;\n  color: #fb5a5f;\n  padding-bottom: 20px;\n  font-size: 18px;\n}\n.img-cont[data-v-1b16c839],\n.map[data-v-1b16c839],\n.info-cont[data-v-1b16c839] {\n  margin: 10px;\n}\n.info-cont[data-v-1b16c839] {\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n}\n.info-cont h2[data-v-1b16c839] {\n  margin: 0 0 10px 0;\n  color: #a63c3f;\n}\n.info-cont p[data-v-1b16c839] {\n  margin: 5px 0;\n}\n.cont-form[data-v-1b16c839] {\n  width: 100%;\n}\nimg[data-v-1b16c839] {\n  height: 400px;\n}\n#map[data-v-1b16c839] {\n  width: 60%;\n  height: 200px;\n}", ""]);
+exports.push([module.i, ".container[data-v-1b16c839] {\n  padding: 100px 0 70px 0;\n}\n.cont-img-info[data-v-1b16c839] {\n  background: white;\n  width: 100%;\n  padding: 20px;\n  border-radius: 10px;\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  color: #511d1f;\n  margin-top: 20px;\n}\na[data-v-1b16c839] {\n  text-decoration: none;\n  color: #fb5a5f;\n  padding-bottom: 20px;\n  font-size: 18px;\n}\n.img-cont[data-v-1b16c839],\n.map[data-v-1b16c839],\n.info-cont[data-v-1b16c839] {\n  margin: 10px;\n}\n.img-cont[data-v-1b16c839] {\n  width: 60%;\n  min-width: 200px;\n  max-width: 600px;\n}\n.info-cont[data-v-1b16c839] {\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n}\n.info-cont h2[data-v-1b16c839] {\n  margin: 0 0 10px 0;\n  color: #a63c3f;\n}\n.info-cont p[data-v-1b16c839] {\n  margin: 5px 0;\n}\n.cont-form[data-v-1b16c839] {\n  width: 100%;\n}\nimg[data-v-1b16c839] {\n  /* height: 400px; */\n  width: 100%;\n}\n#map[data-v-1b16c839] {\n  width: 60%;\n  height: 200px;\n}", ""]);
 
 // exports
 
