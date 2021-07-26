@@ -80,6 +80,7 @@ h1 {
 }
 .sponsored-apartments {
     display: flex;
+    flex-wrap: wrap;
 }
 .img {
     /*  padding-top:70px; */

@@ -2242,6 +2242,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Footer"
 });
@@ -7294,7 +7299,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".footer[data-v-61a7c374] {\n  width: 100%;\n  height: 50px;\n  background: #a63c3f;\n  position: fixed;\n  bottom: 0;\n  z-index: 10;\n}\n.footer .container[data-v-61a7c374] {\n  height: 100%;\n  width: 100%;\n  padding: 0 20px;\n  display: flex;\n  justify-content: flex-end;\n  align-items: center;\n  color: white;\n  font-size: 20px;\n}\n.footer .container i[data-v-61a7c374] {\n  padding: 0 10px;\n}", ""]);
+exports.push([module.i, ".footer[data-v-61a7c374] {\n  width: 100%;\n  height: 50px;\n  background: #a63c3f;\n  position: fixed;\n  bottom: 0;\n  z-index: 10;\n}\n.footer .container[data-v-61a7c374] {\n  height: 100%;\n  width: 100%;\n  padding: 0 20px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  color: white;\n  font-size: 20px;\n}\n.footer .container i[data-v-61a7c374] {\n  padding: 0 10px;\n}", ""]);
 
 // exports
 
@@ -7389,7 +7394,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".cont[data-v-b3c5cf30] {\n  padding: 150px 0 70px 0;\n}\nh1[data-v-b3c5cf30] {\n  position: relative;\n  z-index: 3;\n}\n.sponsored[data-v-b3c5cf30] {\n  position: relative;\n  z-index: 3;\n  text-align: center;\n  color: #511d1f;\n  padding-top: 200px;\n}\n.sponsored-apartments[data-v-b3c5cf30] {\n  display: flex;\n}\n.img[data-v-b3c5cf30] {\n  /*  padding-top:70px; */\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 500px;\n  width: 100vw;\n  background: white;\n}\n.img .sfondo[data-v-b3c5cf30] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  filter: opacity(50%);\n  /* filter: grayscale(50%); */\n}\n.searchbar[data-v-b3c5cf30] {\n  width: 100%;\n}", ""]);
+exports.push([module.i, ".cont[data-v-b3c5cf30] {\n  padding: 150px 0 70px 0;\n}\nh1[data-v-b3c5cf30] {\n  position: relative;\n  z-index: 3;\n}\n.sponsored[data-v-b3c5cf30] {\n  position: relative;\n  z-index: 3;\n  text-align: center;\n  color: #511d1f;\n  padding-top: 200px;\n}\n.sponsored-apartments[data-v-b3c5cf30] {\n  display: flex;\n  flex-wrap: wrap;\n}\n.img[data-v-b3c5cf30] {\n  /*  padding-top:70px; */\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 500px;\n  width: 100vw;\n  background: white;\n}\n.img .sfondo[data-v-b3c5cf30] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  filter: opacity(50%);\n  /* filter: grayscale(50%); */\n}\n.searchbar[data-v-b3c5cf30] {\n  width: 100%;\n}", ""]);
 
 // exports
 
@@ -39924,11 +39929,17 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "footer" }, [
       _c("div", { staticClass: "container" }, [
-        _c("i", { staticClass: "fab fa-facebook-f" }),
+        _c("div", { staticClass: "credits" }, [
+          _vm._v("\n            © Created by Class #30's Team 4 😎\n        ")
+        ]),
         _vm._v(" "),
-        _c("i", { staticClass: "fab fa-instagram" }),
-        _vm._v(" "),
-        _c("i", { staticClass: "fab fa-twitter" })
+        _c("div", { staticClass: "logo" }, [
+          _c("i", { staticClass: "fab fa-facebook-f" }),
+          _vm._v(" "),
+          _c("i", { staticClass: "fab fa-instagram" }),
+          _vm._v(" "),
+          _c("i", { staticClass: "fab fa-twitter" })
+        ])
       ])
     ])
   }
