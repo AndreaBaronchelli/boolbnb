@@ -86,7 +86,7 @@ export default {
         this.createSearchBar();
         document.getElementsByClassName(
             "tt-search-box-input"
-        )[0].value = this.query;
+        )[0].value = decodeURI(this.query);
     },
     created() {
         this.getServices();

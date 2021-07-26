@@ -1,7 +1,12 @@
 <template>
     <div class="container">
-        <router-link :to="{ name: 'results', params: { search: this.query } }">
+        <!-- If search query exist, the link will take you back to the results page for that query  -->
+        <router-link v-if="this.query != ''" :to="{ name: 'results', params: { search: encodeURI(this.query) } }">
             Back to results
+        </router-link>
+        <!-- otherwise it will take you back to the home page -->
+        <router-link v-else :to="{ name: 'home'}">
+            Go to Homepage
         </router-link>
         <div v-if="apartment">
             <div class="cont-img-info">
