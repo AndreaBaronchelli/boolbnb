@@ -151,6 +151,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../../sass/_variables";
 template {
     padding: 20px;
 }
@@ -161,7 +162,7 @@ template {
     align-items: center;
     background: white;
     border-radius: 10px;
-    color: #511d1f;
+    color: $thirdColor;
 }
 h3{
     margin-bottom: 0;
@@ -220,8 +221,8 @@ select {
     width: 240px;
     height: 52px;
     padding: 10px;
-    border-color: #fb5a5f;
-    color: #fb5a5f;
+    border-color: $primeColor;
+    color: $primeColor;
 }
 select:active,
 select:visited,
@@ -233,7 +234,7 @@ label {
     font-size: 14px;
 }
 option {
-    color: #fb5a5f;
+    color: $primeColor;
 }
 .checkbox {
     position: absolute;
@@ -254,7 +255,7 @@ option {
     width: 14px;
     height: 14px;
     background: white;
-    border: solid 1px #fb5a5f;
+    border: solid 1px $primeColor;
     transition: 0.2s;
 }
 /* .checkbox + label:after {
@@ -269,7 +270,7 @@ option {
     transition: 0.2s;
 } */
 .checkbox:checked + label:before {
-    background: #fb5a5f;
+    background: $primeColor;
 }
 /* .checkbox:checked + label:after {
     left: 10px;
@@ -279,7 +280,7 @@ button {
     height: 52px;
     line-height: 52px;
     font-size: 16px;
-    background: #fb5a5f;
+    background: $primeColor;
     text-decoration: none;
     color: white;
     padding: 0 10px;
@@ -287,13 +288,13 @@ button {
     margin: 1rem 0;
 }
 button:hover {
-    background: #fd7d82;
+    background: $primeColor;
 }
 button {
     height: 52px;
     line-height: 52px;
     font-size: 16px;
-    background: #fb5a5f;
+    background: $primeColor;
     text-decoration: none;
     color: white;
     padding: 0 30px;
@@ -301,6 +302,6 @@ button {
     margin: 1rem 0;
 }
 button:hover {
-    background: #fd7d82;
+    background: $primeColor;
 }
 </style>

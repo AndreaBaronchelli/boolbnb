@@ -74,6 +74,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../../sass/_variables";
 .container{
     padding:100px 0 100px 0;
 }
@@ -81,7 +82,7 @@ export default {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    color: #511d1f;
+    color: $secondColor;
     h2 {
         padding: 20px;
     }

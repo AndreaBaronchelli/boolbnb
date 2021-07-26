@@ -70,7 +70,7 @@ main {
     background: lightgray;
     padding: 20px 0;
     h1 {
-        color: #511d1f;
+        color: $secondColor;
     }
 }
 
@@ -81,9 +81,9 @@ main {
     padding: 0;
     height: 30px;
     padding: 10px;
-    border: 1px solid #fb5a5f;
+    border: 1px solid $primeColor;
 }
 svg {
-    fill: #fb5a5f;
+    fill: $primeColor;
 }
 </style>

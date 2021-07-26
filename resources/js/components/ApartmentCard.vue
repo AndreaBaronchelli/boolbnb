@@ -39,6 +39,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../../sass/_variables";
 .card {
     width: 250px;
     text-align: center;
@@ -54,12 +55,12 @@ export default {
         margin-bottom: 15px;
     }
     h2{
-        color:#a63c3f;
+        color:$thirdColor;
     }
 }
 a{
     text-decoration: none;
-    color:#fb5a5f;
+    color:$primeColor;
     font-size: 18px;
 }
 

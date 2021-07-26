@@ -54,6 +54,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../../sass/_variables";
 .searchbar {
     display: flex;
     align-items: center;
@@ -66,7 +67,7 @@ export default {
     height: 52px;
     line-height: 52px;
     font-size: 16px;
-    background: #fb5a5f;
+    background: $primeColor;
     text-decoration: none;
     color: white;
     padding: 0 10px;
@@ -74,7 +75,7 @@ export default {
     z-index: 8;
 }
 .button:hover {
-    background: #fd7d82;
+    background: $primeColor;
 }
 a {
     text-decoration: none;

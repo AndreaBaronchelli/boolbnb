@@ -108,6 +108,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../../sass/_variables";
 .container {
     padding: 100px 0 70px 0;
 }
@@ -119,12 +120,12 @@ export default {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    color: #511d1f;
+    color: $secondColor;
     margin-top: 20px;
 }
 a {
     text-decoration: none;
-    color: #fb5a5f;
+    color: $primeColor;
     padding-bottom: 20px;
     font-size: 18px;
 }
@@ -144,7 +145,7 @@ a {
     justify-content: space-between;
     h2 {
         margin: 0 0 10px 0;
-        color: #a63c3f;
+        color:$thirdColor;
     }
     p {
         margin: 5px 0;

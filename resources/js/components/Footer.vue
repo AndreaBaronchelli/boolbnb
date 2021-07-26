@@ -20,9 +20,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../../sass/_variables";
 .footer {
     width: 100%;
-    background: #a63c3f;
+    background: $thirdColor;
     position: fixed;
     bottom: 0;
     z-index: 10;

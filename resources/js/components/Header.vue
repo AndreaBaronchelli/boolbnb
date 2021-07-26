@@ -41,6 +41,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../../sass/_variables";
 header {
     background: white;
     position: fixed;
@@ -59,7 +60,7 @@ header {
             a {
                 text-decoration: none;
                 margin-left: 20px;
-                color: #fb5a5f;
+                color: $primeColor;
                 font-size: 18px;
             }
         }

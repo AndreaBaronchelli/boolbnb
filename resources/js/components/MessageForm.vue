@@ -159,6 +159,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../../sass/_variables";
 form {
     display: flex;
     flex-direction: column;
@@ -167,9 +168,9 @@ form {
     border-radius: 10px;
     margin-top: 20px;
     padding: 20px;
-    color: #511d1f;
+    color: $secondColor;
     h2 {
-        color: #a63c3f;
+        color: $thirdColor;
     }
 }
 
@@ -184,14 +185,14 @@ form {
     input {
         width: 220px;
         height: 30px;
-        border: solid 1px #fb5a5f;
+        border: solid 1px $primeColor;
         margin-top: 5px;
         padding: 10px;
     }
     textarea {
         width: 240px;
         height: 300px;
-        border: solid 1px #fb5a5f;
+        border: solid 1px $primeColor;
         margin-top: 5px;
         padding: 10px;
     }
@@ -202,7 +203,7 @@ form {
 
 .error-field {
     color: white;
-    background-color: #fb5a5f;
+    background-color: $primeColor;
     border-radius: 8px;
     padding: 2px 7px;
     font-size: 13px;
@@ -219,7 +220,11 @@ form {
 }
 
 button {
-    padding: 0 30px;
+    padding: 10px 30px;
     margin: 0;
+    background: $primeColor;
+    border: none;
+    color: white;
+    
 }
 </style>
