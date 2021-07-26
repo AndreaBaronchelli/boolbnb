@@ -2789,6 +2789,15 @@ __webpack_require__.r(__webpack_exports__);
     performingSearch: function performingSearch(searchArray) {
       var _this2 = this;
 
+      if (searchArray.search != this.search) {
+        this.$router.push({
+          name: "results",
+          params: {
+            search: encodeURI(searchArray.search)
+          }
+        });
+      }
+
       var services = "0";
 
       if (searchArray.checkedServices.length > 0) {

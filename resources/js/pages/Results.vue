@@ -53,6 +53,12 @@ export default {
                 });
         },
         performingSearch(searchArray) {
+            if (searchArray.search != this.search) {
+                this.$router.push({
+                    name: "results",
+                    params: { search: encodeURI(searchArray.search) }
+                });
+            }
             var services = "0";
             if (searchArray.checkedServices.length > 0) {
                 services = searchArray.checkedServices;
@@ -74,8 +80,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container{
-    padding:100px 0 100px 0;
+.container {
+    padding: 100px 0 100px 0;
 }
 .main-content {
     display: flex;
