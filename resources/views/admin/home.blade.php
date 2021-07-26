@@ -8,8 +8,8 @@
         <ul class="list-group">
             <li class="list-group-item list-group-item-action"><a href="{{ route('admin.apartments.index') }}" class="font-weight-bold">GO TO YOUR APARTMENTS</a></li>
             <li class="list-group-item list-group-item-action"><a href="{{ route('admin.messages.index') }}" class="font-weight-bold">GO TO YOUR MESSAGES</a></li>
-            <li class="list-group-item list-group-item-action"><a href="#" class="font-weight-bold">GO TO YOUR STATISTIC</a></li>
-            <li class="list-group-item list-group-item-action"><a href="{{ route('admin.sponsors.index') }}" class="font-weight-bold">GO TO YOUR SPONSORSHIPS</a></li>
+            {{-- <li class="list-group-item list-group-item-action"><a href="#" class="font-weight-bold">GO TO YOUR STATISTIC</a></li> --}}
+            {{-- <li class="list-group-item list-group-item-action"><a href="{{ route('admin.sponsors.index') }}" class="font-weight-bold">GO TO YOUR SPONSORSHIPS</a></li> --}}
         </ul>
     </nav>
     
