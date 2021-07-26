@@ -2789,6 +2789,15 @@ __webpack_require__.r(__webpack_exports__);
     performingSearch: function performingSearch(searchArray) {
       var _this2 = this;
 
+      if (searchArray.search != this.search) {
+        this.$router.push({
+          name: "results",
+          params: {
+            search: encodeURI(searchArray.search)
+          }
+        });
+      }
+
       var services = "0";
 
       if (searchArray.checkedServices.length > 0) {
@@ -7424,17 +7433,9 @@ exports.push([module.i, ".cont[data-v-b3c5cf30] {\n  padding: 150px 0 70px 0;\n 
   !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/Results.vue?vue&type=style&index=0&id=44832d06&lang=scss&scoped=true& ***!
   \************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, ".container[data-v-44832d06] {\n  padding: 100px 0 100px 0;\n}\n.main-content[data-v-44832d06] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: flex-start;\n  color: #511d1f;\n}\n.main-content h2[data-v-44832d06] {\n  padding: 20px;\n}\n.cards-container[data-v-44832d06] {\n  padding: 20px 0;\n  display: flex;\n  flex-wrap: wrap;\n}", ""]);
-
-// exports
-
+throw new Error("Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: expected \"{\".\n   ╷\n84 │ @import \"../../sass/_variables\";\n   │                                ^\n   ╵\n  /Users/andrea/Desktop/Boolean/Esercizi/boolbnb/resources/js/pages/Results.vue 84:32  root stylesheet");
 
 /***/ }),
 
@@ -56990,8 +56991,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\marco\Desktop\progetto_finale\boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\marco\Desktop\progetto_finale\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/andrea/Desktop/Boolean/Esercizi/boolbnb/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/andrea/Desktop/Boolean/Esercizi/boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
