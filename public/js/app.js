@@ -1987,6 +1987,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -2008,6 +2009,9 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    query: function query(_query) {
+      this.searchText = _query;
+    },
     performSearch: function performSearch(searchText) {
       var _this = this;
 
@@ -2807,6 +2811,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       this.query = searchArray.search;
+      this.$emit("query", this.query);
 
       if (searchArray.search != this.search) {
         this.$router.push({
@@ -39600,7 +39605,7 @@ var render = function() {
               user: _vm.user,
               apartmentsArray: _vm.apartmentsArray
             },
-            on: { searchText: _vm.performSearch }
+            on: { searchText: _vm.performSearch, query: _vm.query }
           })
         ],
         1

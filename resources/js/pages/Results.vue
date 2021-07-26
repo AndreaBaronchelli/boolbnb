@@ -54,6 +54,7 @@ export default {
         },
         performingSearch(searchArray) {
             this.query = searchArray.search;
+            this.$emit("query", this.query)
             if (searchArray.search != this.search) {
                 this.$router.push({
                     name: "results",

@@ -5,6 +5,7 @@
             <router-view
                 :apartmentArray="apartmentsArray"
                 @searchText="performSearch"
+                @query="query"
                 :query="searchText"
                 :user="user"
                 :apartmentsArray="apartmentsArray"
@@ -42,6 +43,9 @@ export default {
         };
     },
     methods: {
+        query(query) {
+            this.searchText = query;
+        },
         performSearch(searchText) {
             this.searchText = searchText;
             axios
