@@ -1,11 +1,11 @@
 <template>
     <div class="searchbar">
         <div id="searchbox"></div>
-        <router-link :to="{ name: 'results', params: { search: searchText } }">
-            <div class="button" @click="clickFunction()">
+        <!-- <router-link :to="{ name: 'results', params: { search: searchText } }"> -->
+            <button class="button" @click="clickFunction()">
                 Search
-            </div>
-        </router-link>
+            </button>
+        <!-- </router-link> -->
     </div>
 </template>
 <script>
@@ -48,6 +48,10 @@ export default {
                 "tt-search-box-input"
             )[0].value;
             this.$emit("searchText", this.getSearchValue());
+            if (this.searchText != "") {
+                this.$router.push({name: 'results', params: { search: encodeURI(this.searchText) }})
+                console.log(this.searchText);
+            }
         }
     }
 };
@@ -73,6 +77,7 @@ export default {
     padding: 0 10px;
     position: relative;
     z-index: 8;
+    cursor: pointer;
 }
 .button:hover {
     background: $primeColor;

@@ -2117,7 +2117,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.createSearchBar();
-    document.getElementsByClassName("tt-search-box-input")[0].value = this.query;
+    document.getElementsByClassName("tt-search-box-input")[0].value = decodeURI(this.query);
   },
   created: function created() {
     this.getServices();
@@ -2525,6 +2525,16 @@ __webpack_require__.r(__webpack_exports__);
     clickFunction: function clickFunction() {
       this.searchText = document.getElementsByClassName("tt-search-box-input")[0].value;
       this.$emit("searchText", this.getSearchValue());
+
+      if (this.searchText != "") {
+        this.$router.push({
+          name: 'results',
+          params: {
+            search: encodeURI(this.searchText)
+          }
+        });
+        console.log(this.searchText);
+      }
     }
   }
 });
@@ -2545,6 +2555,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tomtom-international/web-sdk-maps */ "./node_modules/@tomtom-international/web-sdk-maps/dist/maps.min.js");
 /* harmony import */ var _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_MessageForm_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/MessageForm.vue */ "./resources/js/components/MessageForm.vue");
+//
+//
+//
+//
+//
 //
 //
 //
@@ -7383,7 +7398,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".searchbar[data-v-6849e9f0] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n#searchbox[data-v-6849e9f0] {\n  width: 50%;\n}\n.button[data-v-6849e9f0] {\n  height: 52px;\n  line-height: 52px;\n  font-size: 16px;\n  background: #fb5a5f;\n  text-decoration: none;\n  color: white;\n  padding: 0 10px;\n  position: relative;\n  z-index: 8;\n}\n.button[data-v-6849e9f0]:hover {\n  background: #fb5a5f;\n}\na[data-v-6849e9f0] {\n  text-decoration: none;\n}", ""]);
+exports.push([module.i, ".searchbar[data-v-6849e9f0] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n#searchbox[data-v-6849e9f0] {\n  width: 50%;\n}\n.button[data-v-6849e9f0] {\n  height: 52px;\n  line-height: 52px;\n  font-size: 16px;\n  background: #fb5a5f;\n  text-decoration: none;\n  color: white;\n  padding: 0 10px;\n  position: relative;\n  z-index: 8;\n  cursor: pointer;\n}\n.button[data-v-6849e9f0]:hover {\n  background: #fb5a5f;\n}\na[data-v-6849e9f0] {\n  text-decoration: none;\n}", ""]);
 
 // exports
 
@@ -7433,9 +7448,17 @@ exports.push([module.i, ".cont[data-v-b3c5cf30] {\n  padding: 150px 0 70px 0;\n 
   !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/Results.vue?vue&type=style&index=0&id=44832d06&lang=scss&scoped=true& ***!
   \************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: expected \"{\".\n   ╷\n84 │ @import \"../../sass/_variables\";\n   │                                ^\n   ╵\n  /Users/andrea/Desktop/Boolean/Esercizi/boolbnb/resources/js/pages/Results.vue 84:32  root stylesheet");
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".container[data-v-44832d06] {\n  padding: 100px 0 100px 0;\n}\n.main-content[data-v-44832d06] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: flex-start;\n  color: #511d1f;\n}\n.main-content h2[data-v-44832d06] {\n  padding: 20px;\n}\n.cards-container[data-v-44832d06] {\n  padding: 20px 0;\n  display: flex;\n  flex-wrap: wrap;\n}", ""]);
+
+// exports
+
 
 /***/ }),
 
@@ -40337,35 +40360,22 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "searchbar" },
-    [
-      _c("div", { attrs: { id: "searchbox" } }),
-      _vm._v(" "),
-      _c(
-        "router-link",
-        {
-          attrs: { to: { name: "results", params: { search: _vm.searchText } } }
-        },
-        [
-          _c(
-            "div",
-            {
-              staticClass: "button",
-              on: {
-                click: function($event) {
-                  return _vm.clickFunction()
-                }
-              }
-            },
-            [_vm._v("\n            Search\n        ")]
-          )
-        ]
-      )
-    ],
-    1
-  )
+  return _c("div", { staticClass: "searchbar" }, [
+    _c("div", { attrs: { id: "searchbox" } }),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass: "button",
+        on: {
+          click: function($event) {
+            return _vm.clickFunction()
+          }
+        }
+      },
+      [_vm._v("\n            Search\n        ")]
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -40393,11 +40403,22 @@ var render = function() {
     "div",
     { staticClass: "container" },
     [
-      _c(
-        "router-link",
-        { attrs: { to: { name: "results", params: { search: this.query } } } },
-        [_vm._v("\n        Back to results\n    ")]
-      ),
+      this.query != ""
+        ? _c(
+            "router-link",
+            {
+              attrs: {
+                to: {
+                  name: "results",
+                  params: { search: encodeURI(this.query) }
+                }
+              }
+            },
+            [_vm._v("\n        Back to results\n    ")]
+          )
+        : _c("router-link", { attrs: { to: { name: "home" } } }, [
+            _vm._v("\n        Go to Homepage\n    ")
+          ]),
       _vm._v(" "),
       _vm.apartment
         ? _c("div", [
