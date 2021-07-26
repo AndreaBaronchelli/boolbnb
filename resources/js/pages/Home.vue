@@ -70,6 +70,7 @@ export default {
 h1 {
     position: relative;
     z-index: 3;
+    padding:0 20px;
 }
 .sponsored {
     position: relative;
@@ -81,6 +82,7 @@ h1 {
 .sponsored-apartments {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 .img {
     /*  padding-top:70px; */

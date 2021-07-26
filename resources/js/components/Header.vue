@@ -42,7 +42,6 @@ export default {
 
 <style lang="scss" scoped>
 header {
-    padding: 10px 20px;
     background: white;
     position: fixed;
     top: 0;
@@ -50,6 +49,7 @@ header {
     box-shadow: 0 2px 10px black;
     z-index: 10;
     .container {
+        padding: 10px 20px;
         display: flex;
         justify-content: space-between;
         .register {

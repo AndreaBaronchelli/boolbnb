@@ -1,6 +1,6 @@
 <template>
     <div class="block">
-        <!-- <h3>AdvancedSearch</h3> -->
+        <h3>Filters</h3>
 
         <div class="advanced-search">
             <div class="left">
@@ -162,6 +162,9 @@ template {
     background: white;
     border-radius: 10px;
     color: #511d1f;
+}
+h3{
+    margin-bottom: 0;
 }
 .services {
     margin: 0 auto;
