@@ -37,7 +37,14 @@
                         <td> {{ $apartment->title }} </td>
                         <td> {{ $apartment->address }} </td>
                         <td> {{ $apartment->price }} €</td>
-                        <td>{{ $apartment->visibility ? 'Public' : 'Private' }}</td>
+                        <td
+                            @if (!$apartment->visibility) 
+                                class="text-danger text-uppercase font-weight-bold"
+                            @else
+                                class="text-success text-uppercase font-weight-bold"
+                            @endif
+
+                        >{{ $apartment->visibility ? 'Public' : 'Private' }}</td>
 
                         <td> <a class="btn btn-primary" href="{{ route('admin.apartments.show', $apartment->id) }}">Show</a> </td>
                         <td> <a class="btn btn-primary" href="{{ route('admin.apartments.edit', $apartment->id) }}">Edit</a> </td>
