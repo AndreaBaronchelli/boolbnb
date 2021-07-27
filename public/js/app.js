@@ -40640,7 +40640,7 @@ var render = function() {
       ),
       _vm._v(" "),
       _c("div", { staticClass: "sponsored" }, [
-        _c("h2", [_vm._v("Our monthly apartments")]),
+        _c("h2", [_vm._v("Our newest apartments")]),
         _vm._v(" "),
         _c(
           "div",
@@ -57249,8 +57249,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/andrea/Desktop/Boolean/Esercizi/boolbnb/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/andrea/Desktop/Boolean/Esercizi/boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Maurizio\Desktop\boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Maurizio\Desktop\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

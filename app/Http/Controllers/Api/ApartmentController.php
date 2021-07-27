@@ -18,7 +18,7 @@ class ApartmentController extends Controller
 
     public function index(){
 
-        $apartments = Apartment::where('visibility', true)->paginate(4);
+        $apartments = Apartment::where('visibility', true)->orderBy('id','DESC')->paginate(4);
 
         return response()->json(compact('apartments'));
     }

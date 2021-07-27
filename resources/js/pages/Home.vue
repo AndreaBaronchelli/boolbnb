@@ -11,7 +11,7 @@
             <h1>Where would you like to go?</h1>
             <div class="searchbar"><SearchBar @searchText="search" /></div>
             <div class="sponsored">
-                <h2>Our monthly apartments</h2>
+                <h2>Our newest apartments</h2>
                 <div class="sponsored-apartments">
                     <ApartmentCard
                         v-for="apartment in apartments"
