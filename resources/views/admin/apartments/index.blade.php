@@ -48,6 +48,7 @@
 
                         <td> <a class="btn btn-primary" href="{{ route('admin.apartments.show', $apartment->id) }}">Show</a> </td>
                         <td> <a class="btn btn-primary" href="{{ route('admin.apartments.edit', $apartment->id) }}">Edit</a> </td>
+                        <td><a class="btn btn-primary" href="{{route('admin.sponsorships.edit', $apartment->id)}}">Sponsorhip</a></td>
                         <td>
                             <form class="delete-post-form" action="{{route('admin.apartments.destroy', $apartment->id)}}" method="post">
                                 @csrf

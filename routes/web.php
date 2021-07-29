@@ -26,8 +26,10 @@ Route::prefix('admin')
     ->group(function() {
         Route::get('/', 'HomeController@index')->name('home');
         Route::resource('/apartments', 'ApartmentController');
-        Route::resource('/sponsors', 'SponsorController');
+        
         Route::resource('/messages', 'MessageController');
+        // Sponsor Route
+        Route::resource('/sponsorships', 'SponsorshipController');
         
     });
 
